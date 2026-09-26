@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Our Android QA Desk | 12 Testers Google Play</title>
-  <meta name="description" content="Get in touch with 12 Testers Google Play. Connect via WhatsApp at +923394001479 for rapid onboarding, track diagnosis, and closed testing coordination.">
+  <title>Contact Our Android QA Specialists | 12 Testers Google Play</title>
+  <meta name="description" content="Contact 12 Testers Google Play for instant onboarding, technical testing consultations, and agency partnerships. Reach us on WhatsApp at +923394001479.">
   <link rel="canonical" href="https://12testersgoogleplay.github.io/contact/">
   <meta name="robots" content="index, follow">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact Our Android QA Desk | 12 Testers Google Play">
-  <meta property="og:description" content="Get in touch with 12 Testers Google Play. Connect via WhatsApp at +923394001479 for rapid onboarding, track diagnosis, and closed testing coordination.">
+  <meta property="og:title" content="Contact Our Android QA Specialists | 12 Testers Google Play">
+  <meta property="og:description" content="Contact 12 Testers Google Play for instant onboarding, technical testing consultations, and agency partnerships. Reach us on WhatsApp at +923394001479.">
   <meta property="og:url" content="https://12testersgoogleplay.github.io/contact/">
   <meta property="og:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact Our Android QA Desk | 12 Testers Google Play">
-  <meta name="twitter:description" content="Get in touch with 12 Testers Google Play. Connect via WhatsApp at +923394001479 for rapid onboarding, track diagnosis, and closed testing coordination.">
+  <meta name="twitter:title" content="Contact Our Android QA Specialists | 12 Testers Google Play">
+  <meta name="twitter:description" content="Contact 12 Testers Google Play for instant onboarding, technical testing consultations, and agency partnerships. Reach us on WhatsApp at +923394001479.">
   <meta name="twitter:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -540,17 +540,87 @@
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
+      min-width: 52px;
+      width: fit-content;
+      min-height: 52px;
+      height: auto;
+      padding: 0.4rem 0.85rem;
       border-radius: var(--radius-md);
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid rgba(56, 189, 248, 0.25);
       color: var(--brand-primary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.35rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Dedicated Metric Card Styles (No clipping, large gradient digits) */
+    .metric-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-gradient);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--brand-primary);
+    }
+
+    .metric-pill-success {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--success);
+    }
+
+    .metric-icon {
       font-size: 1.4rem;
+    }
+
+    .metric-number, .metric-display {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      display: block;
+      width: fit-content;
     }
 
     /* Facts Grid & Fact Box (Numbers Sec) */
@@ -860,6 +930,28 @@
       flex-shrink: 0;
     }
 
+    /* Quick Answer Box (Optimized for Google Featured Snippets) */
+    .quick-answer {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 5px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      margin: 2.25rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .quick-answer-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
     /* Callout & Highlights */
     .callout {
       background: rgba(15, 23, 42, 0.75);
@@ -1156,51 +1248,37 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ContactPage",
-      "@id": "https://12testersgoogleplay.github.io/contact/#webpage",
-      "url": "https://12testersgoogleplay.github.io/contact/",
-      "name": "Contact Our Android QA Desk | 12 Testers Google Play",
-      "description": "Get in touch with 12 Testers Google Play. Connect via WhatsApp at +923394001479 for rapid onboarding, track diagnosis, and closed testing coordination.",
-      "isPartOf": {
-        "@id": "https://12testersgoogleplay.github.io/#website"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://12testersgoogleplay.github.io/contact/#breadcrumb",
-      "itemListElement": [
+      "@context": "https://schema.org",
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://12testersgoogleplay.github.io/"
+          "@type": "ContactPage",
+          "name": "Contact 12 Testers Google Play",
+          "description": "Direct contact channel for Android developers seeking 14-day closed testing cohorts and Google Play production access compliance.",
+          "url": "https://12testersgoogleplay.github.io/contact/",
+          "publisher": {
+            "@type": "Organization",
+            "name": "12 Testers Google Play"
+          }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Contact",
-          "item": "https://12testersgoogleplay.github.io/contact/"
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://12testersgoogleplay.github.io/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact Us",
+              "item": "https://12testersgoogleplay.github.io/contact/"
+            }
+          ]
         }
       ]
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://12testersgoogleplay.github.io/#organization",
-      "name": "12 Testers Google Play",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+923394001479",
-        "contactType": "technical support",
-        "availableLanguage": [
-          "English"
-        ]
-      }
     }
-  ]
-}
     </script>
 </head>
 <body>
@@ -1240,109 +1318,97 @@
 
 <main>
 
-  <!-- Contact Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="badge badge-success">Instant QA Desk Active</div>
-      <h1>Speak Directly with Our Google Play Testing Specialists</h1>
-      <p class="lead">
-        Have questions about your closed testing track, app rejection, or need immediate tester cohort onboarding? Contact our senior engineering team directly via WhatsApp or submit a consultation ticket below.
-      </p>
+  <main>
+    <!-- Breadcrumbs -->
+    <div style="background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 0.85rem 0;">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="/">Home</a> &gt; <span>Contact Us</span>
+        </nav>
+      </div>
     </div>
-  </section>
 
-  <!-- Contact Methods -->
-  <section class="section" style="padding-top: 1rem;">
-    <div class="container">
-      <div class="grid-2">
-        <!-- Direct Channels -->
-        <div>
-          <div class="card" style="margin-bottom: 2rem; border-color: rgba(37, 211, 102, 0.4);">
-            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.25rem;">
-              <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(37, 211, 102, 0.15); display: flex; align-items: center; justify-content: center; color: var(--whatsapp-color); font-size: 1.5rem;">
-                &#128172;
-              </div>
-              <div>
-                <h3 style="margin-bottom: 0.2rem;">Direct WhatsApp Desk</h3>
-                <span style="color: var(--success); font-weight: 600; font-size: 0.9rem;">Average response: &lt; 15 minutes</span>
-              </div>
-            </div>
-            <p>
-              Connect directly with our lead QA engineer. Send your Google Play Console opt-in link, discuss package options, or get instant diagnosis on an app rejection.
+    <!-- Header -->
+    <header class="hero" style="padding: 3.5rem 0 2.5rem; text-align: center; background: radial-gradient(circle at center, rgba(37, 211, 102, 0.05) 0%, transparent 70%);">
+      <div class="container" style="max-width: 800px;">
+        <div class="badge badge-success" style="margin-bottom: 1.25rem;">
+          <span class="pulse-dot"></span> Rapid Onboarding Desk &bull; Average Response &lt; 15 Minutes
+        </div>
+        <h1 style="font-size: clamp(2.4rem, 4vw, 3.2rem); margin-bottom: 1rem; letter-spacing: -0.02em;">
+          Get in Touch with Our Android QA Team
+        </h1>
+        <p class="lead-text" style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;">
+          Have questions about Google Play's 14-day closed testing requirement? Need emergency rejection recovery? Or ready to onboard your app immediately? We are available 7 days a week.
+        </p>
+      </div>
+    </header>
+
+    <!-- Contact Cards Section -->
+    <section class="section" style="padding-top: 1rem; padding-bottom: 4rem;">
+      <div class="container" style="max-width: 950px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3.5rem;">
+
+          <!-- Card 1: WhatsApp -->
+          <div class="card" style="padding: 2.25rem 2rem; border: 2px solid var(--primary); border-radius: var(--radius-lg); background: #fff; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">&#128172;</div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Direct WhatsApp Hotline</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+              The fastest way to get your cohort started. Chat directly with our QA lead, share your link, and get testers assigned in hours.
             </p>
-            <div style="margin: 1.5rem 0;">
-              <div style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem;">
-                +92 339 4001479
-              </div>
-              <div style="color: var(--text-dim); font-size: 0.85rem;">
-                International format: +923394001479
-              </div>
-            </div>
-            <a href="https://wa.me/923394001479?text=Hi%2C%20I%20need%20assistance%20with%20Google%20Play%2012%20testers%20closed%20testing" class="btn btn-whatsapp" style="width: 100%;" target="_blank" rel="noopener noreferrer">
-              <span class="pulse-dot"></span>
-              <span>Open WhatsApp Conversation Now</span>
+            <a href="https://wa.me/923394001479?text=Hi%2C%20I%20want%20to%20inquire%20about%20Google%20Play%20closed%20testing." class="btn btn-whatsapp" style="width: 100%; text-align: center; padding: 0.85rem;" target="_blank" rel="noopener">
+              Chat on WhatsApp (+923394001479)
             </a>
           </div>
 
-          <div class="card">
-            <h3>Support Hours &amp; Operations</h3>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; font-size: 0.95rem;">
-              <li><strong>WhatsApp Response:</strong> 7:00 AM – 11:00 PM UTC (Mon – Sun)</li>
-              <li><strong>Cohort Telemetry Monitoring:</strong> 24 Hours / 7 Days Continuous</li>
-              <li><strong>Email Inquiries:</strong> support@12testersgoogleplay.com</li>
-              <li><strong>Emergency Rejection Triage:</strong> Priority review within 4 hours</li>
-            </ul>
+          <!-- Card 2: Rejection Review -->
+          <div class="card" style="padding: 2.25rem 2rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">&#128680;</div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Free Rejection Audit</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+              Rejected for production access? Send us a screenshot of your Google Play Console notice for a complimentary forensic diagnosis.
+            </p>
+            <a href="https://wa.me/923394001479?text=Hi%2C%20my%20app%20was%20rejected%20for%20production%20access.%20Can%20you%20audit%20my%20console%20notice%3F" class="btn btn-secondary" style="width: 100%; text-align: center; padding: 0.85rem;" target="_blank" rel="noopener">
+              Request Free Rejection Audit
+            </a>
+          </div>
+
+          <!-- Card 3: Agency Inquiries -->
+          <div class="card" style="padding: 2.25rem 2rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">&#127970;</div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">Agency Partnerships</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+              Mobile development agencies managing multiple client accounts. Wholesale rates, white-label client reports, and dedicated account manager.
+            </p>
+            <a href="/for-agencies/" class="btn btn-secondary" style="width: 100%; text-align: center; padding: 0.85rem;">
+              Agency Partner Info
+            </a>
+          </div>
+
+        </div>
+
+        <!-- FAQ Box -->
+        <div style="background: var(--bg-alt); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+          <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center;">What Information Should You Prepare?</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
+            <div>
+              <h4 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem;">1. Your Closed Track Opt-In Link</h4>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">From Google Play Console &gt; Closed testing &gt; Manage track &gt; Testers &gt; Copy link (Web or Android URL).</p>
+            </div>
+            <div>
+              <h4 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem;">2. Target Country Availability</h4>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">Ensure your closed track is set to "All Countries" or includes international regions so our testers can install the build.</p>
+            </div>
+            <div>
+              <h4 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem;">3. Demo Credentials (If Gated)</h4>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">If your app requires a sign-in or subscription to access features, provide test login credentials for our QA team.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Contact Form Card -->
-        <div class="card">
-          <h3>Submit a Developer QA Ticket</h3>
-          <p>
-            Fill out your application details and our QA coordinator will review your Google Play setup and reply within a few hours.
-          </p>
-
-          <form action="/thank-you.html" method="GET" style="display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1.5rem;">
-            <div>
-              <label style="display: block; color: #ffffff; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Your Name / Studio Name</label>
-              <input type="text" required placeholder="e.g. Alex Rivera or Apex Apps" style="width: 100%; padding: 0.75rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #ffffff; font-family: var(--font-sans); font-size: 0.95rem;">
-            </div>
-
-            <div>
-              <label style="display: block; color: #ffffff; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Email Address</label>
-              <input type="email" required placeholder="alex@example.com" style="width: 100%; padding: 0.75rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #ffffff; font-family: var(--font-sans); font-size: 0.95rem;">
-            </div>
-
-            <div>
-              <label style="display: block; color: #ffffff; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">WhatsApp Number (Optional for faster response)</label>
-              <input type="text" placeholder="+1 234 567 8900" style="width: 100%; padding: 0.75rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #ffffff; font-family: var(--font-sans); font-size: 0.95rem;">
-            </div>
-
-            <div>
-              <label style="display: block; color: #ffffff; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">Testing Service Needed</label>
-              <select style="width: 100%; padding: 0.75rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #ffffff; font-family: var(--font-sans); font-size: 0.95rem;">
-                <option>Starter Cohort ($39) - 16 Testers</option>
-                <option>Professional Cohort ($59) - 20 Testers (Most Popular)</option>
-                <option>Agency &amp; Enterprise ($89) - 25 Testers</option>
-                <option>App Rejection Diagnosis &amp; Remediation</option>
-                <option>General Developer Consultation</option>
-              </select>
-            </div>
-
-            <div>
-              <label style="display: block; color: #ffffff; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">App Details / Rejection Status</label>
-              <textarea rows="4" placeholder="Briefly describe your app category, Google Play Console status, or specific questions..." style="width: 100%; padding: 0.75rem 1rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: #ffffff; font-family: var(--font-sans); font-size: 0.95rem; resize: vertical;"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.9rem;">
-              <span>Submit Developer Inquiry</span>
-            </button>
-          </form>
-        </div>
       </div>
-    </div>
-  </section>
-    
+    </section>
+  </main>
+
 </main>
 
   <!-- Floating WhatsApp Action -->

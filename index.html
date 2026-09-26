@@ -554,17 +554,87 @@
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
+      min-width: 52px;
+      width: fit-content;
+      min-height: 52px;
+      height: auto;
+      padding: 0.4rem 0.85rem;
       border-radius: var(--radius-md);
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid rgba(56, 189, 248, 0.25);
       color: var(--brand-primary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.35rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Dedicated Metric Card Styles (No clipping, large gradient digits) */
+    .metric-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-gradient);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--brand-primary);
+    }
+
+    .metric-pill-success {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--success);
+    }
+
+    .metric-icon {
       font-size: 1.4rem;
+    }
+
+    .metric-number, .metric-display {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      display: block;
+      width: fit-content;
     }
 
     /* Facts Grid & Fact Box (Numbers Sec) */
@@ -872,6 +942,28 @@
       font-size: 1.15rem;
       line-height: 1;
       flex-shrink: 0;
+    }
+
+    /* Quick Answer Box (Optimized for Google Featured Snippets) */
+    .quick-answer {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 5px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      margin: 2.25rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .quick-answer-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
     }
 
     /* Callout & Highlights */
@@ -2164,6 +2256,15 @@
   </a>
 
   <!-- FOOTER -->
+</main>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/923394001479?text=Hi%2C%20I%20have%20a%20question%20about%20Google%20Play%2012%20testers" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.56 0 8.25 3.69 8.25 8.24 0 4.56-3.69 8.25-8.25 8.25-1.46 0-2.88-.38-4.13-1.11l-.3-.18-3.08.81.82-3-.2-.31a8.16 8.16 0 0 1-1.25-4.46c0-4.55 3.69-8.24 8.24-8.24zm4.53 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/>
+    </svg>
+    <span class="floating-wa-text">Chat with Senior QA</span>
+  </a>
 </main>
 
   <!-- Floating WhatsApp Action -->

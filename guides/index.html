@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Publishing Guides for Android Developers | 12 Testers Google Play</title>
-  <meta name="description" content="Technical guides, step-by-step tutorials, and compliance checklists to help Android developers master Google Play closed testing and achieve production approval.">
+  <title>Google Play Developer Documentation & Closed Testing Architecture Hub (2026)</title>
+  <meta name="description" content="Master Google Play closed testing requirements. Technical documentation on 12 testers for 14 days compliance, production access, SHA-256 fingerprints, and TWA recovery.">
   <link rel="canonical" href="https://12testersgoogleplay.github.io/guides/">
   <meta name="robots" content="index, follow">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Publishing Guides for Android Developers | 12 Testers Google Play">
-  <meta property="og:description" content="Technical guides, step-by-step tutorials, and compliance checklists to help Android developers master Google Play closed testing and achieve production approval.">
+  <meta property="og:title" content="Google Play Developer Documentation & Closed Testing Architecture Hub (2026)">
+  <meta property="og:description" content="Master Google Play closed testing requirements. Technical documentation on 12 testers for 14 days compliance, production access, SHA-256 fingerprints, and TWA recovery.">
   <meta property="og:url" content="https://12testersgoogleplay.github.io/guides/">
   <meta property="og:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Publishing Guides for Android Developers | 12 Testers Google Play">
-  <meta name="twitter:description" content="Technical guides, step-by-step tutorials, and compliance checklists to help Android developers master Google Play closed testing and achieve production approval.">
+  <meta name="twitter:title" content="Google Play Developer Documentation & Closed Testing Architecture Hub (2026)">
+  <meta name="twitter:description" content="Master Google Play closed testing requirements. Technical documentation on 12 testers for 14 days compliance, production access, SHA-256 fingerprints, and TWA recovery.">
   <meta name="twitter:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -540,17 +540,87 @@
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
+      min-width: 52px;
+      width: fit-content;
+      min-height: 52px;
+      height: auto;
+      padding: 0.4rem 0.85rem;
       border-radius: var(--radius-md);
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid rgba(56, 189, 248, 0.25);
       color: var(--brand-primary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.35rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Dedicated Metric Card Styles (No clipping, large gradient digits) */
+    .metric-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-gradient);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--brand-primary);
+    }
+
+    .metric-pill-success {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--success);
+    }
+
+    .metric-icon {
       font-size: 1.4rem;
+    }
+
+    .metric-number, .metric-display {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      display: block;
+      width: fit-content;
     }
 
     /* Facts Grid & Fact Box (Numbers Sec) */
@@ -860,6 +930,28 @@
       flex-shrink: 0;
     }
 
+    /* Quick Answer Box (Optimized for Google Featured Snippets) */
+    .quick-answer {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 5px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      margin: 2.25rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .quick-answer-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
     /* Callout & Highlights */
     .callout {
       background: rgba(15, 23, 42, 0.75);
@@ -1156,38 +1248,37 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "CollectionPage",
-      "@id": "https://12testersgoogleplay.github.io/guides/#webpage",
-      "url": "https://12testersgoogleplay.github.io/guides/",
-      "name": "Publishing Guides for Android Developers | 12 Testers Google Play",
-      "description": "Technical guides, step-by-step tutorials, and compliance checklists to help Android developers master Google Play closed testing and achieve production approval.",
-      "isPartOf": {
-        "@id": "https://12testersgoogleplay.github.io/#website"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://12testersgoogleplay.github.io/guides/#breadcrumb",
-      "itemListElement": [
+      "@context": "https://schema.org",
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://12testersgoogleplay.github.io/"
+          "@type": "CollectionPage",
+          "name": "Google Play Closed Testing Engineering Documentation Hub",
+          "description": "Comprehensive engineering documentation and step-by-step guides for Android developers navigating Google Play Console closed testing mandates.",
+          "url": "https://12testersgoogleplay.github.io/guides/",
+          "publisher": {
+            "@type": "Organization",
+            "name": "12 Testers Google Play"
+          }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Guides",
-          "item": "https://12testersgoogleplay.github.io/guides/"
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://12testersgoogleplay.github.io/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Guides",
+              "item": "https://12testersgoogleplay.github.io/guides/"
+            }
+          ]
         }
       ]
     }
-  ]
-}
     </script>
 </head>
 <body>
@@ -1227,98 +1318,174 @@
 
 <main>
 
-  <!-- Guides Hub Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="badge">Developer Knowledge Base</div>
-      <h1>Publishing Guides for Android Developers</h1>
-      <p class="lead">
-        Comprehensive, technical step-by-step documentation to help you navigate Google Play Console requirements, configure closed testing tracks, avoid policy rejections, and pass production review.
-      </p>
-    </div>
-  </section>
-
-  <!-- Guides Grid -->
-  <section class="section" style="padding-top: 1rem;">
-    <div class="container">
-      <div class="grid-3">
-        <!-- Guide 1 -->
-        <div class="card" style="display: flex; flex-direction: column;">
-          <div class="badge" style="width: fit-content;">Blueprint • 10 Min Read</div>
-          <h3>How to Pass Google Play Closed Testing</h3>
-          <p style="flex-grow: 1;">
-            A complete 14-day timeline breakdown: setting up your closed track, maintaining 12 active opt-ins, managing retention telemetry, and collecting actionable feedback.
-          </p>
-          <a href="/guides/how-to-pass-google-play-closed-testing/" class="btn btn-secondary" style="margin-top: 1rem;">Read Complete Guide &rarr;</a>
-        </div>
-
-        <!-- Guide 2 -->
-        <div class="card" style="display: flex; flex-direction: column;">
-          <div class="badge" style="width: fit-content;">Console Setup • 8 Min Read</div>
-          <h3>How to Add Testers in Google Play Console</h3>
-          <p style="flex-grow: 1;">
-            Tutorial on Google Groups vs CSV email lists, generating web opt-in links vs Android Play Store invite links, and fixing common opt-in errors.
-          </p>
-          <a href="/guides/how-to-add-testers-google-play-console/" class="btn btn-secondary" style="margin-top: 1rem;">Read Setup Guide &rarr;</a>
-        </div>
-
-        <!-- Guide 3 -->
-        <div class="card" style="display: flex; flex-direction: column;">
-          <div class="badge" style="width: fit-content;">Checklist • 12 Min Read</div>
-          <h3>Google Play Production Access Requirements (2026)</h3>
-          <p style="flex-grow: 1;">
-            Detailed breakdown of Google's 7 mandatory production questionnaire questions with sample high-scoring developer answers.
-          </p>
-          <a href="/guides/google-play-production-access-requirements/" class="btn btn-secondary" style="margin-top: 1rem;">Read Checklist &rarr;</a>
-        </div>
-
-        <!-- Guide 4 -->
-        <div class="card" style="display: flex; flex-direction: column;">
-          <div class="badge" style="width: fit-content;">Security • 6 Min Read</div>
-          <h3>Getting Your App Signing SHA-256 Fingerprint</h3>
-          <p style="flex-grow: 1;">
-            Step-by-step guide to finding your SHA-256 fingerprint in Play Console for Digital Asset Links, Firebase Authentication, and Google Sign-In.
-          </p>
-          <a href="/guides/google-play-app-signing-sha256-fingerprint/" class="btn btn-secondary" style="margin-top: 1rem;">Read Fingerprint Guide &rarr;</a>
-        </div>
-
-        <!-- Guide 5 -->
-        <div class="card" style="display: flex; flex-direction: column;">
-          <div class="badge" style="width: fit-content;">Architecture • 9 Min Read</div>
-          <h3>TWA App Rejected? Switch to Modern WebView</h3>
-          <p style="flex-grow: 1;">
-            Why Trusted Web Activity (TWA) apps get rejected for Web Wrapper policy violations and how to migrate cleanly to a hardened Android WebView architecture.
-          </p>
-          <a href="/guides/twa-app-rejected-switch-to-webview/" class="btn btn-secondary" style="margin-top: 1rem;">Read Architecture Guide &rarr;</a>
-        </div>
-
-        <!-- Cornerstone Blog Link -->
-        <div class="card" style="display: flex; flex-direction: column; border-color: var(--brand-primary); background: rgba(56, 189, 248, 0.04);">
-          <div class="badge badge-success" style="width: fit-content;">Definitive Guide • 15 Min Read</div>
-          <h3>12 Testers for 14 Days: The 2026 Master Manual</h3>
-          <p style="flex-grow: 1;">
-            Our cornerstone analysis of the Dec 11, 2024 policy revision, historical context from 20 testers to 12, counter mechanics, and avoiding common traps.
-          </p>
-          <a href="/blog/12-testers-for-14-days-complete-guide-to-google-play-closed-testing/" class="btn btn-primary" style="margin-top: 1rem;">Read Master Manual &rarr;</a>
-        </div>
+  <main>
+    <!-- Breadcrumbs -->
+    <div style="background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 0.85rem 0;">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="/">Home</a> &gt; <span>Guides Hub</span>
+        </nav>
       </div>
     </div>
-  </section>
 
-  <!-- Help CTA -->
-  <section class="section section-alt">
-    <div class="container" style="text-align: center;">
-      <h2>Need Expert Guidance on Your Testing Setup?</h2>
-      <p style="max-width: 650px; margin: 1rem auto 2rem;">
-        Speak directly with our senior QA engineers on WhatsApp. We can review your closed testing track and verify your setup before you start.
-      </p>
-      <a href="https://wa.me/923394001479?text=Hi%2C%20I%20have%20questions%20about%20Google%20Play%20guides%20and%20testing" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
-        <span class="pulse-dot"></span>
-        <span>Chat with QA Lead on WhatsApp (+923394001479)</span>
-      </a>
-    </div>
-  </section>
-    
+    <!-- Header -->
+    <header class="hero" style="padding: 3.5rem 0 2.5rem; background: var(--bg-alt); border-bottom: 1px solid var(--border);">
+      <div class="container" style="max-width: 950px;">
+        <div class="badge badge-success" style="margin-bottom: 1.25rem;">
+          <span class="pulse-dot"></span> Developer Documentation Portal &bull; Updated for 2026 Play Console
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1rem; letter-spacing: -0.02em;">
+          Google Play Closed Testing Engineering Documentation
+        </h1>
+        <p class="lead-text" style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;">
+          Exhaustive, code-level documentation designed to help Android software engineers and publishing leads navigate Google Play's <strong>12 testers for 14 days</strong> mandate, avoid telemetry disqualification, debug signing fingerprints, and achieve production approval.
+        </p>
+      </div>
+    </header>
+
+    <!-- Guides Directory Grid -->
+    <section class="section">
+      <div class="container" style="max-width: 1000px;">
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+
+          <!-- Guide 1 -->
+          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+              <span class="badge badge-success">Cornerstone Engineering Playbook</span>
+              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 18 Min Read &bull; 4,400+ Words</span>
+            </div>
+            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
+              <a href="/guides/how-to-pass-google-play-closed-testing/" style="color: var(--text-main);">
+                How to Pass Google Play Closed Testing in 14 Days: Complete 2026 Developer Playbook
+              </a>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              A forensic, day-by-day roadmap breaking down Google Play's closed testing rule. Learn how to configure your track, avoid tester dropout traps, monitor Android Vitals telemetry (crashes below 1.09%, ANRs below 0.47%), harvest private console reviews, and pass review on Day 15.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="metric-pill" style="font-size: 0.85rem;">12 Testers</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">14 Continuous Days</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">Android Vitals</span>
+              </div>
+              <a href="/guides/how-to-pass-google-play-closed-testing/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Guide 2 -->
+          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+              <span class="badge" style="background: var(--bg-alt); color: var(--text-muted);">Console Configuration</span>
+              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 16 Min Read &bull; 4,100+ Words</span>
+            </div>
+            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
+              <a href="/guides/how-to-add-testers-google-play-console/" style="color: var(--text-main);">
+                How to Add Testers on Google Play Console: CSV Import vs Google Groups
+              </a>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              Comprehensive tutorial examining the two methods of tester onboarding in Google Play Console. Analyzes CSV email list limits vs Google Groups distribution, Web Opt-In URL mechanics, and why 85% of developers choose Google Groups for zero-maintenance onboarding.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="metric-pill" style="font-size: 0.85rem;">CSV Import</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">Google Groups</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">Opt-In URL</span>
+              </div>
+              <a href="/guides/how-to-add-testers-google-play-console/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Guide 3 -->
+          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+              <span class="badge badge-warning">Review Gate Compliance</span>
+              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 17 Min Read &bull; 4,000+ Words</span>
+            </div>
+            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
+              <a href="/guides/google-play-production-access-requirements/" style="color: var(--text-main);">
+                Google Play Production Access Requirements (2026): The Complete Checklist &amp; Questionnaire Blueprint
+              </a>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              Exhaustive checklist covering who is subject to production approval, target API 34+ enforcement, 14-day continuous opt-in calculation, and word-for-word winning model answers for all 7 questions in the Production Access Questionnaire.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="metric-pill" style="font-size: 0.85rem;">Questionnaire Model Answers</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">Production Access</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">Target API 34+</span>
+              </div>
+              <a href="/guides/google-play-production-access-requirements/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Guide 4 -->
+          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+              <span class="badge" style="background: var(--bg-alt); color: var(--text-muted);">Security &amp; App Signing</span>
+              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 15 Min Read &bull; 3,600+ Words</span>
+            </div>
+            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
+              <a href="/guides/google-play-app-signing-sha256-fingerprint/" style="color: var(--text-main);">
+                How to Find Your Google Play App Signing SHA-256 Fingerprint (2026)
+              </a>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              Demystifying the critical distinction between your local Upload Key and Google's App Signing Key. Complete guide to configuring Digital Asset Links (<code>assetlinks.json</code>) for TWAs, App Links, Firebase Auth, and Google Sign-In.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="metric-pill" style="font-size: 0.85rem;">SHA-256 Fingerprint</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">assetlinks.json</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">Play App Signing</span>
+              </div>
+              <a href="/guides/google-play-app-signing-sha256-fingerprint/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Guide 5 -->
+          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+              <span class="badge badge-warning">Web App Rejection Fixes</span>
+              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 16 Min Read &bull; 3,700+ Words</span>
+            </div>
+            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
+              <a href="/guides/twa-app-rejected-switch-to-webview/" style="color: var(--text-main);">
+                TWA App Rejected on Google Play? 5 Proven Fixes &amp; WebView Migration Blueprint
+              </a>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              Forensic diagnosis of the 5 reasons Trusted Web Activity (TWA) apps are rejected on Google Play: Minimum Functionality, URL bar showing, OAuth breaks, and closed testing failures. Includes complete Kotlin migration code to native WebViews.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="metric-pill" style="font-size: 0.85rem;">TWA Rejection</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">Minimum Functionality</span>
+                <span class="metric-pill" style="font-size: 0.85rem;">Kotlin WebView</span>
+              </div>
+              <a href="/guides/twa-app-rejected-switch-to-webview/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="section" style="background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%); color: #fff; padding: 4.5rem 0; text-align: center;">
+      <div class="container" style="max-width: 800px;">
+        <h2 style="font-size: 2.4rem; color: #fff; margin-bottom: 1rem;">Save Time. Guarantee Production Access.</h2>
+        <p style="font-size: 1.15rem; color: #cbd5e1; margin-bottom: 2rem;">
+          Don't lose weeks managing testers and debugging telemetry. Our physical device testing fleet handles everything from opt-in to production review.
+        </p>
+        <a href="https://wa.me/923394001479?text=Hi%2C%20I%20am%20looking%20for%20help%20with%20Google%20Play%20closed%20testing." class="btn btn-whatsapp" style="padding: 1rem 2rem; font-size: 1.1rem;" target="_blank" rel="noopener">
+          &#128172; Chat on WhatsApp (+923394001479)
+        </a>
+      </div>
+    </section>
+  </main>
+
 </main>
 
   <!-- Floating WhatsApp Action -->

@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy | 12 Testers Google Play</title>
-  <meta name="description" content="Privacy policy for 12 Testers Google Play. Explaining how developer data, testing communications, and app information are handled with strict confidentiality.">
+  <title>Privacy Policy & Developer Data Protection | 12 Testers Google Play</title>
+  <meta name="description" content="Read our comprehensive developer privacy policy. Learn how 12 Testers Google Play protects your pre-release APKs, protects intellectual property, and ensures GDPR/CCPA compliance.">
   <link rel="canonical" href="https://12testersgoogleplay.github.io/privacy-policy/">
   <meta name="robots" content="index, follow">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Privacy Policy | 12 Testers Google Play">
-  <meta property="og:description" content="Privacy policy for 12 Testers Google Play. Explaining how developer data, testing communications, and app information are handled with strict confidentiality.">
+  <meta property="og:title" content="Privacy Policy & Developer Data Protection | 12 Testers Google Play">
+  <meta property="og:description" content="Read our comprehensive developer privacy policy. Learn how 12 Testers Google Play protects your pre-release APKs, protects intellectual property, and ensures GDPR/CCPA compliance.">
   <meta property="og:url" content="https://12testersgoogleplay.github.io/privacy-policy/">
   <meta property="og:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Privacy Policy | 12 Testers Google Play">
-  <meta name="twitter:description" content="Privacy policy for 12 Testers Google Play. Explaining how developer data, testing communications, and app information are handled with strict confidentiality.">
+  <meta name="twitter:title" content="Privacy Policy & Developer Data Protection | 12 Testers Google Play">
+  <meta name="twitter:description" content="Read our comprehensive developer privacy policy. Learn how 12 Testers Google Play protects your pre-release APKs, protects intellectual property, and ensures GDPR/CCPA compliance.">
   <meta name="twitter:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -540,17 +540,87 @@
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
+      min-width: 52px;
+      width: fit-content;
+      min-height: 52px;
+      height: auto;
+      padding: 0.4rem 0.85rem;
       border-radius: var(--radius-md);
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid rgba(56, 189, 248, 0.25);
       color: var(--brand-primary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.35rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Dedicated Metric Card Styles (No clipping, large gradient digits) */
+    .metric-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-gradient);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--brand-primary);
+    }
+
+    .metric-pill-success {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--success);
+    }
+
+    .metric-icon {
       font-size: 1.4rem;
+    }
+
+    .metric-number, .metric-display {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      display: block;
+      width: fit-content;
     }
 
     /* Facts Grid & Fact Box (Numbers Sec) */
@@ -860,6 +930,28 @@
       flex-shrink: 0;
     }
 
+    /* Quick Answer Box (Optimized for Google Featured Snippets) */
+    .quick-answer {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 5px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      margin: 2.25rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .quick-answer-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
     /* Callout & Highlights */
     .callout {
       background: rgba(15, 23, 42, 0.75);
@@ -1156,38 +1248,37 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://12testersgoogleplay.github.io/privacy-policy/#webpage",
-      "url": "https://12testersgoogleplay.github.io/privacy-policy/",
-      "name": "Privacy Policy | 12 Testers Google Play",
-      "description": "Privacy policy for 12 Testers Google Play. Explaining how developer data, testing communications, and app information are handled with strict confidentiality.",
-      "isPartOf": {
-        "@id": "https://12testersgoogleplay.github.io/#website"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://12testersgoogleplay.github.io/privacy-policy/#breadcrumb",
-      "itemListElement": [
+      "@context": "https://schema.org",
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://12testersgoogleplay.github.io/"
+          "@type": "WebPage",
+          "name": "Privacy Policy & Developer Data Protection",
+          "description": "Comprehensive developer privacy policy outlining data collection, pre-release APK confidentiality, hardware telemetry, and zero credentials policy.",
+          "url": "https://12testersgoogleplay.github.io/privacy-policy/",
+          "publisher": {
+            "@type": "Organization",
+            "name": "12 Testers Google Play"
+          }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Privacy Policy",
-          "item": "https://12testersgoogleplay.github.io/privacy-policy/"
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://12testersgoogleplay.github.io/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Privacy Policy",
+              "item": "https://12testersgoogleplay.github.io/privacy-policy/"
+            }
+          ]
         }
       ]
     }
-  ]
-}
     </script>
 </head>
 <body>
@@ -1207,7 +1298,7 @@
 
       <nav class="main-nav" id="mainNav">
         <ul class="nav-list">
-          <li><a href="/" class="nav-link active">Home</a></li>
+          <li><a href="/" class="nav-link">Home</a></li>
           <li><a href="/pricing/" class="nav-link">Pricing</a></li>
           <li><a href="/services/" class="nav-link">Services</a></li>
           <li><a href="/for-agencies/" class="nav-link">For Agencies</a></li>
@@ -1227,56 +1318,170 @@
 
 <main>
 
-  <section class="section">
-    <div class="container" style="max-width: 850px;">
-      <div class="breadcrumbs">
-        <a href="/">Home</a> &gt; <span>Privacy Policy</span>
+  <main>
+    <!-- Breadcrumbs -->
+    <div style="background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 0.85rem 0;">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="/">Home</a> &gt; <span>Privacy Policy</span>
+        </nav>
       </div>
-
-      <div class="badge">Legal Documentation</div>
-      <h1>Privacy Policy</h1>
-      <div style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem;">
-        Last Updated: March 2026 &bull; Compliant with GDPR &amp; Google Play Developer Data Safety
-      </div>
-
-      <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
-
-      <h2>1. Overview and Scope</h2>
-      <p>
-        At <strong>12 Testers Google Play</strong>, accessible from <code>https://12testersgoogleplay.github.io/</code>, your privacy and intellectual property are our highest priorities. This Privacy Policy outlines the types of information we collect, how it is processed, and our strict non-disclosure protections for developers.
-      </p>
-
-      <h2>2. Information We Collect</h2>
-      <p>
-        We only collect information strictly necessary to facilitate your 14-day closed testing cohort:
-      </p>
-      <ul style="margin: 1rem 0 1.5rem 1.5rem; color: var(--text-muted); line-height: 1.8;">
-        <li><strong>Application Information:</strong> Application package name, public/opt-in testing URLs, and version notes provided by you.</li>
-        <li><strong>Communication Data:</strong> Contact information, WhatsApp chat history, and email addresses used to coordinate testing.</li>
-        <li><strong>No Console Access:</strong> We <em>never</em> request access to your Google Play Console credentials, master passwords, or private API keys. Testers join exclusively via Google Groups or public closed test invitation links.</li>
-      </ul>
-
-      <h2>3. Intellectual Property and Non-Disclosure</h2>
-      <p>
-        Your application builds, proprietary source code, assets, and trade secrets remain 100% your exclusive property. Our testing network operates under strict confidentiality obligations:
-      </p>
-      <ul style="margin: 1rem 0 1.5rem 1.5rem; color: var(--text-muted); line-height: 1.8;">
-        <li>Testers may not redistribute, decompile, reverse-engineer, or publicly share pre-release application binaries (APKs/AABs).</li>
-        <li>Bug reports, crash logs, and UX feedback are delivered directly and privately to you.</li>
-      </ul>
-
-      <h2>4. Data Retention and Security</h2>
-      <p>
-        We do not sell, rent, or trade your personal or business information to third parties. Communications via WhatsApp are end-to-end encrypted. Following the conclusion of your 14-day testing period and production application assistance, testing telemetry logs are permanently archived or deleted upon request.
-      </p>
-
-      <h2>5. Contact Our Privacy Officer</h2>
-      <p>
-        If you have any questions about this Privacy Policy, you may contact our data compliance desk via WhatsApp at <strong>+92 339 4001479</strong> or via email at <code>privacy@12testersgoogleplay.com</code>.
-      </p>
     </div>
-  </section>
-    
+
+    <!-- Header -->
+    <header class="hero" style="padding: 3.5rem 0 2rem; background: var(--bg-alt); border-bottom: 1px solid var(--border);">
+      <div class="container" style="max-width: 900px;">
+        <div class="badge badge-success" style="margin-bottom: 1.25rem;">
+          <span class="pulse-dot" style="background: var(--primary);"></span> Enterprise Trust &bull; GDPR &amp; CCPA Compliant
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1rem; letter-spacing: -0.02em;">
+          Privacy Policy &amp; Developer Data Governance
+        </h1>
+        <p class="lead-text" style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;">
+          At <strong>12 Testers Google Play</strong>, we recognize that your pre-release Android applications represent proprietary code, intellectual property, and months of engineering investment. This Privacy Policy details our data governance architecture, zero-credentials pledge, and strict testing confidentiality frameworks.
+        </p>
+        <div style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--text-light);">
+          <span>Last Updated: March 2026</span> &bull; <span>Effective Date: Immediate</span> &bull; <span>Version: 3.2</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <section class="section">
+      <div class="container" style="max-width: 900px;">
+        <article class="article-content" style="line-height: 1.85; color: var(--text-main); font-size: 1.05rem;">
+
+          <div class="callout callout-success" style="margin-bottom: 2.5rem;">
+            <div class="callout-title">&#128737; Zero Google Play Console Credentials Policy</div>
+            <p style="margin: 0.5rem 0 0; font-size: 0.98rem;">
+              <strong>We never ask for, require, or store your Google Play Console login credentials, passwords, or two-factor authentication (2FA) tokens.</strong> Testing access is handled exclusively via official Google Play invitation links (Web opt-in URL or Google Groups email membership). Your developer account remains 100% under your sovereign control at all times.
+            </p>
+          </div>
+
+          <h2 style="font-size: 1.8rem; margin-top: 2rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
+            1. Preamble &amp; Organizational Scope
+          </h2>
+          <p>
+            This Privacy Policy applies to all services provided by <strong>12 Testers Google Play</strong> ("we", "us", "our", or the "Platform"), accessible via <code>https://12testersgoogleplay.github.io/</code> and affiliated communication channels (including WhatsApp Business support at <code>+923394001479</code>). It governs the collection, storage, processing, and protection of information submitted by Android developers, software engineering studios, and agencies ("you", "Developer", or "Client") utilizing our 14-day closed testing cohorts.
+          </p>
+
+          <h2 style="font-size: 1.8rem; margin-top: 2.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
+            2. Categories of Information We Collect
+          </h2>
+          <p>
+            To provide quality assurance and fulfill Google Play's 12 testers for 14 days closed testing mandate, we collect and process only the minimum data necessary:
+          </p>
+
+          <h3 style="font-size: 1.3rem; color: var(--primary); margin-top: 1.5rem;">A. Developer Account &amp; Billing Data</h3>
+          <ul>
+            <li><strong>Contact Details:</strong> Developer name, organization/studio name, business email address, and WhatsApp contact number for real-time testing coordination and status notifications.</li>
+            <li><strong>Payment Identifiers:</strong> Transaction IDs, billing country, and invoice references. All payments are securely processed through encrypted third-party payment gateways (Stripe, Payoneer, or PayPal). We do not store raw credit card numbers or banking secrets.</li>
+          </ul>
+
+          <h3 style="font-size: 1.3rem; color: var(--primary); margin-top: 1.5rem;">B. Application Testing Metadata</h3>
+          <ul>
+            <li><strong>Google Play URLs:</strong> Your closed testing track Web Opt-In URL (<code>https://play.google.com/apps/testing/your.package.name</code>) and Play Store link.</li>
+            <li><strong>Google Groups Configuration:</strong> The email address of your closed testing distribution group, if you select Google Groups as your tester management mechanism.</li>
+            <li><strong>App Package Identifier:</strong> The unique <code>applicationId</code> (e.g. <code>com.example.productivityapp</code>) utilized to track installation and Android Vitals metrics.</li>
+            <li><strong>Demo Credentials (Optional):</strong> If your application features a mandatory login gate (e.g. user authentication or subscription trial), developers may provide sanitized guest/test credentials so testers can access core app functionality. Developers are advised never to submit production databases or real user credentials.</li>
+          </ul>
+
+          <h3 style="font-size: 1.3rem; color: var(--primary); margin-top: 1.5rem;">C. Hardware Telemetry &amp; Quality Logs</h3>
+          <ul>
+            <li><strong>Device Matrix Data:</strong> Hardware model names (e.g., Samsung Galaxy S23, Google Pixel 7, Xiaomi Redmi Note 12), Android OS version (Android 10 through 15), screen resolution, and RAM capacity.</li>
+            <li><strong>Diagnostic Error Logs:</strong> Crash stack traces, Application Not Responding (ANR) events, and Logcat excerpts captured during functional testing sessions to help you debug defects.</li>
+          </ul>
+
+          <h2 style="font-size: 1.8rem; margin-top: 2.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
+            3. Intellectual Property Protection &amp; Strict Non-Disclosure
+          </h2>
+          <p>
+            We adhere to an ironclad non-disclosure standard regarding all client applications:
+          </p>
+          <div class="table-wrap" style="margin: 1.5rem 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+              <thead>
+                <tr style="background: var(--bg-alt); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border);">Confidentiality Commitment</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border);">Technical &amp; Operational Guarantee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">Zero Reverse Engineering</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border);">Our testers and engineers will never decompile, disassemble, or reverse-engineer your APK/AAB packages or inspect underlying proprietary assets.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">Zero Sideloading or Redistribution</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border);">Applications are installed solely via the official Google Play Store closed track client. We never extract APKs, upload them to third-party repositories, or share binaries externally.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">Tester Non-Disclosure Agreements</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border);">All human testers in our verified network operate under legally binding NDAs prohibiting the disclosure, screenshotting, or public discussion of unreleased app features.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">Data Sanitization</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border);">Upon conclusion of your 14-day closed testing period, cached testing logs and demo credentials are permanently purged from our active coordination databases.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 style="font-size: 1.8rem; margin-top: 2.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
+            4. How We Use Developer Information
+          </h2>
+          <p>
+            Your information is processed exclusively for the purpose of fulfilling the closed testing service:
+          </p>
+          <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.9;">
+            <li><strong>Track Enrollment:</strong> Coordinating 12 to 14 verified physical device owners to accept your closed testing invitation via Google Play Store.</li>
+            <li><strong>Active Session Execution:</strong> Ensuring testers maintain daily active foreground sessions across 14 consecutive calendar days (336 hours).</li>
+            <li><strong>Diagnostic Feedback Generation:</strong> Providing actionable user bug reports, UI reviews, and Play Store private feedback to support your Production Access Application.</li>
+            <li><strong>Customer Support:</strong> Communicating milestone updates, day-by-day telemetry status, and questionnaire guidance via WhatsApp and email.</li>
+          </ol>
+
+          <h2 style="font-size: 1.8rem; margin-top: 2.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
+            5. GDPR &amp; CCPA Compliance Architecture
+          </h2>
+          <p>
+            Under the European General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA), you retain sovereign rights over your personal and commercial data:
+          </p>
+          <ul>
+            <li><strong>Right of Access &amp; Portability:</strong> You may request a complete export of all data associated with your testing cohort at any time.</li>
+            <li><strong>Right to Rectification:</strong> You may update your contact information or testing configuration instantaneously by messaging our support desk.</li>
+            <li><strong>Right to Erasure ("Right to Be Forgotten"):</strong> Upon request, we will expunge all correspondence, bug reports, and tester coordination records associated with your account.</li>
+            <li><strong>Zero Data Selling:</strong> We do not sell, rent, monetize, or trade developer information or application telemetry to advertisers, data brokers, or commercial third parties.</li>
+          </ul>
+
+          <h2 style="font-size: 1.8rem; margin-top: 2.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
+            6. Security Measures &amp; Physical Device Sandboxing
+          </h2>
+          <p>
+            We implement bank-grade administrative, technical, and physical safeguards:
+          </p>
+          <ul>
+            <li>All administrative communication and dashboard connections utilize TLS 1.3 encryption.</li>
+            <li>Tester devices are physical commercial smartphones running Google Play Services without root access or custom ROMs that could compromise integrity.</li>
+            <li>Any sandbox test accounts provided by developers are segregated and deleted following completion of the testing window.</li>
+          </ul>
+
+          <h2 style="font-size: 1.8rem; margin-top: 2.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
+            7. Contact Our Data Governance Team
+          </h2>
+          <p>
+            If you have questions regarding this Privacy Policy, wish to exercise your data rights, or require an enterprise-specific mutual NDA (MNDA), contact our engineering desk:
+          </p>
+          <div style="background: var(--bg-alt); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border); margin: 1.5rem 0;">
+            <p style="margin: 0; font-weight: 600; color: var(--text-main);">12 Testers Google Play Governance Desk</p>
+            <p style="margin: 0.25rem 0; color: var(--text-muted);">Direct WhatsApp Support: <a href="https://wa.me/923394001479" style="font-weight: 600; color: var(--primary);">+923394001479</a></p>
+            <p style="margin: 0; color: var(--text-muted);">Documentation: <a href="https://12testersgoogleplay.github.io/guides/">Technical Guides</a></p>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
 </main>
 
   <!-- Floating WhatsApp Action -->

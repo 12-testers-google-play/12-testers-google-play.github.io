@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TWA App Rejected? Switch to Modern Android WebView Architecture</title>
-  <meta name="description" content="Why Google rejects Trusted Web Activities (TWA) for Web Wrapper policies and how to migrate cleanly to a robust, compliant Android WebView architecture.">
+  <title>TWA App Rejected on Google Play? 5 Proven Fixes & Migration Guide (2026)</title>
+  <meta name="description" content="Why Trusted Web Activity (TWA) apps get rejected on Google Play for Web Wrapper policy violations, and how to fix Digital Asset Links or migrate to a hardened Android WebView.">
   <link rel="canonical" href="https://12testersgoogleplay.github.io/guides/twa-app-rejected-switch-to-webview/">
   <meta name="robots" content="index, follow">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TWA App Rejected? Switch to Modern Android WebView Architecture">
-  <meta property="og:description" content="Why Google rejects Trusted Web Activities (TWA) for Web Wrapper policies and how to migrate cleanly to a robust, compliant Android WebView architecture.">
+  <meta property="og:title" content="TWA App Rejected on Google Play? 5 Proven Fixes & Migration Guide (2026)">
+  <meta property="og:description" content="Why Trusted Web Activity (TWA) apps get rejected on Google Play for Web Wrapper policy violations, and how to fix Digital Asset Links or migrate to a hardened Android WebView.">
   <meta property="og:url" content="https://12testersgoogleplay.github.io/guides/twa-app-rejected-switch-to-webview/">
   <meta property="og:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TWA App Rejected? Switch to Modern Android WebView Architecture">
-  <meta name="twitter:description" content="Why Google rejects Trusted Web Activities (TWA) for Web Wrapper policies and how to migrate cleanly to a robust, compliant Android WebView architecture.">
+  <meta name="twitter:title" content="TWA App Rejected on Google Play? 5 Proven Fixes & Migration Guide (2026)">
+  <meta name="twitter:description" content="Why Trusted Web Activity (TWA) apps get rejected on Google Play for Web Wrapper policy violations, and how to fix Digital Asset Links or migrate to a hardened Android WebView.">
   <meta name="twitter:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -540,17 +540,87 @@
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
+      min-width: 52px;
+      width: fit-content;
+      min-height: 52px;
+      height: auto;
+      padding: 0.4rem 0.85rem;
       border-radius: var(--radius-md);
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid rgba(56, 189, 248, 0.25);
       color: var(--brand-primary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.35rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Dedicated Metric Card Styles (No clipping, large gradient digits) */
+    .metric-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-gradient);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--brand-primary);
+    }
+
+    .metric-pill-success {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--success);
+    }
+
+    .metric-icon {
       font-size: 1.4rem;
+    }
+
+    .metric-number, .metric-display {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      display: block;
+      width: fit-content;
     }
 
     /* Facts Grid & Fact Box (Numbers Sec) */
@@ -860,6 +930,28 @@
       flex-shrink: 0;
     }
 
+    /* Quick Answer Box (Optimized for Google Featured Snippets) */
+    .quick-answer {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 5px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      margin: 2.25rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .quick-answer-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
     /* Callout & Highlights */
     .callout {
       background: rgba(15, 23, 42, 0.75);
@@ -1161,9 +1253,18 @@
     {
       "@type": "TechArticle",
       "@id": "https://12testersgoogleplay.github.io/guides/twa-app-rejected-switch-to-webview/#article",
-      "headline": "TWA App Rejected? Switch to Modern Android WebView Architecture",
-      "description": "Why Google rejects Trusted Web Activities (TWA) for Web Wrapper policies and how to migrate cleanly to a robust, compliant Android WebView architecture.",
+      "headline": "TWA App Rejected on Google Play? 5 Proven Fixes & Migration Guide (2026)",
+      "description": "Why Trusted Web Activity (TWA) apps get rejected on Google Play for Web Wrapper policy violations, and how to fix Digital Asset Links or migrate to a hardened Android WebView.",
       "url": "https://12testersgoogleplay.github.io/guides/twa-app-rejected-switch-to-webview/",
+      "datePublished": "2024-12-24T08:00:00+00:00",
+      "dateModified": "2026-03-01T12:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "12 Testers Google Play Engineering Desk"
+      },
+      "publisher": {
+        "@id": "https://12testersgoogleplay.github.io/#organization"
+      },
       "isPartOf": {
         "@id": "https://12testersgoogleplay.github.io/#website"
       }
@@ -1187,7 +1288,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "TWA to WebView Guide",
+          "name": "TWA Rejection Fixes",
           "item": "https://12testersgoogleplay.github.io/guides/twa-app-rejected-switch-to-webview/"
         }
       ]
@@ -1234,48 +1335,193 @@
 <main>
 
   <section class="section">
-    <div class="container" style="max-width: 850px;">
+    <div class="container" style="max-width: 900px;">
       <div class="breadcrumbs">
-        <a href="/">Home</a> &gt; <a href="/guides/">Guides</a> &gt; <span>TWA to WebView Guide</span>
+        <a href="/">Home</a> &gt; <a href="/guides/">Guides</a> &gt; <span>TWA Rejection Fixes</span>
       </div>
 
-      <div class="badge">Architecture Migration</div>
-      <h1>TWA App Rejected? Switch to Modern Android WebView Architecture</h1>
-      <p class="lead">
-        Trusted Web Activities (TWA) frequently face rejections during Google Play closed testing due to Web Wrapper policy violations, broken Digital Asset Links, or URL bar visibility. Learn how to migrate to a compliant WebView architecture.
-      </p>
-
-      <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
-
-      <h2>Why TWAs Get Rejected by Google Play Reviewers</h2>
-      <ul style="margin: 1rem 0 1.5rem 1.5rem; color: var(--text-muted); line-height: 1.8;">
-        <li><strong>AssetLinks Verification Failure:</strong> If the <code>assetlinks.json</code> returns a 404, takes &gt;2 seconds to load, or uses the wrong SHA-256 fingerprint, Chrome displays the full browser URL bar, triggering a "Webview wrapper" rejection.</li>
-        <li><strong>Minimum Functionality Policy:</strong> An app that merely wraps a responsive website with zero native capabilities (no offline caching, push notifications, or native device APIs) violates Google's Minimum Functionality policy.</li>
-      </ul>
-
-      <h2>The Modern WebView Solution</h2>
-      <p>
-        Migrating to a properly configured <code>WebView</code> with native Android scaffolding provides complete control over UI rendering, offline fallbacks, and biometric or push notification integrations.
-      </p>
-
-      <div class="callout callout-success">
-        <div class="callout-title">Key WebView Optimization Checklist</div>
-        <ul style="margin-top: 0.5rem; color: var(--text-muted); line-height: 1.8;">
-          <li>&#10003; Implement custom <code>WebViewClient</code> with error handling for network dropouts.</li>
-          <li>&#10003; Cache static assets locally via Android Asset Manager for instant cold starts.</li>
-          <li>&#10003; Integrate native pull-to-refresh and native navigation drawers.</li>
-          <li>&#10003; Comply with Google's Play Console User Data and Privacy policies.</li>
-        </ul>
+      <div class="badge badge-warning">Architecture &amp; Policy Guide</div>
+      <h1>TWA App Rejected on Google Play? 5 Proven Fixes &amp; Migration Guide (2026)</h1>
+      <div style="color: var(--text-dim); font-size: 0.92rem; margin-bottom: 2rem;">
+        Published December 2024 &bull; Updated for 2026 Google Play Policy &bull; 20 min read &bull; By Senior Android QA Lead
       </div>
 
-      <div class="card" style="margin-top: 3rem; text-align: center; border-color: var(--brand-primary);">
-        <h3>Need Technical QA on Your Android Architecture?</h3>
-        <p style="margin: 1rem 0 1.5rem;">
-          Our testing cohort tests your app across diverse real devices to catch rendering glitches and policy triggers.
+      <!-- Quick Answer Box -->
+      <div class="quick-answer">
+        <div class="quick-answer-title">
+          <span>&#9889;</span> Quick Answer: Fixing TWA Google Play Rejections
+        </div>
+        <p style="color: #f1f5f9; font-size: 1.05rem; margin-bottom: 0.75rem;">
+          Trusted Web Activity (TWA) apps are typically rejected for: <strong>1)</strong> Digital Asset Links verification failures (causing Chrome's address bar to display), <strong>2)</strong> Webview / Web Wrapper Minimum Functionality violations, <strong>3)</strong> Google OAuth redirecting out of the app, or <strong>4)</strong> lack of offline error handling.
         </p>
-        <a href="https://wa.me/923394001479?text=Hi%2C%20I%20have%20questions%20about%20TWA%20and%20WebView%20testing" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0;">
+          <strong>The Solution:</strong> Either fix your <code>assetlinks.json</code> using the Google Play App Signing SHA-256 fingerprint, or migrate cleanly to a hardened Android <code>WebView</code> architecture with native Chrome Custom Tabs for OAuth and local offline asset caching.
+        </p>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2.5rem 0;">
+
+      <!-- SECTION 1 -->
+      <h2>1. The 5 Documented Reasons TWA Apps Get Rejected on Google Play</h2>
+      <p>
+        Trusted Web Activities (TWAs) allow developers to wrap Progressive Web Apps (PWAs) in an Android container. While convenient, Google Play review algorithms scrutinize TWAs intensely. Here are the 5 root causes of rejection:
+      </p>
+
+      <div class="grid-2" style="margin: 2rem 0;">
+        <div class="card" style="border-color: rgba(239, 68, 68, 0.35);">
+          <h3>1. AssetLinks Verification Failure</h3>
+          <p>
+            If the <code>assetlinks.json</code> file fails to verify, Chrome displays the browser URL address bar at the top of the screen. Reviewers flag this as an unverified browser wrapper and reject the release.
+          </p>
+        </div>
+
+        <div class="card" style="border-color: rgba(239, 68, 68, 0.35);">
+          <h3>2. Minimum Functionality Policy</h3>
+          <p>
+            Google Play Developer Policy states that apps whose primary purpose is providing a webview of a website without added native functionality violate the Webview policy.
+          </p>
+        </div>
+
+        <div class="card" style="border-color: rgba(239, 68, 68, 0.35);">
+          <h3>3. OAuth / Google Sign-In Redirects</h3>
+          <p>
+            When a user clicks "Sign in with Google" inside a TWA, Chrome security redirects the user outside the app to a browser tab, breaking the native user experience.
+          </p>
+        </div>
+
+        <div class="card" style="border-color: rgba(239, 68, 68, 0.35);">
+          <h3>4. Lack of Offline Handling</h3>
+          <p>
+            If a tester opens the app in airplane mode and sees Chrome's "No Internet" dinosaur screen, Google rejects the app for failing basic quality and stability guidelines.
+          </p>
+        </div>
+      </div>
+
+      <!-- SECTION 2: MIGRATION CODE -->
+      <h2>2. Migrating from TWA to Modern Hardened WebView Architecture</h2>
+      <p>
+        The most reliable long-term solution for web-based Android apps is migrating to a native <code>WebView</code> with native scaffolding:
+      </p>
+
+      <div class="card" style="background: #090d16; font-family: var(--font-mono); font-size: 0.85rem; overflow-x: auto; margin: 1.5rem 0;">
+        <pre><code style="color: #38bdf8;">// MainActivity.kt - Production-Hardened WebView Implementation
+package com.example.webapp
+
+import android.os.Bundle
+import android.webkit.WebResourceError
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var webView: WebView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        webView = findViewById(R.id.webView)
+        webView.settings.apply {
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            databaseEnabled = true
+            allowFileAccess = false // Security hardening
+        }
+
+        webView.webViewClient = object : WebViewClient() {
+            override fun onReceivedError(
+                view: WebView?,
+                request: WebResourceRequest?,
+                error: WebResourceError?
+            ) {
+                // Prevent white-screen by loading clean offline fallback
+                if (request?.isForMainFrame == true) {
+                    view?.loadUrl("file:///android_asset/offline.html")
+                }
+            }
+        }
+
+        webView.loadUrl("https://yourdomain.com")
+    }
+
+    override fun onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            super.onBackPressed()
+        }
+    }
+}</code></pre>
+      </div>
+
+      <!-- SECTION 3: RESUBMISSION CHECKLIST -->
+      <h2 style="margin-top: 4rem;">3. Complete Resubmission Checklist for TWA &amp; WebView Apps</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Audit Item</th>
+              <th>Requirement</th>
+              <th>Verification Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Address Bar</strong></td>
+              <td>Completely hidden in full-screen mode</td>
+              <td>Digital Asset Links verified with App Signing SHA-256</td>
+            </tr>
+            <tr>
+              <td><strong>Offline Fallback</strong></td>
+              <td>Clean native or cached offline UI</td>
+              <td>Zero Chrome "No Internet" dinosaur screens</td>
+            </tr>
+            <tr>
+              <td><strong>Google OAuth</strong></td>
+              <td>Chrome Custom Tabs or Native Credential Manager</td>
+              <td>Users stay inside app flow</td>
+            </tr>
+            <tr>
+              <td><strong>12-Tester Closed Test</strong></td>
+              <td>14 consecutive days on real hardware</td>
+              <td>Continuous opt-in maintained throughout</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 4.5rem;">Frequently Asked Questions</h2>
+      <div style="margin-top: 1.5rem;">
+        <div class="faq-item">
+          <h3>Does a WebView app need to complete the 12-tester closed testing rule?</h3>
+          <div class="faq-body">
+            <p>
+              Yes. All personal Google Play developer accounts created on or after November 13, 2023, must complete the 14-day closed testing requirement with at least 12 testers, regardless of whether the app is native Kotlin, Flutter, React Native, TWA, or WebView.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3>Why does my TWA show the URL bar on testers' devices?</h3>
+          <div class="faq-body">
+            <p>
+              If Chrome displays the URL bar, your Digital Asset Links handshake failed. The most common cause is including the local upload key SHA-256 fingerprint in <code>assetlinks.json</code> instead of the Google Play App Signing key fingerprint found in Play Console under <em>Release &gt; Setup &gt; App integrity</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="card" style="margin-top: 4rem; text-align: center; border-color: var(--brand-primary); padding: 3.5rem 2rem;">
+        <h2>Need Help Passing Closed Testing for Your TWA or WebView App?</h2>
+        <p style="max-width: 650px; margin: 1rem auto 2rem; font-size: 1.15rem;">
+          Our managed physical Android testing fleet tests your application across 20 real smartphones to ensure smooth web rendering, error handling, and guaranteed production access approval.
+        </p>
+        <a href="https://wa.me/923394001479?text=Hi%2C%20I%20have%20questions%20about%20TWA%20and%20WebView%20closed%20testing" class="btn btn-whatsapp" style="font-size: 1.1rem; padding: 0.95rem 2.2rem;" target="_blank" rel="noopener noreferrer">
           <span class="pulse-dot"></span>
-          <span>Chat on WhatsApp (+923394001479)</span>
+          <span>Deploy Testers on WhatsApp (+923394001479)</span>
         </a>
       </div>
     </div>

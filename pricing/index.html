@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12 Testers Google Play Pricing & Plans - Guaranteed Closed Testing Cohorts</title>
-  <meta name="description" content="Simple, transparent pricing for Google Play 12 testers closed testing. 14 consecutive days on real Android hardware. 100% money-back guarantee. Order directly on WhatsApp.">
+  <title>Pricing | 12 Testers Google Play Closed Testing Packages (2026)</title>
+  <meta name="description" content="Transparent, flat-rate pricing for Google Play closed testing. 12+ real physical Android testers, 14 continuous days, 100% pass guarantee. Packages start at $39.">
   <link rel="canonical" href="https://12testersgoogleplay.github.io/pricing/">
   <meta name="robots" content="index, follow">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="12 Testers Google Play Pricing & Plans - Guaranteed Closed Testing Cohorts">
-  <meta property="og:description" content="Simple, transparent pricing for Google Play 12 testers closed testing. 14 consecutive days on real Android hardware. 100% money-back guarantee. Order directly on WhatsApp.">
+  <meta property="og:title" content="Pricing | 12 Testers Google Play Closed Testing Packages (2026)">
+  <meta property="og:description" content="Transparent, flat-rate pricing for Google Play closed testing. 12+ real physical Android testers, 14 continuous days, 100% pass guarantee. Packages start at $39.">
   <meta property="og:url" content="https://12testersgoogleplay.github.io/pricing/">
   <meta property="og:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="12 Testers Google Play Pricing & Plans - Guaranteed Closed Testing Cohorts">
-  <meta name="twitter:description" content="Simple, transparent pricing for Google Play 12 testers closed testing. 14 consecutive days on real Android hardware. 100% money-back guarantee. Order directly on WhatsApp.">
+  <meta name="twitter:title" content="Pricing | 12 Testers Google Play Closed Testing Packages (2026)">
+  <meta name="twitter:description" content="Transparent, flat-rate pricing for Google Play closed testing. 12+ real physical Android testers, 14 continuous days, 100% pass guarantee. Packages start at $39.">
   <meta name="twitter:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -540,17 +540,87 @@
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
+      min-width: 52px;
+      width: fit-content;
+      min-height: 52px;
+      height: auto;
+      padding: 0.4rem 0.85rem;
       border-radius: var(--radius-md);
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid rgba(56, 189, 248, 0.25);
       color: var(--brand-primary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.35rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Dedicated Metric Card Styles (No clipping, large gradient digits) */
+    .metric-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-gradient);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--brand-primary);
+    }
+
+    .metric-pill-success {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--success);
+    }
+
+    .metric-icon {
       font-size: 1.4rem;
+    }
+
+    .metric-number, .metric-display {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      display: block;
+      width: fit-content;
     }
 
     /* Facts Grid & Fact Box (Numbers Sec) */
@@ -860,6 +930,28 @@
       flex-shrink: 0;
     }
 
+    /* Quick Answer Box (Optimized for Google Featured Snippets) */
+    .quick-answer {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 5px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      margin: 2.25rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .quick-answer-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
     /* Callout & Highlights */
     .callout {
       background: rgba(15, 23, 42, 0.75);
@@ -1156,107 +1248,87 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://12testersgoogleplay.github.io/pricing/#webpage",
-      "url": "https://12testersgoogleplay.github.io/pricing/",
-      "name": "12 Testers Google Play Pricing & Plans - Guaranteed Closed Testing Cohorts",
-      "description": "Simple, transparent pricing for Google Play 12 testers closed testing. 14 consecutive days on real Android hardware. 100% money-back guarantee. Order directly on WhatsApp.",
-      "isPartOf": {
-        "@id": "https://12testersgoogleplay.github.io/#website"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://12testersgoogleplay.github.io/pricing/#breadcrumb",
-      "itemListElement": [
+      "@context": "https://schema.org",
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://12testersgoogleplay.github.io/"
+          "@type": "Product",
+          "name": "12 Testers Google Play Closed Testing Service",
+          "description": "Professional 14-day closed testing service with verified physical Android devices for Google Play Console production access compliance.",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Starter Package",
+              "price": "39",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": "https://12testersgoogleplay.github.io/pricing/"
+            },
+            {
+              "@type": "Offer",
+              "name": "Professional Package",
+              "price": "59",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": "https://12testersgoogleplay.github.io/pricing/"
+            },
+            {
+              "@type": "Offer",
+              "name": "Enterprise / Rejection Recovery",
+              "price": "89",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock",
+              "url": "https://12testersgoogleplay.github.io/pricing/"
+            }
+          ]
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Pricing",
-          "item": "https://12testersgoogleplay.github.io/pricing/"
-        }
-      ]
-    },
-    {
-      "@type": "OfferCatalog",
-      "@id": "https://12testersgoogleplay.github.io/pricing/#catalog",
-      "name": "Google Play 12 Testers Closed Testing Plans",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "name": "Starter Cohort",
-          "price": "39",
-          "priceCurrency": "USD",
-          "description": "16 real Android testers for 14 continuous days with 4-tester buffer.",
-          "url": "https://12testersgoogleplay.github.io/pricing/#starter"
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is included in the $39 Starter Package?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Starter Package includes 14 verified physical device testers, 14 continuous days (336 hours) of opt-in, daily active sessions, and private Play Store feedback."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What makes the $59 Professional Package our most popular choice?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Professional Package includes 16 physical testers (4 extra buffer), daily automated session monitoring, private written Play Store reviews, detailed bug and crash reports, and bespoke Production Access Questionnaire answers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the 100% money-back guarantee work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If Google rejects your production access application due to testing telemetry insufficiency, we immediately provide a full 14-day re-test at zero charge. If production access is still not granted, you receive a full 100% refund."
+              }
+            }
+          ]
         },
         {
-          "@type": "Offer",
-          "name": "Professional Cohort",
-          "price": "59",
-          "priceCurrency": "USD",
-          "description": "20 real Android testers across Android 11-15 with crash diagnostics and questionnaire guidance.",
-          "url": "https://12testersgoogleplay.github.io/pricing/#professional"
-        },
-        {
-          "@type": "Offer",
-          "name": "Agency & Enterprise Cohort",
-          "price": "89",
-          "priceCurrency": "USD",
-          "description": "25 dedicated testers, white-label reporting, foldable/tablet coverage, and priority WhatsApp desk.",
-          "url": "https://12testersgoogleplay.github.io/pricing/#agency"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://12testersgoogleplay.github.io/pricing/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Why do you provide more than 12 testers?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Google requires a minimum of 12 testers continuously opted in for 14 consecutive days. To eliminate any risk from tester dropouts, uninstalls, or device swaps, our Starter plan provides 16 testers (4 buffer), and our Professional plan provides 20 testers (8 buffer)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are your testers using real physical Android devices?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, 100%. We never use emulators, bots, or virtual machines. Google Play's Play Integrity API and server-side telemetry detect emulators instantly, which causes immediate production access rejection."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is your refund policy if production access is denied?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "If your application is rejected for production access due to tester opt-in dropouts or testing telemetry issues, we will re-run a complete 14-day cohort at zero additional cost, or issue a 100% full refund upon review."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How quickly does testing begin after ordering on WhatsApp?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Once you share your Play Console opt-in link and add our tester Google Group, our cohort members begin accepting invitations and installing your build within 4 to 12 hours."
-          }
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://12testersgoogleplay.github.io/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Pricing",
+              "item": "https://12testersgoogleplay.github.io/pricing/"
+            }
+          ]
         }
       ]
     }
-  ]
-}
     </script>
 </head>
 <body>
@@ -1296,264 +1368,289 @@
 
 <main>
 
-  <!-- Pricing Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="badge">Transparent Developer Pricing</div>
-      <h1>Simple, Transparent Pricing for Google Play Closed Testing</h1>
-      <p class="lead">
-        No recurring subscriptions. No bot swarms. Guaranteed 14 consecutive days of active testing on genuine physical Android devices. Choose your cohort tier and launch via direct WhatsApp coordination.
-      </p>
-      <div class="trust-strip">
-        <div class="trust-item"><span class="trust-icon">&#10003;</span> 100% Real Physical Hardware</div>
-        <div class="trust-item"><span class="trust-icon">&#10003;</span> Zero Re-Billing Or Hidden Fees</div>
-        <div class="trust-item"><span class="trust-icon">&#10003;</span> 100% Money-Back Guarantee</div>
-        <div class="trust-item"><span class="trust-icon">&#10003;</span> WhatsApp Direct Support</div>
+  <main>
+    <!-- Breadcrumbs -->
+    <div style="background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 0.85rem 0;">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="/">Home</a> &gt; <span>Pricing</span>
+        </nav>
       </div>
     </div>
-  </section>
 
-  <!-- Pricing Cards Section -->
-  <section class="section" id="plans" style="padding-top: 1rem;">
-    <div class="container">
-      <div class="pricing-grid">
-        <!-- Starter Tier -->
-        <div class="pricing-card" id="starter">
-          <h3>Starter Cohort</h3>
-          <p>Designed for utility tools, simple calculators, and single-purpose apps.</p>
-          <div class="price-value">$39 <span style="font-size: 1rem; color: var(--text-dim); font-weight: normal;">/ one-time</span></div>
-          <div class="price-period">14 Days Continuous Coverage • 1 App</div>
-          <ul class="pricing-features">
-            <li><span class="feature-check">&#10003;</span> <strong>16 Verified Real Testers</strong> (4-tester buffer)</li>
-            <li><span class="feature-check">&#10003;</span> 14 Consecutive Days continuous opt-in</li>
-            <li><span class="feature-check">&#10003;</span> 100% Physical Android smartphones</li>
-            <li><span class="feature-check">&#10003;</span> Daily app opens &amp; background retention</li>
-            <li><span class="feature-check">&#10003;</span> In-app feedback comments submitted</li>
-            <li><span class="feature-check">&#10003;</span> Free replacement if drop-outs occur</li>
-            <li><span class="feature-check">&#10003;</span> Production questionnaire answer blueprint</li>
-          </ul>
-          <a href="https://wa.me/923394001479?text=Hi%2C%20I%20want%20to%20order%20the%2012%20Testers%20Starter%20Plan%20($39)%20for%20Google%20Play" class="btn btn-whatsapp" style="width: 100%;" target="_blank" rel="noopener noreferrer">
-            <span>Order Starter via WhatsApp</span>
-          </a>
+    <!-- Header -->
+    <header class="hero" style="padding: 4rem 0 2.5rem; text-align: center; background: radial-gradient(circle at center, rgba(15, 118, 110, 0.05) 0%, transparent 70%);">
+      <div class="container" style="max-width: 900px;">
+        <div class="badge badge-success" style="margin-bottom: 1.25rem;">
+          <span class="pulse-dot"></span> Flat-Rate Pricing &bull; No Hidden Subscriptions &bull; 100% Pass Guarantee
         </div>
+        <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.5rem); margin-bottom: 1.25rem; letter-spacing: -0.02em;">
+          Simple, Transparent Pricing for Google Play Closed Testing
+        </h1>
+        <p class="lead-text" style="font-size: 1.2rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 1.5rem; line-height: 1.7;">
+          Everything you need to satisfy Google's <strong>12 testers for 14 days</strong> closed testing requirement and unlock production access. Real physical Android devices, continuous engagement telemetry, and an ironclad money-back guarantee.
+        </p>
+      </div>
+    </header>
 
-        <!-- Professional Tier (Featured) -->
-        <div class="pricing-card pricing-featured" id="professional">
-          <div class="pricing-badge">Most Popular • 99.4% Approval</div>
-          <h3>Professional Cohort</h3>
-          <p>Comprehensive testing with actionable bug reports and telemetry for commercial releases.</p>
-          <div class="price-value">$59 <span style="font-size: 1rem; color: var(--text-dim); font-weight: normal;">/ one-time</span></div>
-          <div class="price-period">Best Value • Commercial Apps &amp; Games</div>
-          <ul class="pricing-features">
-            <li><span class="feature-check">&#10003;</span> <strong>20 Verified Real Testers</strong> (8-tester safety buffer)</li>
-            <li><span class="feature-check">&#10003;</span> 14 Consecutive Days continuous opt-in</li>
-            <li><span class="feature-check">&#10003;</span> OS Diversity (Android 11, 12, 13, 14, 15)</li>
-            <li><span class="feature-check">&#10003;</span> OEM Diversity (Samsung, Pixel, Xiaomi, Motorola)</li>
-            <li><span class="feature-check">&#10003;</span> Structured UX friction &amp; crash telemetry log</li>
-            <li><span class="feature-check">&#10003;</span> Private Play Store bug reports submitted</li>
-            <li><span class="feature-check">&#10003;</span> Personalized questionnaire review by Senior QA</li>
-            <li><span class="feature-check">&#10003;</span> Free complete cohort rerun guarantee</li>
-          </ul>
-          <a href="https://wa.me/923394001479?text=Hi%2C%20I%20want%20to%20order%20the%2012%20Testers%20Professional%20Plan%20($59)%20for%20Google%20Play" class="btn btn-whatsapp" style="width: 100%; font-size: 1.05rem; padding: 0.9rem;" target="_blank" rel="noopener noreferrer">
-            <span>Order Professional via WhatsApp</span>
-          </a>
-        </div>
+    <!-- Pricing Cards Section -->
+    <section class="section" style="padding-top: 1rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 2rem; align-items: stretch;">
 
-        <!-- Agency Tier -->
-        <div class="pricing-card" id="agency">
-          <h3>Agency &amp; Enterprise</h3>
-          <p>Built for dev shops, agencies, and high-frequency publishing studios.</p>
-          <div class="price-value">$89 <span style="font-size: 1rem; color: var(--text-dim); font-weight: normal;">/ one-time</span></div>
-          <div class="price-period">Priority Onboarding • Multi-Build Support</div>
-          <ul class="pricing-features">
-            <li><span class="feature-check">&#10003;</span> <strong>25 Dedicated Real Testers</strong></li>
-            <li><span class="feature-check">&#10003;</span> Priority Onboarding (Live in closed track &lt; 6 hrs)</li>
-            <li><span class="feature-check">&#10003;</span> Foldables &amp; Android Tablets included</li>
-            <li><span class="feature-check">&#10003;</span> Multi-bundle regression updates during 14 days</li>
-            <li><span class="feature-check">&#10003;</span> White-label PDF QA report for your clients</li>
-            <li><span class="feature-check">&#10003;</span> Dedicated WhatsApp / Slack QA coordinator</li>
-            <li><span class="feature-check">&#10003;</span> Priority SLA &amp; developer consultation</li>
-          </ul>
-          <a href="https://wa.me/923394001479?text=Hi%2C%20I%20want%20to%20order%20the%2012%20Testers%20Agency%20Plan%20($89)%20for%20Google%20Play" class="btn btn-whatsapp" style="width: 100%;" target="_blank" rel="noopener noreferrer">
-            <span>Order Agency via WhatsApp</span>
-          </a>
+          <!-- Tier 1: Starter -->
+          <div class="pricing-card" style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem 2rem; display: flex; flex-direction: column; position: relative;">
+            <div style="margin-bottom: 1.5rem;">
+              <span class="badge" style="background: var(--bg-alt); color: var(--text-muted); margin-bottom: 0.75rem;">Standard Compliance</span>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Starter Plan</h3>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">Ideal for simple utility apps, hobby projects, or developers confident in their QA.</p>
+            </div>
+            <div style="margin-bottom: 2rem;">
+              <span class="price-value" style="font-size: 3.5rem; font-weight: 800; color: var(--text-main); font-family: var(--font-display);">$39</span>
+              <span class="price-period" style="color: var(--text-light); font-size: 1rem;">/ one-time</span>
+            </div>
+            <ul class="pricing-features" style="margin-bottom: 2.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.98rem;">
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>14 Physical Device Testers</strong> (2 safety buffer above Google's 12 minimum)</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>14 Continuous Days (336h)</strong> active enrollment &amp; zero dropouts</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span>100% Real hardware (Samsung, Pixel, Xiaomi) across residential IPs</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span>Automated daily telemetry heartbeats &amp; Play Services sync</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span>100% Money-Back Pass Guarantee with complimentary retest</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start; color: var(--text-light);">
+                <span style="color: #cbd5e1; font-weight: bold;">&ndash;</span>
+                <span>Questionnaire answers self-written (templates provided)</span>
+              </li>
+            </ul>
+            <a href="https://wa.me/923394001479?text=Hi%2C%20I%20want%20to%20order%20the%20%2439%20Starter%20Package%20for%20Google%20Play%20closed%20testing." class="btn btn-secondary" style="width: 100%; text-align: center; padding: 0.85rem;" target="_blank" rel="noopener">
+              Get Started ($39)
+            </a>
+          </div>
+
+          <!-- Tier 2: Professional (Featured) -->
+          <div class="pricing-card pricing-featured" style="background: #fff; border: 2px solid var(--primary); border-radius: var(--radius-lg); padding: 2.5rem 2rem; display: flex; flex-direction: column; position: relative; box-shadow: 0 20px 25px -5px rgba(15, 118, 110, 0.12);">
+            <div class="pricing-badge" style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--primary); color: #fff; font-size: 0.8rem; font-weight: 700; padding: 0.25rem 1rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em;">
+              Most Popular &bull; 98.4% First-Time Pass
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <span class="badge badge-success" style="margin-bottom: 0.75rem;">Full-Service QA + Questionnaire</span>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Professional Plan</h3>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">Recommended for commercial apps, startups, and developers wanting guaranteed zero stress.</p>
+            </div>
+            <div style="margin-bottom: 2rem;">
+              <span class="price-value" style="font-size: 3.5rem; font-weight: 800; color: var(--primary); font-family: var(--font-display);">$59</span>
+              <span class="price-period" style="color: var(--text-light); font-size: 1rem;">/ one-time</span>
+            </div>
+            <ul class="pricing-features" style="margin-bottom: 2.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.98rem;">
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>16 Physical Device Testers</strong> (4 redundancy buffer for 100% uptime)</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>14 Continuous Days (336h)</strong> active human sessions &amp; deep navigation</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>Console Written Reviews:</strong> 5 to 8 private Play Store reviews submitted</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>Android Vitals Telemetry Guard:</strong> Daily crash and ANR monitoring</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>Bespoke Production Questionnaire Answers:</strong> Written by our QA leads</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>Dedicated WhatsApp Coordinator:</strong> Onboarding completed in &lt; 6 hours</span>
+              </li>
+            </ul>
+            <a href="https://wa.me/923394001479?text=Hi%2C%20I%20want%20to%20order%20the%20%2459%20Professional%20Package%20for%20Google%20Play%20closed%20testing." class="btn btn-whatsapp" style="width: 100%; text-align: center; padding: 0.95rem; font-size: 1.05rem;" target="_blank" rel="noopener">
+              &#128172; Order Professional via WhatsApp ($59)
+            </a>
+          </div>
+
+          <!-- Tier 3: Enterprise / Recovery -->
+          <div class="pricing-card" style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem 2rem; display: flex; flex-direction: column; position: relative;">
+            <div style="margin-bottom: 1.5rem;">
+              <span class="badge badge-warning" style="margin-bottom: 0.75rem;">Rejection Rescue &bull; Priority SLA</span>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Enterprise &amp; Recovery</h3>
+              <p style="font-size: 0.95rem; color: var(--text-muted);">For apps previously rejected by Google, complex architectures, or enterprise agencies.</p>
+            </div>
+            <div style="margin-bottom: 2rem;">
+              <span class="price-value" style="font-size: 3.5rem; font-weight: 800; color: var(--text-main); font-family: var(--font-display);">$89</span>
+              <span class="price-period" style="color: var(--text-light); font-size: 1rem;">/ one-time</span>
+            </div>
+            <ul class="pricing-features" style="margin-bottom: 2.5rem; flex-grow: 1; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.98rem;">
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>20 Physical Device Testers</strong> across 8 distinct Android OEMs</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>Forensic Rejection Audit:</strong> Complete post-mortem of previous failure</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>Logcat &amp; Stack Trace Diagnostics:</strong> Detailed bug reports with steps to reproduce</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>Iterative Update Verification:</strong> Testing of patch releases (v1.0.1, v1.0.2)</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>Priority 24/7 Account Manager:</strong> Direct phone &amp; WhatsApp coordination</span>
+              </li>
+              <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                <span class="feature-check" style="color: var(--primary); font-weight: bold;">&#10004;</span>
+                <span><strong>White-Label Executive PDF Report:</strong> Ready for stakeholders &amp; clients</span>
+              </li>
+            </ul>
+            <a href="https://wa.me/923394001479?text=Hi%2C%20I%20want%20to%20order%20the%20%2489%20Enterprise%20Recovery%20Package%20for%20Google%20Play." class="btn btn-secondary" style="width: 100%; text-align: center; padding: 0.85rem;" target="_blank" rel="noopener">
+              Order Enterprise ($89)
+            </a>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <!-- Feature Comparison Matrix -->
-      <div style="margin-top: 5rem;">
-        <h2 style="text-align: center; margin-bottom: 2rem;">Feature Comparison Matrix</h2>
-        <div class="table-wrap">
-          <table>
+    <!-- Comprehensive Feature Comparison Table -->
+    <section class="section section-alt" style="padding: 4rem 0;">
+      <div class="container" style="max-width: 1000px;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <h2 style="font-size: 2.2rem; margin-bottom: 0.75rem;">Detailed Package Comparison Matrix</h2>
+          <p style="color: var(--text-muted); font-size: 1.1rem;">Choose the precise level of engineering support your application requires.</p>
+        </div>
+
+        <div class="table-wrap" style="background: #fff; border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
             <thead>
-              <tr>
-                <th>Feature / Deliverable</th>
-                <th>Starter ($39)</th>
-                <th>Professional ($59)</th>
-                <th>Agency ($89)</th>
+              <tr style="background: var(--bg-alt); text-align: left; border-bottom: 2px solid var(--border);">
+                <th style="padding: 1rem 1.25rem; width: 40%;">Service Feature</th>
+                <th style="padding: 1rem 1.25rem; text-align: center; width: 20%;">Starter ($39)</th>
+                <th style="padding: 1rem 1.25rem; text-align: center; width: 20%; background: rgba(15, 118, 110, 0.05); color: var(--primary);">Professional ($59)</th>
+                <th style="padding: 1rem 1.25rem; text-align: center; width: 20%;">Enterprise ($89)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Tester Headcount</strong></td>
-                <td>16 Real Testers (+4 Buffer)</td>
-                <td>20 Real Testers (+8 Buffer)</td>
-                <td>25 Dedicated Testers (+13 Buffer)</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-weight: 600;">Verified Physical Testers</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center;">14 Testers</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; background: rgba(15, 118, 110, 0.03); font-weight: 700; color: var(--primary);">16 Testers</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; font-weight: 700;">20 Testers</td>
               </tr>
               <tr>
-                <td><strong>Testing Duration</strong></td>
-                <td>14 Consecutive Days</td>
-                <td>14 Consecutive Days</td>
-                <td>14 Consecutive Days</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-weight: 600;">Continuous Window Duration</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center;">14 Days (336h)</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; background: rgba(15, 118, 110, 0.03);">14 Days (336h)</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center;">14 Days (336h)</td>
               </tr>
               <tr>
-                <td><strong>Hardware Verification</strong></td>
-                <td>Physical Smartphones</td>
-                <td>Physical Smartphones</td>
-                <td>Physical Phones, Foldables &amp; Tablets</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-weight: 600;">Hardware Infrastructure</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center;">100% Real Devices</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; background: rgba(15, 118, 110, 0.03);">100% Real Devices</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center;">100% Real Devices</td>
               </tr>
               <tr>
-                <td><strong>Android OS Coverage</strong></td>
-                <td>Android 12 to 14</td>
-                <td>Android 11 through 15 (Latest)</td>
-                <td>Android 10 through 15 + Tablets</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-weight: 600;">Private Play Store Reviews</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; color: var(--text-light);">&ndash;</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; background: rgba(15, 118, 110, 0.03); color: var(--primary); font-weight: 700;">&#10004; 5&ndash;8 Reviews</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; color: var(--primary); font-weight: 700;">&#10004; 10&ndash;15 Reviews</td>
               </tr>
               <tr>
-                <td><strong>Device OEM Matrix</strong></td>
-                <td>Standard Mix</td>
-                <td>Samsung, Pixel, Xiaomi, Moto</td>
-                <td>Global OEM Fleet + Niche Brands</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-weight: 600;">Production Access Questionnaire</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; color: var(--text-light);">Generic Template</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; background: rgba(15, 118, 110, 0.03); color: var(--primary); font-weight: 700;">&#10004; Bespoke Model Answers</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; color: var(--primary); font-weight: 700;">&#10004; Custom Forensic Responses</td>
               </tr>
               <tr>
-                <td><strong>Daily Interaction Protocol</strong></td>
-                <td>Daily Launch &amp; Keep Installed</td>
-                <td>Deep Engagement &amp; Feature Flows</td>
-                <td>Scenario-Based Comprehensive QA</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-weight: 600;">Previous Rejection Forensic Audit</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; color: var(--text-light);">&ndash;</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; background: rgba(15, 118, 110, 0.03); color: var(--text-light);">&ndash;</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; color: var(--primary); font-weight: 700;">&#10004; Included</td>
               </tr>
               <tr>
-                <td><strong>In-App Feedback Submitted</strong></td>
-                <td>&#10003; Play Store Feedback</td>
-                <td>&#10003; Play Store + Telemetry Log</td>
-                <td>&#10003; Play Store + Video/Telemetry</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); font-weight: 600;">Onboarding Speed</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center;">Within 24 Hours</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; background: rgba(15, 118, 110, 0.03); font-weight: 700; color: var(--primary);">&lt; 8 Hours</td>
+                <td style="padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border); text-align: center; font-weight: 700;">Immediate Priority (&lt; 4h)</td>
               </tr>
               <tr>
-                <td><strong>Production Form Review</strong></td>
-                <td>Standard Answer Guide</td>
-                <td>Personalized Senior QA Audit</td>
-                <td>Complete Custom Answer Crafting</td>
-              </tr>
-              <tr>
-                <td><strong>New Bundle Updates (AAB)</strong></td>
-                <td>1 Update Included</td>
-                <td>Up to 3 Updates Included</td>
-                <td>Unlimited Updates Included</td>
-              </tr>
-              <tr>
-                <td><strong>White-Label Report</strong></td>
-                <td>-</td>
-                <td>-</td>
-                <td>&#10003; Client-Ready Branded PDF</td>
-              </tr>
-              <tr>
-                <td><strong>Onboarding Speed</strong></td>
-                <td>Within 12 Hours</td>
-                <td>Within 8 Hours</td>
-                <td>Priority &lt; 6 Hours</td>
-              </tr>
-              <tr>
-                <td><strong>Guarantee Coverage</strong></td>
-                <td>Free Dropout Replacement</td>
-                <td>100% Free Cohort Rerun or Refund</td>
-                <td>100% Free Cohort Rerun or Refund</td>
+                <td style="padding: 0.85rem 1.25rem; font-weight: 600;">100% Pass Money-Back Guarantee</td>
+                <td style="padding: 0.85rem 1.25rem; text-align: center; color: var(--primary); font-weight: 700;">&#10004;</td>
+                <td style="padding: 0.85rem 1.25rem; text-align: center; background: rgba(15, 118, 110, 0.03); color: var(--primary); font-weight: 700;">&#10004;</td>
+                <td style="padding: 0.85rem 1.25rem; text-align: center; color: var(--primary); font-weight: 700;">&#10004;</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+    </section>
 
-      <!-- ROI / Cost of DIY vs Service -->
-      <div class="grid-2" style="margin-top: 4rem;">
-        <div class="card">
-          <div class="card-icon" style="color: var(--danger); background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2);">&#10007;</div>
-          <h3>The Hidden Cost of "Free" DIY Testing</h3>
-          <p>
-            Asking friends, family, or strangers on Reddit often fails:
-          </p>
-          <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
-            <li>&#8226; Testers uninstall after day 3, resetting the 14-day clock back to Day 0.</li>
-            <li>&#8226; Friends forget to open the app, generating zero engagement telemetry.</li>
-            <li>&#8226; Sub-reddit swaps swap installs with bots or burner devices that Google flags.</li>
-            <li>&#8226; You waste 4 to 8 weeks in trial-and-error rejections.</li>
-          </ul>
+    <!-- Pricing FAQs -->
+    <section class="section" style="padding: 4rem 0;">
+      <div class="container" style="max-width: 850px;">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Frequently Asked Pricing Questions</h2>
+          <p style="color: var(--text-muted);">Have questions before placing your order? We are here to help.</p>
         </div>
 
-        <div class="card" style="border-color: rgba(16, 185, 129, 0.3);">
-          <div class="card-icon" style="color: var(--success); background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2);">&#10003;</div>
-          <h3>The 12 Testers Google Play Advantage</h3>
-          <p>
-            A turnkey, managed QA cohort that protects your production launch:
-          </p>
-          <ul style="list-style: none; color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
-            <li>&#8226; Guaranteed 14 continuous days with surplus buffer testers.</li>
-            <li>&#8226; Real physical Android smartphones with active Google accounts.</li>
-            <li>&#8226; Periodic authentic usage signals logged in Google's telemetry servers.</li>
-            <li>&#8226; You focus on coding while we handle the 14-day compliance cycle.</li>
-          </ul>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="faq-item" style="border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem;">
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">Are there any hidden recurring fees or monthly subscriptions?</h4>
+            <p style="color: var(--text-muted); font-size: 0.98rem; margin: 0;">
+              No. All our pricing packages are strictly <strong>one-time flat fees</strong>. Once your 14-day closed testing period is complete and you receive production access, you will never be billed again.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem;">
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">What payment methods do you accept?</h4>
+            <p style="color: var(--text-muted); font-size: 0.98rem; margin: 0;">
+              We accept international debit/credit cards via Stripe, direct bank transfers, Payoneer, and PayPal. Invoices and commercial receipts are provided for all transactions.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem;">
+            <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">How do I start my order right now?</h4>
+            <p style="color: var(--text-muted); font-size: 0.98rem; margin: 0;">
+              Simply click any WhatsApp CTA button or message our team at <a href="https://wa.me/923394001479" style="font-weight: 600; color: var(--primary);">+923394001479</a>. Share your app's package name and closed track opt-in link, select your package, and our testers begin joining your track within hours.
+            </p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Money-back guarantee callout -->
-      <div class="callout callout-success" style="margin-top: 4rem;">
-        <div class="callout-title">Our 100% Pass Or Money-Back Guarantee</div>
-        <p>
-          We stand by our hardware testing network. If your closed testing track fails due to tester dropouts, insufficient engagement telemetry, or if Google denies your production application based on tester metrics, we will either re-run a brand new 14-day cohort with fresh testers at zero cost, or refund 100% of your order. No friction, no questions asked.
+    <!-- CTA Section -->
+    <section class="section" style="background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%); color: #fff; padding: 4.5rem 0; text-align: center;">
+      <div class="container" style="max-width: 800px;">
+        <span class="badge" style="background: rgba(45, 212, 191, 0.2); color: #2dd4bf; margin-bottom: 1rem;">Instant Onboarding &bull; Rapid Response</span>
+        <h2 style="font-size: 2.4rem; color: #fff; margin-bottom: 1rem;">Ready to Clear Closed Testing in 14 Days?</h2>
+        <p style="font-size: 1.15rem; color: #cbd5e1; margin-bottom: 2rem;">
+          Connect directly with our engineering team on WhatsApp to activate your 14 physical device testers today.
         </p>
-      </div>
-
-      <!-- FAQ Section -->
-      <div style="margin-top: 5rem;">
-        <h2 style="text-align: center; margin-bottom: 2.5rem;">Frequently Asked Pricing Questions</h2>
-        <div class="grid-2">
-          <div class="card">
-            <h3>Are there any hidden or recurring fees?</h3>
-            <p>
-              None whatsoever. All prices are strictly one-time payments per application closed testing cycle. We do not store credit cards or trigger automatic recurring billing.
-            </p>
-          </div>
-          <div class="card">
-            <h3>How do I pay and order?</h3>
-            <p>
-              Click any package CTA button to open WhatsApp with our senior QA desk (+923394001479). We review your Google Play Console setup, provide our tester Google Group address, and share payment details (Stripe, PayPal, Wise, or Direct Transfer).
-            </p>
-          </div>
-          <div class="card">
-            <h3>Can I update my application (AAB) during the 14 days?</h3>
-            <p>
-              Yes! Updating your build during closed testing actually looks great to Google's reviewers because it proves active maintenance and responsiveness to tester feedback. All plans support updates.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Do I get assistance with the 7 production questionnaire answers?</h3>
-            <p>
-              Yes. When applying for production access, Google requires detailed answers about your closed testing feedback, target audience, and changes made. Professional and Agency plans include personalized reviews of your answers before you submit.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- WhatsApp CTA Banner -->
-      <div class="card" style="margin-top: 5rem; text-align: center; background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.12) 0%, var(--bg-card) 100%); border-color: var(--brand-primary); padding: 3.5rem 2rem;">
-        <h2>Ready to Start Your 14-Day Closed Test?</h2>
-        <p style="max-width: 650px; margin: 1rem auto 2rem; font-size: 1.15rem;">
-          Message our senior QA team on WhatsApp now. We will check your Play Console track setup and launch your verified cohort within hours.
-        </p>
-        <a href="https://wa.me/923394001479?text=Hi%2C%20I%20want%20to%20order%20Google%20Play%2012%20testers%20closed%20testing" class="btn btn-whatsapp" style="font-size: 1.1rem; padding: 0.9rem 2.2rem;" target="_blank" rel="noopener noreferrer">
-          <span class="pulse-dot"></span>
-          <span>Chat with Us on WhatsApp (+923394001479)</span>
+        <a href="https://wa.me/923394001479?text=Hi%2C%20I%20am%20ready%20to%20order%2012%20testers%20for%2014%20days%20closed%20testing." class="btn btn-whatsapp" style="padding: 1rem 2rem; font-size: 1.1rem;" target="_blank" rel="noopener">
+          &#128172; Start Order on WhatsApp (+923394001479)
         </a>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
 </main>
 

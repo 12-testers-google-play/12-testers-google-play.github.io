@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Play Developer Blog & Closed Testing Insights | 12 Testers Google Play</title>
-  <meta name="description" content="Latest policy analysis, Google Play Console updates, closed testing strategies, and Android QA best practices for independent developers.">
+  <title>Android Publishing Insights & Closed Testing Journal | 12 Testers Google Play</title>
+  <meta name="description" content="Read the latest engineering articles on Google Play Developer policies, closed testing benchmarks, Android Vitals telemetry, and production access strategy.">
   <link rel="canonical" href="https://12testersgoogleplay.github.io/blog/">
   <meta name="robots" content="index, follow">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Google Play Developer Blog & Closed Testing Insights | 12 Testers Google Play">
-  <meta property="og:description" content="Latest policy analysis, Google Play Console updates, closed testing strategies, and Android QA best practices for independent developers.">
+  <meta property="og:title" content="Android Publishing Insights & Closed Testing Journal | 12 Testers Google Play">
+  <meta property="og:description" content="Read the latest engineering articles on Google Play Developer policies, closed testing benchmarks, Android Vitals telemetry, and production access strategy.">
   <meta property="og:url" content="https://12testersgoogleplay.github.io/blog/">
   <meta property="og:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Google Play Developer Blog & Closed Testing Insights | 12 Testers Google Play">
-  <meta name="twitter:description" content="Latest policy analysis, Google Play Console updates, closed testing strategies, and Android QA best practices for independent developers.">
+  <meta name="twitter:title" content="Android Publishing Insights & Closed Testing Journal | 12 Testers Google Play">
+  <meta name="twitter:description" content="Read the latest engineering articles on Google Play Developer policies, closed testing benchmarks, Android Vitals telemetry, and production access strategy.">
   <meta name="twitter:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
   
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -540,17 +540,87 @@
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
+      min-width: 52px;
+      width: fit-content;
+      min-height: 52px;
+      height: auto;
+      padding: 0.4rem 0.85rem;
       border-radius: var(--radius-md);
       background: rgba(56, 189, 248, 0.1);
       border: 1px solid rgba(56, 189, 248, 0.25);
       color: var(--brand-primary);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.35rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Dedicated Metric Card Styles (No clipping, large gradient digits) */
+    .metric-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-gradient);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--brand-primary);
+    }
+
+    .metric-pill-success {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--success);
+    }
+
+    .metric-icon {
       font-size: 1.4rem;
+    }
+
+    .metric-number, .metric-display {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      display: block;
+      width: fit-content;
     }
 
     /* Facts Grid & Fact Box (Numbers Sec) */
@@ -860,6 +930,28 @@
       flex-shrink: 0;
     }
 
+    /* Quick Answer Box (Optimized for Google Featured Snippets) */
+    .quick-answer {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 5px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      margin: 2.25rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .quick-answer-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
     /* Callout & Highlights */
     .callout {
       background: rgba(15, 23, 42, 0.75);
@@ -1156,38 +1248,37 @@
 
     <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Blog",
-      "@id": "https://12testersgoogleplay.github.io/blog/#blog",
-      "name": "Google Play Developer Blog & Closed Testing Insights | 12 Testers Google Play",
-      "description": "Latest policy analysis, Google Play Console updates, closed testing strategies, and Android QA best practices for independent developers.",
-      "url": "https://12testersgoogleplay.github.io/blog/",
-      "isPartOf": {
-        "@id": "https://12testersgoogleplay.github.io/#website"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://12testersgoogleplay.github.io/blog/#breadcrumb",
-      "itemListElement": [
+      "@context": "https://schema.org",
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://12testersgoogleplay.github.io/"
+          "@type": "Blog",
+          "name": "12 Testers Google Play Engineering Journal",
+          "description": "Technical insights, policy analysis, and practical tutorials for Android developers navigating Google Play Console requirements.",
+          "url": "https://12testersgoogleplay.github.io/blog/",
+          "publisher": {
+            "@type": "Organization",
+            "name": "12 Testers Google Play"
+          }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Blog",
-          "item": "https://12testersgoogleplay.github.io/blog/"
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://12testersgoogleplay.github.io/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://12testersgoogleplay.github.io/blog/"
+            }
+          ]
         }
       ]
     }
-  ]
-}
     </script>
 </head>
 <body>
@@ -1211,7 +1302,7 @@
           <li><a href="/pricing/" class="nav-link">Pricing</a></li>
           <li><a href="/services/" class="nav-link">Services</a></li>
           <li><a href="/for-agencies/" class="nav-link">For Agencies</a></li>
-          <li><a href="/guides/" class="nav-link active">Guides</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
           <li><a href="/about/" class="nav-link">About</a></li>
           <li><a href="/contact/" class="nav-link">Contact</a></li>
         </ul>
@@ -1227,50 +1318,88 @@
 
 <main>
 
-  <!-- Blog Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="badge">Google Play Insights</div>
-      <h1>Android Developer Blog &amp; Policy Analysis</h1>
-      <p class="lead">
-        In-depth breakdowns of Google Play Console policy updates, testing heuristics, and practical strategies to take your app from closed track to production.
-      </p>
-    </div>
-  </section>
-
-  <!-- Featured Posts -->
-  <section class="section" style="padding-top: 1rem;">
-    <div class="container">
-      <div class="grid-2">
-        <!-- Featured Post 1 -->
-        <div class="card" style="border-color: var(--brand-primary); background: linear-gradient(180deg, rgba(56,189,248,0.06) 0%, var(--bg-card) 100%);">
-          <div class="badge badge-success">Featured Cornerstone</div>
-          <h2>12 Testers for 14 Days: Complete Guide to Google Play Closed Testing (2026)</h2>
-          <p>
-            The definitive technical guide on the policy shift from 20 testers to 12 on December 11, 2024. Understand the telemetry behind Google's automated review system, timeline counters, and why physical hardware matters.
-          </p>
-          <div style="display: flex; gap: 1rem; align-items: center; margin: 1.5rem 0; font-size: 0.85rem; color: var(--text-dim);">
-            <span>15 Min Read</span> &bull; <span>Updated 2026</span> &bull; <span>By Senior Android QA Lead</span>
-          </div>
-          <a href="/blog/12-testers-for-14-days-complete-guide-to-google-play-closed-testing/" class="btn btn-primary">Read Full Guide &rarr;</a>
-        </div>
-
-        <!-- Featured Post 2 -->
-        <div class="card">
-          <div class="badge">Rejection Analysis</div>
-          <h2>Why Google Rejects Production Access Applications: The 8 Hidden Traps</h2>
-          <p>
-            An exhaustive audit of the 8 reasons Google rejects production access after 14 days of closed testing, from dormant tester telemetry to generic questionnaire answers.
-          </p>
-          <div style="display: flex; gap: 1rem; align-items: center; margin: 1.5rem 0; font-size: 0.85rem; color: var(--text-dim);">
-            <span>10 Min Read</span> &bull; <span>Compliance</span>
-          </div>
-          <a href="/google-play-production-access-rejected/" class="btn btn-secondary">Read Analysis &rarr;</a>
-        </div>
+  <main>
+    <!-- Breadcrumbs -->
+    <div style="background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 0.85rem 0;">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <a href="/">Home</a> &gt; <span>Engineering Blog</span>
+        </nav>
       </div>
     </div>
-  </section>
-    
+
+    <!-- Header -->
+    <header class="hero" style="padding: 3.5rem 0 2.5rem; background: var(--bg-alt); border-bottom: 1px solid var(--border);">
+      <div class="container" style="max-width: 900px;">
+        <div class="badge badge-success" style="margin-bottom: 1.25rem;">
+          <span class="pulse-dot"></span> Developer Insights &bull; Play Console Compliance Analysis
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1rem; letter-spacing: -0.02em;">
+          Android Publishing &amp; Closed Testing Engineering Journal
+        </h1>
+        <p class="lead-text" style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;">
+          Technical essays, empirical benchmark studies, and policy updates analyzing how modern Android developers build, test, and ship compliant applications on Google Play.
+        </p>
+      </div>
+    </header>
+
+    <!-- Blog Posts List -->
+    <section class="section">
+      <div class="container" style="max-width: 900px;">
+        <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+
+          <!-- Post 1 (Featured) -->
+          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff;">
+            <div style="margin-bottom: 1rem;">
+              <span class="badge badge-success" style="margin-bottom: 0.5rem;">Pillar Architecture Article</span>
+              <h2 style="font-size: 1.8rem; margin: 0.5rem 0;">
+                <a href="/blog/12-testers-for-14-days-complete-guide-to-google-play-closed-testing/" style="color: var(--text-main);">
+                  12 Testers for 14 Days: The Definitive Engineering Guide to Google Play Closed Testing
+                </a>
+              </h2>
+              <div style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">
+                <span>Published: March 2026</span> &bull; <span>18 Min Read</span> &bull; <span>By Lead Android QA Architect</span>
+              </div>
+            </div>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              An exhaustive analysis of Google's policy shift from 20 testers to 12 testers, the mathematics of cohort retention curves, Play Integrity telemetry signals, and how to structure your closed testing window for a 100% first-time production approval.
+            </p>
+            <a href="/blog/12-testers-for-14-days-complete-guide-to-google-play-closed-testing/" style="color: var(--primary); font-weight: 700;">Read Complete Article &rarr;</a>
+          </article>
+
+          <!-- Post 2: Rejection Post-Mortem -->
+          <article class="card" style="padding: 2rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff;">
+            <span class="badge badge-warning" style="margin-bottom: 0.5rem;">Forensic Case Study</span>
+            <h3 style="font-size: 1.4rem; margin: 0.5rem 0;">
+              <a href="/app-rejected/" style="color: var(--text-main);">
+                Why Google Disqualifies "Silent" Testing Cohorts: A Forensic Post-Mortem
+              </a>
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; margin-bottom: 1.25rem;">
+              Examining the exact telemetry markers that trigger "More testing required before accessing production": session dormancy, uninstalls, and lack of private console feedback.
+            </p>
+            <a href="/app-rejected/" style="color: var(--primary); font-weight: 600;">Read Case Study &rarr;</a>
+          </article>
+
+          <!-- Post 3: Questionnaire Playbook -->
+          <article class="card" style="padding: 2rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff;">
+            <span class="badge" style="background: var(--bg-alt); color: var(--text-muted); margin-bottom: 0.5rem;">Review Strategy</span>
+            <h3 style="font-size: 1.4rem; margin: 0.5rem 0;">
+              <a href="/guides/google-play-production-access-requirements/" style="color: var(--text-main);">
+                Deconstructing the 7 Production Access Prompts: What Evaluators Actually Look For
+              </a>
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.7; margin-bottom: 1.25rem;">
+              How to transform your testing feedback into rigorous, metrics-backed answers that convince Google Play human reviewers your app is production-ready.
+            </p>
+            <a href="/guides/google-play-production-access-requirements/" style="color: var(--primary); font-weight: 600;">Read Guide &rarr;</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
 </main>
 
   <!-- Floating WhatsApp Action -->
