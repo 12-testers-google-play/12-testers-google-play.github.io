@@ -33,13 +33,17 @@
       --bg-surface: #0f172a;
       --bg-card: #111a33;
       --bg-card-hover: #162447;
+      --bg-alt: #0f172a;
       --border-color: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.08);
       --border-highlight: rgba(56, 189, 248, 0.45);
       --border-glow: 0 0 25px rgba(56, 189, 248, 0.2);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
       --brand-primary: #38bdf8;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
       --brand-secondary: #818cf8;
       --brand-accent: #6366f1;
       --brand-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
@@ -72,19 +76,23 @@
     html {
       scroll-behavior: smooth;
       font-size: 16px;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
       background-color: var(--bg-dark);
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 100% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
-      color: #ffffff;
+      color: var(--text-main);
       font-family: var(--font-sans);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
     /* Container & Layout */
@@ -92,6 +100,8 @@
       max-width: var(--container-max);
       margin: 0 auto;
       padding: 0 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .section {
@@ -181,35 +191,40 @@
       font-size: 0.9em;
     }
 
-    /* Navigation */
+    /* ========================================= */
+    /* SITE HEADER & NAVIGATION */
+    /* ========================================= */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(7, 11, 20, 0.88);
+      background: rgba(7, 11, 20, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-color);
       transition: all 0.3s ease;
+      width: 100%;
     }
 
     .nav-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 74px;
+      height: 72px;
+      width: 100%;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.65rem;
       font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       color: #ffffff;
       text-decoration: none !important;
       letter-spacing: -0.02em;
+      flex-shrink: 0;
     }
 
     .logo span {
@@ -222,8 +237,8 @@
       font-size: 0.68rem;
       font-family: var(--font-mono);
       font-weight: 700;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
       background: rgba(56, 189, 248, 0.12);
       color: var(--brand-primary);
       border: 1px solid rgba(56, 189, 248, 0.3);
@@ -231,27 +246,34 @@
       letter-spacing: 0.05em;
     }
 
+    /* Desktop Navigation (min-width: 993px) */
     .main-nav {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.5rem;
     }
 
     .nav-list {
       display: flex;
       align-items: center;
-      gap: 1.6rem;
+      gap: 1.25rem;
       list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-link {
       color: var(--text-muted);
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       padding: 0.4rem 0;
       position: relative;
       transition: color 0.2s ease;
       text-decoration: none !important;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     .nav-link:hover, .nav-link.active {
@@ -270,26 +292,61 @@
       box-shadow: 0 0 8px var(--brand-primary);
     }
 
+    .nav-arrow {
+      display: none; /* Hidden on desktop */
+    }
+
+    .nav-cta-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-cta-btn {
+      padding: 0.55rem 1.15rem !important;
+      font-size: 0.88rem !important;
+      border-radius: 9999px !important;
+      white-space: nowrap !important;
+      gap: 0.45rem !important;
+    }
+
+    .btn-text-mobile {
+      display: none;
+    }
+
+    .btn-text-desktop {
+      display: inline;
+    }
+
+    /* Mobile Menu Toggle Button (Clean SVG, NEVER collapses to 1 line) */
     .mobile-menu-toggle {
       display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
       color: #ffffff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
     }
 
-    .mobile-menu-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--bg-card);
-      margin: 5px 0;
-      transition: 0.3s;
-      border-radius: 2px;
+    .mobile-menu-toggle:hover, .mobile-menu-toggle:focus {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--brand-primary);
+      color: var(--brand-primary);
     }
 
-    /* Buttons */
+    .mobile-nav-header {
+      display: none;
+    }
+
+    /* ========================================= */
+    /* BUTTONS & BADGES */
+    /* ========================================= */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -347,8 +404,9 @@
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: var(--bg-card);
+      background: #ffffff;
       animation: pulse 1.8s infinite;
+      flex-shrink: 0;
     }
 
     @keyframes pulse {
@@ -357,7 +415,6 @@
       100% { transform: scale(0.9); opacity: 0.8; }
     }
 
-    /* Badges & Pills */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -368,36 +425,26 @@
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.28);
+      background: rgba(56, 189, 248, 0.12);
       color: var(--brand-primary);
-      margin-bottom: 1.25rem;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      margin-bottom: 1.5rem;
     }
 
     .badge-success {
       background: rgba(16, 185, 129, 0.12);
-      border-color: rgba(16, 185, 129, 0.35);
       color: var(--success);
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
-    }
-
-    .badge-warning {
-      background: rgba(245, 158, 11, 0.12);
-      border-color: rgba(245, 158, 11, 0.35);
-      color: var(--warning);
+      border-color: rgba(16, 185, 129, 0.3);
     }
 
     /* Hero Section */
     .hero {
-      padding: 5.5rem 0 4.5rem;
+      padding: 6.5rem 0 5rem;
       text-align: center;
       position: relative;
-    }
-
-    .hero-content {
-      max-width: 900px;
-      margin: 0 auto;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 15%, rgba(56, 189, 248, 0.14) 0%, rgba(7, 11, 20, 0.98) 70%);
+      border-bottom: 1px solid var(--border-color);
     }
 
     .hero-actions, .hero-ctas {
@@ -409,9 +456,7 @@
       flex-wrap: wrap;
     }
 
-    /* ========================================= */
-    /* THE UPGRADED STATS BAR (DASHBOARD WIDGET) */
-    /* ========================================= */
+    /* Stats Bar (Dashboard Widget) */
     .stats-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -420,11 +465,13 @@
       border-radius: var(--radius-xl);
       margin: 3.5rem auto 1rem;
       max-width: 980px;
+      width: 100%;
       overflow: hidden;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       position: relative;
+      box-sizing: border-box;
     }
 
     .stats-bar::before {
@@ -446,6 +493,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      box-sizing: border-box;
     }
 
     .stat-item:last-child {
@@ -458,50 +506,19 @@
 
     .stat-value {
       font-family: var(--font-heading);
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       font-weight: 800;
-      line-height: 1.1;
-      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
       letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
+      line-height: 1.1;
     }
 
     .stat-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #94a3b8;
-      line-height: 1.3;
-    }
-
-    /* Trust Strip */
-    .trust-strip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-color);
-      flex-wrap: wrap;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.92rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       font-weight: 500;
-    }
-
-    .trust-icon {
-      color: var(--success);
-      font-weight: bold;
-      font-size: 1.1rem;
+      letter-spacing: 0.02em;
     }
 
     /* Cards & Grids */
@@ -527,44 +544,27 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 2.25rem 2rem;
+      padding: 2.25rem;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
+      box-sizing: border-box;
     }
 
     .card:hover {
-      background: var(--bg-card-hover);
       border-color: var(--border-highlight);
       transform: translateY(-4px);
       box-shadow: var(--shadow-glow);
+      background: var(--bg-card-hover);
     }
 
-    .card-icon {
-      min-width: 52px;
-      width: fit-content;
-      min-height: 52px;
-      height: auto;
-      padding: 0.4rem 0.85rem;
-      border-radius: var(--radius-md);
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      color: var(--brand-primary);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.35rem;
-      font-size: 1.25rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    /* Dedicated Metric Card Styles (No clipping, large gradient digits) */
+    /* Metric Cards (No clipping, large gradient digits) */
     .metric-card {
       padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      box-sizing: border-box;
     }
 
     .metric-card::before {
@@ -619,11 +619,12 @@
       -webkit-text-fill-color: transparent;
       margin-bottom: 0.75rem;
       letter-spacing: -0.02em;
-      display: block;
-      width: fit-content;
+      display: inline-block;
+      padding-right: 0.15em;
+      overflow: visible;
     }
 
-    /* Facts Grid & Fact Box (Numbers Sec) */
+    /* Facts Grid */
     .facts-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -634,136 +635,32 @@
     .fact-box {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 2rem 1.75rem;
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .fact-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--brand-gradient);
-      opacity: 0.6;
-      transition: opacity 0.3s;
+      box-sizing: border-box;
     }
 
     .fact-box:hover {
       border-color: var(--border-highlight);
       transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
-      background: var(--bg-card-hover);
     }
 
-    .fact-box:hover::before {
-      opacity: 1;
-    }
-
-    .fact-label {
-      font-family: var(--font-heading);
-      font-size: 1.75rem;
+    .fact-title {
       font-weight: 700;
       color: #ffffff;
+      font-size: 1.15rem;
       margin-bottom: 0.5rem;
     }
 
-    .fact-detail {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* Chapter Cards (15 Chapters Guides) */
-    .chapter-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .chapter-card:hover {
-      border-color: var(--border-highlight);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-glow);
-      background: var(--bg-card-hover);
-    }
-
-    .chapter-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      color: #ffffff;
-    }
-
-    .chapter-card p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-    }
-
-    /* Reviews Section */
-    .reviews-sec {
-      background: rgba(15, 23, 42, 0.4);
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .review-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-    }
-
-    .review-card:hover {
-      border-color: rgba(37, 211, 102, 0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-    }
-
-    .review-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1.25rem;
-    }
-
-    .review-stars {
-      color: #f59e0b;
-      font-size: 1.15rem;
-      letter-spacing: 2px;
-    }
-
-    .review-author {
-      font-weight: 700;
-      color: #ffffff;
-      font-size: 1rem;
-    }
-
-    .review-date {
-      color: var(--text-dim);
-      font-size: 0.85rem;
-    }
-
-    /* Timeline & Step List */
+    /* Step Timeline */
     .step-list {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       margin-top: 2.5rem;
+      list-style: none;
+      padding: 0;
     }
 
     .step-item {
@@ -775,6 +672,7 @@
       padding: 2rem;
       align-items: flex-start;
       transition: all 0.3s ease;
+      box-sizing: border-box;
     }
 
     .step-item:hover {
@@ -791,10 +689,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       flex-shrink: 0;
-      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+    }
+
+    .step-content {
+      min-width: 0;
+      flex: 1;
     }
 
     .step-content h3 {
@@ -805,44 +709,90 @@
 
     .step-content p {
       margin-bottom: 0;
-      color: var(--text-muted);
-      font-size: 0.98rem;
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
-    /* FAQ Items */
+    /* Chapter Cards */
+    .chapter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .chapter-card:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      background: var(--bg-card-hover);
+    }
+
+    .chapter-card h2, .chapter-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.85rem;
+      color: #ffffff;
+    }
+
+    .chapter-card p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .chapter-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FAQ Section */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
     .faq-item {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       padding: 1.75rem;
-      margin-bottom: 1.25rem;
       transition: all 0.3s ease;
+      box-sizing: border-box;
     }
 
     .faq-item:hover {
-      border-color: var(--border-highlight);
+      border-color: rgba(56, 189, 248, 0.3);
     }
 
-    .faq-item h3 {
+    .faq-item h3, .faq-item h4 {
       font-size: 1.2rem;
       color: #ffffff;
       margin-bottom: 0.75rem;
     }
 
-    .faq-body p {
+    .faq-body p, .faq-item p {
       color: var(--text-muted);
       font-size: 1rem;
       line-height: 1.7;
       margin-bottom: 0;
     }
 
-    /* Modern Pricing Section */
+    /* Pricing Section */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-top: 3.5rem;
       align-items: stretch;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .pricing-card {
@@ -854,6 +804,8 @@
       flex-direction: column;
       position: relative;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .pricing-card:hover {
@@ -890,138 +842,55 @@
       white-space: nowrap;
     }
 
-    .price-value {
-      font-family: var(--font-heading);
+    .pricing-plan-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-price {
       font-size: 3.2rem;
+      font-family: var(--font-heading);
       font-weight: 800;
       color: #ffffff;
       line-height: 1;
-      margin: 1.25rem 0 0.35rem;
+      margin: 1.25rem 0 0.5rem;
     }
 
-    .price-period {
-      color: var(--text-dim);
-      font-size: 0.88rem;
-      margin-bottom: 2rem;
+    .pricing-price span {
+      font-size: 1.1rem;
+      color: var(--text-muted);
       font-weight: 500;
     }
 
     .pricing-features {
       list-style: none;
-      margin-bottom: 2.25rem;
+      padding: 0;
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       flex-grow: 1;
     }
 
     .pricing-features li {
       display: flex;
       align-items: flex-start;
-      gap: 0.8rem;
-      padding: 0.65rem 0;
-      color: #cbd5e1;
-      font-size: 0.96rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .feature-check {
-      color: var(--success);
-      font-weight: bold;
-      font-size: 1.15rem;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-
-    /* Quick Answer Box (Optimized for Google Featured Snippets) */
-    .quick-answer {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-left: 5px solid var(--brand-primary);
-      border-radius: var(--radius-md);
-      padding: 1.75rem 2rem;
-      margin: 2.25rem 0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    }
-
-    .quick-answer-title {
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: #ffffff;
-      margin-bottom: 0.65rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    /* Callout & Highlights */
-    .callout {
-      background: rgba(15, 23, 42, 0.75);
-      border-left: 4px solid var(--brand-primary);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      padding: 1.75rem 2rem;
-      margin: 2.5rem 0;
-      border-top: 1px solid var(--border-color);
-      border-right: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .callout-warning {
-      border-left-color: var(--warning);
-    }
-
-    .callout-success {
-      border-left-color: var(--success);
-    }
-
-    .callout-title {
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 0.6rem;
-      font-size: 1.15rem;
-    }
-
-    /* Tables */
-    .table-wrap {
-      overflow-x: auto;
-      margin: 2.5rem 0;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-color);
-      background: var(--bg-surface);
-      box-shadow: var(--shadow-sm);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-
-    th, td {
-      padding: 1.15rem 1.35rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    th {
-      background: rgba(255, 255, 255, 0.04);
-      color: #ffffff;
-      font-weight: 700;
-      font-family: var(--font-heading);
+      gap: 0.75rem;
       font-size: 0.98rem;
+      color: #cbd5e1;
     }
 
-    td {
-      color: var(--text-muted);
-      font-size: 0.95rem;
+    .pricing-features li svg {
+      width: 18px;
+      height: 18px;
+      color: var(--success);
+      flex-shrink: 0;
+      margin-top: 3px;
     }
 
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    /* Floating WhatsApp Button (supports both .floating-wa and .floating-whatsapp) */
+    /* Floating WhatsApp Button */
     .floating-wa, .floating-whatsapp {
       position: fixed;
       bottom: 24px;
@@ -1035,16 +904,15 @@
       padding: 0.85rem 1.4rem;
       border-radius: 9999px;
       font-weight: 600;
-      font-size: 0.95rem;
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       text-decoration: none !important;
     }
 
     .floating-wa:hover, .floating-whatsapp:hover {
-      background: #20bd5a;
       transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+      background: #20bd5a;
     }
 
     /* Footer */
@@ -1053,51 +921,56 @@
       border-top: 1px solid var(--border-color);
       padding: 5rem 0 2.5rem;
       margin-top: 5rem;
+      width: 100%;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 3.5rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 4rem;
     }
 
     .footer-brand p {
+      color: var(--text-muted);
       margin: 1.25rem 0 1.5rem;
       font-size: 0.95rem;
-      max-width: 320px;
+      line-height: 1.7;
     }
 
     .footer-heading {
       color: #ffffff;
+      font-family: var(--font-heading);
       font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 1.35rem;
+      margin-bottom: 1.5rem;
       letter-spacing: -0.01em;
     }
 
     .footer-links {
       list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding: 0;
+      margin: 0;
     }
 
     .footer-links a {
       color: var(--text-muted);
       font-size: 0.92rem;
-      transition: color 0.2s;
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     .footer-links a:hover {
-      color: var(--brand-primary);
-      text-decoration: none;
+      color: #ffffff;
+      padding-left: 3px;
     }
 
     .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       padding-top: 2rem;
-      border-top: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1108,10 +981,12 @@
     }
 
     .footer-disclaimer {
-      font-size: 0.82rem;
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
       color: var(--text-dim);
-      margin-top: 1.25rem;
       line-height: 1.6;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 1.5rem;
     }
 
     /* Breadcrumbs */
@@ -1119,128 +994,357 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.88rem;
-      color: var(--text-dim);
-      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
       flex-wrap: wrap;
     }
 
     .breadcrumbs a {
       color: var(--text-muted);
+      text-decoration: none;
     }
 
     .breadcrumbs a:hover {
       color: var(--brand-primary);
     }
 
-    /* Media Queries / Responsive */
-    @media (max-width: 1024px) {
+    /* Global media protections */
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ========================================= */
+    /* RESPONSIVE DESIGN BREAKPOINTS */
+    /* ========================================= */
+
+    /* Tablet Breakpoint (max-width: 992px) */
+    @media (max-width: 992px) {
+      .logo-badge {
+        display: none !important;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex !important;
+      }
+
+      /* Mobile Drawer Nav: completely hidden when inactive */
+      .main-nav {
+        display: none !important;
+      }
+
+      .main-nav.active {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        height: 100dvh !important;
+        background: rgba(7, 11, 20, 0.98) !important;
+        backdrop-filter: blur(28px) !important;
+        -webkit-backdrop-filter: blur(28px) !important;
+        z-index: 999999 !important;
+        flex-direction: column !important;
+        padding: 1.25rem 1.5rem 2.25rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        box-sizing: border-box !important;
+      }
+
+      .mobile-nav-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding-bottom: 1rem !important;
+        margin-bottom: 1.25rem !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        width: 100% !important;
+        flex-shrink: 0 !important;
+      }
+
+      .mobile-menu-close {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 42px !important;
+        height: 42px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-sm) !important;
+        color: #ffffff !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+      }
+
+      .mobile-menu-close:hover {
+        background: rgba(239, 68, 68, 0.2) !important;
+        border-color: #ef4444 !important;
+        color: #ef4444 !important;
+      }
+
+      .nav-list {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        width: 100% !important;
+        margin-bottom: 1.75rem !important;
+        padding: 0 !important;
+        list-style: none !important;
+      }
+
+      .nav-list li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+        width: 100% !important;
+      }
+
+      .nav-link {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        font-size: 1.15rem !important;
+        font-weight: 600 !important;
+        color: #f8fafc !important;
+        padding: 1.05rem 0.5rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        transition: all 0.2s ease !important;
+      }
+
+      .nav-link:hover, .nav-link.active {
+        color: var(--brand-primary) !important;
+        padding-left: 0.85rem !important;
+      }
+
+      .nav-link.active::after {
+        display: none !important;
+      }
+
+      .nav-arrow {
+        display: inline-block !important;
+        font-size: 1.1rem !important;
+        opacity: 0.6 !important;
+      }
+
+      .nav-cta-wrap {
+        width: 100% !important;
+        margin-top: auto !important;
+        padding-top: 1rem !important;
+        box-sizing: border-box !important;
+        flex-shrink: 0 !important;
+      }
+
+      .btn-text-desktop {
+        display: none !important;
+      }
+
+      .btn-text-mobile {
+        display: inline !important;
+      }
+
+      .nav-cta-btn {
+        width: 100% !important;
+        padding: 1.05rem !important;
+        font-size: 1.05rem !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        border-radius: var(--radius-md) !important;
+      }
+
       .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
       }
+
       .pricing-featured {
-        grid-column: span 2;
-        transform: none;
+        grid-column: span 2 !important;
+        transform: none !important;
       }
-      .pricing-featured:hover {
-        transform: translateY(-5px);
-      }
+
       .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
       }
+
       .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2.5rem !important;
       }
     }
 
+    /* Mobile Breakpoint (max-width: 768px) */
     @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+
       .section, .numbers-sec, .about-sec, .timeline-sec, 
       .method-sec, .why-price-sec, .compare-sec, .chapters-sec, .reviews-sec {
-        padding: 3.5rem 0;
-      }
-      .mobile-menu-toggle {
-        display: block;
-      }
-      .main-nav {
-        position: fixed;
-        top: 74px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(7, 11, 20, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: stretch;
-        padding: 2rem 1.5rem;
-        gap: 2rem;
-        display: none;
-        overflow-y: auto;
-      }
-      .main-nav.active {
-        display: flex;
-      }
-      .nav-list {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.25rem;
-        width: 100%;
-      }
-      .nav-link {
-        font-size: 1.2rem;
-        width: 100%;
-        padding: 0.5rem 0;
-      }
-      .nav-cta-wrap {
-        width: 100%;
-      }
-      .nav-cta-wrap .btn {
-        width: 100%;
-      }
-      .grid-2, .grid-3, .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-      .pricing-featured {
-        grid-column: auto;
+        padding: 3.25rem 0 !important;
       }
 
-      /* Stats bar responsive 2x2 grid */
-      .stats-bar {
-        grid-template-columns: repeat(2, 1fr);
-        margin: 2.5rem auto 1rem;
-      }
-      .stat-item:nth-child(2) {
-        border-right: none;
-      }
-      .stat-item:nth-child(1), .stat-item:nth-child(2) {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      .stat-value {
-        font-size: 2rem;
-      }
-      .stat-item {
-        padding: 1.5rem 1rem;
+      /* Hero Section Mobile */
+      .hero {
+        padding: 4.5rem 0 3.5rem !important;
       }
 
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
       .hero-actions, .hero-ctas {
-        flex-direction: column;
-        width: 100%;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.85rem !important;
       }
+
       .hero-actions .btn, .hero-ctas .btn {
-        width: 100%;
+        width: 100% !important;
+        box-sizing: border-box !important;
       }
+
+      /* Stats Bar Mobile 2x2 Grid (No clipping, clean borders) */
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr) !important;
+        margin: 2.25rem auto 1rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: var(--radius-lg) !important;
+      }
+
+      .stat-item {
+        padding: 1.25rem 0.75rem !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none !important;
+      }
+
+      .stat-item:nth-child(1), .stat-item:nth-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      }
+
+      .stat-value {
+        font-size: 1.75rem !important;
+        word-break: break-word !important;
+      }
+
+      .stat-label {
+        font-size: 0.78rem !important;
+        word-break: break-word !important;
+      }
+
+      /* Metric Cards Mobile (Zero digit clipping) */
+      .metric-card {
+        padding: 1.75rem 1.25rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+
+      .metric-display, .metric-number {
+        font-size: 2.5rem !important;
+        padding-right: 0.15em !important;
+      }
+
+      /* Pricing Section Mobile Cutoff Fix */
+      .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 2.5rem 0 1rem !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      .pricing-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 2.25rem 1.25rem !important;
+        transform: none !important;
+        margin: 0 !important;
+      }
+
+      .pricing-card:hover {
+        transform: none !important;
+      }
+
+      .pricing-featured {
+        grid-column: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.2) !important;
+      }
+
+      .pricing-featured:hover {
+        transform: none !important;
+      }
+
+      /* All Grids Collapse cleanly on mobile */
+      .grid-2, .grid-3, .grid-4, .facts-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+      }
+
+      .fact-box {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Step Timeline Items Mobile */
+      .step-item {
+        padding: 1.25rem 1rem !important;
+        gap: 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .step-num {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        font-size: 1rem !important;
+      }
+
+      .step-content {
+        min-width: 0 !important;
+      }
+
+      .step-content h3 {
+        font-size: 1.15rem !important;
+      }
+
+      /* Chapter Cards Mobile */
+      .chapter-card {
+        padding: 1.5rem 1.25rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .chapter-card h2, .chapter-card h3 {
+        font-size: 1.25rem !important;
+      }
+
+      /* Footer Mobile */
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+
       .floating-wa-text {
-        display: none;
+        display: none !important;
       }
+
       .floating-wa, .floating-whatsapp {
-        padding: 0.85rem;
-        border-radius: 50%;
-        bottom: 18px;
-        right: 18px;
+        padding: 0.85rem !important;
+        border-radius: 50% !important;
+        bottom: 18px !important;
+        right: 18px !important;
       }
     }
     
@@ -1286,29 +1390,45 @@
       <a href="/" class="logo">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-primary);"><path d="M5 16V9h14V2H5l14 14h-7m-7 0 7 7v-7m-7 0h7"/></svg>
         <span>12Testers</span>Play
-        <span class="logo-badge">QA Network</span>
+        <span class="logo-badge">QA Fleet</span>
       </a>
 
-      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- Mobile Hamburger Button: 3 distinct, standard SVG bars -->
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
       </button>
 
       <nav class="main-nav" id="mainNav">
+        <div class="mobile-nav-header">
+          <a href="/" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-primary);"><path d="M5 16V9h14V2H5l14 14h-7m-7 0 7 7v-7m-7 0h7"/></svg>
+            <span>12Testers</span>Play
+          </a>
+          <button class="mobile-menu-close" id="menuClose" aria-label="Close navigation menu" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
         <ul class="nav-list">
-          <li><a href="/" class="nav-link">Home</a></li>
-          <li><a href="/pricing/" class="nav-link">Pricing</a></li>
-          <li><a href="/services/" class="nav-link active">Services</a></li>
-          <li><a href="/for-agencies/" class="nav-link">For Agencies</a></li>
-          <li><a href="/guides/" class="nav-link">Guides</a></li>
-          <li><a href="/about/" class="nav-link">About</a></li>
-          <li><a href="/contact/" class="nav-link">Contact</a></li>
+          <li><a href="/" class="nav-link"><span>Home</span><span class="nav-arrow">&rarr;</span></a></li>
+          <li><a href="/pricing/" class="nav-link"><span>Pricing</span><span class="nav-arrow">&rarr;</span></a></li>
+          <li><a href="/services/" class="nav-link active"><span>Services</span><span class="nav-arrow">&rarr;</span></a></li>
+          <li><a href="/for-agencies/" class="nav-link"><span>For Agencies</span><span class="nav-arrow">&rarr;</span></a></li>
+          <li><a href="/guides/" class="nav-link"><span>Guides</span><span class="nav-arrow">&rarr;</span></a></li>
+          <li><a href="/about/" class="nav-link"><span>About</span><span class="nav-arrow">&rarr;</span></a></li>
+          <li><a href="/contact/" class="nav-link"><span>Contact</span><span class="nav-arrow">&rarr;</span></a></li>
         </ul>
         <div class="nav-cta-wrap">
-          <a href="https://wa.me/923394001479?text=Hi%2C%20I%20need%20help%20with%20Google%20Play%2012%20testers" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/923394001479?text=Hi%2C%20I%20need%20help%20with%20Google%20Play%2012%20testers" class="btn btn-whatsapp nav-cta-btn" target="_blank" rel="noopener noreferrer">
             <span class="pulse-dot"></span>
-            <span>WhatsApp Us</span>
+            <span class="btn-text-desktop">WhatsApp QA</span>
+            <span class="btn-text-mobile">Chat on WhatsApp (+923394001479)</span>
           </a>
         </div>
       </nav>
@@ -1316,95 +1436,93 @@
   </header>
 
 <main>
-
-  <main>
-    <!-- Breadcrumbs -->
-    <div style="background: var(--bg-surface); border-bottom: 1px solid var(--border-color); padding: 0.85rem 0;">
-      <div class="container">
-        <nav class="breadcrumbs">
-          <a href="/">Home</a> &gt; <span>Services</span>
-        </nav>
-      </div>
-    </div>
-
-    <!-- Header -->
-    <header class="hero" style="padding: 3.5rem 0 2.5rem; background: var(--bg-surface); border-bottom: 1px solid var(--border-color);">
-      <div class="container" style="max-width: 900px;">
-        <div class="badge badge-success" style="margin-bottom: 1.25rem;">
-          <span class="pulse-dot"></span> Comprehensive QA Ecosystem &bull; Google Play Compliance
-        </div>
-        <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1rem; letter-spacing: -0.02em;">
-          Google Play Testing &amp; Compliance Services
-        </h1>
-        <p class="lead-text" style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;">
-          From baseline 12-tester compliance cohorts to emergency rejection recovery and enterprise agency partnerships, our specialized Android QA infrastructure ensures your applications pass Google Play production review without friction.
-        </p>
-      </div>
-    </header>
-
-    <!-- Services Grid -->
-    <section class="section">
-      <div class="container" style="max-width: 1000px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 2rem;">
-
-          <!-- Service 1 -->
-          <div class="card" style="padding: 2rem; border: 1px solid var(--border-color); border-radius: var(--radius); background: var(--bg-card); display: flex; flex-direction: column;">
-            <div style="font-size: 2.2rem; margin-bottom: 1rem;">&#128241;</div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"><a href="/android-app-testing-service/" style="color: #ffffff;">12 Testers for 14 Days Closed Testing</a></h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
-              Our flagship testing cohort for new Google Play developer accounts. 14 to 16 verified physical Android devices across unique residential networks, continuous daily sessions, and 100% money-back pass guarantee.
-            </p>
-            <a href="/android-app-testing-service/" style="color: var(--brand-primary); font-weight: 600;">Learn More &rarr;</a>
-          </div>
-
-          <!-- Service 2 -->
-          <div class="card" style="padding: 2rem; border: 1px solid var(--border-color); border-radius: var(--radius); background: var(--bg-card); display: flex; flex-direction: column;">
-            <div style="font-size: 2.2rem; margin-bottom: 1rem;">&#128680;</div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"><a href="/app-rejected/" style="color: #ffffff;">Rejection Recovery &amp; Re-Test Audit</a></h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
-              Received "More testing required to access production"? We perform a forensic audit of your telemetry, deploy 20 physical testers, and provide tailor-made questionnaire answers to guarantee approval.
-            </p>
-            <a href="/app-rejected/" style="color: var(--brand-primary); font-weight: 600;">View Recovery Protocol &rarr;</a>
-          </div>
-
-          <!-- Service 3 -->
-          <div class="card" style="padding: 2rem; border: 1px solid var(--border-color); border-radius: var(--radius); background: var(--bg-card); display: flex; flex-direction: column;">
-            <div style="font-size: 2.2rem; margin-bottom: 1rem;">&#127970;</div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"><a href="/for-agencies/" style="color: #ffffff;">White-Label Agency Partner Program</a></h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
-              Wholesale closed testing infrastructure for software development studios. Volume discounts, unbranded executive PDF testing reports, and dedicated account management for multiple client apps.
-            </p>
-            <a href="/for-agencies/" style="color: var(--brand-primary); font-weight: 600;">Explore Agency Program &rarr;</a>
-          </div>
-
-          <!-- Service 4 -->
-          <div class="card" style="padding: 2rem; border: 1px solid var(--border-color); border-radius: var(--radius); background: var(--bg-card); display: flex; flex-direction: column;">
-            <div style="font-size: 2.2rem; margin-bottom: 1rem;">&#128736;</div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;"><a href="/guides/twa-app-rejected-switch-to-webview/" style="color: #ffffff;">TWA &amp; WebView Compliance Architecture</a></h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex-grow: 1;">
-              Specialized auditing for Trusted Web Activity (TWA) and PWA wrapper applications facing Google Play Minimum Functionality or Digital Asset Links SHA-256 fingerprint rejections.
-            </p>
-            <a href="/guides/twa-app-rejected-switch-to-webview/" style="color: var(--brand-primary); font-weight: 600;">Read Technical Guide &rarr;</a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Bottom CTA -->
-    <section class="section" style="background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%); color: #fff; padding: 4.5rem 0; text-align: center;">
-      <div class="container" style="max-width: 800px;">
-        <h2 style="font-size: 2.4rem; color: #fff; margin-bottom: 1rem;">Need a Custom Testing Setup?</h2>
-        <p style="font-size: 1.15rem; color: #cbd5e1; margin-bottom: 2rem;">
-          Consult with our Android QA leads on WhatsApp to configure the perfect testing cohort for your application.
-        </p>
-        <a href="https://wa.me/923394001479?text=Hi%2C%20I%20need%20custom%20Android%20testing%20consultation." class="btn btn-whatsapp" style="padding: 1rem 2rem; font-size: 1.1rem;" target="_blank" rel="noopener">
-          &#128172; Inquire on WhatsApp (+923394001479)
-        </a>
-      </div>
-    </section>
-  </main>
-
+&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;!&mdash;-&mdash;-&mdash; &mdash;B&mdash;r&mdash;e&mdash;a&mdash;d&mdash;c&mdash;r&mdash;u&mdash;m&mdash;b&mdash;s&mdash; &mdash;-&mdash;-&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;b&mdash;a&mdash;c&mdash;k&mdash;g&mdash;r&mdash;o&mdash;u&mdash;n&mdash;d&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;g&mdash;-&mdash;s&mdash;u&mdash;r&mdash;f&mdash;a&mdash;c&mdash;e&mdash;)&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;p&mdash;x&mdash; &mdash;s&mdash;o&mdash;l&mdash;i&mdash;d&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;)&mdash;;&mdash; &mdash;p&mdash;a&mdash;d&mdash;d&mdash;i&mdash;n&mdash;g&mdash;:&mdash; &mdash;0&mdash;.&mdash;8&mdash;5&mdash;r&mdash;e&mdash;m&mdash; &mdash;0&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;c&mdash;o&mdash;n&mdash;t&mdash;a&mdash;i&mdash;n&mdash;e&mdash;r&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;n&mdash;a&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;b&mdash;r&mdash;e&mdash;a&mdash;d&mdash;c&mdash;r&mdash;u&mdash;m&mdash;b&mdash;s&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;/&mdash;"&mdash;>&mdash;H&mdash;o&mdash;m&mdash;e&mdash;<&mdash;/&mdash;a&mdash;>&mdash; &mdash;&&mdash;g&mdash;t&mdash;;&mdash; &mdash;<&mdash;s&mdash;p&mdash;a&mdash;n&mdash;>&mdash;S&mdash;e&mdash;r&mdash;v&mdash;i&mdash;c&mdash;e&mdash;s&mdash;<&mdash;/&mdash;s&mdash;p&mdash;a&mdash;n&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;n&mdash;a&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;!&mdash;-&mdash;-&mdash; &mdash;H&mdash;e&mdash;a&mdash;d&mdash;e&mdash;r&mdash; &mdash;-&mdash;-&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;h&mdash;e&mdash;a&mdash;d&mdash;e&mdash;r&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;h&mdash;e&mdash;r&mdash;o&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;p&mdash;a&mdash;d&mdash;d&mdash;i&mdash;n&mdash;g&mdash;:&mdash; &mdash;3&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash; &mdash;0&mdash; &mdash;2&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;b&mdash;a&mdash;c&mdash;k&mdash;g&mdash;r&mdash;o&mdash;u&mdash;n&mdash;d&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;g&mdash;-&mdash;s&mdash;u&mdash;r&mdash;f&mdash;a&mdash;c&mdash;e&mdash;)&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;p&mdash;x&mdash; &mdash;s&mdash;o&mdash;l&mdash;i&mdash;d&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;)&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;c&mdash;o&mdash;n&mdash;t&mdash;a&mdash;i&mdash;n&mdash;e&mdash;r&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;m&mdash;a&mdash;x&mdash;-&mdash;w&mdash;i&mdash;d&mdash;t&mdash;h&mdash;:&mdash; &mdash;9&mdash;0&mdash;0&mdash;p&mdash;x&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;b&mdash;a&mdash;d&mdash;g&mdash;e&mdash; &mdash;b&mdash;a&mdash;d&mdash;g&mdash;e&mdash;-&mdash;s&mdash;u&mdash;c&mdash;c&mdash;e&mdash;s&mdash;s&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;.&mdash;2&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;s&mdash;p&mdash;a&mdash;n&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;p&mdash;u&mdash;l&mdash;s&mdash;e&mdash;-&mdash;d&mdash;o&mdash;t&mdash;"&mdash;>&mdash;<&mdash;/&mdash;s&mdash;p&mdash;a&mdash;n&mdash;>&mdash; &mdash;C&mdash;o&mdash;m&mdash;p&mdash;r&mdash;e&mdash;h&mdash;e&mdash;n&mdash;s&mdash;i&mdash;v&mdash;e&mdash; &mdash;Q&mdash;A&mdash; &mdash;E&mdash;c&mdash;o&mdash;s&mdash;y&mdash;s&mdash;t&mdash;e&mdash;m&mdash; &mdash;&&mdash;b&mdash;u&mdash;l&mdash;l&mdash;;&mdash; &mdash;G&mdash;o&mdash;o&mdash;g&mdash;l&mdash;e&mdash; &mdash;P&mdash;l&mdash;a&mdash;y&mdash; &mdash;C&mdash;o&mdash;m&mdash;p&mdash;l&mdash;i&mdash;a&mdash;n&mdash;c&mdash;e&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;h&mdash;1&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;c&mdash;l&mdash;a&mdash;m&mdash;p&mdash;(&mdash;2&mdash;.&mdash;2&mdash;r&mdash;e&mdash;m&mdash;,&mdash; &mdash;4&mdash;v&mdash;w&mdash;,&mdash; &mdash;3&mdash;.&mdash;2&mdash;r&mdash;e&mdash;m&mdash;)&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;l&mdash;e&mdash;t&mdash;t&mdash;e&mdash;r&mdash;-&mdash;s&mdash;p&mdash;a&mdash;c&mdash;i&mdash;n&mdash;g&mdash;:&mdash; &mdash;-&mdash;0&mdash;.&mdash;0&mdash;2&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;G&mdash;o&mdash;o&mdash;g&mdash;l&mdash;e&mdash; &mdash;P&mdash;l&mdash;a&mdash;y&mdash; &mdash;T&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash; &mdash;&&mdash;a&mdash;m&mdash;p&mdash;;&mdash; &mdash;C&mdash;o&mdash;m&mdash;p&mdash;l&mdash;i&mdash;a&mdash;n&mdash;c&mdash;e&mdash; &mdash;S&mdash;e&mdash;r&mdash;v&mdash;i&mdash;c&mdash;e&mdash;s&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;h&mdash;1&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;p&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;l&mdash;e&mdash;a&mdash;d&mdash;-&mdash;t&mdash;e&mdash;x&mdash;t&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;1&mdash;.&mdash;1&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;t&mdash;e&mdash;x&mdash;t&mdash;-&mdash;m&mdash;u&mdash;t&mdash;e&mdash;d&mdash;)&mdash;;&mdash; &mdash;l&mdash;i&mdash;n&mdash;e&mdash;-&mdash;h&mdash;e&mdash;i&mdash;g&mdash;h&mdash;t&mdash;:&mdash; &mdash;1&mdash;.&mdash;7&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;F&mdash;r&mdash;o&mdash;m&mdash; &mdash;b&mdash;a&mdash;s&mdash;e&mdash;l&mdash;i&mdash;n&mdash;e&mdash; &mdash;1&mdash;2&mdash;-&mdash;t&mdash;e&mdash;s&mdash;t&mdash;e&mdash;r&mdash; &mdash;c&mdash;o&mdash;m&mdash;p&mdash;l&mdash;i&mdash;a&mdash;n&mdash;c&mdash;e&mdash; &mdash;c&mdash;o&mdash;h&mdash;o&mdash;r&mdash;t&mdash;s&mdash; &mdash;t&mdash;o&mdash; &mdash;e&mdash;m&mdash;e&mdash;r&mdash;g&mdash;e&mdash;n&mdash;c&mdash;y&mdash; &mdash;r&mdash;e&mdash;j&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash; &mdash;r&mdash;e&mdash;c&mdash;o&mdash;v&mdash;e&mdash;r&mdash;y&mdash; &mdash;a&mdash;n&mdash;d&mdash; &mdash;e&mdash;n&mdash;t&mdash;e&mdash;r&mdash;p&mdash;r&mdash;i&mdash;s&mdash;e&mdash; &mdash;a&mdash;g&mdash;e&mdash;n&mdash;c&mdash;y&mdash; &mdash;p&mdash;a&mdash;r&mdash;t&mdash;n&mdash;e&mdash;r&mdash;s&mdash;h&mdash;i&mdash;p&mdash;s&mdash;,&mdash; &mdash;o&mdash;u&mdash;r&mdash; &mdash;s&mdash;p&mdash;e&mdash;c&mdash;i&mdash;a&mdash;l&mdash;i&mdash;z&mdash;e&mdash;d&mdash; &mdash;A&mdash;n&mdash;d&mdash;r&mdash;o&mdash;i&mdash;d&mdash; &mdash;Q&mdash;A&mdash; &mdash;i&mdash;n&mdash;f&mdash;r&mdash;a&mdash;s&mdash;t&mdash;r&mdash;u&mdash;c&mdash;t&mdash;u&mdash;r&mdash;e&mdash; &mdash;e&mdash;n&mdash;s&mdash;u&mdash;r&mdash;e&mdash;s&mdash; &mdash;y&mdash;o&mdash;u&mdash;r&mdash; &mdash;a&mdash;p&mdash;p&mdash;l&mdash;i&mdash;c&mdash;a&mdash;t&mdash;i&mdash;o&mdash;n&mdash;s&mdash; &mdash;p&mdash;a&mdash;s&mdash;s&mdash; &mdash;G&mdash;o&mdash;o&mdash;g&mdash;l&mdash;e&mdash; &mdash;P&mdash;l&mdash;a&mdash;y&mdash; &mdash;p&mdash;r&mdash;o&mdash;d&mdash;u&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash; &mdash;r&mdash;e&mdash;v&mdash;i&mdash;e&mdash;w&mdash; &mdash;w&mdash;i&mdash;t&mdash;h&mdash;o&mdash;u&mdash;t&mdash; &mdash;f&mdash;r&mdash;i&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;.&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;p&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;h&mdash;e&mdash;a&mdash;d&mdash;e&mdash;r&mdash;>&mdash;
+&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;!&mdash;-&mdash;-&mdash; &mdash;S&mdash;e&mdash;r&mdash;v&mdash;i&mdash;c&mdash;e&mdash;s&mdash; &mdash;G&mdash;r&mdash;i&mdash;d&mdash; &mdash;-&mdash;-&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;s&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;s&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;c&mdash;o&mdash;n&mdash;t&mdash;a&mdash;i&mdash;n&mdash;e&mdash;r&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;m&mdash;a&mdash;x&mdash;-&mdash;w&mdash;i&mdash;d&mdash;t&mdash;h&mdash;:&mdash; &mdash;1&mdash;0&mdash;0&mdash;0&mdash;p&mdash;x&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;d&mdash;i&mdash;s&mdash;p&mdash;l&mdash;a&mdash;y&mdash;:&mdash; &mdash;g&mdash;r&mdash;i&mdash;d&mdash;;&mdash; &mdash;g&mdash;r&mdash;i&mdash;d&mdash;-&mdash;t&mdash;e&mdash;m&mdash;p&mdash;l&mdash;a&mdash;t&mdash;e&mdash;-&mdash;c&mdash;o&mdash;l&mdash;u&mdash;m&mdash;n&mdash;s&mdash;:&mdash; &mdash;r&mdash;e&mdash;p&mdash;e&mdash;a&mdash;t&mdash;(&mdash;a&mdash;u&mdash;t&mdash;o&mdash;-&mdash;f&mdash;i&mdash;t&mdash;,&mdash; &mdash;m&mdash;i&mdash;n&mdash;m&mdash;a&mdash;x&mdash;(&mdash;3&mdash;1&mdash;0&mdash;p&mdash;x&mdash;,&mdash; &mdash;1&mdash;f&mdash;r&mdash;)&mdash;)&mdash;;&mdash; &mdash;g&mdash;a&mdash;p&mdash;:&mdash; &mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;
+&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;!&mdash;-&mdash;-&mdash; &mdash;S&mdash;e&mdash;r&mdash;v&mdash;i&mdash;c&mdash;e&mdash; &mdash;1&mdash; &mdash;-&mdash;-&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;c&mdash;a&mdash;r&mdash;d&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;p&mdash;a&mdash;d&mdash;d&mdash;i&mdash;n&mdash;g&mdash;:&mdash; &mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;:&mdash; &mdash;1&mdash;p&mdash;x&mdash; &mdash;s&mdash;o&mdash;l&mdash;i&mdash;d&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;)&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;r&mdash;a&mdash;d&mdash;i&mdash;u&mdash;s&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;r&mdash;a&mdash;d&mdash;i&mdash;u&mdash;s&mdash;)&mdash;;&mdash; &mdash;b&mdash;a&mdash;c&mdash;k&mdash;g&mdash;r&mdash;o&mdash;u&mdash;n&mdash;d&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;g&mdash;-&mdash;c&mdash;a&mdash;r&mdash;d&mdash;)&mdash;;&mdash; &mdash;d&mdash;i&mdash;s&mdash;p&mdash;l&mdash;a&mdash;y&mdash;:&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;;&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;-&mdash;d&mdash;i&mdash;r&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;:&mdash; &mdash;c&mdash;o&mdash;l&mdash;u&mdash;m&mdash;n&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;2&mdash;.&mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;&&mdash;#&mdash;1&mdash;2&mdash;8&mdash;2&mdash;4&mdash;1&mdash;;&mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;h&mdash;3&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;1&mdash;.&mdash;4&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;0&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;/&mdash;a&mdash;n&mdash;d&mdash;r&mdash;o&mdash;i&mdash;d&mdash;-&mdash;a&mdash;p&mdash;p&mdash;-&mdash;t&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash;-&mdash;s&mdash;e&mdash;r&mdash;v&mdash;i&mdash;c&mdash;e&mdash;/&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;#&mdash;f&mdash;f&mdash;f&mdash;f&mdash;f&mdash;f&mdash;;&mdash;"&mdash;>&mdash;1&mdash;2&mdash; &mdash;T&mdash;e&mdash;s&mdash;t&mdash;e&mdash;r&mdash;s&mdash; &mdash;f&mdash;o&mdash;r&mdash; &mdash;1&mdash;4&mdash; &mdash;D&mdash;a&mdash;y&mdash;s&mdash; &mdash;C&mdash;l&mdash;o&mdash;s&mdash;e&mdash;d&mdash; &mdash;T&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash;<&mdash;/&mdash;a&mdash;>&mdash;<&mdash;/&mdash;h&mdash;3&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;p&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;t&mdash;e&mdash;x&mdash;t&mdash;-&mdash;m&mdash;u&mdash;t&mdash;e&mdash;d&mdash;)&mdash;;&mdash; &mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;0&mdash;.&mdash;9&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;-&mdash;g&mdash;r&mdash;o&mdash;w&mdash;:&mdash; &mdash;1&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;O&mdash;u&mdash;r&mdash; &mdash;f&mdash;l&mdash;a&mdash;g&mdash;s&mdash;h&mdash;i&mdash;p&mdash; &mdash;t&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash; &mdash;c&mdash;o&mdash;h&mdash;o&mdash;r&mdash;t&mdash; &mdash;f&mdash;o&mdash;r&mdash; &mdash;n&mdash;e&mdash;w&mdash; &mdash;G&mdash;o&mdash;o&mdash;g&mdash;l&mdash;e&mdash; &mdash;P&mdash;l&mdash;a&mdash;y&mdash; &mdash;d&mdash;e&mdash;v&mdash;e&mdash;l&mdash;o&mdash;p&mdash;e&mdash;r&mdash; &mdash;a&mdash;c&mdash;c&mdash;o&mdash;u&mdash;n&mdash;t&mdash;s&mdash;.&mdash; &mdash;1&mdash;4&mdash; &mdash;t&mdash;o&mdash; &mdash;1&mdash;6&mdash; &mdash;v&mdash;e&mdash;r&mdash;i&mdash;f&mdash;i&mdash;e&mdash;d&mdash; &mdash;p&mdash;h&mdash;y&mdash;s&mdash;i&mdash;c&mdash;a&mdash;l&mdash; &mdash;A&mdash;n&mdash;d&mdash;r&mdash;o&mdash;i&mdash;d&mdash; &mdash;d&mdash;e&mdash;v&mdash;i&mdash;c&mdash;e&mdash;s&mdash; &mdash;a&mdash;c&mdash;r&mdash;o&mdash;s&mdash;s&mdash; &mdash;u&mdash;n&mdash;i&mdash;q&mdash;u&mdash;e&mdash; &mdash;r&mdash;e&mdash;s&mdash;i&mdash;d&mdash;e&mdash;n&mdash;t&mdash;i&mdash;a&mdash;l&mdash; &mdash;n&mdash;e&mdash;t&mdash;w&mdash;o&mdash;r&mdash;k&mdash;s&mdash;,&mdash; &mdash;c&mdash;o&mdash;n&mdash;t&mdash;i&mdash;n&mdash;u&mdash;o&mdash;u&mdash;s&mdash; &mdash;d&mdash;a&mdash;i&mdash;l&mdash;y&mdash; &mdash;s&mdash;e&mdash;s&mdash;s&mdash;i&mdash;o&mdash;n&mdash;s&mdash;,&mdash; &mdash;a&mdash;n&mdash;d&mdash; &mdash;1&mdash;0&mdash;0&mdash;%&mdash; &mdash;m&mdash;o&mdash;n&mdash;e&mdash;y&mdash;-&mdash;b&mdash;a&mdash;c&mdash;k&mdash; &mdash;p&mdash;a&mdash;s&mdash;s&mdash; &mdash;g&mdash;u&mdash;a&mdash;r&mdash;a&mdash;n&mdash;t&mdash;e&mdash;e&mdash;.&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;p&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;/&mdash;a&mdash;n&mdash;d&mdash;r&mdash;o&mdash;i&mdash;d&mdash;-&mdash;a&mdash;p&mdash;p&mdash;-&mdash;t&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash;-&mdash;s&mdash;e&mdash;r&mdash;v&mdash;i&mdash;c&mdash;e&mdash;/&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;r&mdash;a&mdash;n&mdash;d&mdash;-&mdash;p&mdash;r&mdash;i&mdash;m&mdash;a&mdash;r&mdash;y&mdash;)&mdash;;&mdash; &mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;w&mdash;e&mdash;i&mdash;g&mdash;h&mdash;t&mdash;:&mdash; &mdash;6&mdash;0&mdash;0&mdash;;&mdash;"&mdash;>&mdash;L&mdash;e&mdash;a&mdash;r&mdash;n&mdash; &mdash;M&mdash;o&mdash;r&mdash;e&mdash; &mdash;&&mdash;r&mdash;a&mdash;r&mdash;r&mdash;;&mdash;<&mdash;/&mdash;a&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;!&mdash;-&mdash;-&mdash; &mdash;S&mdash;e&mdash;r&mdash;v&mdash;i&mdash;c&mdash;e&mdash; &mdash;2&mdash; &mdash;-&mdash;-&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;c&mdash;a&mdash;r&mdash;d&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;p&mdash;a&mdash;d&mdash;d&mdash;i&mdash;n&mdash;g&mdash;:&mdash; &mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;:&mdash; &mdash;1&mdash;p&mdash;x&mdash; &mdash;s&mdash;o&mdash;l&mdash;i&mdash;d&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;)&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;r&mdash;a&mdash;d&mdash;i&mdash;u&mdash;s&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;r&mdash;a&mdash;d&mdash;i&mdash;u&mdash;s&mdash;)&mdash;;&mdash; &mdash;b&mdash;a&mdash;c&mdash;k&mdash;g&mdash;r&mdash;o&mdash;u&mdash;n&mdash;d&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;g&mdash;-&mdash;c&mdash;a&mdash;r&mdash;d&mdash;)&mdash;;&mdash; &mdash;d&mdash;i&mdash;s&mdash;p&mdash;l&mdash;a&mdash;y&mdash;:&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;;&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;-&mdash;d&mdash;i&mdash;r&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;:&mdash; &mdash;c&mdash;o&mdash;l&mdash;u&mdash;m&mdash;n&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;2&mdash;.&mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;&&mdash;#&mdash;1&mdash;2&mdash;8&mdash;6&mdash;8&mdash;0&mdash;;&mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;h&mdash;3&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;1&mdash;.&mdash;4&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;0&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;/&mdash;a&mdash;p&mdash;p&mdash;-&mdash;r&mdash;e&mdash;j&mdash;e&mdash;c&mdash;t&mdash;e&mdash;d&mdash;/&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;#&mdash;f&mdash;f&mdash;f&mdash;f&mdash;f&mdash;f&mdash;;&mdash;"&mdash;>&mdash;R&mdash;e&mdash;j&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash; &mdash;R&mdash;e&mdash;c&mdash;o&mdash;v&mdash;e&mdash;r&mdash;y&mdash; &mdash;&&mdash;a&mdash;m&mdash;p&mdash;;&mdash; &mdash;R&mdash;e&mdash;-&mdash;T&mdash;e&mdash;s&mdash;t&mdash; &mdash;A&mdash;u&mdash;d&mdash;i&mdash;t&mdash;<&mdash;/&mdash;a&mdash;>&mdash;<&mdash;/&mdash;h&mdash;3&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;p&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;t&mdash;e&mdash;x&mdash;t&mdash;-&mdash;m&mdash;u&mdash;t&mdash;e&mdash;d&mdash;)&mdash;;&mdash; &mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;0&mdash;.&mdash;9&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;-&mdash;g&mdash;r&mdash;o&mdash;w&mdash;:&mdash; &mdash;1&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;R&mdash;e&mdash;c&mdash;e&mdash;i&mdash;v&mdash;e&mdash;d&mdash; &mdash;"&mdash;M&mdash;o&mdash;r&mdash;e&mdash; &mdash;t&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash; &mdash;r&mdash;e&mdash;q&mdash;u&mdash;i&mdash;r&mdash;e&mdash;d&mdash; &mdash;t&mdash;o&mdash; &mdash;a&mdash;c&mdash;c&mdash;e&mdash;s&mdash;s&mdash; &mdash;p&mdash;r&mdash;o&mdash;d&mdash;u&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;"&mdash;?&mdash; &mdash;W&mdash;e&mdash; &mdash;p&mdash;e&mdash;r&mdash;f&mdash;o&mdash;r&mdash;m&mdash; &mdash;a&mdash; &mdash;f&mdash;o&mdash;r&mdash;e&mdash;n&mdash;s&mdash;i&mdash;c&mdash; &mdash;a&mdash;u&mdash;d&mdash;i&mdash;t&mdash; &mdash;o&mdash;f&mdash; &mdash;y&mdash;o&mdash;u&mdash;r&mdash; &mdash;t&mdash;e&mdash;l&mdash;e&mdash;m&mdash;e&mdash;t&mdash;r&mdash;y&mdash;,&mdash; &mdash;d&mdash;e&mdash;p&mdash;l&mdash;o&mdash;y&mdash; &mdash;2&mdash;0&mdash; &mdash;p&mdash;h&mdash;y&mdash;s&mdash;i&mdash;c&mdash;a&mdash;l&mdash; &mdash;t&mdash;e&mdash;s&mdash;t&mdash;e&mdash;r&mdash;s&mdash;,&mdash; &mdash;a&mdash;n&mdash;d&mdash; &mdash;p&mdash;r&mdash;o&mdash;v&mdash;i&mdash;d&mdash;e&mdash; &mdash;t&mdash;a&mdash;i&mdash;l&mdash;o&mdash;r&mdash;-&mdash;m&mdash;a&mdash;d&mdash;e&mdash; &mdash;q&mdash;u&mdash;e&mdash;s&mdash;t&mdash;i&mdash;o&mdash;n&mdash;n&mdash;a&mdash;i&mdash;r&mdash;e&mdash; &mdash;a&mdash;n&mdash;s&mdash;w&mdash;e&mdash;r&mdash;s&mdash; &mdash;t&mdash;o&mdash; &mdash;g&mdash;u&mdash;a&mdash;r&mdash;a&mdash;n&mdash;t&mdash;e&mdash;e&mdash; &mdash;a&mdash;p&mdash;p&mdash;r&mdash;o&mdash;v&mdash;a&mdash;l&mdash;.&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;p&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;/&mdash;a&mdash;p&mdash;p&mdash;-&mdash;r&mdash;e&mdash;j&mdash;e&mdash;c&mdash;t&mdash;e&mdash;d&mdash;/&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;r&mdash;a&mdash;n&mdash;d&mdash;-&mdash;p&mdash;r&mdash;i&mdash;m&mdash;a&mdash;r&mdash;y&mdash;)&mdash;;&mdash; &mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;w&mdash;e&mdash;i&mdash;g&mdash;h&mdash;t&mdash;:&mdash; &mdash;6&mdash;0&mdash;0&mdash;;&mdash;"&mdash;>&mdash;V&mdash;i&mdash;e&mdash;w&mdash; &mdash;R&mdash;e&mdash;c&mdash;o&mdash;v&mdash;e&mdash;r&mdash;y&mdash; &mdash;P&mdash;r&mdash;o&mdash;t&mdash;o&mdash;c&mdash;o&mdash;l&mdash; &mdash;&&mdash;r&mdash;a&mdash;r&mdash;r&mdash;;&mdash;<&mdash;/&mdash;a&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;!&mdash;-&mdash;-&mdash; &mdash;S&mdash;e&mdash;r&mdash;v&mdash;i&mdash;c&mdash;e&mdash; &mdash;3&mdash; &mdash;-&mdash;-&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;c&mdash;a&mdash;r&mdash;d&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;p&mdash;a&mdash;d&mdash;d&mdash;i&mdash;n&mdash;g&mdash;:&mdash; &mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;:&mdash; &mdash;1&mdash;p&mdash;x&mdash; &mdash;s&mdash;o&mdash;l&mdash;i&mdash;d&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;)&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;r&mdash;a&mdash;d&mdash;i&mdash;u&mdash;s&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;r&mdash;a&mdash;d&mdash;i&mdash;u&mdash;s&mdash;)&mdash;;&mdash; &mdash;b&mdash;a&mdash;c&mdash;k&mdash;g&mdash;r&mdash;o&mdash;u&mdash;n&mdash;d&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;g&mdash;-&mdash;c&mdash;a&mdash;r&mdash;d&mdash;)&mdash;;&mdash; &mdash;d&mdash;i&mdash;s&mdash;p&mdash;l&mdash;a&mdash;y&mdash;:&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;;&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;-&mdash;d&mdash;i&mdash;r&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;:&mdash; &mdash;c&mdash;o&mdash;l&mdash;u&mdash;m&mdash;n&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;2&mdash;.&mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;&&mdash;#&mdash;1&mdash;2&mdash;7&mdash;9&mdash;7&mdash;0&mdash;;&mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;h&mdash;3&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;1&mdash;.&mdash;4&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;0&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;/&mdash;f&mdash;o&mdash;r&mdash;-&mdash;a&mdash;g&mdash;e&mdash;n&mdash;c&mdash;i&mdash;e&mdash;s&mdash;/&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;#&mdash;f&mdash;f&mdash;f&mdash;f&mdash;f&mdash;f&mdash;;&mdash;"&mdash;>&mdash;W&mdash;h&mdash;i&mdash;t&mdash;e&mdash;-&mdash;L&mdash;a&mdash;b&mdash;e&mdash;l&mdash; &mdash;A&mdash;g&mdash;e&mdash;n&mdash;c&mdash;y&mdash; &mdash;P&mdash;a&mdash;r&mdash;t&mdash;n&mdash;e&mdash;r&mdash; &mdash;P&mdash;r&mdash;o&mdash;g&mdash;r&mdash;a&mdash;m&mdash;<&mdash;/&mdash;a&mdash;>&mdash;<&mdash;/&mdash;h&mdash;3&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;p&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;t&mdash;e&mdash;x&mdash;t&mdash;-&mdash;m&mdash;u&mdash;t&mdash;e&mdash;d&mdash;)&mdash;;&mdash; &mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;0&mdash;.&mdash;9&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;-&mdash;g&mdash;r&mdash;o&mdash;w&mdash;:&mdash; &mdash;1&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;W&mdash;h&mdash;o&mdash;l&mdash;e&mdash;s&mdash;a&mdash;l&mdash;e&mdash; &mdash;c&mdash;l&mdash;o&mdash;s&mdash;e&mdash;d&mdash; &mdash;t&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash; &mdash;i&mdash;n&mdash;f&mdash;r&mdash;a&mdash;s&mdash;t&mdash;r&mdash;u&mdash;c&mdash;t&mdash;u&mdash;r&mdash;e&mdash; &mdash;f&mdash;o&mdash;r&mdash; &mdash;s&mdash;o&mdash;f&mdash;t&mdash;w&mdash;a&mdash;r&mdash;e&mdash; &mdash;d&mdash;e&mdash;v&mdash;e&mdash;l&mdash;o&mdash;p&mdash;m&mdash;e&mdash;n&mdash;t&mdash; &mdash;s&mdash;t&mdash;u&mdash;d&mdash;i&mdash;o&mdash;s&mdash;.&mdash; &mdash;V&mdash;o&mdash;l&mdash;u&mdash;m&mdash;e&mdash; &mdash;d&mdash;i&mdash;s&mdash;c&mdash;o&mdash;u&mdash;n&mdash;t&mdash;s&mdash;,&mdash; &mdash;u&mdash;n&mdash;b&mdash;r&mdash;a&mdash;n&mdash;d&mdash;e&mdash;d&mdash; &mdash;e&mdash;x&mdash;e&mdash;c&mdash;u&mdash;t&mdash;i&mdash;v&mdash;e&mdash; &mdash;P&mdash;D&mdash;F&mdash; &mdash;t&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash; &mdash;r&mdash;e&mdash;p&mdash;o&mdash;r&mdash;t&mdash;s&mdash;,&mdash; &mdash;a&mdash;n&mdash;d&mdash; &mdash;d&mdash;e&mdash;d&mdash;i&mdash;c&mdash;a&mdash;t&mdash;e&mdash;d&mdash; &mdash;a&mdash;c&mdash;c&mdash;o&mdash;u&mdash;n&mdash;t&mdash; &mdash;m&mdash;a&mdash;n&mdash;a&mdash;g&mdash;e&mdash;m&mdash;e&mdash;n&mdash;t&mdash; &mdash;f&mdash;o&mdash;r&mdash; &mdash;m&mdash;u&mdash;l&mdash;t&mdash;i&mdash;p&mdash;l&mdash;e&mdash; &mdash;c&mdash;l&mdash;i&mdash;e&mdash;n&mdash;t&mdash; &mdash;a&mdash;p&mdash;p&mdash;s&mdash;.&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;p&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;/&mdash;f&mdash;o&mdash;r&mdash;-&mdash;a&mdash;g&mdash;e&mdash;n&mdash;c&mdash;i&mdash;e&mdash;s&mdash;/&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;r&mdash;a&mdash;n&mdash;d&mdash;-&mdash;p&mdash;r&mdash;i&mdash;m&mdash;a&mdash;r&mdash;y&mdash;)&mdash;;&mdash; &mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;w&mdash;e&mdash;i&mdash;g&mdash;h&mdash;t&mdash;:&mdash; &mdash;6&mdash;0&mdash;0&mdash;;&mdash;"&mdash;>&mdash;E&mdash;x&mdash;p&mdash;l&mdash;o&mdash;r&mdash;e&mdash; &mdash;A&mdash;g&mdash;e&mdash;n&mdash;c&mdash;y&mdash; &mdash;P&mdash;r&mdash;o&mdash;g&mdash;r&mdash;a&mdash;m&mdash; &mdash;&&mdash;r&mdash;a&mdash;r&mdash;r&mdash;;&mdash;<&mdash;/&mdash;a&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;!&mdash;-&mdash;-&mdash; &mdash;S&mdash;e&mdash;r&mdash;v&mdash;i&mdash;c&mdash;e&mdash; &mdash;4&mdash; &mdash;-&mdash;-&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;c&mdash;a&mdash;r&mdash;d&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;p&mdash;a&mdash;d&mdash;d&mdash;i&mdash;n&mdash;g&mdash;:&mdash; &mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;:&mdash; &mdash;1&mdash;p&mdash;x&mdash; &mdash;s&mdash;o&mdash;l&mdash;i&mdash;d&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;)&mdash;;&mdash; &mdash;b&mdash;o&mdash;r&mdash;d&mdash;e&mdash;r&mdash;-&mdash;r&mdash;a&mdash;d&mdash;i&mdash;u&mdash;s&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;r&mdash;a&mdash;d&mdash;i&mdash;u&mdash;s&mdash;)&mdash;;&mdash; &mdash;b&mdash;a&mdash;c&mdash;k&mdash;g&mdash;r&mdash;o&mdash;u&mdash;n&mdash;d&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;g&mdash;-&mdash;c&mdash;a&mdash;r&mdash;d&mdash;)&mdash;;&mdash; &mdash;d&mdash;i&mdash;s&mdash;p&mdash;l&mdash;a&mdash;y&mdash;:&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;;&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;-&mdash;d&mdash;i&mdash;r&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;:&mdash; &mdash;c&mdash;o&mdash;l&mdash;u&mdash;m&mdash;n&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;2&mdash;.&mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;&&mdash;#&mdash;1&mdash;2&mdash;8&mdash;7&mdash;3&mdash;6&mdash;;&mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;h&mdash;3&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;1&mdash;.&mdash;4&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;0&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;/&mdash;g&mdash;u&mdash;i&mdash;d&mdash;e&mdash;s&mdash;/&mdash;t&mdash;w&mdash;a&mdash;-&mdash;a&mdash;p&mdash;p&mdash;-&mdash;r&mdash;e&mdash;j&mdash;e&mdash;c&mdash;t&mdash;e&mdash;d&mdash;-&mdash;s&mdash;w&mdash;i&mdash;t&mdash;c&mdash;h&mdash;-&mdash;t&mdash;o&mdash;-&mdash;w&mdash;e&mdash;b&mdash;v&mdash;i&mdash;e&mdash;w&mdash;/&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;#&mdash;f&mdash;f&mdash;f&mdash;f&mdash;f&mdash;f&mdash;;&mdash;"&mdash;>&mdash;T&mdash;W&mdash;A&mdash; &mdash;&&mdash;a&mdash;m&mdash;p&mdash;;&mdash; &mdash;W&mdash;e&mdash;b&mdash;V&mdash;i&mdash;e&mdash;w&mdash; &mdash;C&mdash;o&mdash;m&mdash;p&mdash;l&mdash;i&mdash;a&mdash;n&mdash;c&mdash;e&mdash; &mdash;A&mdash;r&mdash;c&mdash;h&mdash;i&mdash;t&mdash;e&mdash;c&mdash;t&mdash;u&mdash;r&mdash;e&mdash;<&mdash;/&mdash;a&mdash;>&mdash;<&mdash;/&mdash;h&mdash;3&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;p&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;t&mdash;e&mdash;x&mdash;t&mdash;-&mdash;m&mdash;u&mdash;t&mdash;e&mdash;d&mdash;)&mdash;;&mdash; &mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;0&mdash;.&mdash;9&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;f&mdash;l&mdash;e&mdash;x&mdash;-&mdash;g&mdash;r&mdash;o&mdash;w&mdash;:&mdash; &mdash;1&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;S&mdash;p&mdash;e&mdash;c&mdash;i&mdash;a&mdash;l&mdash;i&mdash;z&mdash;e&mdash;d&mdash; &mdash;a&mdash;u&mdash;d&mdash;i&mdash;t&mdash;i&mdash;n&mdash;g&mdash; &mdash;f&mdash;o&mdash;r&mdash; &mdash;T&mdash;r&mdash;u&mdash;s&mdash;t&mdash;e&mdash;d&mdash; &mdash;W&mdash;e&mdash;b&mdash; &mdash;A&mdash;c&mdash;t&mdash;i&mdash;v&mdash;i&mdash;t&mdash;y&mdash; &mdash;(&mdash;T&mdash;W&mdash;A&mdash;)&mdash; &mdash;a&mdash;n&mdash;d&mdash; &mdash;P&mdash;W&mdash;A&mdash; &mdash;w&mdash;r&mdash;a&mdash;p&mdash;p&mdash;e&mdash;r&mdash; &mdash;a&mdash;p&mdash;p&mdash;l&mdash;i&mdash;c&mdash;a&mdash;t&mdash;i&mdash;o&mdash;n&mdash;s&mdash; &mdash;f&mdash;a&mdash;c&mdash;i&mdash;n&mdash;g&mdash; &mdash;G&mdash;o&mdash;o&mdash;g&mdash;l&mdash;e&mdash; &mdash;P&mdash;l&mdash;a&mdash;y&mdash; &mdash;M&mdash;i&mdash;n&mdash;i&mdash;m&mdash;u&mdash;m&mdash; &mdash;F&mdash;u&mdash;n&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;a&mdash;l&mdash;i&mdash;t&mdash;y&mdash; &mdash;o&mdash;r&mdash; &mdash;D&mdash;i&mdash;g&mdash;i&mdash;t&mdash;a&mdash;l&mdash; &mdash;A&mdash;s&mdash;s&mdash;e&mdash;t&mdash; &mdash;L&mdash;i&mdash;n&mdash;k&mdash;s&mdash; &mdash;S&mdash;H&mdash;A&mdash;-&mdash;2&mdash;5&mdash;6&mdash; &mdash;f&mdash;i&mdash;n&mdash;g&mdash;e&mdash;r&mdash;p&mdash;r&mdash;i&mdash;n&mdash;t&mdash; &mdash;r&mdash;e&mdash;j&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;s&mdash;.&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;p&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;/&mdash;g&mdash;u&mdash;i&mdash;d&mdash;e&mdash;s&mdash;/&mdash;t&mdash;w&mdash;a&mdash;-&mdash;a&mdash;p&mdash;p&mdash;-&mdash;r&mdash;e&mdash;j&mdash;e&mdash;c&mdash;t&mdash;e&mdash;d&mdash;-&mdash;s&mdash;w&mdash;i&mdash;t&mdash;c&mdash;h&mdash;-&mdash;t&mdash;o&mdash;-&mdash;w&mdash;e&mdash;b&mdash;v&mdash;i&mdash;e&mdash;w&mdash;/&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;v&mdash;a&mdash;r&mdash;(&mdash;-&mdash;-&mdash;b&mdash;r&mdash;a&mdash;n&mdash;d&mdash;-&mdash;p&mdash;r&mdash;i&mdash;m&mdash;a&mdash;r&mdash;y&mdash;)&mdash;;&mdash; &mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;w&mdash;e&mdash;i&mdash;g&mdash;h&mdash;t&mdash;:&mdash; &mdash;6&mdash;0&mdash;0&mdash;;&mdash;"&mdash;>&mdash;R&mdash;e&mdash;a&mdash;d&mdash; &mdash;T&mdash;e&mdash;c&mdash;h&mdash;n&mdash;i&mdash;c&mdash;a&mdash;l&mdash; &mdash;G&mdash;u&mdash;i&mdash;d&mdash;e&mdash; &mdash;&&mdash;r&mdash;a&mdash;r&mdash;r&mdash;;&mdash;<&mdash;/&mdash;a&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;s&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;>&mdash;
+&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;!&mdash;-&mdash;-&mdash; &mdash;B&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash; &mdash;C&mdash;T&mdash;A&mdash; &mdash;-&mdash;-&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;s&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;s&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;b&mdash;a&mdash;c&mdash;k&mdash;g&mdash;r&mdash;o&mdash;u&mdash;n&mdash;d&mdash;:&mdash; &mdash;l&mdash;i&mdash;n&mdash;e&mdash;a&mdash;r&mdash;-&mdash;g&mdash;r&mdash;a&mdash;d&mdash;i&mdash;e&mdash;n&mdash;t&mdash;(&mdash;1&mdash;3&mdash;5&mdash;d&mdash;e&mdash;g&mdash;,&mdash; &mdash;#&mdash;0&mdash;6&mdash;4&mdash;e&mdash;3&mdash;b&mdash; &mdash;0&mdash;%&mdash;,&mdash; &mdash;#&mdash;0&mdash;f&mdash;1&mdash;7&mdash;2&mdash;a&mdash; &mdash;1&mdash;0&mdash;0&mdash;%&mdash;)&mdash;;&mdash; &mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;#&mdash;f&mdash;f&mdash;f&mdash;;&mdash; &mdash;p&mdash;a&mdash;d&mdash;d&mdash;i&mdash;n&mdash;g&mdash;:&mdash; &mdash;4&mdash;.&mdash;5&mdash;r&mdash;e&mdash;m&mdash; &mdash;0&mdash;;&mdash; &mdash;t&mdash;e&mdash;x&mdash;t&mdash;-&mdash;a&mdash;l&mdash;i&mdash;g&mdash;n&mdash;:&mdash; &mdash;c&mdash;e&mdash;n&mdash;t&mdash;e&mdash;r&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;d&mdash;i&mdash;v&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;c&mdash;o&mdash;n&mdash;t&mdash;a&mdash;i&mdash;n&mdash;e&mdash;r&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;m&mdash;a&mdash;x&mdash;-&mdash;w&mdash;i&mdash;d&mdash;t&mdash;h&mdash;:&mdash; &mdash;8&mdash;0&mdash;0&mdash;p&mdash;x&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;h&mdash;2&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;2&mdash;.&mdash;4&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;#&mdash;f&mdash;f&mdash;f&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;1&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;N&mdash;e&mdash;e&mdash;d&mdash; &mdash;a&mdash; &mdash;C&mdash;u&mdash;s&mdash;t&mdash;o&mdash;m&mdash; &mdash;T&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash; &mdash;S&mdash;e&mdash;t&mdash;u&mdash;p&mdash;?&mdash;<&mdash;/&mdash;h&mdash;2&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;p&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;1&mdash;.&mdash;1&mdash;5&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;c&mdash;o&mdash;l&mdash;o&mdash;r&mdash;:&mdash; &mdash;#&mdash;c&mdash;b&mdash;d&mdash;5&mdash;e&mdash;1&mdash;;&mdash; &mdash;m&mdash;a&mdash;r&mdash;g&mdash;i&mdash;n&mdash;-&mdash;b&mdash;o&mdash;t&mdash;t&mdash;o&mdash;m&mdash;:&mdash; &mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;C&mdash;o&mdash;n&mdash;s&mdash;u&mdash;l&mdash;t&mdash; &mdash;w&mdash;i&mdash;t&mdash;h&mdash; &mdash;o&mdash;u&mdash;r&mdash; &mdash;A&mdash;n&mdash;d&mdash;r&mdash;o&mdash;i&mdash;d&mdash; &mdash;Q&mdash;A&mdash; &mdash;l&mdash;e&mdash;a&mdash;d&mdash;s&mdash; &mdash;o&mdash;n&mdash; &mdash;W&mdash;h&mdash;a&mdash;t&mdash;s&mdash;A&mdash;p&mdash;p&mdash; &mdash;t&mdash;o&mdash; &mdash;c&mdash;o&mdash;n&mdash;f&mdash;i&mdash;g&mdash;u&mdash;r&mdash;e&mdash; &mdash;t&mdash;h&mdash;e&mdash; &mdash;p&mdash;e&mdash;r&mdash;f&mdash;e&mdash;c&mdash;t&mdash; &mdash;t&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash; &mdash;c&mdash;o&mdash;h&mdash;o&mdash;r&mdash;t&mdash; &mdash;f&mdash;o&mdash;r&mdash; &mdash;y&mdash;o&mdash;u&mdash;r&mdash; &mdash;a&mdash;p&mdash;p&mdash;l&mdash;i&mdash;c&mdash;a&mdash;t&mdash;i&mdash;o&mdash;n&mdash;.&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;p&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;a&mdash; &mdash;h&mdash;r&mdash;e&mdash;f&mdash;=&mdash;"&mdash;h&mdash;t&mdash;t&mdash;p&mdash;s&mdash;:&mdash;/&mdash;/&mdash;w&mdash;a&mdash;.&mdash;m&mdash;e&mdash;/&mdash;9&mdash;2&mdash;3&mdash;3&mdash;9&mdash;4&mdash;0&mdash;0&mdash;1&mdash;4&mdash;7&mdash;9&mdash;?&mdash;t&mdash;e&mdash;x&mdash;t&mdash;=&mdash;H&mdash;i&mdash;%&mdash;2&mdash;C&mdash;%&mdash;2&mdash;0&mdash;I&mdash;%&mdash;2&mdash;0&mdash;n&mdash;e&mdash;e&mdash;d&mdash;%&mdash;2&mdash;0&mdash;c&mdash;u&mdash;s&mdash;t&mdash;o&mdash;m&mdash;%&mdash;2&mdash;0&mdash;A&mdash;n&mdash;d&mdash;r&mdash;o&mdash;i&mdash;d&mdash;%&mdash;2&mdash;0&mdash;t&mdash;e&mdash;s&mdash;t&mdash;i&mdash;n&mdash;g&mdash;%&mdash;2&mdash;0&mdash;c&mdash;o&mdash;n&mdash;s&mdash;u&mdash;l&mdash;t&mdash;a&mdash;t&mdash;i&mdash;o&mdash;n&mdash;.&mdash;"&mdash; &mdash;c&mdash;l&mdash;a&mdash;s&mdash;s&mdash;=&mdash;"&mdash;b&mdash;t&mdash;n&mdash; &mdash;b&mdash;t&mdash;n&mdash;-&mdash;w&mdash;h&mdash;a&mdash;t&mdash;s&mdash;a&mdash;p&mdash;p&mdash;"&mdash; &mdash;s&mdash;t&mdash;y&mdash;l&mdash;e&mdash;=&mdash;"&mdash;p&mdash;a&mdash;d&mdash;d&mdash;i&mdash;n&mdash;g&mdash;:&mdash; &mdash;1&mdash;r&mdash;e&mdash;m&mdash; &mdash;2&mdash;r&mdash;e&mdash;m&mdash;;&mdash; &mdash;f&mdash;o&mdash;n&mdash;t&mdash;-&mdash;s&mdash;i&mdash;z&mdash;e&mdash;:&mdash; &mdash;1&mdash;.&mdash;1&mdash;r&mdash;e&mdash;m&mdash;;&mdash;"&mdash; &mdash;t&mdash;a&mdash;r&mdash;g&mdash;e&mdash;t&mdash;=&mdash;"&mdash;_&mdash;b&mdash;l&mdash;a&mdash;n&mdash;k&mdash;"&mdash; &mdash;r&mdash;e&mdash;l&mdash;=&mdash;"&mdash;n&mdash;o&mdash;o&mdash;p&mdash;e&mdash;n&mdash;e&mdash;r&mdash;"&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;&&mdash;#&mdash;1&mdash;2&mdash;8&mdash;1&mdash;7&mdash;2&mdash;;&mdash; &mdash;I&mdash;n&mdash;q&mdash;u&mdash;i&mdash;r&mdash;e&mdash; &mdash;o&mdash;n&mdash; &mdash;W&mdash;h&mdash;a&mdash;t&mdash;s&mdash;A&mdash;p&mdash;p&mdash; &mdash;(&mdash;+&mdash;9&mdash;2&mdash;3&mdash;3&mdash;9&mdash;4&mdash;0&mdash;0&mdash;1&mdash;4&mdash;7&mdash;9&mdash;)&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;a&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;d&mdash;i&mdash;v&mdash;>&mdash;
+&mdash; &mdash; &mdash; &mdash; &mdash;<&mdash;/&mdash;s&mdash;e&mdash;c&mdash;t&mdash;i&mdash;o&mdash;n&mdash;>&mdash;
+&mdash; &mdash; &mdash;
 </main>
 
   <!-- Floating WhatsApp Action -->
@@ -1489,14 +1607,58 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const toggle = document.getElementById('menuToggle');
-      const nav = document.getElementById('mainNav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', function() {
-          toggle.classList.toggle('active');
-          nav.classList.toggle('active');
+      var toggle = document.getElementById('menuToggle');
+      var closeBtn = document.getElementById('menuClose');
+      var nav = document.getElementById('mainNav');
+
+      function openMenu() {
+        if (nav) {
+          nav.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeMenu() {
+        if (nav) {
+          nav.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (nav && nav.classList.contains('active')) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
         });
       }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          closeMenu();
+        });
+      }
+
+      // Close when clicking nav links
+      var links = document.querySelectorAll('.nav-link');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function() {
+          closeMenu();
+        });
+      }
+
+      // Close on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMenu();
+        }
+      });
     });
   </script>
 
