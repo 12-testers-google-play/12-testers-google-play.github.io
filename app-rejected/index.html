@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>More Testing Required to Access Google Play Production: Root Cause Audit & Fix Blueprint (2026)</title>
   <meta name="description" content="Received 'More testing required' on Google Play Console? Discover why your 12 testers failed, how Google's telemetry detects ghost testing, and the exact 14-day recovery blueprint to pass production review.">
-  <link rel="canonical" href="https://12testersgoogleplay.github.io/app-rejected/">
+  <link rel="canonical" href="https://12-testers-google-play.github.io/app-rejected/">
   <meta name="robots" content="index, follow">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="More Testing Required to Access Google Play Production: Root Cause Audit & Fix Blueprint (2026)">
   <meta property="og:description" content="Received 'More testing required' on Google Play Console? Discover why your 12 testers failed, how Google's telemetry detects ghost testing, and the exact 14-day recovery blueprint to pass production review.">
-  <meta property="og:url" content="https://12testersgoogleplay.github.io/app-rejected/">
-  <meta property="og:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
+  <meta property="og:url" content="https://12-testers-google-play.github.io/app-rejected/">
+  <meta property="og:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="More Testing Required to Access Google Play Production: Root Cause Audit & Fix Blueprint (2026)">
   <meta name="twitter:description" content="Received 'More testing required' on Google Play Console? Discover why your 12 testers failed, how Google's telemetry detects ghost testing, and the exact 14-day recovery blueprint to pass production review.">
-  <meta name="twitter:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
+  <meta name="twitter:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
   
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,7 +79,7 @@
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 100% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
-      color: var(--text-main);
+      color: #ffffff;
       font-family: var(--font-sans);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -276,14 +276,14 @@
       border: none;
       cursor: pointer;
       padding: 0.5rem;
-      color: var(--text-main);
+      color: #ffffff;
     }
 
     .mobile-menu-toggle span {
       display: block;
       width: 24px;
       height: 2px;
-      background: #ffffff;
+      background: var(--bg-card);
       margin: 5px 0;
       transition: 0.3s;
       border-radius: 2px;
@@ -347,7 +347,7 @@
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: #ffffff;
+      background: var(--bg-card);
       animation: pulse 1.8s infinite;
     }
 
@@ -1309,13 +1309,13 @@
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://12testersgoogleplay.github.io/"
+              "item": "https://12-testers-google-play.github.io/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Rejection Recovery",
-              "item": "https://12testersgoogleplay.github.io/app-rejected/"
+              "item": "https://12-testers-google-play.github.io/app-rejected/"
             }
           ]
         }
@@ -1362,7 +1362,7 @@
 
   <main>
     <!-- Breadcrumb -->
-    <div style="background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 0.85rem 0;">
+    <div style="background: var(--bg-surface); border-bottom: 1px solid var(--border-color); padding: 0.85rem 0;">
       <div class="container">
         <nav class="breadcrumbs">
           <a href="/">Home</a> &gt; <a href="/guides/">Guides</a> &gt; <span>Google Play Production Rejection Audit</span>
@@ -1417,7 +1417,7 @@
     <section class="section" style="padding-top: 0;">
       <div class="container" style="max-width: 900px;">
         
-        <article class="article-content" style="line-height: 1.8; color: var(--text-main); font-size: 1.05rem;">
+        <article class="article-content" style="line-height: 1.8; color: #ffffff; font-size: 1.05rem;">
 
           <h2 id="meaning-of-more-testing-required" style="margin-top: 2.5rem; font-size: 1.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
             1. Deconstructing the "More Testing Required" Rejection Notice
@@ -1447,7 +1447,7 @@
             Google Play Console does not publish the exact internal thresholds for proprietary reasons, but through forensic analysis of over 450+ client accounts rescued from rejection, our QA engineering team has mapped the exact signals evaluated:
           </p>
 
-          <h3 style="margin-top: 1.5rem; font-size: 1.35rem; color: var(--primary);">Trap #1: The "Ghost Cohort" (High Opt-In, Zero DAU)</h3>
+          <h3 style="margin-top: 1.5rem; font-size: 1.35rem; color: var(--brand-primary);">Trap #1: The "Ghost Cohort" (High Opt-In, Zero DAU)</h3>
           <p>
             When 12 users click your Google Groups opt-in link, Google registers 12 opted-in accounts. But Google Play Services actively tracks whether those devices actually:
           </p>
@@ -1460,7 +1460,7 @@
             If all 12 testers open the app for 10 seconds on Day 1 and never open it again for the remaining 13 days, Google records a <strong>92% cohort abandonment rate</strong>. To the review engine, an app with zero daily active users across two weeks has not undergone "testing"&mdash;it has merely sat idle on storage memory.
           </p>
 
-          <h3 style="margin-top: 1.5rem; font-size: 1.35rem; color: var(--primary);">Trap #2: Zero Written Feedback in Google Play Console</h3>
+          <h3 style="margin-top: 1.5rem; font-size: 1.35rem; color: var(--brand-primary);">Trap #2: Zero Written Feedback in Google Play Console</h3>
           <p>
             When testers install your app from the closed testing track, their Play Store page displays a private feedback prompt: <em>"Send private feedback to developer"</em>.
           </p>
@@ -1468,7 +1468,7 @@
             These reviews are invisible to the public, but they populate directly into your Google Play Console under <strong>Ratings and reviews &gt; Testing feedback</strong>. Google expects to see real feedback entries reporting UI quirks, performance on specific Android versions, navigation confusion, or feature praise. If your Testing Feedback tab is completely blank (0 reviews) after 14 days, Google flags the testing cycle as unmonitored.
           </p>
 
-          <h3 style="margin-top: 1.5rem; font-size: 1.35rem; color: var(--primary);">Trap #3: Device Fingerprinting &amp; IP Collisions</h3>
+          <h3 style="margin-top: 1.5rem; font-size: 1.35rem; color: var(--brand-primary);">Trap #3: Device Fingerprinting &amp; IP Collisions</h3>
           <p>
             Some developers attempt to bypass the requirement by using Android emulators (Bluestacks, LDPlayer, Android Studio AVD) or purchasing cheap "bot installs" from freelance marketplaces.
           </p>
@@ -1478,38 +1478,38 @@
           <div class="table-wrap" style="margin: 1.5rem 0;">
             <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
               <thead>
-                <tr style="background: var(--bg-alt); text-align: left;">
-                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border);">Telemetry Parameter</th>
-                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border);">Legitimate Physical Cohort</th>
-                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border);">Flagged Synthetic / Bot Cohort</th>
+                <tr style="background: var(--bg-surface); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Telemetry Parameter</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Legitimate Physical Cohort</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Flagged Synthetic / Bot Cohort</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">Hardware OEM &amp; SoC</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); color: var(--primary);">Diverse: Samsung Exynos, Snapdragon, MediaTek Dimensity, Google Tensor</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); color: var(--danger);">Generic x86_64 emulator profiles or identical clone device IDs</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Hardware OEM &amp; SoC</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--brand-primary);">Diverse: Samsung Exynos, Snapdragon, MediaTek Dimensity, Google Tensor</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--danger);">Generic x86_64 emulator profiles or identical clone device IDs</td>
                 </tr>
                 <tr>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">IP &amp; ASN Routing</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); color: var(--primary);">Real residential consumer ISPs &amp; 4G/5G mobile carriers</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); color: var(--danger);">Data center hosting IPs (AWS, DigitalOcean, Hetzner VPNs)</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">IP &amp; ASN Routing</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--brand-primary);">Real residential consumer ISPs &amp; 4G/5G mobile carriers</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--danger);">Data center hosting IPs (AWS, DigitalOcean, Hetzner VPNs)</td>
                 </tr>
                 <tr>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">Google Account Age</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); color: var(--primary);">Aged personal Gmail accounts with active Play Store purchase history</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); color: var(--danger);">Freshly created burner accounts with 0 activity history</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Google Account Age</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--brand-primary);">Aged personal Gmail accounts with active Play Store purchase history</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--danger);">Freshly created burner accounts with 0 activity history</td>
                 </tr>
                 <tr>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">Play Services Heartbeat</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); color: var(--primary);">Continuous 24/7 background sync across 14 full calendar days</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); color: var(--danger);">Intermittent batch connections terminated immediately after install</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Play Services Heartbeat</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--brand-primary);">Continuous 24/7 background sync across 14 full calendar days</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--danger);">Intermittent batch connections terminated immediately after install</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <h3 style="margin-top: 1.5rem; font-size: 1.35rem; color: var(--primary);">Trap #4: Zero Version Updates During Testing</h3>
+          <h3 style="margin-top: 1.5rem; font-size: 1.35rem; color: var(--brand-primary);">Trap #4: Zero Version Updates During Testing</h3>
           <p>
             The entire philosophical objective of closed testing is iterative software development. If your closed testing track remained on version <code>1.0.0 (versionCode 1)</code> for the entire 14 days, Google's evaluators deduce that either:
           </p>
@@ -1600,32 +1600,32 @@
           <div class="table-wrap" style="margin: 1.5rem 0;">
             <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
               <thead>
-                <tr style="background: var(--bg-alt); text-align: left;">
-                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border); width: 30%;">Question</th>
-                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border); width: 35%; color: var(--danger);">Rejected Generic Answer</th>
-                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border); width: 35%; color: var(--primary);">Approved Winning Answer</th>
+                <tr style="background: var(--bg-surface); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); width: 30%;">Question</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); width: 35%; color: var(--danger);">Rejected Generic Answer</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); width: 35%; color: var(--brand-primary);">Approved Winning Answer</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">How did you recruit your testers?</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); background: #fef2f2;">"I posted links on social media and asked my friends and colleagues to test it."</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); background: #f0fdf4;">"We recruited an exclusive cohort of 14 target users and QA testers spanning 4 countries and 8 distinct Android device models (Samsung Galaxy S22/A54, Google Pixel 6/7, Xiaomi Redmi Note 12, OnePlus 10) running Android 11 through 15."</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">How did you recruit your testers?</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: #fef2f2;">"I posted links on social media and asked my friends and colleagues to test it."</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: #f0fdf4;">"We recruited an exclusive cohort of 14 target users and QA testers spanning 4 countries and 8 distinct Android device models (Samsung Galaxy S22/A54, Google Pixel 6/7, Xiaomi Redmi Note 12, OnePlus 10) running Android 11 through 15."</td>
                 </tr>
                 <tr>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">What feedback did you receive from testers?</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); background: #fef2f2;">"Testers said the app was very good and they didn't find any bugs."</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); background: #f0fdf4;">"Testers submitted 7 private Play Console reviews highlighting: 1) ANR stall during offline sync on slow 3G networks, 2) UI clipping on 6.1-inch screens during landscape rotation, and 3) Missing validation warning on invalid phone number inputs."</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">What feedback did you receive from testers?</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: #fef2f2;">"Testers said the app was very good and they didn't find any bugs."</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: #f0fdf4;">"Testers submitted 7 private Play Console reviews highlighting: 1) ANR stall during offline sync on slow 3G networks, 2) UI clipping on 6.1-inch screens during landscape rotation, and 3) Missing validation warning on invalid phone number inputs."</td>
                 </tr>
                 <tr>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">What changes did you make based on testing?</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); background: #fef2f2;">"We fixed all bugs and improved the performance."</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); background: #f0fdf4;">"We rolled out release v1.0.2 (versionCode 2) on Day 8, implementing coroutine dispatchers for background I/O to eradicate the ANR, updating ConstraintLayout barriers for responsive landscape rendering, and adding regex validation on input forms."</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">What changes did you make based on testing?</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: #fef2f2;">"We fixed all bugs and improved the performance."</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: #f0fdf4;">"We rolled out release v1.0.2 (versionCode 2) on Day 8, implementing coroutine dispatchers for background I/O to eradicate the ANR, updating ConstraintLayout barriers for responsive landscape rendering, and adding regex validation on input forms."</td>
                 </tr>
                 <tr>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); font-weight: 600;">How do you know your app is ready for production?</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); background: #fef2f2;">"Everything works fine now and we are ready to launch."</td>
-                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border); background: #f0fdf4;">"Our Android Vitals telemetry across 336 hours demonstrates a 0.00% crash rate (industry threshold 1.09%) and 0.00% ANR rate (threshold 0.47%). 14 testers maintained continuous opt-in, and all reported issues were verified as resolved in build v1.0.2."</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">How do you know your app is ready for production?</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: #fef2f2;">"Everything works fine now and we are ready to launch."</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); background: #f0fdf4;">"Our Android Vitals telemetry across 336 hours demonstrates a 0.00% crash rate (industry threshold 1.09%) and 0.00% ANR rate (threshold 0.47%). 14 testers maintained continuous opt-in, and all reported issues were verified as resolved in build v1.0.2."</td>
                 </tr>
               </tbody>
             </table>
@@ -1636,22 +1636,22 @@
           </h2>
           
           <div style="margin: 1.5rem 0;">
-            <div class="faq-item" style="border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem;">
-              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">Will Google ban my developer account if I am rejected twice?</h4>
+            <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem;">
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #ffffff;">Will Google ban my developer account if I am rejected twice?</h4>
               <p style="color: var(--text-muted); font-size: 0.98rem; margin: 0;">
                 No. A rejection of your Production Access Application is <strong>not an account strike or policy violation</strong>. It simply means your testing evidence was insufficient. However, repeatedly submitting identical generic answers or using detected bot farms can lead to elevated manual scrutiny or suspension under fraudulent activity policies.
               </p>
             </div>
 
-            <div class="faq-item" style="border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem;">
-              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">Can I switch from Closed Testing to Open Testing to bypass this?</h4>
+            <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem;">
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #ffffff;">Can I switch from Closed Testing to Open Testing to bypass this?</h4>
               <p style="color: var(--text-muted); font-size: 0.98rem; margin: 0;">
                 No. For personal developer accounts registered after November 2023, Open Testing does <em>not</em> fulfill the 12 testers for 14 days closed testing mandate. You cannot graduate to Open Testing or Production without successfully clearing the closed testing review gate first.
               </p>
             </div>
 
-            <div class="faq-item" style="border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem;">
-              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">How does 12 Testers Google Play guarantee approval after rejection?</h4>
+            <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem;">
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #ffffff;">How does 12 Testers Google Play guarantee approval after rejection?</h4>
               <p style="color: var(--text-muted); font-size: 0.98rem; margin: 0;">
                 We deploy a dedicated cohort of 14 verified physical Android devices across unique residential networks. Our team performs daily interactive sessions, submits documented Play Store private feedback, provides you with verified logcat diagnostic data, and drafts tailor-made questionnaire responses backed by 336 hours of flawless telemetry.
               </p>

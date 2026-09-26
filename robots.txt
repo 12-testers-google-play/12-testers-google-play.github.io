@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://12testersgoogleplay.github.io/sitemap.xml
+Sitemap: https://12-testers-google-play.github.io/sitemap.xml

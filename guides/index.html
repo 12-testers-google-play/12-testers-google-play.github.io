@@ -28,18 +28,22 @@
   
   <style>
 
-    :root {
+        :root {
       --bg-dark: #070b14;
       --bg-surface: #0f172a;
       --bg-card: #111a33;
       --bg-card-hover: #162447;
+      --bg-alt: #0f172a;
       --border-color: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.08);
       --border-highlight: rgba(56, 189, 248, 0.45);
       --border-glow: 0 0 25px rgba(56, 189, 248, 0.2);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
       --brand-primary: #38bdf8;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
       --brand-secondary: #818cf8;
       --brand-accent: #6366f1;
       --brand-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
@@ -79,7 +83,7 @@
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 100% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
-      color: var(--text-main);
+      color: #ffffff;
       font-family: var(--font-sans);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -276,14 +280,14 @@
       border: none;
       cursor: pointer;
       padding: 0.5rem;
-      color: var(--text-main);
+      color: #ffffff;
     }
 
     .mobile-menu-toggle span {
       display: block;
       width: 24px;
       height: 2px;
-      background: #ffffff;
+      background: var(--bg-card);
       margin: 5px 0;
       transition: 0.3s;
       border-radius: 2px;
@@ -347,7 +351,7 @@
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: #ffffff;
+      background: var(--bg-card);
       animation: pulse 1.8s infinite;
     }
 
@@ -1133,17 +1137,122 @@
       color: var(--brand-primary);
     }
 
-    /* Media Queries / Responsive */
-    @media (max-width: 1024px) {
+        /* Responsive Design System */
+    @media (max-width: 992px) {
+      .logo-badge {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(7, 11, 20, 0.98);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        z-index: 999999;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1.5rem 2.5rem;
+        overflow-y: auto;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        box-sizing: border-box;
+      }
+      .main-nav.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .mobile-nav-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .mobile-menu-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .mobile-menu-close:hover {
+        background: rgba(239, 68, 68, 0.2);
+        color: #ef4444;
+        border-color: #ef4444;
+      }
+      .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .nav-list li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        width: 100%;
+      }
+      .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #f8fafc;
+        padding: 1.1rem 0.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        transition: all 0.2s ease;
+      }
+      .nav-link:hover, .nav-link.active {
+        color: var(--brand-primary);
+        padding-left: 0.85rem;
+      }
+      .nav-link.active::after {
+        display: none;
+      }
+      .nav-cta-wrap {
+        width: 100%;
+        margin-top: auto;
+        padding-top: 1rem;
+        box-sizing: border-box;
+      }
+      .nav-cta-wrap .btn {
+        width: 100%;
+        padding: 1.1rem;
+        font-size: 1.1rem;
+        justify-content: center;
+        box-sizing: border-box;
+      }
       .pricing-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
       .pricing-featured {
         grid-column: span 2;
-        transform: none;
-      }
-      .pricing-featured:hover {
-        transform: translateY(-5px);
+        transform: none !important;
       }
       .grid-4 {
         grid-template-columns: repeat(2, 1fr);
@@ -1154,60 +1263,73 @@
       }
     }
 
+    @media (min-width: 993px) {
+      .mobile-nav-header {
+        display: none !important;
+      }
+    }
+
     @media (max-width: 768px) {
+      body.nav-open {
+        overflow: hidden !important;
+        position: fixed;
+        width: 100%;
+      }
+      .container {
+        padding: 0 1.25rem !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
       .section, .numbers-sec, .about-sec, .timeline-sec, 
       .method-sec, .why-price-sec, .compare-sec, .chapters-sec, .reviews-sec {
-        padding: 3.5rem 0;
+        padding: 3.25rem 0;
       }
-      .mobile-menu-toggle {
-        display: block;
+
+      /* PRICING SECTION MOBILE CUTOFF FIX */
+      .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 2.5rem 0 1rem !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
       }
-      .main-nav {
-        position: fixed;
-        top: 74px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(7, 11, 20, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: stretch;
-        padding: 2rem 1.5rem;
-        gap: 2rem;
-        display: none;
-        overflow-y: auto;
+      .pricing-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 2.25rem 1.25rem !important;
+        transform: none !important;
+        margin: 0 !important;
       }
-      .main-nav.active {
-        display: flex;
-      }
-      .nav-list {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.25rem;
-        width: 100%;
-      }
-      .nav-link {
-        font-size: 1.2rem;
-        width: 100%;
-        padding: 0.5rem 0;
-      }
-      .nav-cta-wrap {
-        width: 100%;
-      }
-      .nav-cta-wrap .btn {
-        width: 100%;
-      }
-      .grid-2, .grid-3, .pricing-grid {
-        grid-template-columns: 1fr;
+      .pricing-card:hover {
+        transform: none !important;
       }
       .pricing-featured {
-        grid-column: auto;
+        grid-column: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.2) !important;
+      }
+      .pricing-featured:hover {
+        transform: none !important;
+      }
+
+      /* Metric cards responsive */
+      .metric-card {
+        padding: 1.5rem 1.25rem !important;
+        box-sizing: border-box !important;
+      }
+      .metric-display {
+        font-size: 2.5rem !important;
       }
 
       /* Stats bar responsive 2x2 grid */
       .stats-bar {
         grid-template-columns: repeat(2, 1fr);
         margin: 2.5rem auto 1rem;
+        box-sizing: border-box;
       }
       .stat-item:nth-child(2) {
         border-right: none;
@@ -1216,12 +1338,16 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
       .stat-value {
-        font-size: 2rem;
+        font-size: 1.85rem;
       }
       .stat-item {
-        padding: 1.5rem 1rem;
+        padding: 1.25rem 0.75rem;
       }
 
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1254,7 +1380,7 @@
           "@type": "CollectionPage",
           "name": "Google Play Closed Testing Engineering Documentation Hub",
           "description": "Comprehensive engineering documentation and step-by-step guides for Android developers navigating Google Play Console closed testing mandates.",
-          "url": "https://12testersgoogleplay.github.io/guides/",
+          "url": "https://12-testers-google-play.github.io/guides/",
           "publisher": {
             "@type": "Organization",
             "name": "12 Testers Google Play"
@@ -1267,13 +1393,13 @@
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://12testersgoogleplay.github.io/"
+              "item": "https://12-testers-google-play.github.io/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Guides",
-              "item": "https://12testersgoogleplay.github.io/guides/"
+              "item": "https://12-testers-google-play.github.io/guides/"
             }
           ]
         }
@@ -1290,26 +1416,35 @@
         <span class="logo-badge">QA Network</span>
       </a>
 
-      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" type="button">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
       <nav class="main-nav" id="mainNav">
+        <div class="mobile-nav-header">
+          <a href="/" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-primary);"><path d="M5 16V9h14V2H5l14 14h-7m-7 0 7 7v-7m-7 0h7"/></svg>
+            <span>12Testers</span>Play
+          </a>
+          <button class="mobile-menu-close" id="menuClose" aria-label="Close navigation menu" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
         <ul class="nav-list">
-          <li><a href="/" class="nav-link">Home</a></li>
-          <li><a href="/pricing/" class="nav-link">Pricing</a></li>
-          <li><a href="/services/" class="nav-link">Services</a></li>
-          <li><a href="/for-agencies/" class="nav-link">For Agencies</a></li>
-          <li><a href="/guides/" class="nav-link active">Guides</a></li>
-          <li><a href="/about/" class="nav-link">About</a></li>
-          <li><a href="/contact/" class="nav-link">Contact</a></li>
+          <li><a href="/" class="nav-link"><span>Home</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/pricing/" class="nav-link"><span>Pricing</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/services/" class="nav-link"><span>Services</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/for-agencies/" class="nav-link"><span>For Agencies</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/guides/" class="nav-link active"><span>Guides</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/about/" class="nav-link"><span>About</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/contact/" class="nav-link"><span>Contact</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
         </ul>
         <div class="nav-cta-wrap">
           <a href="https://wa.me/923394001479?text=Hi%2C%20I%20need%20help%20with%20Google%20Play%2012%20testers" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
             <span class="pulse-dot"></span>
-            <span>WhatsApp Us</span>
+            <span>Chat on WhatsApp (+923394001479)</span>
           </a>
         </div>
       </nav>
@@ -1320,151 +1455,151 @@
 
   <main>
     <!-- Breadcrumbs -->
-    <div style="background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 0.85rem 0;">
+    <div style="background: rgba(15, 23, 42, 0.6); border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 0.85rem 0;">
       <div class="container">
         <nav class="breadcrumbs">
-          <a href="/">Home</a> &gt; <span>Guides Hub</span>
+          <a href="/">Home</a> &gt; <span style="color: #ffffff;">Guides Documentation Hub</span>
         </nav>
       </div>
     </div>
 
-    <!-- Header -->
-    <header class="hero" style="padding: 3.5rem 0 2.5rem; background: var(--bg-alt); border-bottom: 1px solid var(--border);">
+    <!-- Header Hero -->
+    <header class="hero" style="padding: 4.5rem 0 3rem; text-align: center; position: relative; background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.14) 0%, rgba(7, 11, 20, 0.95) 75%); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
       <div class="container" style="max-width: 950px;">
         <div class="badge badge-success" style="margin-bottom: 1.25rem;">
           <span class="pulse-dot"></span> Developer Documentation Portal &bull; Updated for 2026 Play Console
         </div>
-        <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1rem; letter-spacing: -0.02em;">
-          Google Play Closed Testing Engineering Documentation
+        <h1 style="font-size: clamp(2.3rem, 4.5vw, 3.6rem); font-weight: 800; color: #ffffff; margin-bottom: 1.25rem; letter-spacing: -0.025em; text-shadow: 0 0 35px rgba(56, 189, 248, 0.25);">
+          Google Play Closed Testing Documentation
         </h1>
-        <p class="lead-text" style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;">
+        <p class="lead-text" style="font-size: 1.18rem; color: #94a3b8; line-height: 1.7; max-width: 800px; margin: 0 auto;">
           Exhaustive, code-level documentation designed to help Android software engineers and publishing leads navigate Google Play's <strong>12 testers for 14 days</strong> mandate, avoid telemetry disqualification, debug signing fingerprints, and achieve production approval.
         </p>
       </div>
     </header>
 
     <!-- Guides Directory Grid -->
-    <section class="section">
+    <section class="section" style="padding: 4rem 0;">
       <div class="container" style="max-width: 1000px;">
         <div style="display: flex; flex-direction: column; gap: 2rem;">
 
           <!-- Guide 1 -->
-          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+          <article class="card" style="padding: 2.5rem 2.25rem; border: 1px solid rgba(255, 255, 255, 0.09); border-radius: var(--radius-xl); background: var(--bg-card); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); transition: all 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
               <span class="badge badge-success">Cornerstone Engineering Playbook</span>
-              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 18 Min Read &bull; 4,400+ Words</span>
+              <span style="font-size: 0.9rem; color: #94a3b8;">&#9201; 18 Min Read &bull; 4,400+ Words</span>
             </div>
-            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
-              <a href="/guides/how-to-pass-google-play-closed-testing/" style="color: var(--text-main);">
+            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.85rem; line-height: 1.3;">
+              <a href="/guides/how-to-pass-google-play-closed-testing/" style="color: #ffffff; text-decoration: none; transition: color 0.2s;">
                 How to Pass Google Play Closed Testing in 14 Days: Complete 2026 Developer Playbook
               </a>
             </h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p style="color: #94a3b8; font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.5rem;">
               A forensic, day-by-day roadmap breaking down Google Play's closed testing rule. Learn how to configure your track, avoid tester dropout traps, monitor Android Vitals telemetry (crashes below 1.09%, ANRs below 0.47%), harvest private console reviews, and pass review on Day 15.
             </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 1.25rem;">
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="metric-pill" style="font-size: 0.85rem;">12 Testers</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">14 Continuous Days</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">Android Vitals</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">12 Testers</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">14 Continuous Days</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Android Vitals</span>
               </div>
-              <a href="/guides/how-to-pass-google-play-closed-testing/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+              <a href="/guides/how-to-pass-google-play-closed-testing/" style="color: var(--brand-primary); font-weight: 700; font-size: 1rem; text-decoration: none;">Read Full Guide &rarr;</a>
             </div>
           </article>
 
           <!-- Guide 2 -->
-          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
-              <span class="badge" style="background: var(--bg-alt); color: var(--text-muted);">Console Configuration</span>
-              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 16 Min Read &bull; 4,100+ Words</span>
+          <article class="card" style="padding: 2.5rem 2.25rem; border: 1px solid rgba(255, 255, 255, 0.09); border-radius: var(--radius-xl); background: var(--bg-card); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); transition: all 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+              <span class="badge" style="background: rgba(255, 255, 255, 0.08); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.12);">Console Configuration</span>
+              <span style="font-size: 0.9rem; color: #94a3b8;">&#9201; 16 Min Read &bull; 4,100+ Words</span>
             </div>
-            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
-              <a href="/guides/how-to-add-testers-google-play-console/" style="color: var(--text-main);">
+            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.85rem; line-height: 1.3;">
+              <a href="/guides/how-to-add-testers-google-play-console/" style="color: #ffffff; text-decoration: none; transition: color 0.2s;">
                 How to Add Testers on Google Play Console: CSV Import vs Google Groups
               </a>
             </h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p style="color: #94a3b8; font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.5rem;">
               Comprehensive tutorial examining the two methods of tester onboarding in Google Play Console. Analyzes CSV email list limits vs Google Groups distribution, Web Opt-In URL mechanics, and why 85% of developers choose Google Groups for zero-maintenance onboarding.
             </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 1.25rem;">
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="metric-pill" style="font-size: 0.85rem;">CSV Import</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">Google Groups</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">Opt-In URL</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">CSV Import</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Google Groups</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Opt-In URL</span>
               </div>
-              <a href="/guides/how-to-add-testers-google-play-console/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+              <a href="/guides/how-to-add-testers-google-play-console/" style="color: var(--brand-primary); font-weight: 700; font-size: 1rem; text-decoration: none;">Read Full Guide &rarr;</a>
             </div>
           </article>
 
           <!-- Guide 3 -->
-          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+          <article class="card" style="padding: 2.5rem 2.25rem; border: 1px solid rgba(255, 255, 255, 0.09); border-radius: var(--radius-xl); background: var(--bg-card); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); transition: all 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
               <span class="badge badge-warning">Review Gate Compliance</span>
-              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 17 Min Read &bull; 4,000+ Words</span>
+              <span style="font-size: 0.9rem; color: #94a3b8;">&#9201; 17 Min Read &bull; 4,000+ Words</span>
             </div>
-            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
-              <a href="/guides/google-play-production-access-requirements/" style="color: var(--text-main);">
+            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.85rem; line-height: 1.3;">
+              <a href="/guides/google-play-production-access-requirements/" style="color: #ffffff; text-decoration: none; transition: color 0.2s;">
                 Google Play Production Access Requirements (2026): The Complete Checklist &amp; Questionnaire Blueprint
               </a>
             </h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p style="color: #94a3b8; font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.5rem;">
               Exhaustive checklist covering who is subject to production approval, target API 34+ enforcement, 14-day continuous opt-in calculation, and word-for-word winning model answers for all 7 questions in the Production Access Questionnaire.
             </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 1.25rem;">
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="metric-pill" style="font-size: 0.85rem;">Questionnaire Model Answers</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">Production Access</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">Target API 34+</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Questionnaire Answers</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Production Access</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Target API 34+</span>
               </div>
-              <a href="/guides/google-play-production-access-requirements/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+              <a href="/guides/google-play-production-access-requirements/" style="color: var(--brand-primary); font-weight: 700; font-size: 1rem; text-decoration: none;">Read Full Guide &rarr;</a>
             </div>
           </article>
 
           <!-- Guide 4 -->
-          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
-              <span class="badge" style="background: var(--bg-alt); color: var(--text-muted);">Security &amp; App Signing</span>
-              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 15 Min Read &bull; 3,600+ Words</span>
+          <article class="card" style="padding: 2.5rem 2.25rem; border: 1px solid rgba(255, 255, 255, 0.09); border-radius: var(--radius-xl); background: var(--bg-card); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); transition: all 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+              <span class="badge" style="background: rgba(255, 255, 255, 0.08); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.12);">Security &amp; App Signing</span>
+              <span style="font-size: 0.9rem; color: #94a3b8;">&#9201; 15 Min Read &bull; 3,600+ Words</span>
             </div>
-            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
-              <a href="/guides/google-play-app-signing-sha256-fingerprint/" style="color: var(--text-main);">
+            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.85rem; line-height: 1.3;">
+              <a href="/guides/google-play-app-signing-sha256-fingerprint/" style="color: #ffffff; text-decoration: none; transition: color 0.2s;">
                 How to Find Your Google Play App Signing SHA-256 Fingerprint (2026)
               </a>
             </h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p style="color: #94a3b8; font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.5rem;">
               Demystifying the critical distinction between your local Upload Key and Google's App Signing Key. Complete guide to configuring Digital Asset Links (<code>assetlinks.json</code>) for TWAs, App Links, Firebase Auth, and Google Sign-In.
             </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 1.25rem;">
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="metric-pill" style="font-size: 0.85rem;">SHA-256 Fingerprint</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">assetlinks.json</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">Play App Signing</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">SHA-256 Fingerprint</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">assetlinks.json</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Play App Signing</span>
               </div>
-              <a href="/guides/google-play-app-signing-sha256-fingerprint/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+              <a href="/guides/google-play-app-signing-sha256-fingerprint/" style="color: var(--brand-primary); font-weight: 700; font-size: 1rem; text-decoration: none;">Read Full Guide &rarr;</a>
             </div>
           </article>
 
           <!-- Guide 5 -->
-          <article class="card" style="padding: 2.5rem; border: 1px solid var(--border); border-radius: var(--radius-lg); background: #fff; box-shadow: var(--shadow-sm);">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+          <article class="card" style="padding: 2.5rem 2.25rem; border: 1px solid rgba(255, 255, 255, 0.09); border-radius: var(--radius-xl); background: var(--bg-card); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); transition: all 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
               <span class="badge badge-warning">Web App Rejection Fixes</span>
-              <span style="font-size: 0.9rem; color: var(--text-light);">&#9201; 16 Min Read &bull; 3,700+ Words</span>
+              <span style="font-size: 0.9rem; color: #94a3b8;">&#9201; 16 Min Read &bull; 3,700+ Words</span>
             </div>
-            <h2 style="font-size: 1.75rem; margin-bottom: 0.75rem;">
-              <a href="/guides/twa-app-rejected-switch-to-webview/" style="color: var(--text-main);">
+            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.85rem; line-height: 1.3;">
+              <a href="/guides/twa-app-rejected-switch-to-webview/" style="color: #ffffff; text-decoration: none; transition: color 0.2s;">
                 TWA App Rejected on Google Play? 5 Proven Fixes &amp; WebView Migration Blueprint
               </a>
             </h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
-              Forensic diagnosis of the 5 reasons Trusted Web Activity (TWA) apps are rejected on Google Play: Minimum Functionality, URL bar showing, OAuth breaks, and closed testing failures. Includes complete Kotlin migration code to native WebViews.
+            <p style="color: #94a3b8; font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              Forensic diagnosis of the 5 reasons Trusted Web Activity (TWA) apps are rejected on Google Play: Minimum Functionality, URL bar leaks, OAuth breaks, and closed testing failures. Includes complete Kotlin migration code to native WebViews.
             </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 1.25rem;">
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="metric-pill" style="font-size: 0.85rem;">TWA Rejection</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">Minimum Functionality</span>
-                <span class="metric-pill" style="font-size: 0.85rem;">Kotlin WebView</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">TWA Rejection</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Minimum Functionality</span>
+                <span class="metric-pill" style="font-size: 0.85rem; background: rgba(56, 189, 248, 0.08); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.2);">Kotlin WebView</span>
               </div>
-              <a href="/guides/twa-app-rejected-switch-to-webview/" style="color: var(--primary); font-weight: 700; font-size: 1rem;">Read Full Guide &rarr;</a>
+              <a href="/guides/twa-app-rejected-switch-to-webview/" style="color: var(--brand-primary); font-weight: 700; font-size: 1rem; text-decoration: none;">Read Full Guide &rarr;</a>
             </div>
           </article>
 
@@ -1473,7 +1608,7 @@
     </section>
 
     <!-- Bottom CTA -->
-    <section class="section" style="background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%); color: #fff; padding: 4.5rem 0; text-align: center;">
+    <section class="section" style="background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%); color: #fff; padding: 4.5rem 0; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08);">
       <div class="container" style="max-width: 800px;">
         <h2 style="font-size: 2.4rem; color: #fff; margin-bottom: 1rem;">Save Time. Guarantee Production Access.</h2>
         <p style="font-size: 1.15rem; color: #cbd5e1; margin-bottom: 2rem;">
@@ -1571,13 +1706,57 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const toggle = document.getElementById('menuToggle');
+      const closeBtn = document.getElementById('menuClose');
       const nav = document.getElementById('mainNav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', function() {
-          toggle.classList.toggle('active');
-          nav.classList.toggle('active');
+
+      function openMenu() {
+        if (toggle && nav) {
+          toggle.classList.add('active');
+          nav.classList.add('active');
+          document.body.classList.add('nav-open');
+        }
+      }
+
+      function closeMenu() {
+        if (toggle && nav) {
+          toggle.classList.remove('active');
+          nav.classList.remove('active');
+          document.body.classList.remove('nav-open');
+        }
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (nav && nav.classList.contains('active')) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
         });
       }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeMenu();
+        });
+      }
+
+      // Close when clicking nav links
+      const links = document.querySelectorAll('.nav-link');
+      links.forEach(function(l) {
+        l.addEventListener('click', function() {
+          closeMenu();
+        });
+      });
+
+      // Close on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMenu();
+        }
+      });
     });
   </script>
 

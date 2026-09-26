@@ -42,18 +42,22 @@
 
   <style>
 
-    :root {
+        :root {
       --bg-dark: #070b14;
       --bg-surface: #0f172a;
       --bg-card: #111a33;
       --bg-card-hover: #162447;
+      --bg-alt: #0f172a;
       --border-color: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.08);
       --border-highlight: rgba(56, 189, 248, 0.45);
       --border-glow: 0 0 25px rgba(56, 189, 248, 0.2);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
       --brand-primary: #38bdf8;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
       --brand-secondary: #818cf8;
       --brand-accent: #6366f1;
       --brand-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
@@ -1147,17 +1151,122 @@
       color: var(--brand-primary);
     }
 
-    /* Media Queries / Responsive */
-    @media (max-width: 1024px) {
+        /* Responsive Design System */
+    @media (max-width: 992px) {
+      .logo-badge {
+        display: none;
+      }
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(7, 11, 20, 0.98);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        z-index: 999999;
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1.5rem 2.5rem;
+        overflow-y: auto;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-12px);
+        transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        box-sizing: border-box;
+      }
+      .main-nav.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+      .mobile-nav-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .mobile-menu-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-sm);
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .mobile-menu-close:hover {
+        background: rgba(239, 68, 68, 0.2);
+        color: #ef4444;
+        border-color: #ef4444;
+      }
+      .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        margin-bottom: 2rem;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .nav-list li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        width: 100%;
+      }
+      .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #f8fafc;
+        padding: 1.1rem 0.5rem;
+        width: 100%;
+        box-sizing: border-box;
+        transition: all 0.2s ease;
+      }
+      .nav-link:hover, .nav-link.active {
+        color: var(--brand-primary);
+        padding-left: 0.85rem;
+      }
+      .nav-link.active::after {
+        display: none;
+      }
+      .nav-cta-wrap {
+        width: 100%;
+        margin-top: auto;
+        padding-top: 1rem;
+        box-sizing: border-box;
+      }
+      .nav-cta-wrap .btn {
+        width: 100%;
+        padding: 1.1rem;
+        font-size: 1.1rem;
+        justify-content: center;
+        box-sizing: border-box;
+      }
       .pricing-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
       .pricing-featured {
         grid-column: span 2;
-        transform: none;
-      }
-      .pricing-featured:hover {
-        transform: translateY(-5px);
+        transform: none !important;
       }
       .grid-4 {
         grid-template-columns: repeat(2, 1fr);
@@ -1168,60 +1277,73 @@
       }
     }
 
+    @media (min-width: 993px) {
+      .mobile-nav-header {
+        display: none !important;
+      }
+    }
+
     @media (max-width: 768px) {
+      body.nav-open {
+        overflow: hidden !important;
+        position: fixed;
+        width: 100%;
+      }
+      .container {
+        padding: 0 1.25rem !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
       .section, .numbers-sec, .about-sec, .timeline-sec, 
       .method-sec, .why-price-sec, .compare-sec, .chapters-sec, .reviews-sec {
-        padding: 3.5rem 0;
+        padding: 3.25rem 0;
       }
-      .mobile-menu-toggle {
-        display: block;
+
+      /* PRICING SECTION MOBILE CUTOFF FIX */
+      .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 2.5rem 0 1rem !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
       }
-      .main-nav {
-        position: fixed;
-        top: 74px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(7, 11, 20, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: stretch;
-        padding: 2rem 1.5rem;
-        gap: 2rem;
-        display: none;
-        overflow-y: auto;
+      .pricing-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 2.25rem 1.25rem !important;
+        transform: none !important;
+        margin: 0 !important;
       }
-      .main-nav.active {
-        display: flex;
-      }
-      .nav-list {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.25rem;
-        width: 100%;
-      }
-      .nav-link {
-        font-size: 1.2rem;
-        width: 100%;
-        padding: 0.5rem 0;
-      }
-      .nav-cta-wrap {
-        width: 100%;
-      }
-      .nav-cta-wrap .btn {
-        width: 100%;
-      }
-      .grid-2, .grid-3, .pricing-grid {
-        grid-template-columns: 1fr;
+      .pricing-card:hover {
+        transform: none !important;
       }
       .pricing-featured {
-        grid-column: auto;
+        grid-column: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.2) !important;
+      }
+      .pricing-featured:hover {
+        transform: none !important;
+      }
+
+      /* Metric cards responsive */
+      .metric-card {
+        padding: 1.5rem 1.25rem !important;
+        box-sizing: border-box !important;
+      }
+      .metric-display {
+        font-size: 2.5rem !important;
       }
 
       /* Stats bar responsive 2x2 grid */
       .stats-bar {
         grid-template-columns: repeat(2, 1fr);
         margin: 2.5rem auto 1rem;
+        box-sizing: border-box;
       }
       .stat-item:nth-child(2) {
         border-right: none;
@@ -1230,12 +1352,16 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
       .stat-value {
-        font-size: 2rem;
+        font-size: 1.85rem;
       }
       .stat-item {
-        padding: 1.5rem 1rem;
+        padding: 1.25rem 0.75rem;
       }
 
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1440,7 +1566,7 @@
   </script>
 </head>
 <body>
-  <header class="site-header">
+    <header class="site-header">
     <div class="container nav-wrap">
       <a href="/" class="logo">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-primary);"><path d="M5 16V9h14V2H5l14 14h-7m-7 0 7 7v-7m-7 0h7"/></svg>
@@ -1448,26 +1574,35 @@
         <span class="logo-badge">QA Network</span>
       </a>
 
-      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" type="button">
         <span></span>
         <span></span>
         <span></span>
       </button>
 
       <nav class="main-nav" id="mainNav">
+        <div class="mobile-nav-header">
+          <a href="/" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--brand-primary);"><path d="M5 16V9h14V2H5l14 14h-7m-7 0 7 7v-7m-7 0h7"/></svg>
+            <span>12Testers</span>Play
+          </a>
+          <button class="mobile-menu-close" id="menuClose" aria-label="Close navigation menu" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
         <ul class="nav-list">
-          <li><a href="/" class="nav-link active">Home</a></li>
-          <li><a href="/pricing/" class="nav-link">Pricing</a></li>
-          <li><a href="/services/" class="nav-link">Services</a></li>
-          <li><a href="/for-agencies/" class="nav-link">For Agencies</a></li>
-          <li><a href="/guides/" class="nav-link">Guides</a></li>
-          <li><a href="/about/" class="nav-link">About</a></li>
-          <li><a href="/contact/" class="nav-link">Contact</a></li>
+          <li><a href="/" class="nav-link active"><span>Home</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/pricing/" class="nav-link"><span>Pricing</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/services/" class="nav-link"><span>Services</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/for-agencies/" class="nav-link"><span>For Agencies</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/guides/" class="nav-link"><span>Guides</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/about/" class="nav-link"><span>About</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
+          <li><a href="/contact/" class="nav-link"><span>Contact</span><span style="font-size: 0.9rem; opacity: 0.6;">&rarr;</span></a></li>
         </ul>
         <div class="nav-cta-wrap">
           <a href="https://wa.me/923394001479?text=Hi%2C%20I%20need%20help%20with%20Google%20Play%2012%20testers" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
             <span class="pulse-dot"></span>
-            <span>WhatsApp Us</span>
+            <span>Chat on WhatsApp (+923394001479)</span>
           </a>
         </div>
       </nav>
@@ -2283,6 +2418,15 @@
     </svg>
     <span class="floating-wa-text">Chat with Senior QA</span>
   </a>
+</main>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/923394001479?text=Hi%2C%20I%20have%20a%20question%20about%20Google%20Play%2012%20testers" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.56 0 8.25 3.69 8.25 8.24 0 4.56-3.69 8.25-8.25 8.25-1.46 0-2.88-.38-4.13-1.11l-.3-.18-3.08.81.82-3-.2-.31a8.16 8.16 0 0 1-1.25-4.46c0-4.55 3.69-8.24 8.24-8.24zm4.53 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/>
+    </svg>
+    <span class="floating-wa-text">Chat with Senior QA</span>
+  </a>
 
   <footer class="site-footer">
     <div class="container">
@@ -2359,13 +2503,57 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const toggle = document.getElementById('menuToggle');
+      const closeBtn = document.getElementById('menuClose');
       const nav = document.getElementById('mainNav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', function() {
-          toggle.classList.toggle('active');
-          nav.classList.toggle('active');
+
+      function openMenu() {
+        if (toggle && nav) {
+          toggle.classList.add('active');
+          nav.classList.add('active');
+          document.body.classList.add('nav-open');
+        }
+      }
+
+      function closeMenu() {
+        if (toggle && nav) {
+          toggle.classList.remove('active');
+          nav.classList.remove('active');
+          document.body.classList.remove('nav-open');
+        }
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (nav && nav.classList.contains('active')) {
+            closeMenu();
+          } else {
+            openMenu();
+          }
         });
       }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeMenu();
+        });
+      }
+
+      // Close when clicking nav links
+      const links = document.querySelectorAll('.nav-link');
+      links.forEach(function(l) {
+        l.addEventListener('click', function() {
+          closeMenu();
+        });
+      });
+
+      // Close on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMenu();
+        }
+      });
     });
   </script>
 

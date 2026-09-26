@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Play Production Access Rejected? Forensic Guide to More Testing Required (2026)</title>
   <meta name="description" content="Step-by-step forensic guide to recovering from a rejected Google Play production access application. Understand silent tester penalties, Play Integrity telemetry, and get winning questionnaire answers.">
-  <link rel="canonical" href="https://12testersgoogleplay.github.io/google-play-production-access-rejected/">
+  <link rel="canonical" href="https://12-testers-google-play.github.io/google-play-production-access-rejected/">
   <meta name="robots" content="index, follow">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Google Play Production Access Rejected? Forensic Guide to More Testing Required (2026)">
   <meta property="og:description" content="Step-by-step forensic guide to recovering from a rejected Google Play production access application. Understand silent tester penalties, Play Integrity telemetry, and get winning questionnaire answers.">
-  <meta property="og:url" content="https://12testersgoogleplay.github.io/google-play-production-access-rejected/">
-  <meta property="og:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
+  <meta property="og:url" content="https://12-testers-google-play.github.io/google-play-production-access-rejected/">
+  <meta property="og:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Google Play Production Access Rejected? Forensic Guide to More Testing Required (2026)">
   <meta name="twitter:description" content="Step-by-step forensic guide to recovering from a rejected Google Play production access application. Understand silent tester penalties, Play Integrity telemetry, and get winning questionnaire answers.">
-  <meta name="twitter:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
+  <meta name="twitter:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
   
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,7 +79,7 @@
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 100% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
-      color: var(--text-main);
+      color: #ffffff;
       font-family: var(--font-sans);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -276,14 +276,14 @@
       border: none;
       cursor: pointer;
       padding: 0.5rem;
-      color: var(--text-main);
+      color: #ffffff;
     }
 
     .mobile-menu-toggle span {
       display: block;
       width: 24px;
       height: 2px;
-      background: #ffffff;
+      background: var(--bg-card);
       margin: 5px 0;
       transition: 0.3s;
       border-radius: 2px;
@@ -347,7 +347,7 @@
       width: 9px;
       height: 9px;
       border-radius: 50%;
-      background: #ffffff;
+      background: var(--bg-card);
       animation: pulse 1.8s infinite;
     }
 
@@ -1301,13 +1301,13 @@
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://12testersgoogleplay.github.io/"
+              "item": "https://12-testers-google-play.github.io/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Production Rejection Recovery",
-              "item": "https://12testersgoogleplay.github.io/google-play-production-access-rejected/"
+              "item": "https://12-testers-google-play.github.io/google-play-production-access-rejected/"
             }
           ]
         }
@@ -1354,7 +1354,7 @@
 
   <main>
     <!-- Breadcrumb -->
-    <div style="background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 0.85rem 0;">
+    <div style="background: var(--bg-surface); border-bottom: 1px solid var(--border-color); padding: 0.85rem 0;">
       <div class="container">
         <nav class="breadcrumbs">
           <a href="/">Home</a> &gt; <a href="/guides/">Guides</a> &gt; <span>Production Access Rejected Recovery</span>
@@ -1407,7 +1407,7 @@
     <!-- Article Body -->
     <section class="section" style="padding-top: 0;">
       <div class="container" style="max-width: 900px;">
-        <article class="article-content" style="line-height: 1.8; color: var(--text-main); font-size: 1.05rem;">
+        <article class="article-content" style="line-height: 1.8; color: #ffffff; font-size: 1.05rem;">
 
           <h2 style="margin-top: 2.5rem; font-size: 1.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
             1. The "Silent Tester" Penalty: How Google Evaluates Closed Tracks
@@ -1420,20 +1420,20 @@
           </p>
 
           <div class="facts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin: 1.75rem 0;">
-            <div class="fact-box" style="background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border);">
-              <div class="fact-label" style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">Session Retention</div>
+            <div class="fact-box" style="background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border-color);">
+              <div class="fact-label" style="font-weight: 700; color: var(--brand-primary); margin-bottom: 0.5rem;">Session Retention</div>
               <div class="fact-detail" style="font-size: 0.95rem; color: var(--text-muted);">Percentage of opted-in users who opened the app at least once during Days 7&ndash;14. Drops below 40% are heavily penalized.</div>
             </div>
-            <div class="fact-box" style="background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border);">
-              <div class="fact-label" style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">Interaction Breadth</div>
+            <div class="fact-box" style="background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border-color);">
+              <div class="fact-label" style="font-weight: 700; color: var(--brand-primary); margin-bottom: 0.5rem;">Interaction Breadth</div>
               <div class="fact-detail" style="font-size: 0.95rem; color: var(--text-muted);">Number of distinct activity transitions and screen views logged per session, verifying human navigation vs automated scripts.</div>
             </div>
-            <div class="fact-box" style="background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border);">
-              <div class="fact-label" style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">Hardware Entropy</div>
+            <div class="fact-box" style="background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border-color);">
+              <div class="fact-label" style="font-weight: 700; color: var(--brand-primary); margin-bottom: 0.5rem;">Hardware Entropy</div>
               <div class="fact-detail" style="font-size: 0.95rem; color: var(--text-muted);">Diversity of screen resolutions, Android API levels (API 30&ndash;35), GPU chipsets, and RAM configurations in the testing pool.</div>
             </div>
-            <div class="fact-box" style="background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border);">
-              <div class="fact-label" style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">Console Feedback Stream</div>
+            <div class="fact-box" style="background: var(--bg-surface); padding: 1.25rem; border-radius: var(--radius); border: 1px solid var(--border-color);">
+              <div class="fact-label" style="font-weight: 700; color: var(--brand-primary); margin-bottom: 0.5rem;">Console Feedback Stream</div>
               <div class="fact-detail" style="font-size: 0.95rem; color: var(--text-muted);">Volume and timestamps of private tester feedback submitted directly within the Google Play Store client interface.</div>
             </div>
           </div>
@@ -1467,53 +1467,53 @@
 
           <div style="margin: 2rem 0;">
             <!-- Question 1 -->
-            <div style="background: var(--bg-alt); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 1.5rem;">
-              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">
+            <div style="background: var(--bg-surface); border-left: 4px solid var(--brand-primary); padding: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #ffffff;">
                 Prompt 1: Describe your testing audience and recruitment methodology
               </h4>
               <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.75rem;">
                 <strong>Key Objective:</strong> Prove that your testers represent genuine end-users on diverse physical hardware rather than automated accounts.
               </p>
-              <div style="background: #fff; padding: 1rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem;">
+              <div style="background: var(--bg-card); padding: 1rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
                 <em>"We recruited a cohort of 14 physical device testers representing our target demographic of productivity and task-management users. Testers were distributed across 4 geographic regions and utilized physical smartphones from Samsung (Galaxy S23, A53), Google (Pixel 7, 8a), and Xiaomi (Redmi Note 12) spanning Android 11 through Android 15. All testers opted in via our closed testing track and engaged in daily scenario testing."</em>
               </div>
             </div>
 
             <!-- Question 2 -->
-            <div style="background: var(--bg-alt); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 1.5rem;">
-              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">
+            <div style="background: var(--bg-surface); border-left: 4px solid var(--brand-primary); padding: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #ffffff;">
                 Prompt 2: Detail the feedback collected during the closed testing period
               </h4>
               <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.75rem;">
                 <strong>Key Objective:</strong> Show that your testers actively interacted with features and reported meaningful observations.
               </p>
-              <div style="background: #fff; padding: 1rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem;">
+              <div style="background: var(--bg-card); padding: 1rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
                 <em>"During the 14-day testing period, our testers logged 6 private Play Store feedback submissions and 3 direct bug reports. Specific feedback included: 1) Sluggish initial database load times on devices with under 4GB RAM, 2) Text overlapping inside the primary dashboard when system font size was set to 'Largest', and 3) A non-fatal NullPointerException in SQLite sync when switching from Wi-Fi to cellular data."</em>
               </div>
             </div>
 
             <!-- Question 3 -->
-            <div style="background: var(--bg-alt); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 1.5rem;">
-              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">
+            <div style="background: var(--bg-surface); border-left: 4px solid var(--brand-primary); padding: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #ffffff;">
                 Prompt 3: Describe the changes and optimizations implemented based on feedback
               </h4>
               <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.75rem;">
                 <strong>Key Objective:</strong> Prove that you rolled out real updates addressing the specific issues noted above.
               </p>
-              <div style="background: #fff; padding: 1rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem;">
+              <div style="background: var(--bg-card); padding: 1rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
                 <em>"In response to tester findings, we compiled and deployed closed track release v1.0.2 (versionCode 2) on Day 8. We: 1) Implemented Room database indexing and Room coroutine dispatchers, reducing cold start query times by 42%, 2) Refactored dashboard layouts with dynamic ConstraintLayout constraints to support accessibility font scaling, and 3) Wrapped network connectivity listeners in state-flow guards to eliminate sync disconnect exceptions."</em>
               </div>
             </div>
 
             <!-- Question 4 -->
-            <div style="background: var(--bg-alt); border-left: 4px solid var(--primary); padding: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 1.5rem;">
-              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">
+            <div style="background: var(--bg-surface); border-left: 4px solid var(--brand-primary); padding: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: #ffffff;">
                 Prompt 4: Provide evidence that your application is ready for commercial production
               </h4>
               <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.75rem;">
                 <strong>Key Objective:</strong> Quote exact Google Play Console Android Vitals metrics.
               </p>
-              <div style="background: #fff; padding: 1rem; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem;">
+              <div style="background: var(--bg-card); padding: 1rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 0.95rem;">
                 <em>"Our Android Vitals telemetry across 336 consecutive testing hours reflects production-grade stability: Crash rate is 0.00% (well below Google's 1.09% bad behavior threshold) and ANR rate is 0.00% (below 0.47% threshold). Over 14 testers maintained uninterrupted opt-ins, all core user journeys have been stress-tested, and build v1.0.2 has verified stability across all target API levels."</em>
               </div>
             </div>
