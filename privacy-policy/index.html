@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy & Developer Data Protection | 12 Testers Google Play</title>
   <meta name="description" content="Read our comprehensive developer privacy policy. Learn how 12 Testers Google Play protects your pre-release APKs, protects intellectual property, and ensures GDPR/CCPA compliance.">
-  <link rel="canonical" href="https://12testersgoogleplay.github.io/privacy-policy/">
+  <link rel="canonical" href="https://12-testers-google-play.github.io/privacy-policy/">
   <meta name="robots" content="index, follow">
   
   <!-- OpenGraph Metadata -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Privacy Policy & Developer Data Protection | 12 Testers Google Play">
   <meta property="og:description" content="Read our comprehensive developer privacy policy. Learn how 12 Testers Google Play protects your pre-release APKs, protects intellectual property, and ensures GDPR/CCPA compliance.">
-  <meta property="og:url" content="https://12testersgoogleplay.github.io/privacy-policy/">
-  <meta property="og:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
+  <meta property="og:url" content="https://12-testers-google-play.github.io/privacy-policy/">
+  <meta property="og:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Privacy Policy & Developer Data Protection | 12 Testers Google Play">
   <meta name="twitter:description" content="Read our comprehensive developer privacy policy. Learn how 12 Testers Google Play protects your pre-release APKs, protects intellectual property, and ensures GDPR/CCPA compliance.">
-  <meta name="twitter:image" content="https://12testersgoogleplay.github.io/assets/og-image.svg">
+  <meta name="twitter:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
   
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -240,9 +240,11 @@
       align-items: baseline;
       font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       letter-spacing: -0.025em;
       line-height: 1;
+      white-space: nowrap;
+      gap: 0.35rem;
     }
 
     .logo-title {
@@ -254,24 +256,7 @@
       background: var(--brand-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-left: 1px;
       font-weight: 800;
-    }
-
-    .logo-badge {
-      font-size: 0.68rem;
-      font-family: var(--font-mono);
-      font-weight: 700;
-      padding: 0.22rem 0.55rem;
-      border-radius: 9999px;
-      background: rgba(16, 185, 129, 0.12);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: inline-flex;
-      align-items: center;
-      white-space: nowrap;
     }
 
     /* Desktop Navigation (min-width: 993px) */
@@ -1565,12 +1550,13 @@
       }
 
       .logo-text {
-        font-size: 1.2rem !important;
+        font-size: 1.12rem !important;
+        gap: 0.28rem !important;
       }
 
       .logo-svg {
-        width: 26px !important;
-        height: 26px !important;
+        width: 25px !important;
+        height: 25px !important;
       }
 
       /* Footer Mobile */
@@ -1587,9 +1573,14 @@
       }
     }
 
-    @media (max-width: 440px) {
-      .logo-badge {
-        display: none !important;
+    @media (max-width: 380px) {
+      .logo-text {
+        font-size: 0.96rem !important;
+        gap: 0.22rem !important;
+      }
+      .logo-svg {
+        width: 22px !important;
+        height: 22px !important;
       }
     }
     
@@ -1603,7 +1594,7 @@
           "@type": "WebPage",
           "name": "Privacy Policy & Developer Data Protection",
           "description": "Comprehensive developer privacy policy outlining data collection, pre-release APK confidentiality, hardware telemetry, and zero credentials policy.",
-          "url": "https://12testersgoogleplay.github.io/privacy-policy/",
+          "url": "https://12-testers-google-play.github.io/privacy-policy/",
           "publisher": {
             "@type": "Organization",
             "name": "12 Testers Google Play"
@@ -1616,13 +1607,13 @@
               "@type": "ListItem",
               "position": 1,
               "name": "Home",
-              "item": "https://12testersgoogleplay.github.io/"
+              "item": "https://12-testers-google-play.github.io/"
             },
             {
               "@type": "ListItem",
               "position": 2,
               "name": "Privacy Policy",
-              "item": "https://12testersgoogleplay.github.io/privacy-policy/"
+              "item": "https://12-testers-google-play.github.io/privacy-policy/"
             }
           ]
         }
@@ -1651,8 +1642,7 @@
           <circle cx="22" cy="22" r="6" fill="url(#gpBadgeGrad)"/>
           <path d="M19.2 22L21.2 24L24.8 19.8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="logo-text"><span class="logo-title">12Testers</span><span class="logo-accent">Play</span></span>
-        <span class="logo-badge">Verified QA</span>
+        <span class="logo-text"><strong class="logo-title">12 Testers</strong> <span class="logo-accent">Google Play</span></span>
       </a>
 
       <!-- Mobile Hamburger Toggle Button (3 Distinct Horizontal Lines, Toggles to X) -->
@@ -1734,7 +1724,7 @@
             1. Preamble &amp; Organizational Scope
           </h2>
           <p>
-            This Privacy Policy applies to all services provided by <strong>12 Testers Google Play</strong> ("we", "us", "our", or the "Platform"), accessible via <code>https://12testersgoogleplay.github.io/</code> and affiliated communication channels (including WhatsApp Business support at <code>+923394001479</code>). It governs the collection, storage, processing, and protection of information submitted by Android developers, software engineering studios, and agencies ("you", "Developer", or "Client") utilizing our 14-day closed testing cohorts.
+            This Privacy Policy applies to all services provided by <strong>12 Testers Google Play</strong> ("we", "us", "our", or the "Platform"), accessible via <code>https://12-testers-google-play.github.io/</code> and affiliated communication channels (including WhatsApp Business support at <code>+923394001479</code>). It governs the collection, storage, processing, and protection of information submitted by Android developers, software engineering studios, and agencies ("you", "Developer", or "Client") utilizing our 14-day closed testing cohorts.
           </p>
 
           <h2 style="font-size: 1.8rem; margin-top: 2.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem;">
@@ -1846,7 +1836,7 @@
           <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius); border: 1px solid var(--border-color); margin: 1.5rem 0;">
             <p style="margin: 0; font-weight: 600; color: #ffffff;">12 Testers Google Play Governance Desk</p>
             <p style="margin: 0.25rem 0; color: var(--text-muted);">Direct WhatsApp Support: <a href="https://wa.me/923394001479" style="font-weight: 600; color: var(--brand-primary);">+923394001479</a></p>
-            <p style="margin: 0; color: var(--text-muted);">Documentation: <a href="https://12testersgoogleplay.github.io/guides/">Technical Guides</a></p>
+            <p style="margin: 0; color: var(--text-muted);">Documentation: <a href="https://12-testers-google-play.github.io/guides/">Technical Guides</a></p>
           </div>
 
         </article>
@@ -1883,7 +1873,7 @@
               <circle cx="22" cy="22" r="6" fill="url(#gpFtrBadge)"/>
               <path d="M19.2 22L21.2 24L24.8 19.8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span class="logo-text"><span class="logo-title">12Testers</span><span class="logo-accent">Play</span></span>
+            <span class="logo-text"><strong class="logo-title">12 Testers</strong> <span class="logo-accent">Google Play</span></span>
           </a>
           <p>
             The dedicated physical device testing network helping Android developers pass Google Play's 14-day closed testing requirement and unlock production access.
