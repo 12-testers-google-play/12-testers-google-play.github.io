@@ -1,0 +1,11 @@
+/* TEAM */
+  QA Lead: Muhammad Talha
+  Network: 12 Testers Google Play Global Testing Fleet
+  Location: Worldwide (40+ Countries)
+  WhatsApp Contact: +923394001479
+
+/* SITE */
+  Standards: HTML5, CSS3, Schema.org JSON-LD
+  Components: Responsive Zero-JS Theme, Dark Mode
+  Target Platform: Google Play Console 14-Day Closed Testing Track
+  Last update: 2026/03

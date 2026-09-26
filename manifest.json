@@ -1,0 +1,16 @@
+{
+  "name": "12 Testers Google Play",
+  "short_name": "12TestersPlay",
+  "description": "Physical Android device closed testing cohorts for Google Play approval.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#38bdf8",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
