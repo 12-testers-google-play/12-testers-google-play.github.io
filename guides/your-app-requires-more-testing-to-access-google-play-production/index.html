@@ -1677,25 +1677,130 @@
       line-height: 1.75;
     }
 
-    /* AppConsoleLab CTA Banner Box */
-    .appconsolelab-cta-box {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(6, 78, 59, 0.35) 50%, rgba(15, 23, 42, 0.95) 100%);
-      border: 2px solid rgba(16, 185, 129, 0.4);
-      border-radius: var(--radius-xl);
-      padding: 2.75rem 2.25rem;
-      margin: 3.5rem 0;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-      position: relative;
-      overflow: hidden;
+    /* Fixed Floating Bottom CTA Bar (Desktop & Mobile Optimized) */
+    body {
+      padding-bottom: 75px !important;
     }
-    .appconsolelab-cta-box::before {
-      content: "";
-      position: absolute;
-      top: 0;
+
+    .fixed-floating-cta-bar {
+      position: fixed;
+      bottom: 0;
       left: 0;
       right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #10b981 0%, #38bdf8 100%);
+      width: 100%;
+      background: rgba(11, 17, 33, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.55);
+      z-index: 998;
+      padding: 0.65rem 1.25rem;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    .fixed-cta-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .fixed-cta-content {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .fixed-cta-badge {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #4ade80;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      flex-shrink: 0;
+    }
+
+    .fixed-cta-text {
+      color: #f1f5f9;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .fixed-cta-action {
+      flex-shrink: 0;
+    }
+
+    .fixed-cta-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.4rem !important;
+      padding: 0.6rem 1.35rem !important;
+      font-size: 0.95rem !important;
+      font-weight: 700 !important;
+      border-radius: var(--radius-sm) !important;
+      white-space: nowrap !important;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.35) !important;
+      background: var(--brand-gradient) !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+
+    .fixed-cta-btn:hover {
+      box-shadow: 0 0 28px rgba(56, 189, 248, 0.55) !important;
+      transform: translateY(-1px);
+    }
+
+    /* Adjust floating WhatsApp icon so it floats comfortably above the bottom bar */
+    .floating-wa {
+      bottom: 75px !important;
+      z-index: 999 !important;
+    }
+
+    /* Highly Mobile Optimized Layout */
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 70px !important;
+      }
+      .fixed-floating-cta-bar {
+        padding: 0.55rem 0.85rem;
+      }
+      .fixed-cta-container {
+        gap: 0.65rem;
+      }
+      .fixed-cta-badge {
+        display: none;
+      }
+      .fixed-cta-text {
+        font-size: 0.82rem;
+        line-height: 1.25;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .fixed-cta-btn {
+        padding: 0.55rem 0.95rem !important;
+        font-size: 0.85rem !important;
+      }
+      .floating-wa {
+        bottom: 68px !important;
+        right: 12px !important;
+      }
     }
 
 </style>
@@ -1879,8 +1984,7 @@
         <a href="/">Home</a> &gt; <a href="/guides/">Guides</a> &gt; <span>Fix "Your App Requires More Testing"</span>
       </div>
 
-      <div class="badge badge-warning" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.4); color: #fbbf24;">Forensic Rejection Recovery Playbook</div>
-      <h1>Your App Requires More Testing to Access Google Play Production! Here's How To Fix It</h1>
+            <h1>Your App Requires More Testing to Access Google Play Production! Here's How To Fix It</h1>
       <div style="color: var(--text-dim); font-size: 0.92rem; margin-bottom: 2rem;">
         Published October 2026 &bull; Updated for 2026 Play Console Telemetry &bull; 22 min read &bull; By Senior Android QA Lead
       </div>
@@ -2205,31 +2309,6 @@
         </p>
       </div>
 
-      <!-- AppConsoleLab Feature Banner -->
-      <div class="appconsolelab-cta-box">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
-          <div style="max-width: 650px;">
-            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.82rem; font-weight: 700; color: #4ade80; margin-bottom: 0.85rem;">
-              <span>&#9889;</span> Powered by AppConsoleLab Managed Infrastructure
-            </div>
-            <h3 style="font-size: 1.7rem; color: #fff; margin-bottom: 0.75rem;">Never Face Another "More Testing Required" Rejection</h3>
-            <p style="color: #cbd5e1; font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.25rem;">
-              AppConsoleLab provides personal developer accounts with 16 to 25 verified real-device testers across Android 11 through 15. We generate authentic session telemetry, submit private Play Store reviews, verify your update builds, and furnish custom questionnaire documentation.
-            </p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #94a3b8; font-size: 0.9rem;">
-              <span>&#10003; Real Devices (No Emulators)</span>
-              <span>&#10003; 336-Hour Continuous Opt-In</span>
-              <span>&#10003; 100% Money-Back SLA</span>
-            </div>
-          </div>
-          <div>
-            <a href="https://appconsolelab.com" class="btn btn-primary" style="padding: 1rem 2.2rem; font-size: 1.05rem; text-align: center; white-space: nowrap;" target="_blank" rel="noopener noreferrer">
-              Deploy on AppConsoleLab &rarr;
-            </a>
-          </div>
-        </div>
-      </div>
-
       <!-- Desktop 3-Column Aligned Pricing Grid -->
       <div class="pricing-grid-3col">
         <!-- Card 1: Indie Launchpad -->
@@ -2544,6 +2623,27 @@
       }
     });
   </script>
+
+  <!-- Fixed Floating Bottom CTA Bar (Mobile & Desktop Optimized) -->
+  <div class="fixed-floating-cta-bar" id="fixedFloatingCta">
+    <div class="fixed-cta-container">
+      <div class="fixed-cta-content">
+        <span class="fixed-cta-badge">100% Pass Guarantee</span>
+        <p class="fixed-cta-text">
+          Stuck on "more testing required"? Pass Google Play closed testing in 14 days with real physical Android testers.
+        </p>
+      </div>
+      <div class="fixed-cta-action">
+        <a href="https://appconsolelab.com" class="btn btn-primary fixed-cta-btn" target="_blank" rel="noopener noreferrer">
+          <span>Get 12 Testers Now</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
