@@ -1584,7 +1584,121 @@
       }
     }
     
-  </style>
+  
+    /* 3-Column Desktop Pricing Grid */
+    .pricing-grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 2.5rem 0 3.5rem;
+    }
+    .pricing-card-clean {
+      background: var(--card-gradient);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+    .pricing-card-clean:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-highlight);
+      box-shadow: var(--shadow-glow);
+    }
+    .pricing-card-clean.featured {
+      border: 2px solid var(--brand-primary);
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.25);
+      background: linear-gradient(180deg, rgba(22, 36, 71, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+    }
+
+    @media (max-width: 960px) {
+      .pricing-grid-3col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* Enhanced Accordion FAQ Styling */
+    .faq-list-modern {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .faq-item-modern {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+    }
+    .faq-item-modern:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+    }
+    .faq-item-modern summary {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      gap: 1rem;
+    }
+    .faq-item-modern summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-chevron-icon {
+      font-size: 1.25rem;
+      color: var(--brand-primary);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .faq-item-modern[open] .faq-chevron-icon {
+      transform: rotate(180deg);
+    }
+    .faq-item-modern .faq-body-content {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* AppConsoleLab CTA Banner Box */
+    .appconsolelab-cta-box {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(6, 78, 59, 0.35) 50%, rgba(15, 23, 42, 0.95) 100%);
+      border: 2px solid rgba(16, 185, 129, 0.4);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem 2.25rem;
+      margin: 3.5rem 0;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .appconsolelab-cta-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981 0%, #38bdf8 100%);
+    }
+
+</style>
 
   <script type="application/ld+json">
   {
@@ -2080,43 +2194,77 @@
       </div>
 
       <!-- SECTION 6: PRICING & MANAGED COHORT -->
-      <h2 style="margin-top: 4rem; text-align: center;">Need Guaranteed Approval Without the Headaches?</h2>
-      <p style="text-align: center; color: var(--text-muted); max-width: 650px; margin: 0 auto 2.5rem;">
-        Deploy our audited fleet of 16 to 25 verified physical Android smartphones. We handle 100% of the daily testing, private reviews, over-the-air update verification, and questionnaire assistance.
-      </p>
+    </div> <!-- Close 900px container to allow full 1140px desktop width -->
 
-      <div class="pricing-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-        <!-- Card 1 -->
-        <div class="pricing-card" style="background: var(--card-gradient); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem;">
-          <h3>Indie Launchpad</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Essential testing for solo developers releasing their first utility app.</p>
-          <div class="price-value" style="font-size: 2.2rem; font-weight: 700; color: #fff; margin: 1rem 0;">$20 <span style="font-size: 0.95rem; color: var(--text-dim); font-weight: normal;">/ one-time</span></div>
-          <ul class="pricing-features" style="list-style: none; margin: 1.5rem 0; line-height: 2; color: var(--text-muted); font-size: 0.92rem;">
-            <li>&#10003; <strong>16 Verified Physical Testers</strong> (4-tester buffer)</li>
+    <div class="container" style="max-width: 1140px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="text-align: center; max-width: 720px; margin: 4rem auto 1rem;">
+        <span class="badge badge-success" style="margin-bottom: 0.75rem;">Guaranteed Closed Testing Cohorts</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Need Guaranteed Approval Without the Headaches?</h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7;">
+          Deploy our audited fleet of 16 to 25 verified physical Android smartphones. We handle 100% of the daily testing, private reviews, over-the-air update verification, and questionnaire assistance.
+        </p>
+      </div>
+
+      <!-- AppConsoleLab Feature Banner -->
+      <div class="appconsolelab-cta-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+          <div style="max-width: 650px;">
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.82rem; font-weight: 700; color: #4ade80; margin-bottom: 0.85rem;">
+              <span>&#9889;</span> Powered by AppConsoleLab Managed Infrastructure
+            </div>
+            <h3 style="font-size: 1.7rem; color: #fff; margin-bottom: 0.75rem;">Never Face Another "More Testing Required" Rejection</h3>
+            <p style="color: #cbd5e1; font-size: 1.02rem; line-height: 1.7; margin-bottom: 1.25rem;">
+              AppConsoleLab provides personal developer accounts with 16 to 25 verified real-device testers across Android 11 through 15. We generate authentic session telemetry, submit private Play Store reviews, verify your update builds, and furnish custom questionnaire documentation.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; color: #94a3b8; font-size: 0.9rem;">
+              <span>&#10003; Real Devices (No Emulators)</span>
+              <span>&#10003; 336-Hour Continuous Opt-In</span>
+              <span>&#10003; 100% Money-Back SLA</span>
+            </div>
+          </div>
+          <div>
+            <a href="https://appconsolelab.com" class="btn btn-primary" style="padding: 1rem 2.2rem; font-size: 1.05rem; text-align: center; white-space: nowrap;" target="_blank" rel="noopener noreferrer">
+              Deploy on AppConsoleLab &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop 3-Column Aligned Pricing Grid -->
+      <div class="pricing-grid-3col">
+        <!-- Card 1: Indie Launchpad -->
+        <div class="pricing-card-clean">
+          <h3 style="font-size: 1.45rem; margin-bottom: 0.5rem; color: #fff;">Indie Launchpad</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; min-height: 2.6rem;">Essential testing for solo developers releasing utility or tool applications.</p>
+          <div class="price-value" style="font-size: 2.4rem; font-weight: 700; color: #fff; margin: 1rem 0 0.5rem;">$20 <span style="font-size: 0.92rem; color: var(--text-dim); font-weight: normal;">/ one-time</span></div>
+          <div style="font-size: 0.82rem; color: var(--brand-primary); margin-bottom: 1.5rem;">Zero subscriptions &bull; Full 14-day cycle</div>
+          <ul class="pricing-features" style="list-style: none; margin: 0 0 2rem; padding: 0; flex-grow: 1; line-height: 2; color: #cbd5e1; font-size: 0.92rem;">
+            <li>&#10003; <strong>16 Verified Physical Testers</strong> (4-tester safety buffer)</li>
             <li>&#10003; 14 Consecutive Days continuous opt-in</li>
-            <li>&#10003; Real Android hardware (No emulators)</li>
+            <li>&#10003; Real physical Android smartphones</li>
             <li>&#10003; Periodic launch &amp; interaction sessions</li>
-            <li>&#10003; Free tester replacement guarantee</li>
-            <li>&#10003; Questionnaire assistance guide</li>
+            <li>&#10003; 100% Free tester replacement</li>
+            <li>&#10003; Production questionnaire answer guide</li>
           </ul>
           <a href="https://appconsolelab.com" class="btn btn-primary" style="width: 100%; text-align: center;" target="_blank" rel="noopener noreferrer">
             Order Indie Launchpad
           </a>
         </div>
 
-        <!-- Card 2 -->
-        <div class="pricing-card pricing-featured" style="background: var(--card-gradient); border: 2px solid var(--brand-primary); border-radius: var(--radius-lg); padding: 2rem; position: relative;">
-          <div class="pricing-badge" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--brand-gradient); padding: 0.25rem 0.85rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #fff;">Most Popular &bull; 99.4% Approval</div>
-          <h3>Production Pass Pro</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Full-scale diagnostic QA with active bug reports and vitals proof.</p>
-          <div class="price-value" style="font-size: 2.2rem; font-weight: 700; color: #fff; margin: 1rem 0;">$50 <span style="font-size: 0.95rem; color: var(--text-dim); font-weight: normal;">/ one-time</span></div>
-          <ul class="pricing-features" style="list-style: none; margin: 1.5rem 0; line-height: 2; color: var(--text-muted); font-size: 0.92rem;">
-            <li>&#10003; <strong>20 Verified Physical Testers</strong> (8-tester buffer)</li>
+        <!-- Card 2: Production Pass Pro (Featured) -->
+        <div class="pricing-card-clean featured">
+          <div class="pricing-badge" style="position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--brand-gradient); padding: 0.25rem 0.95rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #fff; white-space: nowrap;">Most Popular &bull; 99.4% Approval</div>
+          <h3 style="font-size: 1.45rem; margin-bottom: 0.5rem; color: #fff;">Production Pass Pro</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; min-height: 2.6rem;">Full diagnostic QA with active bug reports, vitals proof, and updates.</p>
+          <div class="price-value" style="font-size: 2.4rem; font-weight: 700; color: #fff; margin: 1rem 0 0.5rem;">$50 <span style="font-size: 0.92rem; color: var(--text-dim); font-weight: normal;">/ one-time</span></div>
+          <div style="font-size: 0.82rem; color: #4ade80; margin-bottom: 1.5rem;">Best for commercial apps &amp; games</div>
+          <ul class="pricing-features" style="list-style: none; margin: 0 0 2rem; padding: 0; flex-grow: 1; line-height: 2; color: #cbd5e1; font-size: 0.92rem;">
+            <li>&#10003; <strong>20 Verified Physical Testers</strong> (8-tester safety buffer)</li>
             <li>&#10003; 14 Consecutive Days continuous opt-in</li>
             <li>&#10003; Samsung, Pixel, Xiaomi, Motorola matrix</li>
             <li>&#10003; Android 11 through Android 15 coverage</li>
             <li>&#10003; Over-the-air update installation verified</li>
-            <li>&#10003; Private Play Store bug reports submitted</li>
+            <li>&#10003; Private Play Store bug reviews submitted</li>
             <li>&#10003; Bespoke questionnaire review by senior QA</li>
             <li>&#10003; 100% Free cohort restart if dropouts occur</li>
           </ul>
@@ -2125,14 +2273,15 @@
           </a>
         </div>
 
-        <!-- Card 3 -->
-        <div class="pricing-card" style="background: var(--card-gradient); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem;">
-          <h3>Studio Syndicate</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Priority turnaround for software studios and client development agencies.</p>
-          <div class="price-value" style="font-size: 2.2rem; font-weight: 700; color: #fff; margin: 1rem 0;">$80 <span style="font-size: 0.95rem; color: var(--text-dim); font-weight: normal;">/ one-time</span></div>
-          <ul class="pricing-features" style="list-style: none; margin: 1.5rem 0; line-height: 2; color: var(--text-muted); font-size: 0.92rem;">
+        <!-- Card 3: Studio Syndicate -->
+        <div class="pricing-card-clean">
+          <h3 style="font-size: 1.45rem; margin-bottom: 0.5rem; color: #fff;">Studio Syndicate</h3>
+          <p style="color: var(--text-muted); font-size: 0.92rem; min-height: 2.6rem;">Priority turnaround for software studios and client development agencies.</p>
+          <div class="price-value" style="font-size: 2.4rem; font-weight: 700; color: #fff; margin: 1rem 0 0.5rem;">$80 <span style="font-size: 0.92rem; color: var(--text-dim); font-weight: normal;">/ one-time</span></div>
+          <div style="font-size: 0.82rem; color: var(--brand-secondary); margin-bottom: 1.5rem;">Priority support &bull; Multi-release testing</div>
+          <ul class="pricing-features" style="list-style: none; margin: 0 0 2rem; padding: 0; flex-grow: 1; line-height: 2; color: #cbd5e1; font-size: 0.92rem;">
             <li>&#10003; <strong>25 Dedicated Physical Testers</strong></li>
-            <li>&#10003; Priority onboarding (&lt; 6 hours to closed track)</li>
+            <li>&#10003; Priority onboarding (&lt; 6h live in closed track)</li>
             <li>&#10003; Foldable phones &amp; Android tablets included</li>
             <li>&#10003; Multi-bundle regression testing across 14 days</li>
             <li>&#10003; White-label QA audit report for clients</li>
@@ -2143,63 +2292,107 @@
           </a>
         </div>
       </div>
+    </div> <!-- Close 1140px container -->
 
-      <!-- SECTION 7: FAQ -->
-      <h2 style="margin-top: 4rem;">6. Frequently Asked Questions</h2>
+    <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 1.5rem;">
+<!-- SECTION 7: FAQ -->
+      <h2 style="margin-top: 3.5rem;">6. Frequently Asked Questions: Rejection Recovery &amp; Approval</h2>
+      <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem;">
+        Everything you need to know about the 14-day reset, tester retention, Play Integrity, and successfully unlocking production access:
+      </p>
 
-      <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 1.5rem 0;">
-        <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">Does my 14-day closed testing period reset completely after rejection?</h3>
-        <p style="color: var(--text-muted); margin-bottom: 0;">
-          Yes. Google does not give partial credit for previous days. When your production access application is rejected with the "More testing required" message, your 14-day clock resets. You must run a new, continuous 14-day testing period with at least 12 opted-in testers before the Play Console enables the "Apply for Production" button again.
-        </p>
-      </div>
+      <div class="faq-list-modern">
+        <!-- FAQ 1 -->
+        <details class="faq-item-modern" open>
+          <summary>
+            <span>Does my 14-day closed testing period reset completely after rejection?</span>
+            <span class="faq-chevron-icon">&#9662;</span>
+          </summary>
+          <div class="faq-body-content">
+            <p>
+              Yes. Google does not grant partial credit for days completed before a rejection. When your production access application is rejected with the <em>"Your app requires more testing"</em> notice, your 14-day counter resets to Day 0. You must complete a fresh, continuous 14-day testing period (336 uninterrupted hours) with at least 12 opted-in testers before Google Play Console re-enables the "Apply for Production" button.
+            </p>
+          </div>
+        </details>
 
-      <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 1.5rem 0;">
-        <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">Can I use the exact same 12 testers for my second closed test?</h3>
-        <p style="color: var(--text-muted); margin-bottom: 0;">
-          You can keep reliable testers who actively open and use your app. However, if those 12 testers were inactive during your first attempt, keeping the exact same cohort without adding new active participants will lead to another rejection. We recommend keeping your existing list while adding 4 to 8 active, verified testers on different physical devices and cellular networks to ensure genuine usage metrics.
-        </p>
-      </div>
+        <!-- FAQ 2 -->
+        <details class="faq-item-modern">
+          <summary>
+            <span>Can I use the exact same 12 testers for my second closed test?</span>
+            <span class="faq-chevron-icon">&#9662;</span>
+          </summary>
+          <div class="faq-body-content">
+            <p>
+              You can keep active testers who genuinely engage with your app. However, if your previous 12 testers were inactive or flagged for zero-session installs, keeping the exact same cohort without adding new active participants will trigger another rejection. We strongly recommend expanding your cohort to <strong>16 to 20 testers</strong> with a fresh mix of diverse OEM devices (Samsung, Pixel, Motorola, Xiaomi), Android OS versions (11 through 15), and residential IP networks.
+            </p>
+          </div>
+        </details>
 
-      <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 1.5rem 0;">
-        <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">Will releasing an app update reset my 14-day testing countdown?</h3>
-        <p style="color: var(--text-muted); margin-bottom: 0;">
-          No. Uploading new releases to your active closed testing track does not reset the 14-day countdown. In fact, Google strongly encourages deploying update builds during closed testing. It proves that you are actively debugging issues and maintaining your application based on tester observations.
-        </p>
-      </div>
+        <!-- FAQ 3 -->
+        <details class="faq-item-modern">
+          <summary>
+            <span>Will releasing an app update reset my 14-day testing countdown?</span>
+            <span class="faq-chevron-icon">&#9662;</span>
+          </summary>
+          <div class="faq-body-content">
+            <p>
+              No. Uploading new App Bundles (<code>.aab</code>) to your active closed testing track does <strong>NOT</strong> reset the 14-day countdown. In fact, Google strongly encourages deploying update builds (e.g., <code>versionCode 2</code>) during closed testing. It provides definitive proof to reviewers that you collected tester feedback, fixed real bugs, and actively maintained the software.
+            </p>
+          </div>
+        </details>
 
-      <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 1.5rem 0;">
-        <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">What are the required Android Vitals thresholds to pass production review?</h3>
-        <p style="color: var(--text-muted); margin-bottom: 0;">
-          Google checks that your app stays well below bad behavior thresholds: user-perceived crash rate must remain strictly below 1.09% and user-perceived Application Not Responding (ANR) rate must remain below 0.47% across all tested hardware configurations.
-        </p>
-      </div>
+        <!-- FAQ 4 -->
+        <details class="faq-item-modern">
+          <summary>
+            <span>What are the required Android Vitals thresholds to pass production review?</span>
+            <span class="faq-chevron-icon">&#9662;</span>
+          </summary>
+          <div class="faq-body-content">
+            <p>
+              Google checks that your app stays well below Android Vitals bad behavior thresholds: your <strong>user-perceived crash rate must remain strictly below 1.09%</strong> (aim for under 0.20%) and your <strong>user-perceived Application Not Responding (ANR) rate must remain below 0.47%</strong> (aim for under 0.10%) across all tested hardware configurations.
+            </p>
+          </div>
+        </details>
 
-      <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 1.5rem 0;">
-        <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">How should I answer the production questionnaire differently on my second attempt?</h3>
-        <p style="color: var(--text-muted); margin-bottom: 0;">
-          Avoid generic 1-sentence answers like "No bugs found." Instead, provide detailed bug reports, name specific test device models (e.g., Samsung Galaxy S23, Pixel 7), describe UI layout fixes on small screens or tablet orientations, and cite tester feedback quotes from the Play Console review tab.
-        </p>
-      </div>
+        <!-- FAQ 5 -->
+        <details class="faq-item-modern">
+          <summary>
+            <span>How should I answer the production questionnaire differently on my second attempt?</span>
+            <span class="faq-chevron-icon">&#9662;</span>
+          </summary>
+          <div class="faq-body-content">
+            <p>
+              Avoid generic 1-sentence answers like <em>"No bugs found."</em> Instead, follow our Section 4 model answers: cite specific physical device models tested (e.g., Galaxy S23, Pixel 7), describe UI layout fixes on small screens or tablet orientations, explain how you resolved background ANR freezes with Kotlin coroutines, and quote feedback received directly from the Play Store review tab.
+            </p>
+          </div>
+        </details>
 
-      <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 1.5rem 0;">
-        <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 0.5rem;">Will Google ban my developer account if I am rejected multiple times?</h3>
-        <p style="color: var(--text-muted); margin-bottom: 0;">
-          Getting rejected for production access due to "More testing required" does not generate a policy violation strike against your account. It simply means your testing evidence was insufficient. However, if you attempt to circumvent the requirement by using automated bots, click farms, or deceptive emulators, Google can permanently terminate your developer account for policy circumvention. Always use real physical devices and authentic testing cohorts.
-        </p>
+        <!-- FAQ 6 -->
+        <details class="faq-item-modern">
+          <summary>
+            <span>Will Google ban my developer account if I am rejected multiple times?</span>
+            <span class="faq-chevron-icon">&#9662;</span>
+          </summary>
+          <div class="faq-body-content">
+            <p>
+              Getting rejected for production access due to <em>"More testing required"</em> does not generate a policy violation strike against your account. It simply indicates that your testing telemetry was insufficient. However, if you attempt to bypass the requirement using automated bots, click farms, or deceptive emulator scripts, Google can permanently terminate your developer account for policy circumvention. Always use genuine physical Android devices.
+            </p>
+          </div>
+        </details>
       </div>
 
       <!-- Bottom Card CTA -->
-      <div class="card" style="margin-top: 4rem; text-align: center; border-color: var(--brand-primary); background: radial-gradient(circle at 50% 50%, rgba(56,189,248,0.12) 0%, var(--bg-card) 100%); padding: 3.5rem 2rem;">
-        <h2>Ready to Clear Closed Testing on Your Next Attempt?</h2>
-        <p style="max-width: 650px; margin: 1rem auto 2rem; font-size: 1.15rem;">
-          Deploy our verified fleet of 16 to 25 physical Android smartphones. We guarantee 14 consecutive days of continuous opt-in, daily session engagement, private feedback logs, and complete production questionnaire assistance.
+      <div class="card" style="margin-top: 4rem; text-align: center; border: 2px solid var(--brand-primary); background: radial-gradient(circle at 50% 50%, rgba(56,189,248,0.14) 0%, var(--bg-card) 100%); padding: 3.5rem 2rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-glow);">
+        <span class="badge badge-success" style="margin-bottom: 1rem;">100% Guaranteed Production Approval</span>
+        <h2 style="font-size: 2.2rem; color: #fff; margin-bottom: 1rem;">Ready to Clear Closed Testing on Your Next Attempt?</h2>
+        <p style="max-width: 650px; margin: 0 auto 2rem; font-size: 1.15rem; color: #cbd5e1; line-height: 1.7;">
+          Deploy our verified fleet of 16 to 25 physical Android smartphones on <strong>AppConsoleLab</strong>. We guarantee 14 consecutive days of continuous opt-in, daily active sessions, private feedback logs, and complete production questionnaire assistance.
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a href="https://appconsolelab.com" class="btn btn-primary" style="font-size: 1.05rem; padding: 0.95rem 2.2rem;" target="_blank" rel="noopener noreferrer">
-            <span>Order on AppConsoleLab &rarr;</span>
+          <a href="https://appconsolelab.com" class="btn btn-primary" style="font-size: 1.08rem; padding: 1rem 2.4rem;" target="_blank" rel="noopener noreferrer">
+            <span>Deploy Testers on AppConsoleLab &rarr;</span>
           </a>
-          <a href="https://wa.me/923394001479?text=Hi%2C%20I%20have%20questions%20about%20fixing%20my%20production%20access%20rejection" class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 0.95rem 1.8rem;" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/923394001479?text=Hi%2C%20I%20have%20questions%20about%20fixing%20my%20production%20access%20rejection" class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 1rem 2rem;" target="_blank" rel="noopener noreferrer">
             <span class="pulse-dot"></span>
             <span>Chat on WhatsApp (+923394001479)</span>
           </a>
