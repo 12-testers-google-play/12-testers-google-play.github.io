@@ -156,4 +156,52 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/google-play-testers-not-joining-your-closed-testing-heres-how-to-fix-it/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/how-to-invite-12-testers-for-google-play-closed-testing-and-meet-the-14-day-requirement/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/twa-apps-rejected-for-google-play-production-access-convert-twa-to-webview/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/how-to-find-12-testers-for-google-plays-14-day-closed-testing-requirement/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/do-google-play-testers-need-to-open-your-app-every-day-during-14-day-closed-testing/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/12-testers-for-google-play-heres-how-to-get-production-access-in-14-days/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/google-play-12-testers-for-14-days-complete-closed-testing-guide-for-production-access/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/12-testers-google-play-how-to-add-testers-to-your-google-play-closed-testing-track/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
