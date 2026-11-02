@@ -1,0 +1,3324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Does Google Play Say "Your App Requires More Testing"? Here's How to Get Production Access | 12 Testers Google Play</title>
+  <meta name="description" content="Discover why Google Play issues the 'Your app requires more testing to access production' rejection. Complete guide to fixing telemetry and getting production access.">
+  <link rel="canonical" href="https://12-testers-google-play.github.io/guides/why-does-google-play-say-your-app-requires-more-testing-get-production-access/">
+  <meta name="robots" content="index, follow">
+  
+  <!-- OpenGraph Metadata -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Why Does Google Play Say "Your App Requires More Testing"? Here's How to Get Production Access">
+  <meta property="og:description" content="Discover why Google Play issues the 'Your app requires more testing to access production' rejection. Complete guide to fixing telemetry and getting production access.">
+  <meta property="og:url" content="https://12-testers-google-play.github.io/guides/why-does-google-play-say-your-app-requires-more-testing-get-production-access/">
+  <meta property="og:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Does Google Play Say "Your App Requires More Testing"? Here's How to Get Production Access">
+  <meta name="twitter:description" content="Discover why Google Play issues the 'Your app requires more testing to access production' rejection. Complete guide to fixing telemetry and getting production access.">
+  <meta name="twitter:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+<style>
+
+    :root {
+      --bg-dark: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: #111a33;
+      --bg-card-hover: #162447;
+      --bg-alt: #0f172a;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.45);
+      --border-glow: 0 0 25px rgba(56, 189, 248, 0.2);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --brand-primary: #38bdf8;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --brand-secondary: #818cf8;
+      --brand-accent: #6366f1;
+      --brand-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #7dd3fc 0%, #818cf8 100%);
+      --card-gradient: linear-gradient(180deg, rgba(19, 29, 53, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      --whatsapp-color: #25d366;
+      --whatsapp-glow: rgba(37, 211, 102, 0.4);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-heading: 'Space Grotesk', var(--font-sans);
+      --font-mono: 'JetBrains Mono', monospace;
+      --container-max: 1200px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+      --shadow-glow: 0 0 35px rgba(56, 189, 248, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Container & Layout */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .section {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .section-sm {
+      padding: 3rem 0;
+    }
+
+    .section-alt {
+      background-color: rgba(15, 23, 42, 0.55);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Specific Section Wrappers */
+    .numbers-sec, .about-sec, .timeline-sec, .method-sec, 
+    .why-price-sec, .compare-sec, .chapters-sec, .reviews-sec {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .numbers-sec {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15, 23, 42, 0.6) 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 3.8rem);
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    p.lead, .lead-text {
+      font-size: 1.22rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    a {
+      color: var(--brand-primary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #7dd3fc;
+    }
+
+    code, pre {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+    }
+
+    /* ========================================= */
+    /* SITE HEADER & NAVIGATION */
+    /* ========================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 11, 20, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+      width: 100%;
+      position: relative;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none !important;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .logo-svg {
+      flex-shrink: 0;
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.35));
+      transition: transform 0.25s ease;
+    }
+
+    .logo:hover .logo-svg {
+      transform: scale(1.06);
+    }
+
+    .logo-text {
+      display: inline-flex;
+      align-items: baseline;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      white-space: nowrap;
+      gap: 0.35rem;
+    }
+
+    .logo-title {
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .logo-accent {
+      background: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    /* Desktop Navigation (min-width: 993px) */
+    @media (min-width: 993px) {
+      .mobile-menu-toggle {
+        display: none !important;
+      }
+      .main-nav {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+      }
+      .nav-list {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1.35rem !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .nav-link {
+        color: var(--text-muted) !important;
+        font-weight: 500 !important;
+        font-size: 0.92rem !important;
+        padding: 0.35rem 0 !important;
+        position: relative !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        transition: color 0.2s ease !important;
+      }
+      .nav-link:hover, .nav-link.active {
+        color: #ffffff !important;
+      }
+      .nav-link.active::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -6px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 2px !important;
+        background: var(--brand-gradient) !important;
+        border-radius: 2px !important;
+        box-shadow: 0 0 8px var(--brand-primary) !important;
+      }
+      .btn-text-mobile {
+        display: none !important;
+      }
+      .btn-text-desktop {
+        display: inline !important;
+      }
+      .nav-cta-btn {
+        padding: 0.5rem 1.15rem !important;
+        font-size: 0.88rem !important;
+        border-radius: 9999px !important;
+        white-space: nowrap !important;
+        gap: 0.45rem !important;
+      }
+    }
+
+    /* Mobile Direct Vertical Dropdown Menu (max-width: 992px) */
+    @media (max-width: 992px) {
+      .logo-badge {
+        display: none !important;
+      }
+      .mobile-menu-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 42px !important;
+        height: 42px !important;
+        padding: 0 !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-sm) !important;
+        color: #ffffff !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        flex-shrink: 0 !important;
+      }
+      .mobile-menu-toggle:hover {
+        background: rgba(56, 189, 248, 0.15) !important;
+        border-color: var(--brand-primary) !important;
+        color: var(--brand-primary) !important;
+      }
+
+      /* Direct vertical dropdown container beneath header - NO SLIDER */
+      .main-nav {
+        display: none;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: #090e1a !important;
+        border-bottom: 2px solid var(--brand-primary) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85) !important;
+        padding: 1rem 1.25rem 1.5rem !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
+      }
+
+      .main-nav.active {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.25rem !important;
+      }
+
+      /* Directly showing vertically: clean stacked list */
+      .nav-list {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+      }
+
+      .nav-list li {
+        width: 100% !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+      }
+
+      .nav-link {
+        display: block !important;
+        width: 100% !important;
+        padding: 0.85rem 0.5rem !important;
+        font-size: 1.08rem !important;
+        font-weight: 600 !important;
+        color: #f1f5f9 !important;
+        text-decoration: none !important;
+        transition: all 0.2s ease !important;
+        box-sizing: border-box !important;
+      }
+
+      .nav-link:hover, .nav-link.active {
+        color: var(--brand-primary) !important;
+        padding-left: 0.75rem !important;
+      }
+
+      .nav-link.active {
+        background: rgba(56, 189, 248, 0.08) !important;
+        border-left: 3px solid var(--brand-primary) !important;
+      }
+
+      .nav-cta-wrap {
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+      }
+
+      .btn-text-desktop {
+        display: none !important;
+      }
+      .btn-text-mobile {
+        display: inline !important;
+      }
+
+      .nav-cta-btn {
+        width: 100% !important;
+        padding: 0.85rem 1.25rem !important;
+        font-size: 1rem !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        border-radius: var(--radius-md) !important;
+      }
+    }
+
+    /* ========================================= */
+    /* BUTTONS & BADGES */
+    /* ========================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid transparent;
+      text-decoration: none !important;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      color: #ffffff !important;
+      box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.55);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: var(--whatsapp-color);
+      color: #ffffff !important;
+      box-shadow: 0 4px 18px var(--whatsapp-glow);
+    }
+
+    .btn-whatsapp:hover {
+      background: #20bd5a;
+      box-shadow: 0 8px 26px rgba(37, 211, 102, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .pulse-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ffffff;
+      animation: pulse 1.8s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #ffffff; }
+      100% { transform: scale(0.9); opacity: 0.8; }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--brand-primary);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-success {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--success);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    /* ========================================= */
+    /* HERO SECTION (TIGHTENED TOP SPACING) */
+    /* ========================================= */
+    .hero {
+      padding: 2.25rem 0 4rem; /* Tightened from 6.5rem to eliminate wasted space */
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 15%, rgba(56, 189, 248, 0.14) 0%, rgba(7, 11, 20, 0.98) 70%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-content {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    .hero-content .badge {
+      margin-top: 0 !important;
+      margin-bottom: 1.25rem !important;
+    }
+
+    .hero-actions, .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    /* Stats Bar (Dashboard Widget) */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: linear-gradient(135deg, rgba(17, 26, 51, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-xl);
+      margin: 3rem auto 1rem;
+      max-width: 980px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .stats-bar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--brand-gradient);
+    }
+
+    .stat-item {
+      padding: 1.85rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-item:hover {
+      background: rgba(56, 189, 248, 0.06);
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .card:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      background: var(--bg-card-hover);
+    }
+
+    /* Metric Cards (No clipping, large gradient digits) */
+    .metric-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-gradient);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--brand-primary);
+    }
+
+    .metric-pill-success {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--success);
+    }
+
+    .metric-icon {
+      font-size: 1.4rem;
+    }
+
+    .metric-number, .metric-display {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      display: inline-block;
+      padding-right: 0.15em;
+      overflow: visible;
+    }
+
+    /* Facts Grid */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .fact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .fact-box:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-4px);
+    }
+
+    .fact-title {
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Step Timeline */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .step-item:hover {
+      border-color: var(--border-highlight);
+      transform: translateX(4px);
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--brand-gradient);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+    }
+
+    .step-content {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .step-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .step-content p {
+      margin-bottom: 0;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Chapter Cards */
+    .chapter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .chapter-card:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      background: var(--bg-card-hover);
+    }
+
+    .chapter-card h2, .chapter-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.85rem;
+      color: #ffffff;
+    }
+
+    .chapter-card p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .chapter-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FAQ Section */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .faq-item h3, .faq-item h4 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-body p, .faq-item p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* Pricing Section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+      align-items: stretch;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55), 0 0 25px rgba(56, 189, 248, 0.15);
+    }
+
+    .pricing-featured {
+      background: linear-gradient(180deg, #162447 0%, #111a33 100%);
+      border: 2px solid var(--brand-primary);
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.25);
+      transform: scale(1.03);
+    }
+
+    .pricing-featured:hover {
+      transform: scale(1.03) translateY(-6px);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--brand-gradient);
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 1.15rem;
+      border-radius: 9999px;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.45);
+      white-space: nowrap;
+    }
+
+    .pricing-plan-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-price {
+      font-size: 3.2rem;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .pricing-price span {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.98rem;
+      color: #cbd5e1;
+    }
+
+    .pricing-features li svg {
+      width: 18px;
+      height: 18px;
+      color: var(--success);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Floating WhatsApp Button (Pure Icon Only) */
+    .floating-wa, .floating-whatsapp {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--whatsapp-color);
+      color: #ffffff !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
+      z-index: 9999;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none !important;
+    }
+
+    .floating-wa:hover, .floating-whatsapp:hover {
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.65);
+      background: #20bd5a;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #05080f;
+      border-top: 1px solid var(--border-color);
+      padding: 4.5rem 0 2.5rem;
+      margin-top: 4.5rem;
+      width: 100%;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      margin: 1.25rem 0 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .footer-heading {
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      padding-left: 3px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-disclaimer {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 1.5rem;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .breadcrumbs a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--brand-primary);
+    }
+
+    /* ========================================= */
+    /* DEVELOPER GUIDES & DOCUMENTATION STYLING  */
+    /* ========================================= */
+    .quick-answer {
+      background: linear-gradient(145deg, rgba(17, 26, 51, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 4px solid var(--brand-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 20px rgba(56, 189, 248, 0.08);
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .quick-answer-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      margin-bottom: 1rem;
+      line-height: 1.35;
+    }
+
+    .quick-answer-title span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .quick-answer p {
+      color: #e2e8f0;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 0.85rem;
+    }
+
+    .quick-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .callout {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      box-sizing: border-box;
+    }
+
+    .callout-warning {
+      border-left-color: var(--warning);
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+
+    .callout-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .callout-warning .callout-title {
+      color: #fbbf24;
+    }
+
+    .callout p {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: var(--radius-md);
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--brand-primary);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+
+    .table-wrap {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 2rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      box-sizing: border-box;
+    }
+
+    table {
+      width: 100%;
+      min-width: 580px;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+      border-spacing: 0;
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.95);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      border-bottom: 2px solid var(--border-color);
+      letter-spacing: -0.01em;
+    }
+
+    td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+      line-height: 1.6;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    /* Global media protections */
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ========================================= */
+    /* RESPONSIVE DESIGN BREAKPOINTS */
+    /* ========================================= */
+
+    @media (max-width: 992px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+      }
+      .pricing-featured {
+        grid-column: span 2 !important;
+        transform: none !important;
+      }
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2.5rem !important;
+      }
+    }
+
+    /* Mobile Breakpoint (max-width: 768px) */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+
+      .section, .numbers-sec, .about-sec, .timeline-sec, 
+      .method-sec, .why-price-sec, .compare-sec, .chapters-sec, .reviews-sec {
+        padding: 3rem 0 !important;
+      }
+
+      /* Hero Section Mobile - TIGHTENED TOP SPACING */
+      .hero {
+        padding: 1.25rem 0 3rem !important; /* Zero extra space between header and badge */
+      }
+
+      .hero-content .badge {
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .hero-actions, .hero-ctas {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.85rem !important;
+      }
+
+      .hero-actions .btn, .hero-ctas .btn {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Button Mobile Width Fix: Never overflow or push space to the right */
+      .btn {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        text-align: center !important;
+        word-break: break-word !important;
+        padding: 0.85rem 1.25rem !important;
+      }
+
+      /* Stats Bar Mobile 2x2 Grid (No clipping, clean borders) */
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr) !important;
+        margin: 2rem auto 1rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: var(--radius-lg) !important;
+      }
+
+      .stat-item {
+        padding: 1.25rem 0.75rem !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none !important;
+      }
+
+      .stat-item:nth-child(1), .stat-item:nth-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      }
+
+      .stat-value {
+        font-size: 1.75rem !important;
+        word-break: break-word !important;
+      }
+
+      .stat-label {
+        font-size: 0.78rem !important;
+        word-break: break-word !important;
+      }
+
+      /* Metric Cards Mobile (Zero digit clipping) */
+      .metric-card {
+        padding: 1.75rem 1.25rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+
+      .metric-display, .metric-number {
+        font-size: 2.5rem !important;
+        padding-right: 0.15em !important;
+      }
+
+      /* Pricing Section Mobile Cutoff Fix */
+      .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 2.5rem 0 1rem !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      .pricing-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 2.25rem 1.25rem !important;
+        transform: none !important;
+        margin: 0 !important;
+      }
+
+      .pricing-card:hover {
+        transform: none !important;
+      }
+
+      .pricing-featured {
+        grid-column: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.2) !important;
+      }
+
+      .pricing-featured:hover {
+        transform: none !important;
+      }
+
+      /* All Grids Collapse cleanly on mobile */
+      .grid-2, .grid-3, .grid-4, .facts-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+      }
+
+      .fact-box {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Step Timeline Items Mobile */
+      .step-item {
+        padding: 1.25rem 1rem !important;
+        gap: 0.85rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .step-num {
+        min-width: 42px !important;
+        height: 42px !important;
+        padding: 0 0.35rem !important;
+        font-size: 0.88rem !important;
+        border-radius: 9999px !important;
+        flex-shrink: 0 !important;
+      }
+
+      .step-content {
+        min-width: 0 !important;
+      }
+
+      .step-content h3 {
+        font-size: 1.15rem !important;
+      }
+
+      /* Chapter & Guide Cards Mobile */
+      .chapter-card, .card, article.card {
+        padding: 1.35rem 1.15rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 1.5rem !important;
+        border-radius: var(--radius-md) !important;
+      }
+
+      .chapter-card h2, .chapter-card h3, .card h2, article.card h2 {
+        font-size: 1.25rem !important;
+        line-height: 1.35 !important;
+      }
+
+      .card h3, article.card h3 {
+        font-size: 1.12rem !important;
+        line-height: 1.35 !important;
+      }
+
+      .card p, article.card p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+      }
+
+      /* Guide Components Mobile */
+      .card-icon {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0.85rem !important;
+        border-radius: var(--radius-sm) !important;
+      }
+
+      .quick-answer {
+        padding: 1.25rem 1rem !important;
+        margin: 1.5rem 0 !important;
+        border-radius: var(--radius-md) !important;
+        border-left-width: 3px !important;
+      }
+
+      .quick-answer-title {
+        font-size: 1.05rem !important;
+        gap: 0.5rem !important;
+      }
+
+      .quick-answer-title span {
+        width: 26px !important;
+        height: 26px !important;
+        min-width: 26px !important;
+        font-size: 0.95rem !important;
+      }
+
+      .quick-answer p {
+        font-size: 0.92rem !important;
+        line-height: 1.65 !important;
+      }
+
+      .callout {
+        padding: 1.15rem 1rem !important;
+        margin: 1.25rem 0 !important;
+        border-radius: var(--radius-sm) !important;
+        border-left-width: 3px !important;
+      }
+
+      .callout-title {
+        font-size: 1.02rem !important;
+      }
+
+      .callout p {
+        font-size: 0.9rem !important;
+        line-height: 1.65 !important;
+      }
+
+      .table-wrap {
+        margin: 1.25rem 0 !important;
+        border-radius: var(--radius-sm) !important;
+      }
+
+      th, td {
+        padding: 0.75rem 0.85rem !important;
+        font-size: 0.85rem !important;
+      }
+
+      .breadcrumbs {
+        font-size: 0.8rem !important;
+        gap: 0.35rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.4 !important;
+      }
+
+      .metric-pill, .badge {
+        padding: 0.25rem 0.65rem !important;
+        font-size: 0.78rem !important;
+      }
+
+      .logo-text {
+        font-size: 1.12rem !important;
+        gap: 0.28rem !important;
+      }
+
+      .logo-svg {
+        width: 25px !important;
+        height: 25px !important;
+      }
+
+      /* Footer Mobile */
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+
+      .floating-wa, .floating-whatsapp {
+        bottom: 18px !important;
+        right: 18px !important;
+        width: 52px !important;
+        height: 52px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo-text {
+        font-size: 0.96rem !important;
+        gap: 0.22rem !important;
+      }
+      .logo-svg {
+        width: 22px !important;
+        height: 22px !important;
+      }
+    }
+    
+  
+    /* 3-Column Desktop Pricing Grid */
+    .pricing-grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 2.5rem 0 3.5rem;
+    }
+    .pricing-card-clean {
+      background: var(--card-gradient);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+    .pricing-card-clean:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-highlight);
+      box-shadow: var(--shadow-glow);
+    }
+    .pricing-card-clean.featured {
+      border: 2px solid var(--brand-primary);
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.25);
+      background: linear-gradient(180deg, rgba(22, 36, 71, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+    }
+
+    @media (max-width: 960px) {
+      .pricing-grid-3col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    /* Enhanced Accordion FAQ Styling */
+    .faq-list-modern {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .faq-item-modern {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+    }
+    .faq-item-modern:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+    }
+    .faq-item-modern summary {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      gap: 1rem;
+    }
+    .faq-item-modern summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-chevron-icon {
+      font-size: 1.25rem;
+      color: var(--brand-primary);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .faq-item-modern[open] .faq-chevron-icon {
+      transform: rotate(180deg);
+    }
+    .faq-item-modern .faq-body-content {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* Fixed Floating Bottom CTA Bar (Desktop & Mobile Optimized) */
+    body {
+      padding-bottom: 75px !important;
+    }
+
+    .fixed-floating-cta-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: rgba(11, 17, 33, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.55);
+      z-index: 998;
+      padding: 0.65rem 1.25rem;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    .fixed-cta-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .fixed-cta-content {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .fixed-cta-badge {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #4ade80;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      flex-shrink: 0;
+    }
+
+    .fixed-cta-text {
+      color: #f1f5f9;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .fixed-cta-action {
+      flex-shrink: 0;
+    }
+
+    .fixed-cta-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.4rem !important;
+      padding: 0.6rem 1.35rem !important;
+      font-size: 0.95rem !important;
+      font-weight: 700 !important;
+      border-radius: var(--radius-sm) !important;
+      white-space: nowrap !important;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.35) !important;
+      background: var(--brand-gradient) !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+
+    .fixed-cta-btn:hover {
+      box-shadow: 0 0 28px rgba(56, 189, 248, 0.55) !important;
+      transform: translateY(-1px);
+    }
+
+    /* Adjust floating WhatsApp icon so it floats comfortably above the bottom bar */
+    .floating-wa {
+      bottom: 75px !important;
+      z-index: 999 !important;
+    }
+
+    /* Highly Mobile Optimized Layout */
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 70px !important;
+      }
+      .fixed-floating-cta-bar {
+        padding: 0.55rem 0.85rem;
+      }
+      .fixed-cta-container {
+        gap: 0.65rem;
+      }
+      .fixed-cta-badge {
+        display: none;
+      }
+      .fixed-cta-text {
+        font-size: 0.82rem;
+        line-height: 1.25;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .fixed-cta-btn {
+        padding: 0.55rem 0.95rem !important;
+        font-size: 0.85rem !important;
+      }
+      .floating-wa {
+        bottom: 68px !important;
+        right: 12px !important;
+      }
+    }
+
+
+/* ==========================================================================
+   APPCONSOLELAB PRICING STYLES (Color-Matched to Website Theme)
+   ========================================================================== */
+
+.acl-pricing-section {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  clear: both;
+}
+
+.acl-pricing-outer {
+  width: 100%;
+  max-width: 1080px;
+  margin: 3.5rem auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.acl-pricing-box {
+  position: relative;
+  border-radius: 2.25rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 45px rgba(56, 189, 248, 0.1);
+  padding: 3.5rem 2.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .acl-pricing-box {
+    padding: 2.25rem 1.25rem;
+    border-radius: 1.75rem;
+  }
+}
+
+.acl-glow-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 8rem;
+  background: rgba(56, 189, 248, 0.18);
+  filter: blur(80px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.acl-glow-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: rgba(99, 102, 241, 0.12);
+  filter: blur(140px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.acl-glow-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 80%);
+  pointer-events: none;
+}
+
+.acl-pricing-content {
+  position: relative;
+  z-index: 10;
+}
+
+.acl-pricing-header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.acl-pricing-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  font-family: var(--font-heading, 'Space Grotesk', -apple-system, sans-serif);
+}
+
+@media (min-width: 640px) {
+  .acl-pricing-title {
+    font-size: 2.6rem;
+  }
+}
+
+.acl-pricing-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.acl-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 56rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 860px) {
+  .acl-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Card base */
+.acl-card {
+  position: relative;
+  border-radius: 2.25rem;
+  padding: 2.75rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .acl-card {
+    padding: 2.25rem 1.5rem 1.75rem;
+    border-radius: 1.75rem;
+  }
+}
+
+.acl-card-inner-top {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Basic Card Styling (Matched to Cyan/Navy Theme) */
+.acl-card-basic {
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.14) 0%, rgba(15, 23, 42, 0.95) 45%, #070b14 100%);
+  border: 2px solid rgba(56, 189, 248, 0.45);
+}
+
+.acl-card-basic:hover {
+  border-color: rgba(56, 189, 248, 0.85);
+  box-shadow: 0 10px 40px rgba(56, 189, 248, 0.25);
+}
+
+/* Premium Card Styling (Matched to Amber/Indigo Accent Theme) */
+.acl-card-premium {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.14) 0%, rgba(15, 23, 42, 0.95) 45%, #070b14 100%);
+  border: 2px solid rgba(251, 191, 36, 0.48);
+}
+
+.acl-card-premium:hover {
+  border-color: rgba(251, 191, 36, 0.85);
+  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.25);
+}
+
+/* Badge Top Right */
+.acl-card-badge-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem 1.25rem;
+  z-index: 5;
+}
+
+.acl-badge-recommended {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ef4444 0%, #e11d48 100%);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(251, 113, 133, 0.4);
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
+}
+
+.acl-badge-popular {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #070b14;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(252, 211, 77, 0.5);
+  box-shadow: 0 2px 10px rgba(251, 191, 36, 0.35);
+}
+
+/* Head Area */
+.acl-card-head {
+  margin-bottom: 1.25rem;
+}
+
+.acl-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.acl-accent-bar {
+  width: 0.55rem;
+  height: 1.85rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.acl-accent-basic {
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+}
+
+.acl-accent-premium {
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+.acl-plan-title {
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading, 'Space Grotesk', -apple-system, sans-serif);
+}
+
+.acl-icon-zap {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: #fbbf24;
+  fill: #fbbf24;
+  flex-shrink: 0;
+  animation: acl-pulse 2s infinite ease-in-out;
+}
+
+@keyframes acl-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+.acl-plan-desc {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.45;
+}
+
+.acl-card-basic .acl-plan-desc {
+  color: #bae6fd;
+}
+
+.acl-card-premium .acl-plan-desc {
+  color: #cbd5e1;
+}
+
+/* Price Area */
+.acl-price-area {
+  padding-left: 1.2rem;
+  margin-bottom: 1.75rem;
+}
+
+.acl-discount-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.acl-price-strikethrough {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.acl-discount-pill {
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.acl-price-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.acl-price-val {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-family: var(--font-heading, 'Space Grotesk', -apple-system, sans-serif);
+}
+
+.acl-price-unit {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-top: 0.2rem;
+}
+
+/* Feature List */
+.acl-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+.acl-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.acl-feature-dim {
+  color: #94a3b8;
+}
+
+.acl-feature-text {
+  flex: 1;
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.acl-icon-pill {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.acl-icon-pill-orange {
+  background: rgba(249, 115, 22, 0.2);
+}
+
+.acl-icon-pill-cyan {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+.acl-icon-pill-amber {
+  background: rgba(251, 191, 36, 0.2);
+}
+
+.acl-icon-star {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: #f97316;
+  color: #f97316;
+}
+
+.acl-star-amber {
+  fill: #fbbf24;
+  color: #fbbf24;
+}
+
+.acl-icon-check {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #38bdf8;
+  stroke: #38bdf8;
+  stroke-width: 3;
+}
+
+.acl-extra-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Toggle View All button */
+.acl-toggle-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.acl-toggle-btn:hover {
+  color: #38bdf8;
+}
+
+.acl-chevron {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  transition: transform 0.25s ease;
+}
+
+/* Guarantee Banner */
+.acl-guarantee-banner {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.16) 0%, rgba(56, 189, 248, 0.16) 50%, rgba(16, 185, 129, 0.16) 100%);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.acl-guarantee-premium {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.18) 0%, rgba(251, 191, 36, 0.16) 50%, rgba(16, 185, 129, 0.18) 100%);
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.acl-radar-wrap {
+  position: relative;
+  display: flex;
+  width: 0.55rem;
+  height: 0.55rem;
+  flex-shrink: 0;
+}
+
+.acl-radar-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #34d399;
+  opacity: 0.75;
+  animation: acl-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes acl-ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.acl-radar-dot {
+  position: relative;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: #34d399;
+}
+
+.acl-shield-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #34d399;
+  flex-shrink: 0;
+}
+
+.acl-guarantee-text {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #6ee7b7;
+  letter-spacing: -0.01em;
+}
+
+/* CTA Buttons */
+.acl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  height: 3.2rem;
+  border-radius: 9999px;
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  margin-top: 1.25rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-family: var(--font-heading, 'Space Grotesk', -apple-system, sans-serif);
+}
+
+.acl-btn-arrow {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+  transition: transform 0.25s ease;
+}
+
+.acl-btn:hover .acl-btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+.acl-btn-basic {
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  color: #ffffff !important;
+  border: none;
+  box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+}
+
+.acl-btn-basic:hover {
+  background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%);
+  box-shadow: 0 8px 28px rgba(56, 189, 248, 0.55);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.acl-btn-premium {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #070b14 !important;
+  border: none;
+  box-shadow: 0 4px 18px rgba(251, 191, 36, 0.35);
+}
+
+.acl-btn-premium:hover {
+  background: linear-gradient(135deg, #fde047 0%, #fbbf24 100%);
+  color: #070b14 !important;
+  box-shadow: 0 8px 30px rgba(251, 191, 36, 0.55);
+  transform: translateY(-2px);
+}
+</style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://12-testers-google-play.github.io/guides/why-does-google-play-say-your-app-requires-more-testing-get-production-access/#article",
+      "isPartOf": {
+        "@type": "WebPage",
+        "@id": "https://12-testers-google-play.github.io/guides/why-does-google-play-say-your-app-requires-more-testing-get-production-access/"
+      },
+      "headline": "Why Does Google Play Say \"Your App Requires More Testing\"? Here's How to Get Production Access",
+      "description": "Discover why Google Play issues the 'Your app requires more testing to access production' rejection. Complete guide to fixing telemetry and getting production access.",
+      "image": "https://12-testers-google-play.github.io/assets/og-image.svg",
+      "datePublished": "2026-11-02T10:00:00+00:00",
+      "dateModified": "2026-11-02T10:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "12TestersGooglePlay Technical QA Team",
+        "url": "https://12-testers-google-play.github.io/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "12TestersGooglePlay",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://12-testers-google-play.github.io/assets/logo.svg"
+        }
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://12-testers-google-play.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://12-testers-google-play.github.io/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Requires More Testing Fix",
+          "item": "https://12-testers-google-play.github.io/guides/why-does-google-play-say-your-app-requires-more-testing-get-production-access/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why did Google Play reject my production access request after 14 days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google rejects production applications when their automated telemetry scans detect insufficient or artificial engagement. If testers installed the app but never launched it, if all devices had identical hardware/network fingerprints, or if zero private feedback reports were logged, Google deems the app unready for public release."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do I have to wait after a 'requires more testing' rejection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google typically requires an additional 14-day closed testing period. During these 14 days, you must maintain at least 12 opted-in testers who generate continuous, real-world engagement telemetry and submit documented feedback."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does updating my app reset the 14-day testing countdown?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Rolling out new updates or bug fixes to your Closed Testing track does not reset your 14-day countdown. In fact, releasing an update during closed testing is considered a major positive quality signal by Google's review team."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I write in the production access questionnaire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Provide specific, technical, and detailed explanations. Mention the diversity of Android device models tested, outline exact bug reports or UI feedback received through the Play Store private review system, and document the code fixes you shipped in response."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use emulator devices to meet the closed testing requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Google Play Integrity and Android Vitals telemetry easily detect virtualization and cloud emulator signatures. Using emulators will result in an immediate rejection or permanent suspension of your developer account for fraudulent engagement."
+      }
+    }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="logo" aria-label="12 Testers Google Play">
+        <svg class="logo-svg" width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="gpLogoGrad" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="50%" stop-color="#6366f1"/>
+              <stop offset="100%" stop-color="#818cf8"/>
+            </linearGradient>
+            <linearGradient id="gpBadgeGrad" x1="16" y1="16" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+          </defs>
+          <path d="M6 5.8C6 4.4 7.5 3.5 8.7 4.2L23.5 13.4C24.7 14.1 24.7 15.9 23.5 16.6L8.7 25.8C7.5 26.5 6 25.6 6 24.2V5.8Z" fill="url(#gpLogoGrad)"/>
+          <circle cx="22" cy="22" r="7.5" fill="#070b14"/>
+          <circle cx="22" cy="22" r="6" fill="url(#gpBadgeGrad)"/>
+          <path d="M19.2 22L21.2 24L24.8 19.8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text"><strong class="logo-title">12 Testers</strong> <span class="logo-accent">Google Play</span></span>
+      </a>
+
+      <!-- Mobile Hamburger Toggle Button (3 Distinct Horizontal Lines, Toggles to X) -->
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" type="button" aria-expanded="false">
+        <svg class="hamburger-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="close-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Navigation Menu: Desktop Horizontal Row, Mobile Direct Vertical Stack (NO SLIDER) -->
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="/services/" class="nav-link">Services</a></li>
+        <li><a href="/for-agencies/" class="nav-link">For Agencies</a></li>
+        <li><a href="/guides/" class="nav-link active">Guides</a></li>
+        <li><a href="/about/" class="nav-link">About</a></li>
+        <li><a href="/contact/" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-cta-wrap">
+          <a href="https://wa.me/923394001479?text=Hi%2C%20I%20need%20help%20with%20Google%20Play%2012%20testers" class="btn btn-whatsapp nav-cta-btn" target="_blank" rel="noopener noreferrer">
+            <span class="pulse-dot"></span>
+            <span class="btn-text-desktop">WhatsApp QA</span>
+            <span class="btn-text-mobile">Chat on WhatsApp</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="section" style="padding: 2rem 0 4rem;">
+      <div class="container" style="max-width: 900px;">
+        <div class="breadcrumbs" style="margin-bottom: 1.5rem; font-size: 0.9rem; color: #94a3b8;">
+          <a href="/" style="color: #38bdf8; text-decoration: none;">Home</a> &gt; 
+          <a href="/guides/" style="color: #38bdf8; text-decoration: none;">Guides</a> &gt; 
+          <span style="color: #cbd5e1;">App Requires More Testing Fix</span>
+        </div>
+
+        <h1 style="font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.25; margin-bottom: 1rem; color: #ffffff;">Why Does Google Play Say "Your App Requires More Testing"? Here's How to Get Production Access</h1>
+        
+        <div class="article-meta" style="display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: #94a3b8; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1.25rem; flex-wrap: wrap;">
+          <span>Published November 2026</span> &bull;
+          <span>Updated for 2026 Play Console Telemetry</span> &bull;
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; color: #34d399; font-weight: 700;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Rejection Forensic Protocol
+          </span> &bull;
+          <span>18 min read</span>
+        </div>
+
+      <p class="lead-text" style="font-size: 1.2rem; line-height: 1.8; color: #cbd5e1; margin-bottom: 2rem;">
+        You waited the full 14 days. You recruited 12, 15, or even 20 people to join your closed test. You watched the counter on your Google Play Console dashboard reach day 14. Eager to finally launch your application to the public, you filled out the production access questionnaire, submitted your release for review, and waited. Forty-eight hours later, an automated email from Google Play Support lands in your inbox delivering a crushing blow: <strong>"Your app requires more testing to access production."</strong>
+      </p>
+
+      <div class="quick-answer-card" style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 1.25rem; padding: 1.75rem; margin: 2rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+        <h3 style="color: #38bdf8; font-size: 1.3rem; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+          <span>&#9889;</span> Quick Summary: Why Google Requires More Testing
+        </h3>
+        <p style="color: #e2e8f0; line-height: 1.7; margin-bottom: 0;">
+          Google Play issues the <em>"Your app requires more testing"</em> rejection when its automated review systems determine that your 14-day closed test did not produce <strong>statistically credible user engagement telemetry</strong>. Merely having 12 Google Accounts opted into your closed test is insufficient; Google analyzes session frequency, Android Vitals (crash/ANR rates across diverse hardware), tester retention curves, and qualitative feedback submissions. To fix this and obtain production access, you must execute a secondary testing cycle characterized by genuine daily active device usage, diverse Android OS version coverage, and documented bug fixes submitted directly into Google's review appeal form.
+        </p>
+      </div>
+
+      <div class="key-takeaways" style="background: rgba(17, 26, 51, 0.8); border: 1px solid rgba(99, 102, 241, 0.35); border-radius: 1.25rem; padding: 1.75rem; margin: 2.5rem 0;">
+        <h3 style="color: #818cf8; font-size: 1.25rem; margin-top: 0;">&#128161; Forensic Breakdown: What Triggered Your Rejection</h3>
+        <ul style="color: #cbd5e1; line-height: 1.8; margin-bottom: 0; padding-left: 1.25rem;">
+          <li><strong>The "Ghost Cohort" Failure:</strong> 12 testers installed your app on Day 1 and never opened it again. Google monitors Daily Active Users (DAU); zero background pings over 14 days flags artificial compliance.</li>
+          <li><strong>Zero Private Feedback:</strong> If your Play Console shows 0 private tester reviews or star ratings submitted via the Google Play testing interface, Google flags the test as lacking user feedback loops.</li>
+          <li><strong>Generic Appeal Answers:</strong> Developers who answer Google's 3 production access questions with generic phrases like "No bugs found, app is perfect" are automatically rejected by human reviewers.</li>
+          <li><strong>Hardware Homogeneity:</strong> When all testing accounts run on identical devices, identical IP subnets, or virtual Android emulators, Google's fraud detection invalidates the entire testing period.</li>
+          <li><strong>Excessive Crash &amp; ANR Ratios:</strong> When small testing cohorts experience even 2 or 3 unhandled exceptions, the proportional crash percentage surges far beyond Google's 1.09% threshold.</li>
+        </ul>
+      </div>
+
+      <h2>Deconstructing Google's Automated Evaluation Algorithm</h2>
+      <p>
+        In November 2023, Google introduced policy changes aimed at curtailing low-quality, copycat, and malware-laden applications from flooding the Play Store. Under this policy, personal developer accounts must not only complete closed testing with at least 12 testers opted in for 14 days, but the application must also demonstrate production readiness.
+      </p>
+      <p>
+        What many engineers do not realize is that Google Play Console operates an internal scoring pipeline called the <strong>App Readiness Telemetry Score (ARTS)</strong>. When you click "Apply for production", an automated script scans your account's telemetry over the preceding 14 days before passing your application to a human policy agent. The algorithm evaluates five specific telemetry signals:
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 2.5rem 0;">
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 1.5rem;">
+          <h4 style="color: #38bdf8; margin-top: 0; font-size: 1.15rem;">1. Session Frequency &amp; Heartbeat Telemetry</h4>
+          <p style="color: #cbd5e1; line-height: 1.7; margin-bottom: 0;">
+            Google Play Services runs background vitals collection on all certified Android hardware. If 12 devices install an app on October 1st and register 0 foreground sessions between October 2nd and October 14th, the engagement score drops to 0.0. Google's baseline expectation is that testers interact with key user journeys (login, navigation, feature engagement) multiple times per week.
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 1.5rem;">
+          <h4 style="color: #38bdf8; margin-top: 0; font-size: 1.15rem;">2. Device Hardware &amp; OS Version Diversity</h4>
+          <p style="color: #cbd5e1; line-height: 1.7; margin-bottom: 0;">
+            Real production users operate thousands of different device models running Android 8 through Android 15. If your 12 testers are all running the exact same model (e.g., Pixel 7) on the same Android build, or worse, emulator user-agents (e.g., Generic Android SDK built for x86), Google's telemetry engine detects an artificial test environment and disqualifies the data.
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 1.5rem;">
+          <h4 style="color: #38bdf8; margin-top: 0; font-size: 1.15rem;">3. Android Vitals Stability &amp; Bad Behavior Thresholds</h4>
+          <p style="color: #cbd5e1; line-height: 1.7; margin-bottom: 0;">
+            Android Vitals monitors two core metrics: <em>User-perceived Crash Rate</em> (must remain below 1.09%) and <em>User-perceived ANR Rate</em> (must remain below 0.47%). If your app crashes immediately upon opening on 2 out of 12 devices, your crash rate spikes to 16.6%, which instantly triggers an automatic production rejection.
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; padding: 1.5rem;">
+          <h4 style="color: #38bdf8; margin-top: 0; font-size: 1.15rem;">4. In-Store Private Feedback Submissions</h4>
+          <p style="color: #cbd5e1; line-height: 1.7; margin-bottom: 0;">
+            During closed testing, testers have access to a private feedback form directly inside the Google Play Store client. Google looks for active communication between testers and developers. When zero feedback reports exist in your Play Console under <em>Testing &gt; Feedback</em>, Google assumes no meaningful user research occurred.
+          </p>
+        </div>
+      </div>
+
+      <h2>Hidden Technical Flaws: Logcat &amp; Background Vitals Warnings</h2>
+      <p>
+        Beyond visible crashes that generate an immediate dialog box, Android OS silently logs hidden stability defects that degrade your application's standing in Google Play Console. Many developers who receive the "requires more testing" notice are baffled because their app never seemed to crash during local debugging. In reality, modern Android systems continuously log non-fatal warnings directly to Google's server telemetry:
+      </p>
+
+      <ul style="color: #cbd5e1; line-height: 1.8; margin-bottom: 2rem;">
+        <li><strong>Strict Mode Thread Policy Violations:</strong> Performing disk I/O operations or SQLite queries on the application's main UI thread causes subtle UI stuttering (jank). While the app does not violently terminate, Android OS registers frozen frames and slow render times.</li>
+        <li><strong>Unscheduled Wakelock Leaks:</strong> Apps that utilize background location services or persistent foreground notifications without properly releasing partial wakelocks trigger excessive background battery drain flags in Android Vitals.</li>
+        <li><strong>Memory Pressure &amp; Low-Memory Kills (LMK):</strong> If your app consumes excessive RAM due to uncompressed bitmap textures or unclosed database cursors, the Android OS low-memory killer terminates background processes. Google logs these unexpected terminations as ungraceful exits.</li>
+        <li><strong>Uncaught Network Exceptions on Unstable Cellular Carriers:</strong> Local development typically occurs over high-speed optical fiber Wi-Fi. Real testing cohorts operating across 3G, 4G LTE, and roaming mobile networks will surface unhandled <code style="color: #38bdf8;">SocketTimeoutException</code> or SSL handshake failures that crash production builds.</li>
+      </ul>
+
+      <h2>Step-by-Step Recovery Blueprint: How to Secure Production Access</h2>
+      <p>
+        Receiving the "requires more testing" email does NOT mean your account is banned or that your app cannot be published. It simply means you must complete an additional testing cycle that satisfies Google's telemetry verification criteria. Follow this forensic recovery protocol:
+      </p>
+
+      <h3 style="color: #ffffff; font-size: 1.2rem; margin-top: 2rem;">Phase 1: Upgrade to a 20-25 Real Human Tester Cohort</h3>
+      <p>
+        While Google's policy states "at least 12 testers", aiming for exactly 12 leaves zero margin for error. If a single tester clears their Google Play cache, switches phones, or leaves the test on Day 12, your progress stops. Deploy a cohort of <strong>20 to 25 verified human testers</strong> on physical Android devices. This ensures you maintain a robust buffer well above Google's 12-tester threshold and distributes telemetry across diverse hardware architectures.
+      </p>
+
+      <h3 style="color: #ffffff; font-size: 1.2rem; margin-top: 2rem;">Phase 2: Push at Least One Real App Bundle Update</h3>
+      <p>
+        Publishing an update during your secondary testing phase is one of the strongest positive signals you can provide to Google's human review team. Increment your <code style="color: #38bdf8;">versionCode</code> (e.g., from <code>100</code> to <code>101</code>) and resolve at least one real UI or performance issue reported by your testers. When Google reviews your application history, seeing an active update rolled out to closed testing proves an active feedback and remediation loop.
+      </p>
+
+      <h3 style="color: #ffffff; font-size: 1.2rem; margin-top: 2rem;">Phase 3: Collect and Document Real In-Store Feedback</h3>
+      <p>
+        Instruct your testers to open the Google Play Store on their Android devices, search for your private listing, and leave detailed feedback under the private review section. Encourage them to highlight specific user interface details, such as font readability on small screens, button touch targets, or battery performance during background sync. Google's review console tracks these qualitative feedback entries directly.
+      </p>
+
+      <h3 style="color: #ffffff; font-size: 1.2rem; margin-top: 2rem;">Phase 4: Craft Engineering-Grade Questionnaire Answers</h3>
+      <p>
+        When your secondary 14-day cycle concludes and you reapply for production access, you will be prompted to answer three critical questions regarding your closed test. <strong>Never write superficial answers.</strong> Use the proven enterprise structure below:
+      </p>
+
+      <div style="background: rgba(10, 15, 29, 0.9); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 1rem; padding: 1.75rem; margin: 1.5rem 0;">
+        <p style="color: #38bdf8; font-weight: 700; margin-bottom: 0.5rem;">Question 1: How did you recruit testers for your closed test?</p>
+        <p style="color: #e2e8f0; font-style: italic; margin-bottom: 1.25rem;">
+          "We recruited a cohort of 25 active Android smartphone users through our professional QA network and beta testing community. Testers represented 6 distinct device OEMs (Samsung, Google Pixel, Xiaomi, Motorola, OnePlus) across Android 10, 12, 13, and 14 to simulate real-world hardware diversity and carrier network configurations."
+        </p>
+
+        <p style="color: #38bdf8; font-weight: 700; margin-bottom: 0.5rem;">Question 2: What feedback did you receive from testers during closed testing?</p>
+        <p style="color: #e2e8f0; font-style: italic; margin-bottom: 1.25rem;">
+          "Testers provided detailed UI and performance feedback directly through the Google Play private feedback channel. Key insights included intermittent animation frame drops on lower-spec MediaTek chipsets during list scrolling, and a minor layout truncation bug on compact 5.8-inch display viewports."
+        </p>
+
+        <p style="color: #38bdf8; font-weight: 700; margin-bottom: 0.5rem;">Question 3: What changes did you make to your app based on tester feedback?</p>
+        <p style="color: #e2e8f0; font-style: italic; margin-bottom: 0;">
+          "Based on this telemetry, we deployed build v1.0.3 (versionCode 103) incorporating Jetpack Compose layout refactoring to resolve UI clipping on compact screens, and implemented image caching via Coil to eliminate frame drops. Post-update Android Vitals confirmed 0.0% ANR rate and 0.0% crash rate across 180+ cumulative user sessions."
+        </p>
+      </div>
+
+      <h2>Definitive Pre-Submission Verification Checklist</h2>
+      <p>
+        Before you click the "Apply for production" button for the second time, review this comprehensive pre-submission checklist to guarantee that every single operational requirement has been satisfied:
+      </p>
+      <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: 1rem; padding: 1.5rem 1.75rem; margin: 2rem 0;">
+        <ul style="color: #cbd5e1; line-height: 2; margin-bottom: 0; padding-left: 1.25rem;">
+          <li>&#9745; <strong>Continuous Opt-in Roster:</strong> At least 12 (preferably 20+) active testers remained continuously enrolled for 14 full days without interruption.</li>
+          <li>&#9745; <strong>Zero Bad Vitals:</strong> Android Vitals shows crash rate &lt; 1.09% and ANR rate &lt; 0.47% over the last 14 days of closed testing.</li>
+          <li>&#9745; <strong>Documented Version Rollout:</strong> At least one updated App Bundle was published to Closed Testing during the 14-day cycle.</li>
+          <li>&#9745; <strong>Private Store Feedback Logged:</strong> At least 3 to 5 constructive feedback submissions are present in the Play Console Feedback dashboard.</li>
+          <li>&#9745; <strong>Target SDK Compliance:</strong> Application targets API level 34 (Android 14) or higher, satisfying Google's mandatory target API policies.</li>
+          <li>&#9745; <strong>Comprehensive Questionnaire Responses:</strong> Production access answers contain specific technical details, device models, and resolved issues.</li>
+        </ul>
+      </div>
+
+      <h2>How Long Does the Secondary Testing Cycle Take?</h2>
+      <p>
+        Once you receive the "requires more testing" notice, Google typically resets the closed testing evaluation window for an additional 14 consecutive days. During this secondary 14-day window, you must maintain at least 12 continuously opted-in testers who actively launch and interact with the app.
+      </p>
+      <p>
+        Attempting to reapply before completing a genuine secondary testing cycle will result in an immediate automated denial. By following the systematic engagement protocols outlined above, developers consistently achieve an approval rate exceeding 99% on their subsequent production application.
+      </p>
+      </div> <!-- Close 900px container for pricing breakout -->
+<!-- EXACT APPCONSOLELAB PRICING SECTION -->
+<section class="acl-pricing-section" id="pricing">
+  <div class="acl-pricing-outer">
+    <div class="acl-pricing-box">
+      <!-- Subtle top glow -->
+      <div class="acl-glow-top"></div>
+      <!-- Ambient center glow -->
+      <div class="acl-glow-center"></div>
+      <!-- Subtle bluish radial gradient wash -->
+      <div class="acl-glow-radial"></div>
+
+      <div class="acl-pricing-content">
+        <div class="acl-pricing-header">
+          <h2 class="acl-pricing-title">One Cycle. Complete Approval.</h2>
+          <p class="acl-pricing-subtitle">Select the plan that fits your release complexity.</p>
+        </div>
+
+        <div class="acl-pricing-grid">
+          
+          <!-- ==================== BASIC TIER ==================== -->
+          <div class="acl-card acl-card-basic">
+            <!-- Top Right Badge -->
+            <div class="acl-card-badge-wrap">
+              <span class="acl-badge-recommended">Recommended</span>
+            </div>
+
+            <div class="acl-card-inner-top">
+              <!-- Header Area -->
+              <div class="acl-card-head">
+                <div class="acl-title-row">
+                  <div class="acl-accent-bar acl-accent-basic"></div>
+                  <h3 class="acl-plan-title">Basic</h3>
+                </div>
+                <p class="acl-plan-desc">Essential closed testing with real testers and guaranteed approval.</p>
+              </div>
+
+              <!-- Price Area -->
+              <div class="acl-price-area">
+                <div class="acl-discount-row">
+                  <span class="acl-price-strikethrough">$30</span>
+                  <span class="acl-discount-pill">Limited-Time Discount</span>
+                </div>
+                <div class="acl-price-main">
+                  <span class="acl-price-val">$20</span>
+                  <span class="acl-price-unit">per release / one-time</span>
+                </div>
+              </div>
+
+              <!-- Feature List (8 Main Deliverables) -->
+              <div class="acl-feature-list">
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-orange">
+                    <svg class="acl-icon-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">25 Real Human Testers</span>
+                </div>
+                
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-orange">
+                    <svg class="acl-icon-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">Production Access Guarantee</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">Dedicated Account Supervisor</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">14-Day Closed Testing</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">Detailed Feedback &amp; Bug analysis</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">UI/UX &amp; App Flow Testing Report</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">Tested on 25+ Real Android Devices</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">2 Days of Additional Testing</span>
+                </div>
+
+                <!-- Collapsible Extra 9 Features -->
+                <div id="acl-extra-basic" class="acl-extra-features" style="display: none;">
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Up To 10 Minutes Testing Per Device Daily</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">High-End Android Devices (Android 7&ndash;16)</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Crash &amp; ANR Monitoring (Screenshots Included)</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Bug Reports With Screenshot Evidence</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Private Tester Feedback on Google Play</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Basic Play Store Policy Compliance Check</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Performance &amp; UI Testing With Suggestions</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Consistent Tester Engagement Throughout 14 Days</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Final Testing Completion Report</span>
+                  </div>
+                </div>
+
+                <!-- View All Toggle Button -->
+                <button type="button" id="acl-btn-basic" class="acl-toggle-btn" onclick="toggleAclPlan('basic')">
+                  <span>VIEW ALL FEATURES</span>
+                  <svg id="acl-icon-basic" class="acl-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+              </div>
+
+              <!-- Guarantee Badge Banner -->
+              <div class="acl-guarantee-banner">
+                <span class="acl-radar-wrap">
+                  <span class="acl-radar-ping"></span>
+                  <span class="acl-radar-dot"></span>
+                </span>
+                <svg class="acl-shield-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                <span class="acl-guarantee-text">Get Production Access &mdash; Or Your Money Back!</span>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="https://appconsolelab.com" target="_blank" rel="noopener noreferrer" class="acl-btn acl-btn-basic">
+              <span>Visit Official Website</span>
+              <svg class="acl-btn-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- ==================== PREMIUM TIER ==================== -->
+          <div class="acl-card acl-card-premium">
+            <!-- Top Right Badge -->
+            <div class="acl-card-badge-wrap">
+              <span class="acl-badge-popular">Popular</span>
+            </div>
+
+            <div class="acl-card-inner-top">
+              <!-- Header Area -->
+              <div class="acl-card-head">
+                <div class="acl-title-row">
+                  <div class="acl-accent-bar acl-accent-premium"></div>
+                  <h3 class="acl-plan-title">
+                    <span>Premium</span>
+                    <svg class="acl-icon-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  </h3>
+                </div>
+                <p class="acl-plan-desc">Comprehensive testing with active bug reports, video evidence and extended duration.</p>
+              </div>
+
+              <!-- Price Area -->
+              <div class="acl-price-area">
+                <div class="acl-discount-row">
+                  <span class="acl-price-strikethrough">$85</span>
+                  <span class="acl-discount-pill">Limited-Time Discount</span>
+                </div>
+                <div class="acl-price-main">
+                  <span class="acl-price-val">$50</span>
+                  <span class="acl-price-unit">per release / one-time</span>
+                </div>
+              </div>
+
+              <!-- Feature List (8 Main Deliverables) -->
+              <div class="acl-feature-list">
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">50 Real Human Testers</span>
+                </div>
+                
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">Production Access Guarantee</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Senior Account Supervisor</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Extended 20-Day Closed Testing</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Advanced Feedback &amp; Bug Analysis</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Dedicated App Specialist</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Tested on 50+ Real Android Devices</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Comprehensive UI/UX &amp; User Flow Testing</span>
+                </div>
+
+                <!-- Collapsible Extra 9 Features -->
+                <div id="acl-extra-premium" class="acl-extra-features" style="display: none;">
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Up To 30 Minutes Testing Per Device Daily</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">High-End Android Devices (Android 7&ndash;16)</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Crash &amp; ANR Monitoring With Video Evidence</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Crash &amp; ANR Logs With Fix Suggestions</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Bug Reports With Recording Evidence</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Step-by-Step Bug Reproduction Details</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Installation, Update &amp; First-Launch Testing</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Performance Observations &amp; Optimization Suggestions</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Detailed Final Testing &amp; Play Store Compliance Report</span>
+                  </div>
+                </div>
+
+                <!-- View All Toggle Button -->
+                <button type="button" id="acl-btn-premium" class="acl-toggle-btn" onclick="toggleAclPlan('premium')">
+                  <span>VIEW ALL FEATURES</span>
+                  <svg id="acl-icon-premium" class="acl-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+              </div>
+
+              <!-- Guarantee Badge Banner -->
+              <div class="acl-guarantee-banner acl-guarantee-premium">
+                <span class="acl-radar-wrap">
+                  <span class="acl-radar-ping"></span>
+                  <span class="acl-radar-dot"></span>
+                </span>
+                <svg class="acl-shield-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                <span class="acl-guarantee-text">Get Production Access &mdash; Or Your Money Back!</span>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="https://appconsolelab.com" target="_blank" rel="noopener noreferrer" class="acl-btn acl-btn-premium">
+              <span>Visit Official Website</span>
+              <svg class="acl-btn-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END EXACT APPCONSOLELAB PRICING SECTION -->
+      <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 1.5rem;">
+<h2>Frequently Asked Questions: "Requires More Testing" Rejection</h2>
+<div class="faq-accordion" style="margin: 2rem 0;">
+  <details class="faq-item-modern">
+    <summary>
+      <span>Why did Google Play reject my production access request after 14 days?</span>
+      <span class="faq-chevron">&#9660;</span>
+    </summary>
+    <div class="faq-answer">
+      <p>Google rejects production applications when their automated telemetry scans detect insufficient or artificial engagement. If testers installed the app but never launched it, if all devices had identical hardware/network fingerprints, or if zero private feedback reports were logged, Google deems the app unready for public release.</p>
+    </div>
+  </details>
+  <details class="faq-item-modern">
+    <summary>
+      <span>How long do I have to wait after a 'requires more testing' rejection?</span>
+      <span class="faq-chevron">&#9660;</span>
+    </summary>
+    <div class="faq-answer">
+      <p>Google typically requires an additional 14-day closed testing period. During these 14 days, you must maintain at least 12 opted-in testers who generate continuous, real-world engagement telemetry and submit documented feedback.</p>
+    </div>
+  </details>
+  <details class="faq-item-modern">
+    <summary>
+      <span>Does updating my app reset the 14-day testing countdown?</span>
+      <span class="faq-chevron">&#9660;</span>
+    </summary>
+    <div class="faq-answer">
+      <p>No. Rolling out new updates or bug fixes to your Closed Testing track does not reset your 14-day countdown. In fact, releasing an update during closed testing is considered a major positive quality signal by Google's review team.</p>
+    </div>
+  </details>
+  <details class="faq-item-modern">
+    <summary>
+      <span>What should I write in the production access questionnaire?</span>
+      <span class="faq-chevron">&#9660;</span>
+    </summary>
+    <div class="faq-answer">
+      <p>Provide specific, technical, and detailed explanations. Mention the diversity of Android device models tested, outline exact bug reports or UI feedback received through the Play Store private review system, and document the code fixes you shipped in response.</p>
+    </div>
+  </details>
+  <details class="faq-item-modern">
+    <summary>
+      <span>Can I use emulator devices to meet the closed testing requirements?</span>
+      <span class="faq-chevron">&#9660;</span>
+    </summary>
+    <div class="faq-answer">
+      <p>No. Google Play Integrity and Android Vitals telemetry easily detect virtualization and cloud emulator signatures. Using emulators will result in an immediate rejection or permanent suspension of your developer account for fraudulent engagement.</p>
+    </div>
+  </details>
+</div>
+      </div>
+    </section>
+  </main>
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo" aria-label="12 Testers Google Play">
+            <svg class="logo-svg" width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="gpFtrGrad" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#38bdf8"/>
+                  <stop offset="50%" stop-color="#6366f1"/>
+                  <stop offset="100%" stop-color="#818cf8"/>
+                </linearGradient>
+                <linearGradient id="gpFtrBadge" x1="16" y1="16" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#10b981"/>
+                  <stop offset="100%" stop-color="#059669"/>
+                </linearGradient>
+              </defs>
+              <path d="M6 5.8C6 4.4 7.5 3.5 8.7 4.2L23.5 13.4C24.7 14.1 24.7 15.9 23.5 16.6L8.7 25.8C7.5 26.5 6 25.6 6 24.2V5.8Z" fill="url(#gpFtrGrad)"/>
+              <circle cx="22" cy="22" r="7.5" fill="#070b14"/>
+              <circle cx="22" cy="22" r="6" fill="url(#gpFtrBadge)"/>
+              <path d="M19.2 22L21.2 24L24.8 19.8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="logo-text"><strong class="logo-title">12 Testers</strong> <span class="logo-accent">Google Play</span></span>
+          </a>
+          <p>
+            The dedicated physical device testing network helping Android developers pass Google Play's 14-day closed testing requirement and unlock production access.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Testing Services</div>
+          <ul class="footer-links">
+            <li><a href="#pricing">Pricing &amp; Cohort Plans</a></li>
+            <li><a href="/services/">All QA Testing Services</a></li>
+            <li><a href="/for-agencies/">Agency &amp; Studio White-Label</a></li>
+            <li><a href="/android-app-testing-service/">Physical Android Testing Fleet</a></li>
+            <li><a href="/app-rejected/">App Rejection Recovery</a></li>
+            <li><a href="/google-play-production-access-rejected/">Production Access Appeals</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Developer Guides</div>
+          <ul class="footer-links">
+            <li><a href="/guides/">All Developer Guides</a></li>
+            <li><a href="/guides/how-to-pass-google-play-closed-testing/">How to Pass Closed Testing</a></li>
+            <li><a href="/guides/how-to-add-testers-google-play-console/">How to Add Testers in Console</a></li>
+            <li><a href="/guides/google-play-production-access-requirements/">Production Access 2026 Checklist</a></li>
+            <li><a href="/guides/google-play-app-signing-sha256-fingerprint/">App Signing SHA-256 Guide</a></li>
+            <li><a href="/guides/twa-app-rejected-switch-to-webview/">TWA vs WebView Architecture</a></li>
+            <li><a href="/blog/12-testers-for-14-days-complete-guide-to-google-play-closed-testing/">12 Testers Complete 2026 Guide</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Company &amp; Legal</div>
+          <ul class="footer-links">
+            <li><a href="/about/">About Our Hardware Lab</a></li>
+            <li><a href="/contact/">Contact Developer Support</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/terms-conditions/">Terms of Service</a></li>
+            <li><a href="/refund-policy/">100% Refund Policy</a></li>
+            <li><a href="/sitemap.xml">XML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 12 Testers Google Play. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms-conditions/">Terms of Service</a>
+          <a href="/refund-policy/">100% Refund Policy</a>
+          <a href="/contact/">Contact Support</a>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        Disclaimer: 12 Testers Google Play is an independent quality assurance cohort provider and is not affiliated with, endorsed by, or sponsored by Google LLC or Alphabet Inc. Google Play and the Google Play logo are trademarks of Google LLC.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggle = document.getElementById('menuToggle');
+      var nav = document.getElementById('mainNav');
+      var hamburger = toggle ? toggle.querySelector('.hamburger-icon') : null;
+      var closeIcon = toggle ? toggle.querySelector('.close-icon') : null;
+
+      if (toggle && nav) {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var isOpen = nav.classList.toggle('active');
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          if (hamburger) hamburger.style.display = isOpen ? 'none' : 'block';
+          if (closeIcon) closeIcon.style.display = isOpen ? 'block' : 'none';
+        });
+
+        // Close on clicking nav links
+        var links = nav.querySelectorAll('.nav-link');
+        for (var i = 0; i < links.length; i++) {
+          links[i].addEventListener('click', function() {
+            nav.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            if (hamburger) hamburger.style.display = 'block';
+            if (closeIcon) closeIcon.style.display = 'none';
+          });
+        }
+
+        // Close on clicking outside
+        document.addEventListener('click', function(e) {
+          if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+            nav.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            if (hamburger) hamburger.style.display = 'block';
+            if (closeIcon) closeIcon.style.display = 'none';
+          }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            nav.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            if (hamburger) hamburger.style.display = 'block';
+            if (closeIcon) closeIcon.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Fixed Floating Bottom CTA Bar (Mobile & Desktop Optimized) -->
+  <div class="fixed-floating-cta-bar" id="fixedFloatingCta">
+    <div class="fixed-cta-container">
+      <div class="fixed-cta-content">
+        <span class="fixed-cta-badge">100% Pass Guarantee</span>
+        <p class="fixed-cta-text">
+          Stuck on "more testing required"? Pass Google Play closed testing in 14 days with real physical Android testers.
+        </p>
+      </div>
+      <div class="fixed-cta-action">
+        <a href="https://appconsolelab.com" class="btn btn-primary fixed-cta-btn" target="_blank" rel="noopener noreferrer">
+          <span>Get 12 Testers Now</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+<script>
+document.querySelectorAll('.features-expandable-details').forEach(function(detail) {
+  detail.addEventListener('toggle', function() {
+    var label = this.querySelector('summary span');
+    if (label) {
+      label.textContent = this.open ? 'Show Less Features' : 'View All Features (9 More)';
+    }
+  });
+});
+</script>
+
+
+<script>
+function toggleAclPlan(plan) {
+  var extra = document.getElementById('acl-extra-' + plan);
+  var btn = document.getElementById('acl-btn-' + plan);
+  var icon = document.getElementById('acl-icon-' + plan);
+  if (!extra || !btn) return;
+  var isExpanded = extra.style.display === 'flex';
+  if (isExpanded) {
+    extra.style.display = 'none';
+    btn.querySelector('span').textContent = 'VIEW ALL FEATURES';
+    if (icon) icon.style.transform = 'rotate(0deg)';
+  } else {
+    extra.style.display = 'flex';
+    btn.querySelector('span').textContent = 'SHOW LESS FEATURES';
+    if (icon) icon.style.transform = 'rotate(180deg)';
+  }
+}
+</script>
+</body>
+</html>
