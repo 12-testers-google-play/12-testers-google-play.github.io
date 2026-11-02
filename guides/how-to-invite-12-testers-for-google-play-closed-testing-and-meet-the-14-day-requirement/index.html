@@ -1801,6 +1801,558 @@
       }
     }
 
+
+/* ==========================================================================
+   EXACT APPCONSOLELAB PRICING STYLES (1:1 Port from D:\Talha\Projects\ACL)
+   ========================================================================== */
+
+.acl-pricing-section {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  clear: both;
+}
+
+.acl-pricing-outer {
+  width: 100%;
+  max-width: 1080px;
+  margin: 3.5rem auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.acl-pricing-box {
+  position: relative;
+  border-radius: 2.5rem;
+  background: rgba(10, 10, 10, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.65);
+  padding: 3.5rem 2.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .acl-pricing-box {
+    padding: 2.25rem 1.25rem;
+    border-radius: 1.75rem;
+  }
+}
+
+.acl-glow-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 8rem;
+  background: rgba(56, 172, 204, 0.12);
+  filter: blur(80px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.acl-glow-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: rgba(56, 172, 204, 0.08);
+  filter: blur(140px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.acl-glow-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, rgba(56, 172, 204, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.acl-pricing-content {
+  position: relative;
+  z-index: 10;
+}
+
+.acl-pricing-header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.acl-pricing-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  font-family: inherit;
+}
+
+@media (min-width: 640px) {
+  .acl-pricing-title {
+    font-size: 2.6rem;
+  }
+}
+
+.acl-pricing-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.acl-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 56rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 860px) {
+  .acl-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Card base */
+.acl-card {
+  position: relative;
+  border-radius: 2.5rem;
+  padding: 2.75rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .acl-card {
+    padding: 2.25rem 1.5rem 1.75rem;
+    border-radius: 2rem;
+  }
+}
+
+.acl-card-inner-top {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Basic Card Styling */
+.acl-card-basic {
+  background: linear-gradient(180deg, rgba(56, 172, 204, 0.15) 0%, rgba(56, 172, 204, 0.08) 35%, #0a0a0a 100%);
+  border: 2px solid rgba(56, 172, 204, 0.5);
+}
+
+.acl-card-basic:hover {
+  border-color: rgba(56, 172, 204, 0.8);
+  box-shadow: 0 0 35px rgba(56, 172, 204, 0.2);
+}
+
+/* Premium Card Styling */
+.acl-card-premium {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 40%, #0a0a0a 100%);
+  border: 2px solid rgba(251, 191, 36, 0.45);
+}
+
+.acl-card-premium:hover {
+  border-color: rgba(251, 191, 36, 0.75);
+  box-shadow: 0 0 35px rgba(251, 191, 36, 0.2);
+}
+
+/* Badge Top Right */
+.acl-card-badge-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem 1.25rem;
+  z-index: 5;
+}
+
+.acl-badge-recommended {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ef4444 0%, #e11d48 100%);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(251, 113, 133, 0.4);
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
+}
+
+.acl-badge-popular {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fbbf24 0%, #eab308 100%);
+  color: #020617;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(252, 211, 77, 0.4);
+  box-shadow: 0 2px 10px rgba(251, 191, 36, 0.35);
+}
+
+/* Head Area */
+.acl-card-head {
+  margin-bottom: 1.25rem;
+}
+
+.acl-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.acl-accent-bar {
+  width: 0.55rem;
+  height: 1.85rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.acl-accent-basic {
+  background: linear-gradient(180deg, #38accc 0%, #22d3ee 50%, #38accc 100%);
+}
+
+.acl-accent-premium {
+  background: linear-gradient(180deg, #fde047 0%, #facc15 50%, #f59e0b 100%);
+}
+
+.acl-plan-title {
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+}
+
+.acl-icon-zap {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: #fbbf24;
+  fill: #fbbf24;
+  flex-shrink: 0;
+  animation: acl-pulse 2s infinite ease-in-out;
+}
+
+@keyframes acl-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+.acl-plan-desc {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.45;
+}
+
+.acl-card-basic .acl-plan-desc {
+  color: rgba(165, 243, 252, 0.85);
+}
+
+.acl-card-premium .acl-plan-desc {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Price Area */
+.acl-price-area {
+  padding-left: 1.2rem;
+  margin-bottom: 1.75rem;
+}
+
+.acl-discount-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.acl-price-strikethrough {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.acl-discount-pill {
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.acl-price-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.acl-price-val {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.acl-price-unit {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 0.2rem;
+}
+
+/* Feature List */
+.acl-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+.acl-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.acl-feature-dim {
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.acl-feature-text {
+  flex: 1;
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.acl-icon-pill {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.acl-icon-pill-orange {
+  background: rgba(249, 115, 22, 0.2);
+}
+
+.acl-icon-pill-cyan {
+  background: rgba(56, 172, 204, 0.2);
+}
+
+.acl-icon-pill-amber {
+  background: rgba(251, 191, 36, 0.2);
+}
+
+.acl-icon-star {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: #f97316;
+  color: #f97316;
+}
+
+.acl-star-amber {
+  fill: #fbbf24;
+  color: #fbbf24;
+}
+
+.acl-icon-check {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #38accc;
+  stroke: #38accc;
+  stroke-width: 3;
+}
+
+.acl-extra-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Toggle View All button */
+.acl-toggle-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.38);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.acl-toggle-btn:hover {
+  color: #ffffff;
+}
+
+.acl-chevron {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  transition: transform 0.25s ease;
+}
+
+/* Guarantee Banner */
+.acl-guarantee-banner {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.18) 0%, rgba(56, 172, 204, 0.18) 50%, rgba(16, 185, 129, 0.18) 100%);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.acl-guarantee-premium {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.2) 0%, rgba(20, 184, 166, 0.2) 50%, rgba(16, 185, 129, 0.2) 100%);
+}
+
+.acl-radar-wrap {
+  position: relative;
+  display: flex;
+  width: 0.55rem;
+  height: 0.55rem;
+  flex-shrink: 0;
+}
+
+.acl-radar-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #34d399;
+  opacity: 0.75;
+  animation: acl-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes acl-ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.acl-radar-dot {
+  position: relative;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: #34d399;
+}
+
+.acl-shield-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #34d399;
+  flex-shrink: 0;
+}
+
+.acl-guarantee-text {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #6ee7b7;
+  letter-spacing: -0.01em;
+}
+
+/* CTA Buttons */
+.acl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3.1rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  margin-top: 1.25rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.acl-btn-basic {
+  background: #38accc;
+  color: #ffffff;
+  border: none;
+}
+
+.acl-btn-basic:hover {
+  background: #2ea0be;
+  box-shadow: 0 0 25px rgba(56, 172, 204, 0.6);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.acl-btn-premium {
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.12) 0%, rgba(250, 204, 21, 0.18) 50%, rgba(251, 191, 36, 0.12) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  color: #fde047;
+}
+
+.acl-btn-premium:hover {
+  background: rgba(251, 191, 36, 0.25);
+  color: #ffffff;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.35);
+  transform: translateY(-2px);
+}
 </style>
 
   <script type="application/ld+json">
@@ -2074,132 +2626,388 @@
         </p>
       </div>
     </div> <!-- Close 900px container for pricing breakout -->
-    <section class="pricing-section-appconsolelab" id="pricing">
-      <div class="container" style="max-width: 1080px; margin: 0 auto; padding: 0 1.5rem;">
-        <div style="text-align: center; max-width: 720px; margin: 0 auto 1.5rem;">
-          <span class="pricing-sec-badge-glow">&#10003; 100% Pass Guarantee &bull; Real Physical Devices</span>
-          <h2 class="pricing-sec-h2">One Cycle. Complete Approval.</h2>
-          <p class="pricing-sec-desc">
-            Select the plan that fits your release complexity. Real Android smartphones, human testers, active daily engagement, and zero bot risk.
-          </p>
+    <!-- EXACT APPCONSOLELAB PRICING SECTION -->
+<section class="acl-pricing-section" id="pricing">
+  <div class="acl-pricing-outer">
+    <div class="acl-pricing-box">
+      <!-- Subtle top glow -->
+      <div class="acl-glow-top"></div>
+      <!-- Ambient center glow -->
+      <div class="acl-glow-center"></div>
+      <!-- Subtle bluish radial gradient wash -->
+      <div class="acl-glow-radial"></div>
+
+      <div class="acl-pricing-content">
+        <div class="acl-pricing-header">
+          <h2 class="acl-pricing-title">One Cycle. Complete Approval.</h2>
+          <p class="acl-pricing-subtitle">Select the plan that fits your release complexity.</p>
         </div>
 
-        <!-- 2-Column Enhanced Pricing Grid (AppConsoleLab Style) -->
-        <div class="pricing-grid-2col-modern">
+        <div class="acl-pricing-grid">
           
-          <!-- Plan 1: Basic -->
-          <div class="pricing-card-acl">
-            <div class="package-banner basic-banner">
-              <span class="package-badge-pill basic-pill">Essential Cohort</span>
-              <h3 class="package-title-acl">Basic</h3>
-              <p class="package-sub-acl">Essential closed testing package for solo developers releasing utility apps and straightforward tools.</p>
-              
-              <div class="price-box-acl">
-                <span class="price-num-acl">$20</span>
-                <span class="price-unit-acl">/ one-time</span>
+          <!-- ==================== BASIC TIER ==================== -->
+          <div class="acl-card acl-card-basic">
+            <!-- Top Right Badge -->
+            <div class="acl-card-badge-wrap">
+              <span class="acl-badge-recommended">Recommended</span>
+            </div>
+
+            <div class="acl-card-inner-top">
+              <!-- Header Area -->
+              <div class="acl-card-head">
+                <div class="acl-title-row">
+                  <div class="acl-accent-bar acl-accent-basic"></div>
+                  <h3 class="acl-plan-title">Basic</h3>
+                </div>
+                <p class="acl-plan-desc">Essential closed testing with real testers and guaranteed approval.</p>
               </div>
-              <div class="price-meta-tag">
-                <span>&#10003;</span> Zero subscriptions &bull; Full 14-day cycle
+
+              <!-- Price Area -->
+              <div class="acl-price-area">
+                <div class="acl-discount-row">
+                  <span class="acl-price-strikethrough">$30</span>
+                  <span class="acl-discount-pill">Limited-Time Discount</span>
+                </div>
+                <div class="acl-price-main">
+                  <span class="acl-price-val">$20</span>
+                  <span class="acl-price-unit">per release / one-time</span>
+                </div>
+              </div>
+
+              <!-- Feature List (8 Main Deliverables) -->
+              <div class="acl-feature-list">
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-orange">
+                    <svg class="acl-icon-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">25 Real Human Testers</span>
+                </div>
+                
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-orange">
+                    <svg class="acl-icon-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">Production Access Guarantee</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">Dedicated Account Supervisor</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">14-Day Closed Testing</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">Detailed Feedback &amp; Bug analysis</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">UI/UX &amp; App Flow Testing Report</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">Tested on 25+ Real Android Devices</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">2 Days of Additional Testing</span>
+                </div>
+
+                <!-- Collapsible Extra 9 Features -->
+                <div id="acl-extra-basic" class="acl-extra-features" style="display: none;">
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Up To 10 Minutes Testing Per Device Daily</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">High-End Android Devices (Android 7&ndash;16)</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Crash &amp; ANR Monitoring (Screenshots Included)</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Bug Reports With Screenshot Evidence</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Private Tester Feedback on Google Play</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Basic Play Store Policy Compliance Check</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Performance &amp; UI Testing With Suggestions</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Consistent Tester Engagement Throughout 14 Days</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Final Testing Completion Report</span>
+                  </div>
+                </div>
+
+                <!-- View All Toggle Button -->
+                <button type="button" id="acl-btn-basic" class="acl-toggle-btn" onclick="toggleAclPlan('basic')">
+                  <span>VIEW ALL FEATURES</span>
+                  <svg id="acl-icon-basic" class="acl-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+              </div>
+
+              <!-- Guarantee Badge Banner -->
+              <div class="acl-guarantee-banner">
+                <span class="acl-radar-wrap">
+                  <span class="acl-radar-ping"></span>
+                  <span class="acl-radar-dot"></span>
+                </span>
+                <svg class="acl-shield-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                <span class="acl-guarantee-text">Get Production Access &mdash; Or Your Money Back!</span>
               </div>
             </div>
 
-            <div class="features-header-acl">Main Deliverables:</div>
-            <ul class="feature-list-acl">
-              <li><span class="check-bullet-acl">&#10003;</span> <span><strong>25 Real Human Testers</strong></span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span><strong>Production Access Guarantee</strong></span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>Dedicated Account Supervisor</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>14-Day Closed Testing</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>Detailed Feedback &amp; Bug analysis</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>UI/UX &amp; App Flow Testing Report</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>Tested on 25+ Real Android Devices</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>2 Days of Additional Testing</span></li>
-            </ul>
-
-            <!-- Collapsible View All Features Accordion -->
-            <details class="features-expandable-details">
-              <summary>
-                <span>View All Features (9 More)</span>
-                <svg class="summary-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <ul class="feature-list-acl expanded-feature-list">
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Up To 10 Minutes Testing Per Device Daily</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>High-End Android Devices (Android 7&ndash;16)</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Crash &amp; ANR Monitoring (Screenshots Included)</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Bug Reports With Screenshot Evidence</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Private Tester Feedback on Google Play</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Basic Play Store Policy Compliance Check</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Performance &amp; UI Testing With Suggestions</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Consistent Tester Engagement Throughout 14 Days</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Final Testing Completion Report</span></li>
-              </ul>
-            </details>
-
-            <a href="https://appconsolelab.com" class="btn-acl-pricing btn-acl-basic" target="_blank" rel="noopener noreferrer">
-              <span>Choose Basic</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <!-- CTA Button -->
+            <a href="https://appconsolelab.com" target="_blank" rel="noopener noreferrer" class="acl-btn acl-btn-basic">
+              Choose Basic
             </a>
-            <div class="card-guarantee-note">Instant Onboarding &bull; 100% Free Dropout Replacement</div>
           </div>
 
-          <!-- Plan 2: Premium (Featured) -->
-          <div class="pricing-card-acl featured">
-            <div class="card-top-badge">&#9733; Recommended &bull; 99.8% Approval</div>
-            
-            <div class="package-banner premium-banner">
-              <span class="package-badge-pill premium-pill">Full QA Suite</span>
-              <h3 class="package-title-acl">Premium</h3>
-              <p class="package-sub-acl">Comprehensive diagnostic QA with deep user flow testing and senior engineer questionnaire guidance.</p>
-              
-              <div class="price-box-acl">
-                <span class="price-num-acl">$50</span>
-                <span class="price-unit-acl">/ one-time</span>
+          <!-- ==================== PREMIUM TIER ==================== -->
+          <div class="acl-card acl-card-premium">
+            <!-- Top Right Badge -->
+            <div class="acl-card-badge-wrap">
+              <span class="acl-badge-popular">Popular</span>
+            </div>
+
+            <div class="acl-card-inner-top">
+              <!-- Header Area -->
+              <div class="acl-card-head">
+                <div class="acl-title-row">
+                  <div class="acl-accent-bar acl-accent-premium"></div>
+                  <h3 class="acl-plan-title">
+                    <span>Premium</span>
+                    <svg class="acl-icon-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  </h3>
+                </div>
+                <p class="acl-plan-desc">Comprehensive testing with active bug reports, video evidence and extended duration.</p>
               </div>
-              <div class="price-meta-tag" style="color: #38bdf8;">
-                <span>&#10003;</span> Extended 20-Day Cycle &bull; Video Bug Evidence
+
+              <!-- Price Area -->
+              <div class="acl-price-area">
+                <div class="acl-discount-row">
+                  <span class="acl-price-strikethrough">$85</span>
+                  <span class="acl-discount-pill">Limited-Time Discount</span>
+                </div>
+                <div class="acl-price-main">
+                  <span class="acl-price-val">$50</span>
+                  <span class="acl-price-unit">per release / one-time</span>
+                </div>
+              </div>
+
+              <!-- Feature List (8 Main Deliverables) -->
+              <div class="acl-feature-list">
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">50 Real Human Testers</span>
+                </div>
+                
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">Production Access Guarantee</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Senior Account Supervisor</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Extended 20-Day Closed Testing</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Advanced Feedback &amp; Bug Analysis</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Dedicated App Specialist</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Tested on 50+ Real Android Devices</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">Comprehensive UI/UX &amp; User Flow Testing</span>
+                </div>
+
+                <!-- Collapsible Extra 9 Features -->
+                <div id="acl-extra-premium" class="acl-extra-features" style="display: none;">
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Up To 30 Minutes Testing Per Device Daily</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">High-End Android Devices (Android 7&ndash;16)</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Crash &amp; ANR Monitoring With Video Evidence</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Crash &amp; ANR Logs With Fix Suggestions</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Bug Reports With Recording Evidence</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Step-by-Step Bug Reproduction Details</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Installation, Update &amp; First-Launch Testing</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Performance Observations &amp; Optimization Suggestions</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Detailed Final Testing &amp; Play Store Compliance Report</span>
+                  </div>
+                </div>
+
+                <!-- View All Toggle Button -->
+                <button type="button" id="acl-btn-premium" class="acl-toggle-btn" onclick="toggleAclPlan('premium')">
+                  <span>VIEW ALL FEATURES</span>
+                  <svg id="acl-icon-premium" class="acl-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+              </div>
+
+              <!-- Guarantee Badge Banner -->
+              <div class="acl-guarantee-banner acl-guarantee-premium">
+                <span class="acl-radar-wrap">
+                  <span class="acl-radar-ping"></span>
+                  <span class="acl-radar-dot"></span>
+                </span>
+                <svg class="acl-shield-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                <span class="acl-guarantee-text">Get Production Access &mdash; Or Your Money Back!</span>
               </div>
             </div>
 
-            <div class="features-header-acl" style="color: #38bdf8;">Main Deliverables:</div>
-            <ul class="feature-list-acl">
-              <li><span class="check-bullet-acl">&#10003;</span> <span><strong>50 Real Human Testers</strong></span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span><strong>Production Access Guarantee</strong></span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>Senior Account Supervisor</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>Extended 20-Day Closed Testing</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>Advanced Feedback &amp; Bug Analysis</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>Dedicated App Specialist</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>Tested on 50+ Real Android Devices</span></li>
-              <li><span class="check-bullet-acl">&#10003;</span> <span>Comprehensive UI/UX &amp; User Flow Testing</span></li>
-            </ul>
-
-            <!-- Collapsible View All Features Accordion -->
-            <details class="features-expandable-details">
-              <summary>
-                <span>View All Features (9 More)</span>
-                <svg class="summary-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </summary>
-              <ul class="feature-list-acl expanded-feature-list">
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Up To 30 Minutes Testing Per Device Daily</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>High-End Android Devices (Android 7&ndash;16)</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Crash &amp; ANR Monitoring With Video Evidence</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Crash &amp; ANR Logs With Fix Suggestions</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Bug Reports With Recording Evidence</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Step-by-Step Bug Reproduction Details</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Installation, Update &amp; First-Launch Testing</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Performance Observations &amp; Optimization Suggestions</span></li>
-                <li><span class="check-bullet-acl">&#10003;</span> <span>Detailed Final Testing &amp; Play Store Compliance Report</span></li>
-              </ul>
-            </details>
-
-            <a href="https://appconsolelab.com" class="btn-acl-pricing btn-acl-premium" target="_blank" rel="noopener noreferrer">
-              <span>Get Premium Access</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            <!-- CTA Button -->
+            <a href="https://appconsolelab.com" target="_blank" rel="noopener noreferrer" class="acl-btn acl-btn-premium">
+              Get Premium Access
             </a>
-            <div class="card-guarantee-note">Full Money-Back Guarantee &bull; Direct WhatsApp QA Support</div>
           </div>
 
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+<!-- END EXACT APPCONSOLELAB PRICING SECTION -->
     <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 1.5rem;">
 
 
@@ -2486,5 +3294,24 @@ document.querySelectorAll('.features-expandable-details').forEach(function(detai
 });
 </script>
 
+
+<script>
+function toggleAclPlan(plan) {
+  var extra = document.getElementById('acl-extra-' + plan);
+  var btn = document.getElementById('acl-btn-' + plan);
+  var icon = document.getElementById('acl-icon-' + plan);
+  if (!extra || !btn) return;
+  var isExpanded = extra.style.display === 'flex';
+  if (isExpanded) {
+    extra.style.display = 'none';
+    btn.querySelector('span').textContent = 'VIEW ALL FEATURES';
+    if (icon) icon.style.transform = 'rotate(0deg)';
+  } else {
+    extra.style.display = 'flex';
+    btn.querySelector('span').textContent = 'SHOW LESS FEATURES';
+    if (icon) icon.style.transform = 'rotate(180deg)';
+  }
+}
+</script>
 </body>
 </html>
