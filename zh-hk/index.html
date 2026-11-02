@@ -11,6 +11,7 @@
   <!-- Hreflang Tags -->
   <link rel="alternate" hreflang="en" href="https://12-testers-google-play.github.io/" />
   <link rel="alternate" hreflang="zh-HK" href="https://12-testers-google-play.github.io/zh-hk/" />
+<link rel="alternate" hreflang="uk-UA" href="https://12-testers-google-play.github.io/uk-ua/" />
   <link rel="alternate" hreflang="x-default" href="https://12-testers-google-play.github.io/" />
 
   <!-- Open Graph -->
@@ -2457,6 +2458,7 @@
             <div class="lang-dropdown" id="langDropdown" style="display: none;">
               <a href="/" class="lang-option">English (US)</a>
               <a href="/zh-hk/" class="lang-option active">繁體中文 (香港)</a>
+              <a href="/uk-ua/" class="lang-option">Українська (Україна)</a>
             </div>
           </div>
 
@@ -2727,6 +2729,149 @@
 
     <!-- SECTION 5: PRICING SECTION -->
     <!-- EXACT APPCONSOLELAB PRICING SECTION (ZH-HK) -->
+
+  <!-- SECTION: HK LOCAL API & PAYMENT TESTING -->
+  <section class="section" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 5rem 0;">
+    <div class="container">
+      <div class="section-head" style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
+        <span class="badge" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #fbbf24;">香港在地化測試專項</span>
+        <h2 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem; color: #ffffff;">香港本地支付與第三方 API 整合測試規範</h2>
+        <p style="color: #94a3b8; font-size: 1.05rem; margin-top: 0.75rem;">
+          香港 Android 開發者打造的應用程式多數整合本地生態。在 14 天封閉測試期間，除了核心功能外，必須確保跨應用調用與沙盒回調完全無當機記錄。
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
+        <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: 1rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #38bdf8; margin-bottom: 0.75rem;">PayMe、八達通 (Octopus) 及 FPS 轉數快 App-to-App 跳轉</h3>
+          <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            當應用程式調用外部電子錢包進行付款時，系統會暫停當前 Activity。若手機後台記憶體緊張，原應用可能遭到系統回收。我們的實體機測試人員在真實網絡環境下模擬支付跳轉與中途取消流程，確保 <code>onSaveInstanceState</code> 與 Deep Link 回調正常運作，杜絕因 Activity 被殺導致的黑屏或崩潰。
+          </p>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: 1rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #34d399; margin-bottom: 0.75rem;">智方便 (iAM Smart) 及香港 SMS 短訊驗證碼 OTP 接收</h3>
+          <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            測試香港本地電話號碼（csl、1O1O、SmarTone、3香港、CMHK）之國際與本地 SMS OTP 驗證邏輯。驗證自動填寫服務 (SMS Retriever API)、倒數計時器及在弱訊號港鐵環境下的超時重試機制，保證用戶註冊流程無卡頓。
+          </p>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: 1rem;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: #818cf8; margin-bottom: 0.75rem;">繁體中文（香港 zh-HK）與英文雙語字串適配</h3>
+          <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            香港用戶高度依賴中英混合介面。若系統缺少 <code>values-zh-rHK</code> 或 <code>values-b+zh+Hant+HK</code> 字串資源，在部分機種上會觸發 <code>ResourceNotFoundException</code> 致命異常。我們的測試團隊覆蓋多元語言設定，排查介面文字折行破版與語言切換異常。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION: ANDROID VITALS THRESHOLDS -->
+  <section class="section" style="padding: 5rem 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;">
+        <div>
+          <span class="badge" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.3); color: #38bdf8;">GOOGLE PLAY CONSOLE 審核硬指標</span>
+          <h2 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem; color: #ffffff; line-height: 1.2;">
+            掌握 Android Vitals 兩大核心紅線：0.47% 當機率與 0.27% ANR
+          </h2>
+          <p style="color: #94a3b8; font-size: 1.05rem; margin-top: 1rem; line-height: 1.6;">
+            在 14 天封閉測試期間，Google Play 後台不僅看是否有 12 個人安裝，更會持續監控由 Play 服務回傳的真實診斷數據。只要任何一項指標超標，正式版發布審批將直接被系統判定為「不合規」。
+          </p>
+          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background: rgba(30, 41, 59, 0.5); padding: 1.25rem; border-radius: 0.75rem; border-left: 4px solid #ef4444;">
+              <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 0.35rem;">用戶感知當機率 (User-Perceived Crash Rate) &lt; 0.47%</h4>
+              <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.5;">
+                計算每日活躍會話中發生未捕獲異常 (Uncaught Exception) 的比例。我們在 25 位測試人員操作過程中，協助捕捉並定位 NullPointerException、Coroutines 異常洩漏等潛在隱患。
+              </p>
+            </div>
+            <div style="background: rgba(30, 41, 59, 0.5); padding: 1.25rem; border-radius: 0.75rem; border-left: 4px solid #f59e0b;">
+              <h4 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 0.35rem;">應用程式無回應率 (User-Perceived ANR Rate) &lt; 0.27%</h4>
+              <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.5;">
+                主線程 (Main UI Thread) 被數據庫操作、網絡請求或複雜計算阻塞超過 5 秒將引發 ANR。測試人員覆蓋低階記憶體手機，實測介面流暢度與異步加載機制。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 1.25rem; padding: 2.25rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+          <h3 style="font-size: 1.35rem; font-weight: 700; color: #ffffff; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #38bdf8;">&#9881;</span> 14 天測試期間日誌監控機制
+          </h3>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; color: #cbd5e1; font-size: 0.95rem;">
+            <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="color: #34d399; font-weight: bold;">01</span>
+              <span><strong>實名 Google 帳戶安裝：</strong>所有設備皆為長期正常使用的個人主帳戶，具備 Google Play Pass / Play Points 正常使用記錄，杜絕新建空帳戶被防刷機制封鎖。</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="color: #34d399; font-weight: bold;">02</span>
+              <span><strong>覆蓋主流廠商 ROM：</strong>涵蓋三星 (Samsung One UI)、小米 (HyperOS)、Google Pixel 原生系統、Sony Xperia 及 OnePlus，全面檢驗廠商特有權限限制。</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="color: #34d399; font-weight: bold;">03</span>
+              <span><strong>每天真實開啟與點擊：</strong>測試人員每日早晚分別開啟 App，停留操作至少 3 至 5 分鐘，產生符合真實人類行為的活躍時長數據。</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="color: #34d399; font-weight: bold;">04</span>
+              <span><strong>提供後續版本驗證：</strong>在 14 天內若您發布修復 Bug 的新版本 (AAB Update)，測試人員即時跟進更新安裝，展現完整的測試閉環。</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION: HOW TO PASS PRODUCTION ACCESS APPLICATION -->
+  <section class="section" style="background: rgba(15, 23, 42, 0.5); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 5rem 0;">
+    <div class="container">
+      <div class="section-head" style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
+        <span class="badge" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: #34d399;">問卷通關策略</span>
+        <h2 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem; color: #ffffff;">Google Play 申請正式版問卷：香港開發者應對指南</h2>
+        <p style="color: #94a3b8; font-size: 1.05rem; margin-top: 0.75rem;">
+          滿 14 天後，Google Play 管理中心會要求您填寫一份包含 7 道核心問題的審核申請表。人工審核員將根據您的回答與後台數據進行核對。
+        </p>
+      </div>
+
+      <div style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.25rem; padding: 2.5rem; max-width: 920px; margin: 0 auto;">
+        <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+          許多個人開發者在此步驟被拒，主要原因在於回答「測試人員是我朋友」或「沒有收到任何反饋」。Google 視此為無效測試。透過我們的服務，您將獲得專業且具說服力的實質數據支撐：
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="padding-left: 1.25rem; border-left: 3px solid #38bdf8;">
+            <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 0.35rem;">問題一：你是如何招募封閉測試人員的？</h4>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">
+              <strong>推薦應對策略：</strong>說明您透過專門的 Android 開發者與質量保證 (QA) 社群公開招募，鎖定擁有不同規格設備的活躍用戶加入封閉測試群組，以獲取具代表性的客觀用戶反饋。
+            </p>
+          </div>
+
+          <div style="padding-left: 1.25rem; border-left: 3px solid #34d399;">
+            <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 0.35rem;">問題二：測試人員在測試期間提供了哪些具體反饋？</h4>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">
+              <strong>推薦應對策略：</strong>直接引用我們測試人員在 Play 商店內留下的真實私密評論，例如：「在暗黑模式下首頁文字對比度不足」、「特定屏幕比例下按鈕邊距偏小」等具體且真實的改進意見。
+            </p>
+          </div>
+
+          <div style="padding-left: 1.25rem; border-left: 3px solid #818cf8;">
+            <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 0.35rem;">問題三：根據測試反饋，你對應用程式進行了哪些具體改動？</h4>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">
+              <strong>推薦應對策略：</strong>列舉在 14 天內發布的升級版本號（例如 Version Code 2、3），說明優化了字體大小、修復了某個特定機型的閃退問題，展示出清晰敏捷的開發迭代閉環。
+            </p>
+          </div>
+
+          <div style="padding-left: 1.25rem; border-left: 3px solid #f59e0b;">
+            <h4 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 0.35rem;">問題四：你如何評估應用程式已經達到正式發布水準？</h4>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">
+              <strong>推薦應對策略：</strong>列出 Android Vitals 核心數據：測試期間用戶當機率為 0.00%、ANR 率為 0.00%、各核心業務路徑（註冊、支付、流覽）在所有受測設備上均順利完成驗證。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 <section class="acl-pricing-section" id="pricing">
   <div class="acl-pricing-outer">
     <div class="acl-pricing-box">
@@ -3113,7 +3258,90 @@
 
 
     <!-- SECTION 6: FAQ -->
-    <section class="section" style="padding: 5rem 0; background: rgba(15, 23, 42, 0.5);">
+    
+  <!-- SECTION: HK TOP REJECTION FIXES -->
+  <section class="section" style="padding: 5rem 0; background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+    <div class="container">
+      <div class="section-head" style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
+        <span class="badge" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">香港開發者實戰經驗避坑</span>
+        <h2 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem; color: #ffffff;">Google Play 申請正式版發布被拒的五大主因與修復方案</h2>
+        <p style="color: #94a3b8; font-size: 1.05rem; margin-top: 0.75rem;">
+          在我們協助數百位開發者通過 14 天封閉測試的過程中，總結出以下最容易導致 Google 人工審核拒絕的技術盲點，請務必在測試期間提前修正。
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
+        <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: 1rem;">
+          <div style="color: #f87171; font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">陷阱 01</div>
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">濫用敏感權限 (Sensitive Permissions)</h3>
+          <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            例如未具備特定核心功能卻在 <code>AndroidManifest.xml</code> 中聲明了 <code>QUERY_ALL_PACKAGES</code>、<code>READ_MEDIA_IMAGES</code> 或前台定位權限。審核人員在審查正式版申請時會嚴格複查權限聲明。若無必要，建議降級使用 Storage Access Framework (SAF) 或系統 Photo Picker。
+          </p>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: 1rem;">
+          <div style="color: #fbbf24; font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">陷阱 02</div>
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">資料安全表 (Data Safety) 與隱私權政策不符</h3>
+          <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            Google Play 要求明確披露是否收集用戶 IP 地址、設備標識符 (Android ID) 或崩潰診斷日誌。許多香港開發者僅填寫預設範本，一旦與 SDK（如 Firebase Analytics、Facebook SDK）實際回傳的數據不一致，將直接被判違規下架。
+          </p>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: 1rem;">
+          <div style="color: #38bdf8; font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem;">陷阱 03</div>
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">登入機制缺少審核員測試憑證</h3>
+          <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            若應用程式需要手機號碼註冊或特定帳號登入，必須在「應用程式內容 &gt; 應用程式存取權」中提供一組不受短訊驗證碼限制的有效通用測試帳號密碼。審核人員無法登入應用程式將直接拒絕正式發布申請。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: PHYSICAL DEVICE MATRIX -->
+  <section class="section" style="padding: 5rem 0;">
+    <div class="container">
+      <div class="section-head" style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
+        <span class="badge" style="background: rgba(52, 211, 153, 0.1); border-color: rgba(52, 211, 153, 0.3); color: #34d399;">100% 實體真機矩陣</span>
+        <h2 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem; color: #ffffff;">多元品牌與系統版本設備庫：完全覆蓋香港主流用家環境</h2>
+        <p style="color: #94a3b8; font-size: 1.05rem; margin-top: 0.75rem;">
+          我們拒絕虛擬機與模擬器農場。25 位測試人員持有日常使用的真實 Android 裝置，具備真實 SIM 卡、電量消耗、藍牙與 GPS 感應器硬件特徵。
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;">
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem; border-radius: 1rem;">
+          <div style="color: #38bdf8; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">Samsung 三星系列</div>
+          <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.5;">
+            Galaxy S24 Ultra, S23, A54, A34 實體機。測試 One UI 6.0 / 6.1 深度休眠機制、分屏多任務視窗與 Knox 安全沙盒。
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem; border-radius: 1rem;">
+          <div style="color: #34d399; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">Xiaomi 小米 / POCO</div>
+          <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.5;">
+            Xiaomi 14, Redmi Note 13 Pro, POCO F5。測試 HyperOS / MIUI 系統強激進後台省電管理及非標準圓角螢幕挖孔適配。
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem; border-radius: 1rem;">
+          <div style="color: #818cf8; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">Google Pixel 原生系列</div>
+          <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.5;">
+            Pixel 8 Pro, 7a, 6a (Android 14 / Android 15)。檢驗原生 Material You 主題動態色彩、手勢導航與無障礙服務 (Accessibility)。
+          </p>
+        </div>
+
+        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); padding: 1.5rem; border-radius: 1rem;">
+          <div style="color: #f59e0b; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">多元品牌機隊</div>
+          <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.5;">
+            Sony Xperia 1 V, Nothing Phone (2), Motorola Edge 40 等。全方位杜絕特定機型獨有的硬體渲染相容性故障。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding: 5rem 0; background: rgba(15, 23, 42, 0.5);">
       <div class="container" style="max-width: 900px;">
         <div style="text-align: center; margin-bottom: 3.5rem;">
           <div class="badge badge-primary">常見問題</div>
@@ -3207,6 +3435,58 @@
               </p>
             </div>
           </details>
+
+        <details class="faq-item" style="background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
+          <summary style="font-weight: 700; color: #ffffff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem;">
+            <span>香港時間 (UTC+8) 與 Google 太平洋時間 (UTC-8) 的 14 天計時如何計算？</span>
+            <span style="color: #38bdf8; font-size: 1.25rem;">+</span>
+          </summary>
+          <div style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            Google Play Console 後台的所有計時皆以美國太平洋時間 (PST/PDT) 為基準，與香港有 15 至 16 小時的時差。當香港已經進入第 15 天上午時，加州可能仍處於第 14 天。因此我們強烈建議香港開發者在滿額 14 天後額外保持測試狀態 24 至 48 小時，直到後台正式顯示「申請正式版發布」按鈕解鎖後再行操作，避免因時差造成計時不全。
+          </div>
+        </details>
+
+        <details class="faq-item" style="background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
+          <summary style="font-weight: 700; color: #ffffff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem;">
+            <span>付費應用或含港幣應用內購買 (IAP) 的 App 應如何進行封閉測試？</span>
+            <span style="color: #38bdf8; font-size: 1.25rem;">+</span>
+          </summary>
+          <div style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            若您的 App 為付費下載，您可以透過 Google Play Console 為測試人員生成「促銷代碼 (Promo Codes)」免費兌換下載；若 App 包含 In-App Purchase，您只需在「設定 &gt; 授權測試 (License Testing)」中將測試人員郵箱或 Google Group 納入許可清單，測試人員即可使用 Google 官方測試卡進行沙盒付款，無需實際扣款即可測試完整交易流程。
+          </div>
+        </details>
+
+        <details class="faq-item" style="background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
+          <summary style="font-weight: 700; color: #ffffff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem;">
+            <span>如果未來將個人開發者帳戶升級為香港公司帳戶，已發布的 App 需否重新測試？</span>
+            <span style="color: #38bdf8; font-size: 1.25rem;">+</span>
+          </summary>
+          <div style="margin-top: 1rem; color: #94a3b8; font-size: 1.05rem; line-height: 1.6;">
+            不需要。一旦您的應用程式在個人帳戶中通過了 14 天封閉測試並獲得正式版發布權限，後續將該 App 轉移 (App Transfer) 至以香港商業登記證 (BR) 註冊的 Google Play 組織開發者帳戶時，該應用程式的正式版發布權限與歷史評分將完整保留，無需重新進行 14 天 12 人的測試流程。
+          </div>
+        </details>
+
+        <details class="faq-item" style="background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
+          <summary style="font-weight: 700; color: #ffffff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem;">
+            <span>在 14 天封閉測試期間，如何安全整合 Google AdMob 避免「無效流量 (Invalid Traffic)」封號？</span>
+            <span style="color: #38bdf8; font-size: 1.25rem;">+</span>
+          </summary>
+          <div style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            許多個人開發者在封閉測試期間急於展示正式 AdMob 廣告單元，導致測試人員日常操作時產生非真實用戶展示與點擊，極易觸發 AdMob 無效流量政策導致帳戶受限甚至封鎖。在 14 天封閉測試期間，我們強烈建議：1. 在測試版本中全面使用 Google 官方提供的 AdMob 測試廣告單元 ID (Sample Ad Units)；2. 或在 AdMob 後台將所有受測裝置的廣告標識符 (Advertising ID) 加入「測試裝置 (Test Devices)」清單。我們的測試人員遵循嚴格規範，絕不惡意點擊真實廣告，確保您的 AdMob 帳戶安全合規。
+          </div>
+        </details>
+
+        <details class="faq-item" style="background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
+          <summary style="font-weight: 700; color: #ffffff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.05rem;">
+            <span>香港開發者若缺少 D-U-N-S 編號，能否先用個人帳戶上架再轉移至公司？</span>
+            <span style="color: #38bdf8; font-size: 1.25rem;">+</span>
+          </summary>
+          <div style="margin-top: 1rem; color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+            完全可以。這是許多香港初創科技團隊最常見的敏捷上架策略。註冊 Google Play 組織開發者帳戶需要向鄧白氏 (Dun &amp; Bradstreet) 申請 D-U-N-S 編號，通常耗時 2 至 4 週。若您的專案急於驗證市場或向投資人交付 MVP，您可以先使用個人的 Google Play 開發者帳戶，透過我們的 12 位測試人員 14 天封閉測試服務快速解鎖正式發布權限。待公司 D-U-N-S 審批完成並開通組織帳戶後，可透過 Google Play Console 內建的「應用程式轉移 (App Transfer)」功能，於 48 小時內將該 App 平滑轉移至公司組織名下，包名 (Package Name)、所有已累積的用戶安裝量及評分皆完整保留。
+          </div>
+        </details>
+
+
         </div>
       </div>
     </section>
@@ -3245,7 +3525,7 @@
             專為獨立 Android 開發者打造的 Google Play 14 天封閉測試專業服務。真實實體手機測試人員，合規保證，助你快速通過審核上架。
           </p>
           <div style="margin-top: 1rem; color: #94a3b8; font-size: 0.85rem;">
-            語言 / Language: <a href="/" style="color: #38bdf8; text-decoration: none;">English</a> &bull; <a href="/zh-hk/" style="color: #38bdf8; text-decoration: none; font-weight: 700;">繁體中文 (香港)</a>
+            語言 / Language / Мова: <a href="/" style="color: #38bdf8; text-decoration: none;">English</a> &bull; <a href="/zh-hk/" style="color: #38bdf8; text-decoration: none; font-weight: 700;">繁體中文 (香港)</a> &bull; <a href="/uk-ua/" style="color: #38bdf8; text-decoration: none;">Українська (Україна)</a>
           </div>
         </div>
 
