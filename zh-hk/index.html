@@ -1,0 +1,3362 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 Testers Google Play | 香港 Android 應用程式 14 天封閉測試服務 &bull; 保證正式上架</title>
+  <meta name="description" content="專為香港及亞洲獨立 Android 開發者打造：滿足 Google Play 管理中心 14 天 12 位測試人員封閉測試規定。提供 25 位實名真機測試人員，每日真實操作，保證順利通過審核取得正式版發布權限，否則 100% 全額退款。">
+  <meta name="keywords" content="12 testers google play, google play 測試人員, 封閉測試 14 天, 正式版發布權限, google play 個人開發者 測試, 香港 android 寫app, play console 封閉測試, 應用程式上架測試, 測試人員 12 位">
+  <link rel="canonical" href="https://12-testers-google-play.github.io/zh-hk/">
+
+  <!-- Hreflang Tags -->
+  <link rel="alternate" hreflang="en" href="https://12-testers-google-play.github.io/" />
+  <link rel="alternate" hreflang="zh-HK" href="https://12-testers-google-play.github.io/zh-hk/" />
+  <link rel="alternate" hreflang="x-default" href="https://12-testers-google-play.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="12 Testers Google Play | 香港 Android 應用程式 14 天封閉測試服務">
+  <meta property="og:description" content="滿足 Google Play 個人帳戶 14 天 12 位測試人員封閉測試規定。25 位真人實體機測試，保證解鎖正式版發布權限，否則全額退款。">
+  <meta property="og:url" content="https://12-testers-google-play.github.io/zh-hk/">
+  <meta property="og:site_name" content="12 Testers Google Play">
+  <meta property="og:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
+  <meta property="og:locale" content="zh_HK">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="12 Testers Google Play | 香港 Android 應用程式 14 天封閉測試服務">
+  <meta name="twitter:description" content="滿足 Google Play 14 天 12 位測試人員封閉測試規定。真實實體裝置每日活躍測試，保證取得正式發布權限。">
+  <meta name="twitter:image" content="https://12-testers-google-play.github.io/assets/og-image.svg">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://12-testers-google-play.github.io/zh-hk/#website",
+      "url": "https://12-testers-google-play.github.io/zh-hk/",
+      "name": "12 Testers Google Play 香港專業封閉測試服務",
+      "description": "專為香港及亞洲獨立 Android 開發者打造的 Google Play 14 天封閉測試服務。提供 25 位真實實體裝置測試人員，保證通過審核並解鎖正式版發布權限，否則全額退款。",
+      "inLanguage": "zh-HK"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://12-testers-google-play.github.io/#organization",
+      "name": "12TestersGooglePlay",
+      "url": "https://12-testers-google-play.github.io/",
+      "logo": "https://12-testers-google-play.github.io/assets/logo.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+923394001479",
+        "contactType": "customer service",
+        "availableLanguage": ["en", "zh-HK", "zh-TW"]
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Google Play 14 天封閉測試服務",
+      "provider": {
+        "@type": "Organization",
+        "name": "12TestersGooglePlay"
+      },
+      "serviceType": "Android Quality Assurance & Google Play Closed Testing",
+      "description": "滿足 Google Play 管理中心個人開發者帳戶上架要求：連續 14 天提供 25 位真實實體裝置測試人員，進行每日活躍操作並記錄 Android Vitals 遙測資料，保證取得正式版發布權限。",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "基礎方案 (Basic)",
+          "price": "20.00",
+          "priceCurrency": "USD",
+          "url": "https://appconsolelab.com",
+          "description": "25 位真實真人測試人員，連續 14 天封閉測試，包含詳細 Bug 診斷報告及正式版發布權限全額退款保證。"
+        },
+        {
+          "@type": "Offer",
+          "name": "高級方案 (Premium)",
+          "price": "50.00",
+          "priceCurrency": "USD",
+          "url": "https://appconsolelab.com",
+          "description": "50 位真實真人測試人員，延長至 20 天封閉測試，包含螢幕錄影實證、ANR/Crash 日誌修復指南及專屬技術顧問。"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "什麼是 Google Play 個人開發者帳戶的 14 天 12 位測試人員規定？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google 規定於 2023 年 11 月 13 日後建立的所有新個人開發者帳戶，在申請將應用程式發布至正式版（Production）前，必須先在「封閉測試」測試軌道中，招募至少 12 位測試人員連續加入測試至少 14 天，且需證明應用程式具備足夠的真實用戶活躍度與系統穩定性。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "你們的測試人員是真人還是機器人模擬器？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "我們百分之百保證所有測試均由真實真人使用實體 Android 裝置（非模擬器或自動化腳本）進行。每部裝置具備獨立的 Google 帳戶、實體 IMEI 與真實流動網絡 IP，完美符合 Google Play Integrity 與 Android Vitals 遙測標準。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如果最終未能取得正式版發布權限，會有退款保障嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "我們提供業界最堅固的 100% 全額退款保證。只要你的應用程式沒有嚴重違反 Google Play 核心內容政策（如惡意軟體或版權侵權），若完成測試週期後因測試活躍度問題未能獲批正式發布，我們將即時全額退款或免費提供次輪測試直至通過。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "基礎方案收費 20 美元包含哪些服務？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "基礎方案（20 美元一次性收費）包含 25 位真實實體裝置測試人員（遠高於官方 12 位標準，提供充分安全緩衝）、全程連續 14 天每日活躍測試、專屬帳戶主管跟進、詳細錯誤回饋報告以及正式版發布申請答題指引。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+  <style>
+    
+
+    :root {
+      --bg-dark: #070b14;
+      --bg-surface: #0f172a;
+      --bg-card: #111a33;
+      --bg-card-hover: #162447;
+      --bg-alt: #0f172a;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.45);
+      --border-glow: 0 0 25px rgba(56, 189, 248, 0.2);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --brand-primary: #38bdf8;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --brand-secondary: #818cf8;
+      --brand-accent: #6366f1;
+      --brand-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #7dd3fc 0%, #818cf8 100%);
+      --card-gradient: linear-gradient(180deg, rgba(19, 29, 53, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+      --whatsapp-color: #25d366;
+      --whatsapp-glow: rgba(37, 211, 102, 0.4);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-heading: 'Space Grotesk', var(--font-sans);
+      --font-mono: 'JetBrains Mono', monospace;
+      --container-max: 1200px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+      --shadow-glow: 0 0 35px rgba(56, 189, 248, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Container & Layout */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .section {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .section-sm {
+      padding: 3rem 0;
+    }
+
+    .section-alt {
+      background-color: rgba(15, 23, 42, 0.55);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+    }
+
+    /* Specific Section Wrappers */
+    .numbers-sec, .about-sec, .timeline-sec, .method-sec, 
+    .why-price-sec, .compare-sec, .chapters-sec, .reviews-sec {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .numbers-sec {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(15, 23, 42, 0.6) 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      color: #ffffff;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 3.8rem);
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    p.lead, .lead-text {
+      font-size: 1.22rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    a {
+      color: var(--brand-primary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #7dd3fc;
+    }
+
+    code, pre {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+    }
+
+    /* ========================================= */
+    /* SITE HEADER & NAVIGATION */
+    /* ========================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 11, 20, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+      width: 100%;
+      position: relative;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none !important;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .logo-svg {
+      flex-shrink: 0;
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.35));
+      transition: transform 0.25s ease;
+    }
+
+    .logo:hover .logo-svg {
+      transform: scale(1.06);
+    }
+
+    .logo-text {
+      display: inline-flex;
+      align-items: baseline;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      white-space: nowrap;
+      gap: 0.35rem;
+    }
+
+    .logo-title {
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .logo-accent {
+      background: var(--brand-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    /* Desktop Navigation (min-width: 993px) */
+    @media (min-width: 993px) {
+      .mobile-menu-toggle {
+        display: none !important;
+      }
+      .main-nav {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+      }
+      .nav-list {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1.35rem !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .nav-link {
+        color: var(--text-muted) !important;
+        font-weight: 500 !important;
+        font-size: 0.92rem !important;
+        padding: 0.35rem 0 !important;
+        position: relative !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        transition: color 0.2s ease !important;
+      }
+      .nav-link:hover, .nav-link.active {
+        color: #ffffff !important;
+      }
+      .nav-link.active::after {
+        content: '' !important;
+        position: absolute !important;
+        bottom: -6px !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 2px !important;
+        background: var(--brand-gradient) !important;
+        border-radius: 2px !important;
+        box-shadow: 0 0 8px var(--brand-primary) !important;
+      }
+      .btn-text-mobile {
+        display: none !important;
+      }
+      .btn-text-desktop {
+        display: inline !important;
+      }
+      .nav-cta-btn {
+        padding: 0.5rem 1.15rem !important;
+        font-size: 0.88rem !important;
+        border-radius: 9999px !important;
+        white-space: nowrap !important;
+        gap: 0.45rem !important;
+      }
+    }
+
+    /* Mobile Direct Vertical Dropdown Menu (max-width: 992px) */
+    @media (max-width: 992px) {
+      .logo-badge {
+        display: none !important;
+      }
+      .mobile-menu-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 42px !important;
+        height: 42px !important;
+        padding: 0 !important;
+        background: rgba(255, 255, 255, 0.06) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-sm) !important;
+        color: #ffffff !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        flex-shrink: 0 !important;
+      }
+      .mobile-menu-toggle:hover {
+        background: rgba(56, 189, 248, 0.15) !important;
+        border-color: var(--brand-primary) !important;
+        color: var(--brand-primary) !important;
+      }
+
+      /* Direct vertical dropdown container beneath header - NO SLIDER */
+      .main-nav {
+        display: none;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: #090e1a !important;
+        border-bottom: 2px solid var(--brand-primary) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85) !important;
+        padding: 1rem 1.25rem 1.5rem !important;
+        box-sizing: border-box !important;
+        z-index: 9999 !important;
+      }
+
+      .main-nav.active {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.25rem !important;
+      }
+
+      /* Directly showing vertically: clean stacked list */
+      .nav-list {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+      }
+
+      .nav-list li {
+        width: 100% !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+      }
+
+      .nav-link {
+        display: block !important;
+        width: 100% !important;
+        padding: 0.85rem 0.5rem !important;
+        font-size: 1.08rem !important;
+        font-weight: 600 !important;
+        color: #f1f5f9 !important;
+        text-decoration: none !important;
+        transition: all 0.2s ease !important;
+        box-sizing: border-box !important;
+      }
+
+      .nav-link:hover, .nav-link.active {
+        color: var(--brand-primary) !important;
+        padding-left: 0.75rem !important;
+      }
+
+      .nav-link.active {
+        background: rgba(56, 189, 248, 0.08) !important;
+        border-left: 3px solid var(--brand-primary) !important;
+      }
+
+      .nav-cta-wrap {
+        width: 100% !important;
+        margin-top: 0.5rem !important;
+      }
+
+      .btn-text-desktop {
+        display: none !important;
+      }
+      .btn-text-mobile {
+        display: inline !important;
+      }
+
+      .nav-cta-btn {
+        width: 100% !important;
+        padding: 0.85rem 1.25rem !important;
+        font-size: 1rem !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        border-radius: var(--radius-md) !important;
+      }
+    }
+
+    /* ========================================= */
+    /* BUTTONS & BADGES */
+    /* ========================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid transparent;
+      text-decoration: none !important;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      color: #ffffff !important;
+      box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.55);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: var(--whatsapp-color);
+      color: #ffffff !important;
+      box-shadow: 0 4px 18px var(--whatsapp-glow);
+    }
+
+    .btn-whatsapp:hover {
+      background: #20bd5a;
+      box-shadow: 0 8px 26px rgba(37, 211, 102, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .pulse-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ffffff;
+      animation: pulse 1.8s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px #ffffff; }
+      100% { transform: scale(0.9); opacity: 0.8; }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--brand-primary);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      margin-bottom: 1.25rem;
+    }
+
+    .badge-success {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--success);
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    /* ========================================= */
+    /* HERO SECTION (TIGHTENED TOP SPACING) */
+    /* ========================================= */
+    .hero {
+      padding: 2.25rem 0 4rem; /* Tightened from 6.5rem to eliminate wasted space */
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 15%, rgba(56, 189, 248, 0.14) 0%, rgba(7, 11, 20, 0.98) 70%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-content {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    .hero-content .badge {
+      margin-top: 0 !important;
+      margin-bottom: 1.25rem !important;
+    }
+
+    .hero-actions, .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    /* Stats Bar (Dashboard Widget) */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: linear-gradient(135deg, rgba(17, 26, 51, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: var(--radius-xl);
+      margin: 3rem auto 1rem;
+      max-width: 980px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .stats-bar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--brand-gradient);
+    }
+
+    .stat-item {
+      padding: 1.85rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-item:hover {
+      background: rgba(56, 189, 248, 0.06);
+    }
+
+    .stat-value {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .card:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      background: var(--bg-card-hover);
+    }
+
+    /* Metric Cards (No clipping, large gradient digits) */
+    .metric-card {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-gradient);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .metric-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--brand-primary);
+    }
+
+    .metric-pill-success {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: var(--success);
+    }
+
+    .metric-icon {
+      font-size: 1.4rem;
+    }
+
+    .metric-number, .metric-display {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+      display: inline-block;
+      padding-right: 0.15em;
+      overflow: visible;
+    }
+
+    /* Facts Grid */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .fact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .fact-box:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-4px);
+    }
+
+    .fact-title {
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Step Timeline */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .step-item:hover {
+      border-color: var(--border-highlight);
+      transform: translateX(4px);
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--brand-gradient);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4);
+    }
+
+    .step-content {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .step-content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .step-content p {
+      margin-bottom: 0;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Chapter Cards */
+    .chapter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .chapter-card:hover {
+      border-color: var(--border-highlight);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+      background: var(--bg-card-hover);
+    }
+
+    .chapter-card h2, .chapter-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.85rem;
+      color: #ffffff;
+    }
+
+    .chapter-card p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .chapter-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FAQ Section */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .faq-item h3, .faq-item h4 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-body p, .faq-item p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    /* Pricing Section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+      align-items: stretch;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55), 0 0 25px rgba(56, 189, 248, 0.15);
+    }
+
+    .pricing-featured {
+      background: linear-gradient(180deg, #162447 0%, #111a33 100%);
+      border: 2px solid var(--brand-primary);
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.25);
+      transform: scale(1.03);
+    }
+
+    .pricing-featured:hover {
+      transform: scale(1.03) translateY(-6px);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--brand-gradient);
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 1.15rem;
+      border-radius: 9999px;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.45);
+      white-space: nowrap;
+    }
+
+    .pricing-plan-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-price {
+      font-size: 3.2rem;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .pricing-price span {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.98rem;
+      color: #cbd5e1;
+    }
+
+    .pricing-features li svg {
+      width: 18px;
+      height: 18px;
+      color: var(--success);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Floating WhatsApp Button (Pure Icon Only) */
+    .floating-wa, .floating-whatsapp {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--whatsapp-color);
+      color: #ffffff !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
+      z-index: 9999;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none !important;
+    }
+
+    .floating-wa:hover, .floating-whatsapp:hover {
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.65);
+      background: #20bd5a;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #05080f;
+      border-top: 1px solid var(--border-color);
+      padding: 4.5rem 0 2.5rem;
+      margin-top: 4.5rem;
+      width: 100%;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      margin: 1.25rem 0 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .footer-heading {
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      padding-left: 3px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-disclaimer {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 1.5rem;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .breadcrumbs a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--brand-primary);
+    }
+
+    /* ========================================= */
+    /* DEVELOPER GUIDES & DOCUMENTATION STYLING  */
+    /* ========================================= */
+    .quick-answer {
+      background: linear-gradient(145deg, rgba(17, 26, 51, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 4px solid var(--brand-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 20px rgba(56, 189, 248, 0.08);
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .quick-answer-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      margin-bottom: 1rem;
+      line-height: 1.35;
+    }
+
+    .quick-answer-title span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .quick-answer p {
+      color: #e2e8f0;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 0.85rem;
+    }
+
+    .quick-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .callout {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--brand-primary);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.75rem;
+      margin: 1.75rem 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      box-sizing: border-box;
+    }
+
+    .callout-warning {
+      border-left-color: var(--warning);
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+
+    .callout-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .callout-warning .callout-title {
+      color: #fbbf24;
+    }
+
+    .callout p {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: var(--radius-md);
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--brand-primary);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+
+    .table-wrap {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 2rem 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      box-sizing: border-box;
+    }
+
+    table {
+      width: 100%;
+      min-width: 580px;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+      border-spacing: 0;
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.95);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      padding: 1rem 1.25rem;
+      border-bottom: 2px solid var(--border-color);
+      letter-spacing: -0.01em;
+    }
+
+    td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+      line-height: 1.6;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    /* Global media protections */
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ========================================= */
+    /* RESPONSIVE DESIGN BREAKPOINTS */
+    /* ========================================= */
+
+    @media (max-width: 992px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+      }
+      .pricing-featured {
+        grid-column: span 2 !important;
+        transform: none !important;
+      }
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2.5rem !important;
+      }
+    }
+
+    /* Mobile Breakpoint (max-width: 768px) */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+      }
+
+      .section, .numbers-sec, .about-sec, .timeline-sec, 
+      .method-sec, .why-price-sec, .compare-sec, .chapters-sec, .reviews-sec {
+        padding: 3rem 0 !important;
+      }
+
+      /* Hero Section Mobile - TIGHTENED TOP SPACING */
+      .hero {
+        padding: 1.25rem 0 3rem !important; /* Zero extra space between header and badge */
+      }
+
+      .hero-content .badge {
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .hero-actions, .hero-ctas {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 0.85rem !important;
+      }
+
+      .hero-actions .btn, .hero-ctas .btn {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Button Mobile Width Fix: Never overflow or push space to the right */
+      .btn {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        white-space: normal !important;
+        text-align: center !important;
+        word-break: break-word !important;
+        padding: 0.85rem 1.25rem !important;
+      }
+
+      /* Stats Bar Mobile 2x2 Grid (No clipping, clean borders) */
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr) !important;
+        margin: 2rem auto 1rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: var(--radius-lg) !important;
+      }
+
+      .stat-item {
+        padding: 1.25rem 0.75rem !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none !important;
+      }
+
+      .stat-item:nth-child(1), .stat-item:nth-child(2) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      }
+
+      .stat-value {
+        font-size: 1.75rem !important;
+        word-break: break-word !important;
+      }
+
+      .stat-label {
+        font-size: 0.78rem !important;
+        word-break: break-word !important;
+      }
+
+      /* Metric Cards Mobile (Zero digit clipping) */
+      .metric-card {
+        padding: 1.75rem 1.25rem !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+
+      .metric-display, .metric-number {
+        font-size: 2.5rem !important;
+        padding-right: 0.15em !important;
+      }
+
+      /* Pricing Section Mobile Cutoff Fix */
+      .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 2.5rem 0 1rem !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      .pricing-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 2.25rem 1.25rem !important;
+        transform: none !important;
+        margin: 0 !important;
+      }
+
+      .pricing-card:hover {
+        transform: none !important;
+      }
+
+      .pricing-featured {
+        grid-column: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        box-shadow: 0 0 25px rgba(56, 189, 248, 0.2) !important;
+      }
+
+      .pricing-featured:hover {
+        transform: none !important;
+      }
+
+      /* All Grids Collapse cleanly on mobile */
+      .grid-2, .grid-3, .grid-4, .facts-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+      }
+
+      .fact-box {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Step Timeline Items Mobile */
+      .step-item {
+        padding: 1.25rem 1rem !important;
+        gap: 0.85rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .step-num {
+        min-width: 42px !important;
+        height: 42px !important;
+        padding: 0 0.35rem !important;
+        font-size: 0.88rem !important;
+        border-radius: 9999px !important;
+        flex-shrink: 0 !important;
+      }
+
+      .step-content {
+        min-width: 0 !important;
+      }
+
+      .step-content h3 {
+        font-size: 1.15rem !important;
+      }
+
+      /* Chapter & Guide Cards Mobile */
+      .chapter-card, .card, article.card {
+        padding: 1.35rem 1.15rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 1.5rem !important;
+        border-radius: var(--radius-md) !important;
+      }
+
+      .chapter-card h2, .chapter-card h3, .card h2, article.card h2 {
+        font-size: 1.25rem !important;
+        line-height: 1.35 !important;
+      }
+
+      .card h3, article.card h3 {
+        font-size: 1.12rem !important;
+        line-height: 1.35 !important;
+      }
+
+      .card p, article.card p {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+      }
+
+      /* Guide Components Mobile */
+      .card-icon {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0.85rem !important;
+        border-radius: var(--radius-sm) !important;
+      }
+
+      .quick-answer {
+        padding: 1.25rem 1rem !important;
+        margin: 1.5rem 0 !important;
+        border-radius: var(--radius-md) !important;
+        border-left-width: 3px !important;
+      }
+
+      .quick-answer-title {
+        font-size: 1.05rem !important;
+        gap: 0.5rem !important;
+      }
+
+      .quick-answer-title span {
+        width: 26px !important;
+        height: 26px !important;
+        min-width: 26px !important;
+        font-size: 0.95rem !important;
+      }
+
+      .quick-answer p {
+        font-size: 0.92rem !important;
+        line-height: 1.65 !important;
+      }
+
+      .callout {
+        padding: 1.15rem 1rem !important;
+        margin: 1.25rem 0 !important;
+        border-radius: var(--radius-sm) !important;
+        border-left-width: 3px !important;
+      }
+
+      .callout-title {
+        font-size: 1.02rem !important;
+      }
+
+      .callout p {
+        font-size: 0.9rem !important;
+        line-height: 1.65 !important;
+      }
+
+      .table-wrap {
+        margin: 1.25rem 0 !important;
+        border-radius: var(--radius-sm) !important;
+      }
+
+      th, td {
+        padding: 0.75rem 0.85rem !important;
+        font-size: 0.85rem !important;
+      }
+
+      .breadcrumbs {
+        font-size: 0.8rem !important;
+        gap: 0.35rem !important;
+        margin-bottom: 1rem !important;
+        line-height: 1.4 !important;
+      }
+
+      .metric-pill, .badge {
+        padding: 0.25rem 0.65rem !important;
+        font-size: 0.78rem !important;
+      }
+
+      .logo-text {
+        font-size: 1.12rem !important;
+        gap: 0.28rem !important;
+      }
+
+      .logo-svg {
+        width: 25px !important;
+        height: 25px !important;
+      }
+
+      /* Footer Mobile */
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+
+      .floating-wa, .floating-whatsapp {
+        bottom: 18px !important;
+        right: 18px !important;
+        width: 52px !important;
+        height: 52px !important;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo-text {
+        font-size: 0.96rem !important;
+        gap: 0.22rem !important;
+      }
+      .logo-svg {
+        width: 22px !important;
+        height: 22px !important;
+      }
+    }
+    
+  
+/* ==========================================================================
+   APPCONSOLELAB PRICING STYLES (Color-Matched to Website Theme)
+   ========================================================================== */
+
+.acl-pricing-section {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  clear: both;
+}
+
+.acl-pricing-outer {
+  width: 100%;
+  max-width: 1080px;
+  margin: 3.5rem auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.acl-pricing-box {
+  position: relative;
+  border-radius: 2.25rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 45px rgba(56, 189, 248, 0.1);
+  padding: 3.5rem 2.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .acl-pricing-box {
+    padding: 2.25rem 1.25rem;
+    border-radius: 1.75rem;
+  }
+}
+
+.acl-glow-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 8rem;
+  background: rgba(56, 189, 248, 0.18);
+  filter: blur(80px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.acl-glow-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: rgba(99, 102, 241, 0.12);
+  filter: blur(140px);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.acl-glow-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 80%);
+  pointer-events: none;
+}
+
+.acl-pricing-content {
+  position: relative;
+  z-index: 10;
+}
+
+.acl-pricing-header {
+  text-align: center;
+  margin-bottom: 2.75rem;
+}
+
+.acl-pricing-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  font-family: var(--font-heading, 'Space Grotesk', -apple-system, sans-serif);
+}
+
+@media (min-width: 640px) {
+  .acl-pricing-title {
+    font-size: 2.6rem;
+  }
+}
+
+.acl-pricing-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.acl-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 56rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 860px) {
+  .acl-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Card base */
+.acl-card {
+  position: relative;
+  border-radius: 2.25rem;
+  padding: 2.75rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .acl-card {
+    padding: 2.25rem 1.5rem 1.75rem;
+    border-radius: 1.75rem;
+  }
+}
+
+.acl-card-inner-top {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Basic Card Styling (Matched to Cyan/Navy Theme) */
+.acl-card-basic {
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.14) 0%, rgba(15, 23, 42, 0.95) 45%, #070b14 100%);
+  border: 2px solid rgba(56, 189, 248, 0.45);
+}
+
+.acl-card-basic:hover {
+  border-color: rgba(56, 189, 248, 0.85);
+  box-shadow: 0 10px 40px rgba(56, 189, 248, 0.25);
+}
+
+/* Premium Card Styling (Matched to Amber/Indigo Accent Theme) */
+.acl-card-premium {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.14) 0%, rgba(15, 23, 42, 0.95) 45%, #070b14 100%);
+  border: 2px solid rgba(251, 191, 36, 0.48);
+}
+
+.acl-card-premium:hover {
+  border-color: rgba(251, 191, 36, 0.85);
+  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.25);
+}
+
+/* Badge Top Right */
+.acl-card-badge-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem 1.25rem;
+  z-index: 5;
+}
+
+.acl-badge-recommended {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ef4444 0%, #e11d48 100%);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(251, 113, 133, 0.4);
+  box-shadow: 0 2px 10px rgba(239, 68, 68, 0.35);
+}
+
+.acl-badge-popular {
+  display: inline-block;
+  padding: 0.25rem 0.85rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #070b14;
+  font-size: 0.68rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(252, 211, 77, 0.5);
+  box-shadow: 0 2px 10px rgba(251, 191, 36, 0.35);
+}
+
+/* Head Area */
+.acl-card-head {
+  margin-bottom: 1.25rem;
+}
+
+.acl-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.acl-accent-bar {
+  width: 0.55rem;
+  height: 1.85rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.acl-accent-basic {
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+}
+
+.acl-accent-premium {
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+.acl-plan-title {
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading, 'Space Grotesk', -apple-system, sans-serif);
+}
+
+.acl-icon-zap {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: #fbbf24;
+  fill: #fbbf24;
+  flex-shrink: 0;
+  animation: acl-pulse 2s infinite ease-in-out;
+}
+
+@keyframes acl-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+.acl-plan-desc {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  line-height: 1.45;
+}
+
+.acl-card-basic .acl-plan-desc {
+  color: #bae6fd;
+}
+
+.acl-card-premium .acl-plan-desc {
+  color: #cbd5e1;
+}
+
+/* Price Area */
+.acl-price-area {
+  padding-left: 1.2rem;
+  margin-bottom: 1.75rem;
+}
+
+.acl-discount-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.acl-price-strikethrough {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.acl-discount-pill {
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.acl-price-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.acl-price-val {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-family: var(--font-heading, 'Space Grotesk', -apple-system, sans-serif);
+}
+
+.acl-price-unit {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-top: 0.2rem;
+}
+
+/* Feature List */
+.acl-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+.acl-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.acl-feature-dim {
+  color: #94a3b8;
+}
+
+.acl-feature-text {
+  flex: 1;
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.acl-icon-pill {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.acl-icon-pill-orange {
+  background: rgba(249, 115, 22, 0.2);
+}
+
+.acl-icon-pill-cyan {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+.acl-icon-pill-amber {
+  background: rgba(251, 191, 36, 0.2);
+}
+
+.acl-icon-star {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: #f97316;
+  color: #f97316;
+}
+
+.acl-star-amber {
+  fill: #fbbf24;
+  color: #fbbf24;
+}
+
+.acl-icon-check {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #38bdf8;
+  stroke: #38bdf8;
+  stroke-width: 3;
+}
+
+.acl-extra-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Toggle View All button */
+.acl-toggle-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.acl-toggle-btn:hover {
+  color: #38bdf8;
+}
+
+.acl-chevron {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  transition: transform 0.25s ease;
+}
+
+/* Guarantee Banner */
+.acl-guarantee-banner {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.16) 0%, rgba(56, 189, 248, 0.16) 50%, rgba(16, 185, 129, 0.16) 100%);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.acl-guarantee-premium {
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.18) 0%, rgba(251, 191, 36, 0.16) 50%, rgba(16, 185, 129, 0.18) 100%);
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.acl-radar-wrap {
+  position: relative;
+  display: flex;
+  width: 0.55rem;
+  height: 0.55rem;
+  flex-shrink: 0;
+}
+
+.acl-radar-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #34d399;
+  opacity: 0.75;
+  animation: acl-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes acl-ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.acl-radar-dot {
+  position: relative;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: #34d399;
+}
+
+.acl-shield-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #34d399;
+  flex-shrink: 0;
+}
+
+.acl-guarantee-text {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #6ee7b7;
+  letter-spacing: -0.01em;
+}
+
+/* CTA Buttons */
+.acl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  height: 3.2rem;
+  border-radius: 9999px;
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  margin-top: 1.25rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-family: var(--font-heading, 'Space Grotesk', -apple-system, sans-serif);
+}
+
+.acl-btn-arrow {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+  transition: transform 0.25s ease;
+}
+
+.acl-btn:hover .acl-btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+.acl-btn-basic {
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  color: #ffffff !important;
+  border: none;
+  box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+}
+
+.acl-btn-basic:hover {
+  background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%);
+  box-shadow: 0 8px 28px rgba(56, 189, 248, 0.55);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.acl-btn-premium {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: #070b14 !important;
+  border: none;
+  box-shadow: 0 4px 18px rgba(251, 191, 36, 0.35);
+}
+
+.acl-btn-premium:hover {
+  background: linear-gradient(135deg, #fde047 0%, #fbbf24 100%);
+  color: #070b14 !important;
+  box-shadow: 0 8px 30px rgba(251, 191, 36, 0.55);
+  transform: translateY(-2px);
+}
+
+
+    /* ==========================================================================
+       HERO GUARANTEE HEADLINE ENHANCEMENT
+       ========================================================================== */
+    .hero-headline-wrap {
+      display: inline-block;
+      max-width: 960px;
+      margin: 0.5rem auto 1.5rem;
+      padding: 1.25rem 2.25rem;
+      border-radius: 1.5rem;
+      background: radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.16) 0%, rgba(15, 23, 42, 0.9) 70%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.55), 0 0 35px rgba(56, 189, 248, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 640px) {
+      .hero-headline-wrap {
+        padding: 1rem 1.2rem;
+        border-radius: 1.25rem;
+        margin: 0.5rem 0.25rem 1.25rem;
+      }
+    }
+
+    .hero-headline-wrap h2 {
+      margin: 0 !important;
+      font-size: clamp(1.85rem, 4.2vw, 3rem) !important;
+      font-weight: 900 !important;
+      line-height: 1.25 !important;
+      letter-spacing: -0.025em !important;
+      color: #ffffff !important;
+      font-family: var(--font-heading, 'Space Grotesk', sans-serif) !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero-headline-primary {
+      display: block;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-headline-guarantee {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.25rem;
+      padding: 0.25rem 1.15rem;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.22) 0%, rgba(56, 189, 248, 0.2) 50%, rgba(99, 102, 241, 0.22) 100%);
+      border: 1px solid rgba(52, 211, 153, 0.5);
+      box-shadow: 0 0 24px rgba(52, 211, 153, 0.3);
+    }
+
+    .hero-guarantee-text {
+      background: linear-gradient(135deg, #34d399 0%, #38bdf8 55%, #a7f3d0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 900 !important;
+      letter-spacing: -0.01em;
+      font-size: 0.9em;
+    }
+    
+
+
+/* Language Selector */
+.lang-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: #0f172a;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 0.85rem;
+  padding: 0.5rem;
+  min-width: 160px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.lang-option {
+  display: block;
+  padding: 0.5rem 0.85rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.lang-option:hover {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.lang-option.active {
+  color: #ffffff;
+  background: rgba(56, 189, 248, 0.18);
+  font-weight: 700;
+}
+
+    body, h1, h2, h3, h4, p, span, a {
+      font-family: 'Noto Sans TC', var(--font-heading), -apple-system, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/zh-hk/" class="logo" aria-label="12 Testers Google Play">
+        <svg class="logo-svg" width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="gpLogoGrad" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="50%" stop-color="#6366f1"/>
+              <stop offset="100%" stop-color="#818cf8"/>
+            </linearGradient>
+            <linearGradient id="gpBadgeGrad" x1="16" y1="16" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+          </defs>
+          <path d="M6 5.8C6 4.4 7.5 3.5 8.7 4.2L23.5 13.4C24.7 14.1 24.7 15.9 23.5 16.6L8.7 25.8C7.5 26.5 6 25.6 6 24.2V5.8Z" fill="url(#gpLogoGrad)"/>
+          <circle cx="22" cy="22" r="7.5" fill="#070b14"/>
+          <circle cx="22" cy="22" r="6" fill="url(#gpBadgeGrad)"/>
+          <path d="M19.2 22L21.2 24L24.8 19.8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text"><strong class="logo-title">12 Testers</strong> <span class="logo-accent">Google Play</span></span>
+      </a>
+
+      <!-- Mobile Hamburger Toggle Button -->
+      <button class="menu-toggle" id="menuToggle" aria-label="展開導覽選單" aria-expanded="false">
+        <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display: none;">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="/zh-hk/" class="nav-link active">首頁</a></li>
+          <li><a href="#pricing" class="nav-link">價格方案</a></li>
+          <li><a href="/services/" class="nav-link">服務項目</a></li>
+          <li><a href="/for-agencies/" class="nav-link">機構方案</a></li>
+          <li><a href="/guides/" class="nav-link">教學指南</a></li>
+          <li><a href="/about/" class="nav-link">關於我們</a></li>
+          <li><a href="/contact/" class="nav-link">聯絡我們</a></li>
+        </ul>
+        
+        <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 0.75rem;">
+          <!-- Language Selector -->
+          <div class="lang-switcher">
+            <button type="button" class="lang-btn" onclick="toggleLangDropdown()" aria-label="選擇語言">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <span>繁體中文</span>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="lang-dropdown" id="langDropdown" style="display: none;">
+              <a href="/" class="lang-option">English (US)</a>
+              <a href="/zh-hk/" class="lang-option active">繁體中文 (香港)</a>
+            </div>
+          </div>
+
+          <a href="https://wa.me/923394001479?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%9F%A5%E8%A9%A2Google%20Play%2012%E4%BD%8D%E6%B8%AC%E8%A9%A6%E4%BA%BA%E5%93%A1%E5%B0%81%E9%96%89%E6%B8%AC%E8%A9%A6%E6%9C%8D%E5%8B%99" class="btn btn-whatsapp nav-cta-btn" target="_blank" rel="noopener noreferrer">
+            <span class="pulse-dot"></span>
+            <span class="btn-text-desktop">WhatsApp 諮詢</span>
+            <span class="btn-text-mobile">WhatsApp 諮詢</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+<main>
+    <!-- SECTION 0: HERO -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="badge badge-success">
+          <span class="pulse-dot" style="background: var(--success); width: 8px; height: 8px;"></span>
+          100% 正式版發布權限通過保證 &bull; 2026 最新政策對策
+        </div>
+        <h1>12 Testers Google Play</h1>
+        <div class="hero-headline-wrap">
+          <h2>
+            <span class="hero-headline-primary">通過 Google Play 連續 14 天封閉測試。</span>
+            <span class="hero-headline-guarantee">
+              <span class="pulse-dot" style="background: #34d399; width: 8px; height: 8px; box-shadow: 0 0 10px #34d399;"></span>
+              <span class="hero-guarantee-text">否則全額退款保證。</span>
+            </span>
+          </h2>
+        </div>
+        <p class="lead-text">
+          專為香港及亞洲獨立 Android 開發者打造：徹底搞掂 Google Play 管理中心個人開發者帳戶上架新規。我們提供 <strong>25 位經實名驗證的真實實體 Android 裝置測試人員</strong>，連續 14 天每日主動活躍操作與互動，杜絕模擬器與刷單機器人風險，助你穩妥解鎖「正式版發布權限」。
+        </p>
+
+        <div class="hero-actions">
+          <a href="#pricing" class="btn btn-primary" style="padding: 1rem 2.2rem; font-size: 1.05rem;">立即獲取 12 位真實測試人員 ($20)</a>
+          <a href="https://wa.me/923394001479?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%9F%A5%E8%A9%A2Google%20Play%2012%E4%BD%8D%E6%B8%AC%E8%A9%A6%E4%BA%BA%E5%93%A1%E5%B0%81%E9%96%89%E6%B8%AC%E8%A9%A6%E6%9C%8D%E5%8B%99" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>WhatsApp 即時對答</span>
+          </a>
+          <a href="#why-closed-testing" class="btn btn-secondary" style="padding: 0.9rem 1.8rem; font-size: 1.05rem;">了解封閉測試要求</a>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+          <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">正式發布審核通過率</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">25+</span>
+            <span class="stat-label">每專案真實實體裝置</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">14 天</span>
+            <span class="stat-label">不間斷活躍使用數據</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">0</span>
+            <span class="stat-label">封閉測試被拒記錄</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: BENCHMARKS -->
+    <section class="section" style="background: rgba(15, 23, 42, 0.5); padding: 4rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 760px; margin: 0 auto 3rem;">
+          <div class="badge badge-primary">品質遙測監控</div>
+          <h2>嚴格遵循 Google Play Console 核心審核標準</h2>
+          <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.7;">
+            Google 的機器學習審核系統不僅僅記錄測試人數，更會全天候監控 Android Vitals 系統健康度。我們以工程級品質標準確保你的各項指標完全處於安全綠線之內。
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div class="card" style="padding: 2rem; border-radius: var(--radius-lg); background: var(--bg-card); border: 1px solid var(--border-color);">
+            <div style="width: 2.75rem; height: 2.75rem; border-radius: 9999px; background: rgba(56, 189, 248, 0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">Android Vitals 零當機指標</h3>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+              維持當機率 (Crash Rate) &lt; 0.1% 及無回應率 (ANR) &lt; 0.05%，遠優於 Google 官方設定的 1.09% 不良行為臨界值。
+            </p>
+          </div>
+
+          <div class="card" style="padding: 2rem; border-radius: var(--radius-lg); background: var(--bg-card); border: 1px solid var(--border-color);">
+            <div style="width: 2.75rem; height: 2.75rem; border-radius: 9999px; background: rgba(52, 211, 153, 0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">多元品牌實機矩陣覆蓋</h3>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+              涵蓋 Samsung、Google Pixel、Xiaomi、Sony、OnePlus 等主流硬件，覆蓋 Android 7 至 Android 16，提供真實硬件分佈證明。
+            </p>
+          </div>
+
+          <div class="card" style="padding: 2rem; border-radius: var(--radius-lg); background: var(--bg-card); border: 1px solid var(--border-color);">
+            <div style="width: 2.75rem; height: 2.75rem; border-radius: 9999px; background: rgba(251, 191, 36, 0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h3 style="color: #ffffff; font-size: 1.25rem; margin-bottom: 0.75rem;">商店內專屬私人反饋記錄</h3>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">
+              測試人員透過 Google Play 商店專屬私人反饋介面提交操作意見，為第 15 天的正式發布問卷提供紮實的回饋紀錄憑證。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: PROBLEMS IN HONG KONG -->
+    <section class="section" id="why-closed-testing" style="padding: 5rem 0;">
+      <div class="container" style="max-width: 1000px;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <div class="badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3);">香港開發者常見痛點</div>
+          <h2>點解香港獨立開發者自行搵人測試往往面臨被拒？</h2>
+          <p style="color: #cbd5e1; font-size: 1.1rem; max-width: 760px; margin: 0 auto; line-height: 1.7;">
+            許多在香港寫 App 的個人工程師與小型工作室，在耗費數個月開發產品後，往往在最後一步因為「測試人員不足」或「活躍度不足」慘遭 Google 打回原形。
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <div style="background: var(--bg-card); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 2rem;">
+            <h3 style="color: #ef4444; font-size: 1.25rem; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+              <span>&#10007;</span> 叫朋友幫手：中途退場導致計時器歸零
+            </h3>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.7;">
+              找朋友或同事幫忙安裝，通常在頭兩天之後大家就會忘記開啟。甚至有人因為手機容量不足直接刪除 App。只要加入測試人數在第 13 天跌穿 12 人，Google Play 的 14 天連續計時器就會即時暫停甚至重置。
+            </p>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 2rem;">
+            <h3 style="color: #ef4444; font-size: 1.25rem; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+              <span>&#10007;</span> 網上社群互換：帳號關聯連帶封號高危
+            </h3>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.7;">
+              在 Reddit、Facebook 群組或 Telegram 上與陌生人互相測試，經常會遇到惡意開發者或問題帳號。如果對方的帳號因違規被 Google 封鎖，參與同一封閉測試群組的帳戶亦有可能被關聯演算法列入高風險名單。
+            </p>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 2rem;">
+            <h3 style="color: #ef4444; font-size: 1.25rem; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+              <span>&#10007;</span> 淘寶/廉價刷單：機器人模擬器秒速識穿
+            </h3>
+            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.7;">
+              廉價平台往往使用雲端伺服器批次運行 Android 模擬器腳本。Google Play Integrity API 能夠瞬間偵測虛擬硬件特徵與數據中心 IP。一旦被判定為虛假測試，不僅生產權限被拒，帳號更可能面臨永久凍結。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 4-STEP ONBOARDING -->
+    <section class="section" style="background: rgba(15, 23, 42, 0.6); padding: 5rem 0;">
+      <div class="container" style="max-width: 900px;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+          <div class="badge badge-primary">極簡接入</div>
+          <h2>極速 7 分鐘：全程自動化封閉測試託管</h2>
+          <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.7;">
+            你只需專注完善你的產品程式碼，所有繁瑣的測試名單管理、實機加入邀請及每日活躍度維護，全部由我們專職團隊代為執行。
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start; background: var(--bg-card); padding: 1.75rem; border-radius: 1.25rem; border: 1px solid rgba(255,255,255,0.08);">
+            <div style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: #38bdf8; color: #070b14; font-weight: 900; display: flex; align-items: center; justify-content: center; shrink: 0; font-size: 1.2rem;">1</div>
+            <div>
+              <h3 style="color: #ffffff; font-size: 1.25rem; margin-top: 0; margin-bottom: 0.5rem;">提供測試加入連結或加入 Google Group</h3>
+              <p style="color: #94a3b8; line-height: 1.7; margin-bottom: 0;">
+                在 Google Play 管理中心建立封閉測試軌道，並將我們的測試人員 Google Group 電郵加入至測試人員名單中，或者直接提供測試網頁加入網址。
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start; background: var(--bg-card); padding: 1.75rem; border-radius: 1.25rem; border: 1px solid rgba(255,255,255,0.08);">
+            <div style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: #38bdf8; color: #070b14; font-weight: 900; display: flex; align-items: center; justify-content: center; shrink: 0; font-size: 1.2rem;">2</div>
+            <div>
+              <h3 style="color: #ffffff; font-size: 1.25rem; margin-top: 0; margin-bottom: 0.5rem;">25 位真實實體機測試人員即日就位</h3>
+              <p style="color: #94a3b8; line-height: 1.7; margin-bottom: 0;">
+                我們的測試人員網絡於數小時內陸續點擊接受邀請、成為測試人員並於實體手機上下載安裝，確保 Opt-in 人數迅速超出官方 12 位門檻。
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start; background: var(--bg-card); padding: 1.75rem; border-radius: 1.25rem; border: 1px solid rgba(255,255,255,0.08);">
+            <div style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: #38bdf8; color: #070b14; font-weight: 900; display: flex; align-items: center; justify-content: center; shrink: 0; font-size: 1.2rem;">3</div>
+            <div>
+              <h3 style="color: #ffffff; font-size: 1.25rem; margin-top: 0; margin-bottom: 0.5rem;">連續 14 天持續操作與健康度監測</h3>
+              <p style="color: #94a3b8; line-height: 1.7; margin-bottom: 0;">
+                測試人員每日保持開機互動，產生自然活躍遙測資料，並透過 Play 商店提交私人反饋，同時全程監控當機與 ANR 率保持在安全範圍。
+              </p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1.5rem; align-items: flex-start; background: var(--bg-card); padding: 1.75rem; border-radius: 1.25rem; border: 1px solid rgba(255,255,255,0.08);">
+            <div style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: #34d399; color: #070b14; font-weight: 900; display: flex; align-items: center; justify-content: center; shrink: 0; font-size: 1.2rem;">4</div>
+            <div>
+              <h3 style="color: #ffffff; font-size: 1.25rem; margin-top: 0; margin-bottom: 0.5rem;">解鎖正式版發布權限 &bull; 提交官方問卷獲批</h3>
+              <p style="color: #94a3b8; line-height: 1.7; margin-bottom: 0;">
+                第 14 天結束後，Play Console 後台的「申請正式發布」按鈕即時點亮。我們為你提供專業的申請問卷範本與技術數據，助你一次審核順利通過。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COMPARISON TABLE -->
+    <section class="section" style="padding: 5rem 0;">
+      <div class="container" style="max-width: 1040px;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <div class="badge badge-primary">方案對比</div>
+          <h2>為什麼專業真機艦隊是香港開發者的唯一最佳選擇？</h2>
+        </div>
+
+        <div style="overflow-x: auto; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-xl);">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem; color: #cbd5e1; text-align: left;">
+            <thead>
+              <tr style="background: rgba(15, 23, 42, 0.9); border-bottom: 2px solid rgba(56, 189, 248, 0.3);">
+                <th style="padding: 1.2rem; color: #ffffff;">衡量標準</th>
+                <th style="padding: 1.2rem; color: #38bdf8; background: rgba(56, 189, 248, 0.08); font-weight: 700;">12TestersGooglePlay</th>
+                <th style="padding: 1.2rem; color: #ffffff;">自己找親戚朋友</th>
+                <th style="padding: 1.2rem; color: #ffffff;">Reddit / 社群互換</th>
+                <th style="padding: 1.2rem; color: #ffffff;">廉價機器人刷單</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 1rem 1.2rem; font-weight: 700; color: #ffffff;">測試人員規模</td>
+                <td style="padding: 1rem 1.2rem; color: #34d399; font-weight: 700; background: rgba(56, 189, 248, 0.05);">25 至 50 位真實實機</td>
+                <td style="padding: 1rem 1.2rem;">勉強湊齊 12 人</td>
+                <td style="padding: 1rem 1.2rem;">不穩定 10-15 人</td>
+                <td style="padding: 1rem 1.2rem;">虛假模擬器帳戶</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 1rem 1.2rem; font-weight: 700; color: #ffffff;">14天連續活躍保證</td>
+                <td style="padding: 1rem 1.2rem; color: #34d399; font-weight: 700; background: rgba(56, 189, 248, 0.05);">&#10003; 100% 每日排程活躍</td>
+                <td style="padding: 1rem 1.2rem; color: #ef4444;">兩三天後無人理會</td>
+                <td style="padding: 1rem 1.2rem; color: #ef4444;">隨時退出導致中斷</td>
+                <td style="padding: 1rem 1.2rem; color: #ef4444;">腳本批次刷量被識破</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 1rem 1.2rem; font-weight: 700; color: #ffffff;">裝置與網絡多樣性</td>
+                <td style="padding: 1rem 1.2rem; color: #34d399; font-weight: 700; background: rgba(56, 189, 248, 0.05);">&#10003; 多國多品牌獨立IP</td>
+                <td style="padding: 1rem 1.2rem;">相同家庭WiFi風險</td>
+                <td style="padding: 1rem 1.2rem;">來源雜亂高風險</td>
+                <td style="padding: 1rem 1.2rem;">雲端機房數據中心IP</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <td style="padding: 1rem 1.2rem; font-weight: 700; color: #ffffff;">正式版發布審核通過率</td>
+                <td style="padding: 1rem 1.2rem; color: #34d399; font-weight: 700; background: rgba(56, 189, 248, 0.05);">100% 通過（否則退款）</td>
+                <td style="padding: 1rem 1.2rem; color: #f59e0b;">&lt; 30% 通過率</td>
+                <td style="padding: 1rem 1.2rem; color: #f59e0b;">&lt; 40% 通過率</td>
+                <td style="padding: 1rem 1.2rem; color: #ef4444;">0% 遭拒甚至封號</td>
+              </tr>
+              <tr>
+                <td style="padding: 1rem 1.2rem; font-weight: 700; color: #ffffff;">專業申請答題指導</td>
+                <td style="padding: 1rem 1.2rem; color: #34d399; font-weight: 700; background: rgba(56, 189, 248, 0.05);">&#10003; 完整提供技術答題範本</td>
+                <td style="padding: 1rem 1.2rem;">無，需自行摸索</td>
+                <td style="padding: 1rem 1.2rem;">無</td>
+                <td style="padding: 1rem 1.2rem;">無</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: PRICING SECTION -->
+    <!-- EXACT APPCONSOLELAB PRICING SECTION (ZH-HK) -->
+<section class="acl-pricing-section" id="pricing">
+  <div class="acl-pricing-outer">
+    <div class="acl-pricing-box">
+      <!-- Subtle top glow -->
+      <div class="acl-glow-top"></div>
+      <!-- Ambient center glow -->
+      <div class="acl-glow-center"></div>
+      <!-- Subtle bluish radial gradient wash -->
+      <div class="acl-glow-radial"></div>
+
+      <div class="acl-pricing-content">
+        <div class="acl-pricing-header">
+          <h2 class="acl-pricing-title">一次測試週期。全面順利通過。</h2>
+          <p class="acl-pricing-subtitle">選擇最符合你應用程式規模與架構複雜度的封閉測試方案。</p>
+        </div>
+
+        <div class="acl-pricing-grid">
+          
+          <!-- ==================== BASIC TIER ==================== -->
+          <div class="acl-card acl-card-basic">
+            <!-- Top Right Badge -->
+            <div class="acl-card-badge-wrap">
+              <span class="acl-badge-recommended">強烈推薦</span>
+            </div>
+
+            <div class="acl-card-inner-top">
+              <!-- Header Area -->
+              <div class="acl-card-head">
+                <div class="acl-title-row">
+                  <div class="acl-accent-bar acl-accent-basic"></div>
+                  <h3 class="acl-plan-title">基礎方案 (Basic)</h3>
+                </div>
+                <p class="acl-plan-desc">專為獨立開發者打造的標準封閉測試，真實測試人員提供穩妥上架保證。</p>
+              </div>
+
+              <!-- Price Area -->
+              <div class="acl-price-area">
+                <div class="acl-discount-row">
+                  <span class="acl-price-strikethrough">$30</span>
+                  <span class="acl-discount-pill">限時特惠折扣</span>
+                </div>
+                <div class="acl-price-main">
+                  <span class="acl-price-val">$20</span>
+                  <span class="acl-price-unit">美元 / 每次版本發布（一次性收費）</span>
+                </div>
+              </div>
+
+              <!-- Feature List (8 Main Deliverables) -->
+              <div class="acl-feature-list">
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-orange">
+                    <svg class="acl-icon-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">25 位真實真人測試人員</span>
+                </div>
+                
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-orange">
+                    <svg class="acl-icon-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">100% 正式版發布權限保證</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">專屬測試帳戶主管跟進</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">全程連續 14 天封閉測試</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">詳細反饋意見與程式錯誤 (Bug) 分析</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">UI/UX 介面與操作流程測試報告</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">覆蓋 25+ 部真實實體 Android 裝置</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-cyan">
+                    <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="acl-feature-text">額外贈送 2 天緩衝測試期</span>
+                </div>
+
+                <!-- Collapsible Extra 9 Features -->
+                <div id="acl-extra-basic" class="acl-extra-features" style="display: none;">
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">每部裝置每日使用測試高達 10 分鐘</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">多品牌主流 Android 實機 (Android 7–16)</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">應用程式當機 (Crash) 與 ANR 即時監控（附截圖）</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">包含截圖佐證的程式錯誤 (Bug) 診斷報告</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Google Play 管理中心私人反饋留言記錄</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">Google Play 開發者政策基礎合規檢查</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">應用程式效能與介面流暢度優化建議</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">連續 14 天穩定的每日活躍測試互動</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-cyan">
+                      <svg class="acl-icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <span class="acl-feature-text">最終封閉測試結案評估完整報告</span>
+                  </div>
+                </div>
+
+                <!-- View All Toggle Button -->
+                <button type="button" id="acl-btn-basic" class="acl-toggle-btn" onclick="toggleAclPlan('basic')">
+                  <span>查看全部功能</span>
+                  <svg id="acl-icon-basic" class="acl-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+              </div>
+
+              <!-- Guarantee Badge Banner -->
+              <div class="acl-guarantee-banner">
+                <span class="acl-radar-wrap">
+                  <span class="acl-radar-ping"></span>
+                  <span class="acl-radar-dot"></span>
+                </span>
+                <svg class="acl-shield-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                <span class="acl-guarantee-text">保證取得正式版發布權限 &mdash; 否則全額退款！</span>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="https://appconsolelab.com" target="_blank" rel="noopener noreferrer" class="acl-btn acl-btn-basic">
+              <span>訪問官方網站</span>
+              <svg class="acl-btn-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- ==================== PREMIUM TIER ==================== -->
+          <div class="acl-card acl-card-premium">
+            <!-- Top Right Badge -->
+            <div class="acl-card-badge-wrap">
+              <span class="acl-badge-popular">最受歡迎</span>
+            </div>
+
+            <div class="acl-card-inner-top">
+              <!-- Header Area -->
+              <div class="acl-card-head">
+                <div class="acl-title-row">
+                  <div class="acl-accent-bar acl-accent-premium"></div>
+                  <h3 class="acl-plan-title">
+                    <span>高級方案 (Premium)</span>
+                    <svg class="acl-icon-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  </h3>
+                </div>
+                <p class="acl-plan-desc">全方位深度測試，提供錄影憑證、日誌分析及延長測試時長。</p>
+              </div>
+
+              <!-- Price Area -->
+              <div class="acl-price-area">
+                <div class="acl-discount-row">
+                  <span class="acl-price-strikethrough">$85</span>
+                  <span class="acl-discount-pill">限時特惠折扣</span>
+                </div>
+                <div class="acl-price-main">
+                  <span class="acl-price-val">$50</span>
+                  <span class="acl-price-unit">美元 / 每次版本發布（一次性收費）</span>
+                </div>
+              </div>
+
+              <!-- Feature List (8 Main Deliverables) -->
+              <div class="acl-feature-list">
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">50 位真實真人測試人員</span>
+                </div>
+                
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text font-bold text-white">100% 正式版發布權限保證</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">資深品質測試總監親自審核</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">延長至 20 天封閉測試週期</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">高階深度反饋與錯誤根因分析</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">專屬 Android 應用程式技術顧問</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">覆蓋 50+ 部不同型號 Android 實機</span>
+                </div>
+
+                <div class="acl-feature-item">
+                  <div class="acl-icon-pill acl-icon-pill-amber">
+                    <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="acl-feature-text">全面 UI/UX 及核心業務流程壓力測試</span>
+                </div>
+
+                <!-- Collapsible Extra 9 Features -->
+                <div id="acl-extra-premium" class="acl-extra-features" style="display: none;">
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">每部裝置每日深度操作測試高達 30 分鐘</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">旗艦及各階 Android 實體裝置 (Android 7–16)</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">當機與 ANR 監控及螢幕錄影還原憑證</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">當機與 ANR Logcat 日誌診斷及修復指南</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">包含高畫質錄影實證的錯誤追蹤報告</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">逐步重現程式錯誤 (Bug Reproduction) 步驟</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">初次啟動、安裝相容性及版本更新迭代測試</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">系統資源佔用、耗電量及效能優化建議</span>
+                  </div>
+
+                  <div class="acl-feature-item acl-feature-dim">
+                    <div class="acl-icon-pill acl-icon-pill-amber">
+                      <svg class="acl-icon-star acl-star-amber" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <span class="acl-feature-text">Google Play 政策合規審查及上架申請答題報告</span>
+                  </div>
+                </div>
+
+                <!-- View All Toggle Button -->
+                <button type="button" id="acl-btn-premium" class="acl-toggle-btn" onclick="toggleAclPlan('premium')">
+                  <span>查看全部功能</span>
+                  <svg id="acl-icon-premium" class="acl-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+              </div>
+
+              <!-- Guarantee Badge Banner -->
+              <div class="acl-guarantee-banner acl-guarantee-premium">
+                <span class="acl-radar-wrap">
+                  <span class="acl-radar-ping"></span>
+                  <span class="acl-radar-dot"></span>
+                </span>
+                <svg class="acl-shield-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                <span class="acl-guarantee-text">保證取得正式版發布權限 &mdash; 否則全額退款！</span>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a href="https://appconsolelab.com" target="_blank" rel="noopener noreferrer" class="acl-btn acl-btn-premium">
+              <span>訪問官方網站</span>
+              <svg class="acl-btn-arrow" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END EXACT APPCONSOLELAB PRICING SECTION -->
+
+
+    <!-- SECTION 6: FAQ -->
+    <section class="section" style="padding: 5rem 0; background: rgba(15, 23, 42, 0.5);">
+      <div class="container" style="max-width: 900px;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+          <div class="badge badge-primary">常見問題</div>
+          <h2>Google Play 封閉測試常見疑問解答</h2>
+          <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.7;">
+            針對香港開發者最關心的政策細節、測試流程、帳號安全及退款政策提供權威解答。
+          </p>
+        </div>
+
+        <div class="faq-accordion" style="margin: 2rem 0;">
+          <details class="faq-item-modern">
+            <summary>
+              <span>什麼是 Google Play 針對新個人開發者帳戶的「12 位測試人員 14 天」規定？</span>
+              <span class="faq-chevron">&#9660;</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Google 於 2023 年 11 月 13 日起對所有新註冊的「個人」開發者帳戶實施嚴格門檻：在應用程式能正式上架公開發布（Production）前，必須先在「封閉測試」軌道中招募至少 12 位測試人員，並且這批測試人員必須連續 14 天處於加入測試狀態。在測試期結束後，開發者需要回答 Google 的問卷並證明應用程式具有真實的測試與反饋數據，獲批後才能開放公開下載。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item-modern">
+            <summary>
+              <span>「內部測試」(Internal Testing) 可以用來滿足這項 14 天要求嗎？</span>
+              <span class="faq-chevron">&#9660;</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                絕對不可以。許多開發者白白浪費了 14 天就是因為使用了內部測試。Google 規定必須是在「封閉測試」(Closed testing) 軌道下進行。內部測試不會觸發 Google Play 後台的連續天數計時器，亦不會記錄合資格的生產審核數據。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item-modern">
+            <summary>
+              <span>為什麼基礎方案提供 25 位測試人員，而不是剛好 12 位？</span>
+              <span class="faq-chevron">&#9660;</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                雖然 Google 官方最低要求為 12 人，但如果剛好只有 12 人，只要其中一位測試人員的手機突然故障、帳戶登出或更換手機，Opt-in 數字一旦降至 11 人，14 天倒數就會立刻中止。我們提供 25 位真實測試人員，具備超過 100% 的安全冗餘，確保任何突發情況下都不會中斷你的 14 天進度。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item-modern">
+            <summary>
+              <span>你們如何保證不會使用機器人或模擬器？</span>
+              <span class="faq-chevron">&#9660;</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                我們自建了全球實體真機測試網絡。每部手機皆為實體 Android 硬件（包含 Samsung、Pixel、Xiaomi 等），運行原生 Android OS 並配備獨立 Google Play 帳號與獨立電訊商 IP。這能完美通過 Google Play Integrity API 的硬件驗證（MEETS_DEVICE_INTEGRITY），產生真實的 Android Vitals 遙測紀錄。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item-modern">
+            <summary>
+              <span>在 14 天測試期間，我可以推送更新版本修復 Bug 嗎？</span>
+              <span class="faq-chevron">&#9660;</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                可以，而且非常推薦！在 14 天測試期間更新 App Bundle (例如從 versionCode 1 更新到 2)，並不會重置你的 14 天計時器。相反，在 Google 審核人員眼中，這證明了開發者有積極根據測試反饋進行版本迭代，是大幅提高正式發布審核通過率的重大加分項。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item-modern">
+            <summary>
+              <span>如果 14 天後 Google 審核結果顯示「需要進行更多測試」，該如何處理？</span>
+              <span class="faq-chevron">&#9660;</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                若因為應用程式本身的特定架構原因收到 Google 的「需要更多測試」通知，我們的全額退款保證將全力保障你的權益。你可以選擇即時獲得 100% 全額退款，或者由我們免費為你提供次輪的強化測試與申請問卷重新優化，直到你的應用程式成功獲批正式版發布權限為止。
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item-modern">
+            <summary>
+              <span>下單付款後需要多久開始？整個流程如何推進？</span>
+              <span class="faq-chevron">&#9660;</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                在網站完成下單或透過 WhatsApp 與我們確認後，只需將你的封閉測試加入連結或測試者群組電郵發給我們，通常在 2 至 6 小時內，25 位測試人員就會全數接受邀請加入並陸續下載安裝。你的專屬測試主管會全程跟進，並在第 14 天提醒你並提供正式發布申請指南。
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: PRE-FOOTER CTA -->
+    <section class="section" style="padding: 5rem 0; text-align: center; background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, rgba(7, 11, 20, 0.98) 75%); border-top: 1px solid var(--border-color);">
+      <div class="container" style="max-width: 800px;">
+        <h2 style="font-size: clamp(2rem, 4vw, 2.8rem); color: #ffffff; margin-bottom: 1.25rem;">準備好在 14 天內順利上架你的 Android 應用程式？</h2>
+        <p style="color: #cbd5e1; font-size: 1.15rem; line-height: 1.8; margin-bottom: 2.5rem;">
+          別再因為找不到足夠測試人員而延誤你的商業計劃。立即選擇專業的實機封閉測試艦隊，100% 保證取得 Google Play 正式版發布權限。
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
+          <a href="#pricing" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">立即獲取 12 位測試人員 ($20)</a>
+          <a href="https://wa.me/923394001479?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%9F%A5%E8%A9%A2Google%20Play%2012%E4%BD%8D%E6%B8%AC%E8%A9%A6%E4%BA%BA%E5%93%A1%E5%B0%81%E9%96%89%E6%B8%AC%E8%A9%A6%E6%9C%8D%E5%8B%99" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" style="padding: 1rem 2rem; font-size: 1.1rem;">
+            <span>WhatsApp 廣東話即時諮詢</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo footer-logo">
+            <svg class="logo-svg" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6 5.8C6 4.4 7.5 3.5 8.7 4.2L23.5 13.4C24.7 14.1 24.7 15.9 23.5 16.6L8.7 25.8C7.5 26.5 6 25.6 6 24.2V5.8Z" fill="#38bdf8"/>
+              <circle cx="22" cy="22" r="7.5" fill="#070b14"/>
+              <circle cx="22" cy="22" r="6" fill="#10b981"/>
+              <path d="M19.2 22L21.2 24L24.8 19.8" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="logo-text"><strong>12 Testers</strong> Google Play</span>
+          </div>
+          <p class="footer-desc">
+            專為獨立 Android 開發者打造的 Google Play 14 天封閉測試專業服務。真實實體手機測試人員，合規保證，助你快速通過審核上架。
+          </p>
+          <div style="margin-top: 1rem; color: #94a3b8; font-size: 0.85rem;">
+            語言 / Language: <a href="/" style="color: #38bdf8; text-decoration: none;">English</a> &bull; <a href="/zh-hk/" style="color: #38bdf8; text-decoration: none; font-weight: 700;">繁體中文 (香港)</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">快速導覽</h4>
+          <ul class="footer-links">
+            <li><a href="/zh-hk/">首頁</a></li>
+            <li><a href="#pricing">價格方案</a></li>
+            <li><a href="/services/">服務項目</a></li>
+            <li><a href="/for-agencies/">機構方案</a></li>
+            <li><a href="/guides/">教學指南</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">教學與政策</h4>
+          <ul class="footer-links">
+            <li><a href="/guides/internal-testing-vs-closed-testing-which-track-for-production-access/">內部測試 vs 封閉測試</a></li>
+            <li><a href="/guides/why-does-google-play-say-your-app-requires-more-testing-get-production-access/">「需要更多測試」修復指南</a></li>
+            <li><a href="/guides/google-play-closed-testing-requirements-new-personal-developer-accounts/">個人帳戶封閉測試要求</a></li>
+            <li><a href="/about/">關於我們</a></li>
+            <li><a href="/contact/">聯絡我們</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">條款與政策</h4>
+          <ul class="footer-links">
+            <li><a href="/privacy-policy/">隱私權政策 (Privacy Policy)</a></li>
+            <li><a href="/terms-conditions/">服務條款 (Terms &amp; Conditions)</a></li>
+            <li><a href="/refund-policy/">退款政策 (Refund Policy)</a></li>
+            <li><a href="https://appconsolelab.com" target="_blank" rel="noopener noreferrer">AppConsoleLab 官網</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 12 Testers Google Play. 版權所有。與 Google LLC 無關聯，Google Play 為 Google LLC 之商標。</p>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Floating WhatsApp Action (Pure Icon Only) -->
+  <a href="https://wa.me/923394001479?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%9F%A5%E8%A9%A2Google%20Play%2012%E4%BD%8D%E6%B8%AC%E8%A9%A6%E4%BA%BA%E5%93%A1%E5%B0%81%E9%96%89%E6%B8%AC%E8%A9%A6%E6%9C%8D%E5%8B%99" class="floating-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp 諮詢">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.56 0 8.25 3.69 8.25 8.24 0 4.56-3.69 8.25-8.25 8.25-1.46 0-2.88-.38-4.13-1.11l-.3-.18-3.08.81.82-3-.2-.31a8.16 8.16 0 0 1-1.25-4.46c0-4.55 3.69-8.24 8.24-8.24zm4.53 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/>
+    </svg>
+  </a>
+
+  <!-- Toggle Scripts -->
+    <script>
+    function toggleAclPlan(plan) {
+      var extra = document.getElementById('acl-extra-' + plan);
+      var btn = document.getElementById('acl-btn-' + plan);
+      var icon = document.getElementById('acl-icon-' + plan);
+      if (!extra || !btn) return;
+      var isExpanded = extra.style.display === 'flex';
+      if (isExpanded) {
+        extra.style.display = 'none';
+        btn.querySelector('span').textContent = '查看全部功能';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      } else {
+        extra.style.display = 'flex';
+        btn.querySelector('span').textContent = '收起功能清單';
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    }
+  </script>
+    <script>
+    function toggleLangDropdown() {
+      var dropdown = document.getElementById('langDropdown');
+      if (!dropdown) return;
+      dropdown.style.display = (dropdown.style.display === 'none' || dropdown.style.display === '') ? 'flex' : 'none';
+    }
+
+    document.addEventListener('click', function(e) {
+      var switcher = document.querySelector('.lang-switcher');
+      var dropdown = document.getElementById('langDropdown');
+      if (switcher && dropdown && !switcher.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+  <script>
+    // Mobile Nav Toggle
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mainNav');
+    var hamburger = toggle ? toggle.querySelector('.hamburger-icon') : null;
+    var closeIcon = toggle ? toggle.querySelector('.close-icon') : null;
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var isOpen = nav.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (hamburger) hamburger.style.display = isOpen ? 'none' : 'block';
+        if (closeIcon) closeIcon.style.display = isOpen ? 'block' : 'none';
+      });
+
+      var links = nav.querySelectorAll('.nav-link');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function() {
+          nav.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+          if (hamburger) hamburger.style.display = 'block';
+          if (closeIcon) closeIcon.style.display = 'none';
+        });
+      }
+    }
+  </script>
+</body>
+</html>
