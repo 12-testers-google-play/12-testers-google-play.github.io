@@ -295,4 +295,52 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/how-to-pass-google-play-production-access-review-12-testers-14-days-approval-tips/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/can-you-use-android-emulators-for-google-play-closed-testing-12-testers/</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/how-many-testers-are-required-for-google-play-closed-testing-production-access/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/how-to-track-tester-progress-google-play-14-day-closed-testing/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/why-did-google-introduce-14-day-closed-testing-requirement-google-play/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/google-play-production-access-rejected-multiple-times-how-to-fix-get-approved/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/how-to-apply-for-google-play-production-access-step-by-step-guide/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/do-testers-need-to-submit-private-feedback-google-play-closed-testing-production-access/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
