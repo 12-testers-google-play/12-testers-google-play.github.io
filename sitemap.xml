@@ -283,4 +283,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/a-testing-version-of-this-app-hasnt-been-published-yet-or-isnt-available-for-this-account-fix/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://12-testers-google-play.github.io/guides/google-play-console-not-updating-closed-testing-tester-count-causes-how-to-fix/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
