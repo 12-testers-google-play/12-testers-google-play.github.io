@@ -5130,6 +5130,87 @@
   flex-grow: 1;
 }
 
+  
+/* ==========================================================================
+   MODERN SPACIOUS FAQ DESIGN (Non-congested, glassmorphic, animated chevron)
+   ========================================================================== */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.faq-item {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 1rem !important;
+  padding: 1.4rem 1.75rem !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.faq-item:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.faq-item[open] {
+  background: rgba(255, 255, 255, 0.035) !important;
+  border-color: rgba(56, 189, 248, 0.45) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 25px rgba(56, 189, 248, 0.08);
+}
+.faq-item summary {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.25rem !important;
+  font-family: var(--font-heading) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  list-style: none !important;
+  cursor: pointer !important;
+  user-select: none;
+  transition: color 0.25s ease;
+  line-height: 1.45 !important;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none !important;
+}
+.faq-item summary::after {
+  content: '' !important;
+  display: inline-block !important;
+  width: 9px !important;
+  height: 9px !important;
+  border-right: 2px solid var(--brand-primary) !important;
+  border-bottom: 2px solid var(--brand-primary) !important;
+  transform: rotate(45deg);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+.faq-item[open] summary::after {
+  transform: rotate(-135deg) !important;
+}
+.faq-item[open] summary {
+  color: var(--brand-primary) !important;
+  margin-bottom: 1rem !important;
+}
+.faq-body {
+  font-family: var(--font-sans);
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.96rem !important;
+  line-height: 1.7 !important;
+  padding-top: 0.75rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
   </style>
 
 
@@ -6896,9 +6977,7 @@
             </div>
             <h3 class="acl-review-title">Approved for Production in 3 Days!</h3>
             <p class="acl-review-body">
-              My new app got approved for production today without a single question! Google took only 3 days to approve my production access request.<br><br>
-              I purchased the Starter package from AppConsoleLab, and the whole experience was excellent. Getting started was very easy, and everything was set up within around 6 hours.<br><br>
-              During the 14-day testing period, I received regular feedback and clear instructions about what to do next. I always knew how my testing was progressing and what was expected from me. The dashboard also made it very easy to follow the progress and complete my tasks.
+              My new app got approved for production today without a single question! Google took only 3 days to approve my production access request.
             </p>
             <div class="acl-review-author">
               Kenny
@@ -6930,6 +7009,19 @@
             </p>
             <div class="acl-review-author">
               Worldi
+            </div>
+          </div>
+          <!-- Card 6: Mateo Rossi -->
+          <div class="acl-review-card">
+            <div class="acl-review-top">
+              <img src="/assets/5stars.svg" width="110" height="22" alt="5 Trustpilot Stars" class="acl-stars-img">
+            </div>
+            <h3 class="acl-review-title">Smooth & Stress-Free Closed Testing</h3>
+            <p class="acl-review-body">
+              Passing Google Play's 14-day closed test felt daunting until I found AppConsoleLab. All 12+ testers stayed active daily, provided helpful feedback, and my app was approved on the very first submission!
+            </p>
+            <div class="acl-review-author">
+              Mateo Rossi
             </div>
           </div>
         </div>
@@ -7821,175 +7913,7 @@
 
 
 
-        <div style="margin-top: 2rem;">
-
-          <details class="faq-item">
-
-            <summary>Why did Google introduce the 12 testers requirement for Google Play?</summary>
-
-            <div class="faq-body">
-
-              Google introduced this policy in November 2023 (and updated it in December 2024 to 12 testers) to raise the baseline quality of apps published on the Google Play Store. By requiring real user testing before production rollout, Google filters out malware, broken apps, spam, and abandonware before they reach the general public.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>Why do some websites still mention 20 testers instead of 12?</summary>
-
-            <div class="faq-body">
-
-              When Google initially launched the closed testing requirement on November 13, 2023, the threshold was set at 20 testers. On December 11, 2024, Google officially reduced the requirement to 12 testers for personal accounts. Articles and videos that still mention 20 testers are simply outdated.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>Do all 12 testers need to test the app simultaneously?</summary>
-
-            <div class="faq-body">
-
-              Yes. All 12 testers must be opted in simultaneously, and the total count of enrolled testers must not drop below 12 at any point during the 14-day window. They do not need to open the app at the exact same minute, but their opt-in status on Google Play must remain active concurrently.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>Can testers be from different countries?</summary>
-
-            <div class="faq-body">
-
-              Yes. Google Play allows closed testing tracks to accept testers from any country you have enabled in your track settings. In fact, having international testers with diverse regional Android device builds can prove helpful in demonstrating real-world stability.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>What happens if a tester uninstalls the app on Day 10?</summary>
-
-            <div class="faq-body">
-
-              If a tester uninstalls or opts out, and your total count drops to 11, the 14-day continuous clock pauses or resets. This is why recruiting a buffer of 16 to 20 testers is essential. With a buffer, a single drop-off leaves you well above the 12-tester threshold.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>Can I upload app updates during the 14-day closed testing period?</summary>
-
-            <div class="faq-body">
-
-              Yes! Updating your app bundle (.aab) during testing is actually viewed favorably by Google. It provides tangible evidence in your production questionnaire that you responded to tester feedback and resolved bugs during the testing track.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>Is there any difference between Internal Testing and Closed Testing?</summary>
-
-            <div class="faq-body">
-
-              Yes. <strong>Internal Testing</strong> allows up to 100 testers without Google review, but <em>does not count</em> toward the 14-day / 12-tester requirement. Only <strong>Closed Testing</strong> tracks satisfy the prerequisite to unlock the "Apply for production" button.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>Does completing 14 days guarantee my app will be approved for production?</summary>
-
-            <div class="faq-body">
-
-              No. Completing 14 days with 12 testers makes you eligible to submit your production application. Google's review team evaluates your app quality, policy compliance, and the answers submitted in your production questionnaire before granting final public store access.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>Can I test using Android Emulators like BlueStacks or LDPlayer?</summary>
-
-            <div class="faq-body">
-
-              No. Emulators fail Google Play Integrity checks due to non-standard hardware signatures, missing sensors, and datacenter IP footprints. Using emulators frequently leads to immediate production application rejection or developer account flags.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>How many testers should I recruit as a safety buffer?</summary>
-
-            <div class="faq-body">
-
-              We recommend recruiting at least 16 to 20 testers. If 2 or 3 testers fail to launch the app or accidentally uninstall it, your active count stays securely above 12, preserving your 14-day streak.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>What is the difference between personal and organization Play accounts?</summary>
-
-            <div class="faq-body">
-
-              Personal accounts are registered under individual names and require 12 testers for 14 days. Organization accounts require a D-U-N-S business verification number and official company registration documents, but are generally exempt from the 12-tester closed testing mandate.
-
-            </div>
-
-          </details>
-
-
-
-          <details class="faq-item">
-
-            <summary>How long does Google take to review the production access application?</summary>
-
-            <div class="faq-body">
-
-              After submitting the 8-question questionnaire at the end of your 14-day test, Google typically reviews the application within 2 to 7 business days, though complex apps or holidays may extend review times up to 14 days.
-
-            </div>
-
-          </details>
-
-          <!-- 16 Additional Comprehensive FAQs -->
+                <div class="faq-list">
           <details class="faq-item">
             <summary>Is Google Play production access guaranteed after closed testing?</summary>
             <div class="faq-body">
@@ -8123,10 +8047,151 @@
             </div>
           </details>
 
+          <details class="faq-item">
+
+            <summary>Why did Google introduce the 12 testers requirement for Google Play?</summary>
+
+            <div class="faq-body">
+
+              Google introduced this policy in November 2023 (and updated it in December 2024 to 12 testers) to raise the baseline quality of apps published on the Google Play Store. By requiring real user testing before production rollout, Google filters out malware, broken apps, spam, and abandonware before they reach the general public.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>Why do some websites still mention 20 testers instead of 12?</summary>
+
+            <div class="faq-body">
+
+              When Google initially launched the closed testing requirement on November 13, 2023, the threshold was set at 20 testers. On December 11, 2024, Google officially reduced the requirement to 12 testers for personal accounts. Articles and videos that still mention 20 testers are simply outdated.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>Do all 12 testers need to test the app simultaneously?</summary>
+
+            <div class="faq-body">
+
+              Yes. All 12 testers must be opted in simultaneously, and the total count of enrolled testers must not drop below 12 at any point during the 14-day window. They do not need to open the app at the exact same minute, but their opt-in status on Google Play must remain active concurrently.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>Can testers be from different countries?</summary>
+
+            <div class="faq-body">
+
+              Yes. Google Play allows closed testing tracks to accept testers from any country you have enabled in your track settings. In fact, having international testers with diverse regional Android device builds can prove helpful in demonstrating real-world stability.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>What happens if a tester uninstalls the app on Day 10?</summary>
+
+            <div class="faq-body">
+
+              If a tester uninstalls or opts out, and your total count drops to 11, the 14-day continuous clock pauses or resets. This is why recruiting a buffer of 16 to 20 testers is essential. With a buffer, a single drop-off leaves you well above the 12-tester threshold.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>Can I upload app updates during the 14-day closed testing period?</summary>
+
+            <div class="faq-body">
+
+              Yes! Updating your app bundle (.aab) during testing is actually viewed favorably by Google. It provides tangible evidence in your production questionnaire that you responded to tester feedback and resolved bugs during the testing track.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>Is there any difference between Internal Testing and Closed Testing?</summary>
+
+            <div class="faq-body">
+
+              Yes. <strong>Internal Testing</strong> allows up to 100 testers without Google review, but <em>does not count</em> toward the 14-day / 12-tester requirement. Only <strong>Closed Testing</strong> tracks satisfy the prerequisite to unlock the "Apply for production" button.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>Does completing 14 days guarantee my app will be approved for production?</summary>
+
+            <div class="faq-body">
+
+              No. Completing 14 days with 12 testers makes you eligible to submit your production application. Google's review team evaluates your app quality, policy compliance, and the answers submitted in your production questionnaire before granting final public store access.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>Can I test using Android Emulators like BlueStacks or LDPlayer?</summary>
+
+            <div class="faq-body">
+
+              No. Emulators fail Google Play Integrity checks due to non-standard hardware signatures, missing sensors, and datacenter IP footprints. Using emulators frequently leads to immediate production application rejection or developer account flags.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>How many testers should I recruit as a safety buffer?</summary>
+
+            <div class="faq-body">
+
+              We recommend recruiting at least 16 to 20 testers. If 2 or 3 testers fail to launch the app or accidentally uninstall it, your active count stays securely above 12, preserving your 14-day streak.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>What is the difference between personal and organization Play accounts?</summary>
+
+            <div class="faq-body">
+
+              Personal accounts are registered under individual names and require 12 testers for 14 days. Organization accounts require a D-U-N-S business verification number and official company registration documents, but are generally exempt from the 12-tester closed testing mandate.
+
+            </div>
+
+          </details>
+
+          <details class="faq-item">
+
+            <summary>How long does Google take to review the production access application?</summary>
+
+            <div class="faq-body">
+
+              After submitting the 8-question questionnaire at the end of your 14-day test, Google typically reviews the application within 2 to 7 business days, though complex apps or holidays may extend review times up to 14 days.
+
+            </div>
+
+          </details>
         </div>
-
       </div>
-
     </section>
 
 
