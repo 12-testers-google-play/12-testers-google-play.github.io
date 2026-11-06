@@ -4895,6 +4895,241 @@
       }
     }
 
+  
+/* ==========================================================================
+   APPCONSOLELAB.US EXACT REVIEWS & HOW IT WORKS DESIGN STYLES
+   ========================================================================== */
+
+/* Reviews Section Grid & Card Styles (appconsolelab.us matching) */
+.acl-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+.acl-review-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.acl-review-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+.acl-review-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+.acl-stars-img {
+  width: 110px;
+  height: 22px;
+  display: block;
+  opacity: 0.92;
+  transition: opacity 0.3s ease;
+}
+.acl-review-card:hover .acl-stars-img {
+  opacity: 1;
+}
+.acl-review-title {
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+}
+.acl-review-card:hover .acl-review-title {
+  color: var(--brand-primary);
+}
+.acl-review-body {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+  flex-grow: 1;
+}
+.acl-review-author {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color 0.3s ease;
+}
+.acl-review-card:hover .acl-review-author {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* How It Works Nodes & Grid (appconsolelab.us matching) */
+.acl-connecting-line {
+  display: none;
+}
+@media (min-width: 993px) {
+  .acl-connecting-line {
+    display: block;
+    position: absolute;
+    top: 48px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.12), transparent);
+    z-index: 1;
+  }
+}
+.acl-how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 1.75rem;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 992px) {
+  .acl-how-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .acl-how-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.acl-step-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.acl-node-container {
+  position: relative;
+  z-index: 10;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.acl-diamond-glow {
+  position: absolute;
+  inset: 0;
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: 1rem;
+  transform: rotate(45deg);
+  filter: blur(14px);
+  opacity: 0.5;
+  transition: all 0.5s ease;
+}
+.acl-step-node:hover .acl-diamond-glow {
+  opacity: 1;
+  transform: rotate(90deg) scale(1.1);
+  filter: blur(18px);
+}
+.acl-diamond-glass {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  transform: rotate(45deg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+.acl-step-node:hover .acl-diamond-glass {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.06);
+  transform: rotate(12deg) scale(1.05);
+}
+.acl-icon-svg {
+  transform: rotate(-45deg);
+  color: var(--brand-primary);
+  transition: all 0.5s ease;
+}
+.acl-step-node:hover .acl-icon-svg {
+  transform: rotate(-12deg) scale(1.1);
+  color: #ffffff;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.8));
+}
+.acl-node-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  background: #070b14;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  z-index: 20;
+  transition: all 0.3s ease;
+}
+.acl-step-node:hover .acl-node-badge {
+  background: var(--brand-primary);
+  color: #ffffff;
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+}
+.acl-step-card {
+  position: relative;
+  width: 100%;
+  padding: 1.75rem 1.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.acl-step-node:hover .acl-step-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+.acl-step-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.65rem;
+  transition: color 0.3s ease;
+}
+.acl-step-node:hover .acl-step-title {
+  color: var(--brand-primary);
+}
+.acl-step-desc {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
+  margin: 0;
+  flex-grow: 1;
+}
+
   </style>
 
 
@@ -5867,103 +6102,157 @@
 
     <!-- SECTION 4: TIMELINE SEC -->
 
-    <section class="section timeline-sec" id="how-it-works">
-      <div class="container">
-        <div style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
-          <div class="badge">Workflow</div>
-          <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff;">How It Works</h2>
-          <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
-            Our streamlined 6-step testing workflow ensures your Android application satisfies Google Play closed testing policies with dedicated supervision and real hardware validation.
+    <section class="section timeline-sec" id="how-it-works" style="position: relative; overflow: hidden; padding: 4.5rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+      <!-- Futuristic Background Elements from appconsolelab.us -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 0;">
+        <div style="position: absolute; top: 20%; left: 10%; width: 500px; height: 500px; background: rgba(56, 189, 248, 0.08); border-radius: 9999px; filter: blur(120px);"></div>
+        <div style="position: absolute; bottom: 10%; right: 10%; width: 600px; height: 600px; background: rgba(99, 102, 241, 0.08); border-radius: 9999px; filter: blur(150px);"></div>
+      </div>
+
+      <div class="container" style="position: relative; z-index: 10;">
+        <div style="text-align: center; margin-bottom: 4rem; position: relative;">
+          <h2 style="font-size: 2.25rem; font-weight: 900; background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.5)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+            How It Works
+          </h2>
+          <p style="color: rgba(255, 255, 255, 0.6); font-size: 1.05rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            Your journey to Google Play production access, simplified and automated.
           </p>
         </div>
 
-        <div class="how-it-works-grid">
-          <div class="step-card">
-            <div class="step-card-num">01</div>
-            <div class="step-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="17 8 12 3 7 8"></polyline>
-                <line x1="12" y1="3" x2="12" y2="15"></line>
-              </svg>
-            </div>
-            <h3 class="step-card-title">Submit Your App</h3>
-            <p class="step-card-desc">
-              Provide your app details and closed testing opt-in link. Add our dedicated tester cohort to your Google Play Console Closed Testing track in just a few clicks.
-            </p>
-          </div>
+        <div style="position: relative;">
+          <!-- Connecting Line (Desktop) -->
+          <div class="acl-connecting-line"></div>
 
-          <div class="step-card">
-            <div class="step-card-num">02</div>
-            <div class="step-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
+          <div class="acl-how-grid">
+            <!-- Step 1: Submit Your App -->
+            <div class="acl-step-node">
+              <div class="acl-node-container">
+                <div class="acl-diamond-glow"></div>
+                <div class="acl-diamond-glass">
+                  <!-- SVG Icon: UploadCloud -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="acl-icon-svg">
+                    <polyline points="16 16 12 12 8 16"></polyline>
+                    <line x1="12" y1="12" x2="12" y2="21"></line>
+                    <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+                    <polyline points="16 16 12 12 8 16"></polyline>
+                  </svg>
+                </div>
+                <div class="acl-node-badge">01</div>
+              </div>
+              <div class="acl-step-card">
+                <h3 class="acl-step-title">Submit Your App</h3>
+                <p class="acl-step-desc">
+                  Provide your app details and closed testing opt-in link. Select your package and initialize testing setup.
+                </p>
+              </div>
             </div>
-            <h3 class="step-card-title">Complete Onboarding</h3>
-            <p class="step-card-desc">
-              Get assistance from a dedicated QA supervisor who verifies your track configuration, country availability, and opt-in readiness via WhatsApp or email.
-            </p>
-          </div>
 
-          <div class="step-card">
-            <div class="step-card-num">03</div>
-            <div class="step-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-              </svg>
+            <!-- Step 2: Complete Onboarding -->
+            <div class="acl-step-node">
+              <div class="acl-node-container">
+                <div class="acl-diamond-glow"></div>
+                <div class="acl-diamond-glass">
+                  <!-- SVG Icon: UserCheck -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="acl-icon-svg">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <polyline points="16 11 18 13 22 9"></polyline>
+                  </svg>
+                </div>
+                <div class="acl-node-badge">02</div>
+              </div>
+              <div class="acl-step-card">
+                <h3 class="acl-step-title">Complete Onboarding</h3>
+                <p class="acl-step-desc">
+                  Get assistance from a dedicated QA supervisor who verifies your Google Play Console configuration and testing track.
+                </p>
+              </div>
             </div>
-            <h3 class="step-card-title">Tester Installation</h3>
-            <p class="step-card-desc">
-              Real human testers install your app directly on their personal physical Android devices across diverse hardware brands, screen sizes, and OS versions.
-            </p>
-          </div>
 
-          <div class="step-card">
-            <div class="step-card-num">04</div>
-            <div class="step-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
+            <!-- Step 3: Tester Installation -->
+            <div class="acl-step-node">
+              <div class="acl-node-container">
+                <div class="acl-diamond-glow"></div>
+                <div class="acl-diamond-glass">
+                  <!-- SVG Icon: Smartphone -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="acl-icon-svg">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                  </svg>
+                </div>
+                <div class="acl-node-badge">03</div>
+              </div>
+              <div class="acl-step-card">
+                <h3 class="acl-step-title">Tester Installation</h3>
+                <p class="acl-step-desc">
+                  Verified testers install your app directly on their real physical Android devices across diverse models and OS builds.
+                </p>
+              </div>
             </div>
-            <h3 class="step-card-title">14-Day Testing</h3>
-            <p class="step-card-desc">
-              Testers actively participate throughout the 14-day testing period, opening the build, exploring user journeys, and providing qualitative private feedback.
-            </p>
-          </div>
 
-          <div class="step-card">
-            <div class="step-card-num">05</div>
-            <div class="step-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="20" x2="18" y2="10"></line>
-                <line x1="12" y1="20" x2="12" y2="4"></line>
-                <line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
+            <!-- Step 4: 14-Day Testing -->
+            <div class="acl-step-node">
+              <div class="acl-node-container">
+                <div class="acl-diamond-glow"></div>
+                <div class="acl-diamond-glass">
+                  <!-- SVG Icon: PlayCircle -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="acl-icon-svg">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                  </svg>
+                </div>
+                <div class="acl-node-badge">04</div>
+              </div>
+              <div class="acl-step-card">
+                <h3 class="acl-step-title">14-Day Testing</h3>
+                <p class="acl-step-desc">
+                  Testers actively participate throughout the 14-day closed testing cycle, maintaining continuous opt-in retention and feedback.
+                </p>
+              </div>
             </div>
-            <h3 class="step-card-title">Track Your Progress</h3>
-            <p class="step-card-desc">
-              Follow testing activities, daily check-in reports, tester opt-in counts, and stability updates in real-time through your dedicated dashboard.
-            </p>
-          </div>
 
-          <div class="step-card">
-            <div class="step-card-num">06</div>
-            <div class="step-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
+            <!-- Step 5: Track Your Progress -->
+            <div class="acl-step-node">
+              <div class="acl-node-container">
+                <div class="acl-diamond-glow"></div>
+                <div class="acl-diamond-glass">
+                  <!-- SVG Icon: Activity / BarChart -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="acl-icon-svg">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                  </svg>
+                </div>
+                <div class="acl-node-badge">05</div>
+              </div>
+              <div class="acl-step-card">
+                <h3 class="acl-step-title">Track Your Progress</h3>
+                <p class="acl-step-desc">
+                  Follow testing activities, daily check-in logs, tester count telemetry, and QA updates directly through your dashboard.
+                </p>
+              </div>
             </div>
-            <h3 class="step-card-title">Apply for Production</h3>
-            <p class="step-card-desc">
-              Get professional guidance and your production access answers blueprint when testing concludes, ensuring your application gets approved without delay.
-            </p>
+
+            <!-- Step 6: Apply for Production -->
+            <div class="acl-step-node">
+              <div class="acl-node-container">
+                <div class="acl-diamond-glow"></div>
+                <div class="acl-diamond-glass">
+                  <!-- SVG Icon: CheckCircle2 / Trophy -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="acl-icon-svg">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                </div>
+                <div class="acl-node-badge">06</div>
+              </div>
+              <div class="acl-step-card">
+                <h3 class="acl-step-title">Apply for Production</h3>
+                <p class="acl-step-desc">
+                  Get full guidance and your production access answers blueprint to submit your application and unlock production approval.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -6559,131 +6848,103 @@
 
     <!-- SECTION 9: REVIEWS SEC -->
 
-    <section class="section reviews-sec" id="reviews">
-      <div class="container">
-        <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
-          <div class="badge">Customer Feedback</div>
-          <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff;">What Developers Say About Us</h2>
-          <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
-            Read verified reviews from Android developers who passed Google Play's 14-day closed testing and unlocked production access with AppConsoleLab.
+    <section class="section reviews-sec" id="reviews" style="position: relative; overflow: hidden; padding: 4.5rem 0;">
+      <!-- Background glow effects to match AppConsoleLab theme -->
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; max-width: 1000px; background: rgba(56, 189, 248, 0.05); filter: blur(120px); border-radius: 9999px; pointer-events: none; z-index: 0;"></div>
+
+      <div class="container" style="position: relative; z-index: 10;">
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+          <h2 style="font-size: 2.25rem; font-weight: 800; color: #ffffff; margin-bottom: 0.75rem; letter-spacing: -0.02em;">Verified Customer Reviews</h2>
+          <p style="color: rgba(255, 255, 255, 0.55); font-size: 1.1rem; max-width: 650px; margin: 0 auto; line-height: 1.6;">
+            Real feedback from Android developers who passed Google Play closed testing and unlocked production access with AppConsoleLab.
           </p>
         </div>
 
-        <div class="reviews-grid">
-          <!-- Review 1: Amine El Alj -->
-          <div class="review-card">
-            <div class="review-stars-row">
-              <span class="star-rating">★★★★★</span>
-              <span class="verified-pill">Verified Review</span>
+        <div class="acl-reviews-grid">
+          <!-- Card 1: Amine El Alj -->
+          <div class="acl-review-card">
+            <div class="acl-review-top">
+              <img src="/assets/5stars.svg" width="110" height="22" alt="5 Trustpilot Stars" class="acl-stars-img">
             </div>
-            <h3 class="review-card-title">Excellent Support for Google Play Console</h3>
-            <p class="review-card-text">
+            <h3 class="acl-review-title">Excellent Support for Google Play Console</h3>
+            <p class="acl-review-body">
               AppConsoleLab provides excellent support for getting started with Google Play Console and getting production access. The team is professional, quick to respond, and always ready to help. They make the whole process easy to understand and guide you at every step. Highly recommended for anyone looking for reliable Google Play Console support!
             </p>
-            <div class="review-card-footer">
-              <div class="review-avatar">A</div>
-              <div>
-                <div class="review-author-name">Amine El Alj</div>
-                <div class="review-author-sub">Android Developer</div>
-              </div>
+            <div class="acl-review-author">
+              Amine El Alj
             </div>
           </div>
 
-          <!-- Review 2: Lamine Diop -->
-          <div class="review-card">
-            <div class="review-stars-row">
-              <span class="star-rating">★★★★★</span>
-              <span class="verified-pill">Verified Review</span>
+          <!-- Card 2: Lamine Diop -->
+          <div class="acl-review-card">
+            <div class="acl-review-top">
+              <img src="/assets/5stars.svg" width="110" height="22" alt="5 Trustpilot Stars" class="acl-stars-img">
             </div>
-            <h3 class="review-card-title">One of the Best Teams I Have Worked With</h3>
-            <p class="review-card-text">
+            <h3 class="acl-review-title">One of the Best Teams I Have Worked With</h3>
+            <p class="acl-review-body">
               One of the best teams I have ever worked with! Everyone is very kind, helpful, and supportive. Really happy with their service!
             </p>
-            <div class="review-card-footer">
-              <div class="review-avatar">L</div>
-              <div>
-                <div class="review-author-name">Lamine Diop</div>
-                <div class="review-author-sub">App Publisher</div>
-              </div>
+            <div class="acl-review-author">
+              Lamine Diop
             </div>
           </div>
 
-          <!-- Review 3: Kenny -->
-          <div class="review-card">
-            <div class="review-stars-row">
-              <span class="star-rating">★★★★★</span>
-              <span class="verified-pill">Verified Review</span>
+          <!-- Card 3: Kenny -->
+          <div class="acl-review-card">
+            <div class="acl-review-top">
+              <img src="/assets/5stars.svg" width="110" height="22" alt="5 Trustpilot Stars" class="acl-stars-img">
             </div>
-            <h3 class="review-card-title">Approved for Production in 3 Days!</h3>
-            <p class="review-card-text">
+            <h3 class="acl-review-title">Approved for Production in 3 Days!</h3>
+            <p class="acl-review-body">
               My new app got approved for production today without a single question! Google took only 3 days to approve my production access request.<br><br>
               I purchased the Starter package from AppConsoleLab, and the whole experience was excellent. Getting started was very easy, and everything was set up within around 6 hours.<br><br>
               During the 14-day testing period, I received regular feedback and clear instructions about what to do next. I always knew how my testing was progressing and what was expected from me. The dashboard also made it very easy to follow the progress and complete my tasks.
             </p>
-            <div class="review-card-footer">
-              <div class="review-avatar">K</div>
-              <div>
-                <div class="review-author-name">Kenny</div>
-                <div class="review-author-sub">Independent Developer</div>
-              </div>
+            <div class="acl-review-author">
+              Kenny
             </div>
           </div>
 
-          <!-- Review 4: Adnan Syed Beig -->
-          <div class="review-card">
-            <div class="review-stars-row">
-              <span class="star-rating">★★★★★</span>
-              <span class="verified-pill">Verified Review</span>
+          <!-- Card 4: Adnan Syed Beig -->
+          <div class="acl-review-card">
+            <div class="acl-review-top">
+              <img src="/assets/5stars.svg" width="110" height="22" alt="5 Trustpilot Stars" class="acl-stars-img">
             </div>
-            <h3 class="review-card-title">Successfully Received Production Access</h3>
-            <p class="review-card-text">
+            <h3 class="acl-review-title">Successfully Received Production Access</h3>
+            <p class="acl-review-body">
               If you are starting closed testing, I would recommend hiring AppConsoleLab right away. I used their service, and my app successfully received production access. It made the whole process much easier!
             </p>
-            <div class="review-card-footer">
-              <div class="review-avatar">A</div>
-              <div>
-                <div class="review-author-name">Adnan Syed Beig</div>
-                <div class="review-author-sub">Android Software Engineer</div>
-              </div>
+            <div class="acl-review-author">
+              Adnan Syed Beig
             </div>
           </div>
 
-          <!-- Review 5: Worldi -->
-          <div class="review-card">
-            <div class="review-stars-row">
-              <span class="star-rating">★★★★★</span>
-              <span class="verified-pill">Verified Review</span>
+          <!-- Card 5: Worldi -->
+          <div class="acl-review-card">
+            <div class="acl-review-top">
+              <img src="/assets/5stars.svg" width="110" height="22" alt="5 Trustpilot Stars" class="acl-stars-img">
             </div>
-            <h3 class="review-card-title">Great Service at an Affordable Price</h3>
-            <p class="review-card-text">
+            <h3 class="acl-review-title">Great Service at an Affordable Price</h3>
+            <p class="acl-review-body">
               Great service at an affordable price. The setup was simple and easy. I only tried the cheapest package, but I really liked the testing report. It was easy to understand, especially the recommendations section.
             </p>
-            <div class="review-card-footer">
-              <div class="review-avatar">W</div>
-              <div>
-                <div class="review-author-name">Worldi</div>
-                <div class="review-author-sub">Mobile Developer</div>
-              </div>
+            <div class="acl-review-author">
+              Worldi
             </div>
           </div>
         </div>
 
-        <!-- Trustpilot Official Link Banner -->
-        <div class="trustpilot-link-banner">
-          <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
-            <span style="color: #cbd5e1; font-size: 1rem; font-weight: 500;">See all our verified customer reviews on</span>
-            <a href="https://www.trustpilot.com/review/appconsolelab.com?languages=all" target="_blank" rel="noopener noreferrer" class="trustpilot-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#00b67a">
-                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-              </svg>
-              <span>Trustpilot</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
+        <!-- Trustpilot Official Link Footer (Matching appconsolelab.us exactly) -->
+        <div style="margin-top: 2.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;">
+          <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; line-height: 1.6; margin: 0;">
+            <a href="https://www.trustpilot.com/review/appconsolelab.com?languages=all" target="_blank" rel="noopener noreferrer" style="color: var(--brand-primary); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; transition: color 0.2s ease;">
+              Read all verified reviews on Trustpilot
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
-          </div>
+            — Rated Excellent based on real Google Play developer customer feedback
+          </p>
         </div>
       </div>
     </section>
