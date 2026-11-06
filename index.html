@@ -4718,6 +4718,183 @@
 
 
 
+  
+    /* AppConsoleLab Dynamic Workflow & Reviews Styles */
+    .how-it-works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .step-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+    .step-card-num {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.08);
+      font-family: var(--font-heading);
+      line-height: 1;
+    }
+    .step-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .step-card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+    }
+    .step-card-desc {
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.85rem 1.65rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .review-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+    .review-stars-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .star-rating {
+      color: #00b67a;
+      letter-spacing: 2px;
+      font-size: 1.15rem;
+    }
+    .verified-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .review-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+      line-height: 1.35;
+    }
+    .review-card-text {
+      font-size: 0.94rem;
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin: 0 0 1.25rem;
+      flex-grow: 1;
+    }
+    .review-card-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .review-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .review-author-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #ffffff;
+    }
+    .review-author-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .trustpilot-link-banner {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    .trustpilot-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #00b67a;
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 9999px;
+      text-decoration: none !important;
+      transition: all 0.2s ease;
+    }
+    .trustpilot-btn:hover {
+      background: #009e6a;
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 992px) {
+      .how-it-works-grid, .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .how-it-works-grid, .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 
 
@@ -5273,21 +5450,13 @@
       <nav class="main-nav" id="mainNav">
 
         <ul class="nav-list">
-
-        <li><a href="/" class="nav-link active">Home</a></li>
-
-        <li><a href="#pricing" class="nav-link">Pricing</a></li>
-
-        <li><a href="/services/" class="nav-link">Services</a></li>
-
-        <li><a href="/for-agencies/" class="nav-link">For Agencies</a></li>
-
-        <li><a href="/guides/" class="nav-link">Guides</a></li>
-
-        <li><a href="/about/" class="nav-link">About</a></li>
-
-        <li><a href="/contact/" class="nav-link">Contact</a></li>
-
+          <li><a href="/" class="nav-link active">Home</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#faq" class="nav-link">FAQs</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/contact/" class="nav-link">Contact</a></li>
         </ul>
 
         <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 0.75rem;">
@@ -5699,77 +5868,105 @@
     <!-- SECTION 4: TIMELINE SEC -->
 
     <section class="section timeline-sec" id="how-it-works">
-
       <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 3.5rem;">
+          <div class="badge">Workflow</div>
+          <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff;">How It Works</h2>
+          <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Our streamlined 6-step testing workflow ensures your Android application satisfies Google Play closed testing policies with dedicated supervision and real hardware validation.
+          </p>
+        </div>
 
-        <div class="badge">Step-by-Step Workflow</div>
-
-        <h2>Seamless 7-Minute Developer Onboarding: 12 Testers Google Play Managed Cycle</h2>
-
-        <p>Designed for independent Android developers who want to satisfy Google Play's 12-tester closed testing requirement without friction:</p>
-
-        
-
-        <ol class="step-list">
-
-          <li class="step-item">
-
-            <div class="step-num">1</div>
-
-            <div class="step-content">
-
-              <h3>Order and add our testers</h3>
-
-              <p>
-
-                Choose your cohort tier. Enter your app package name and add our private Google Group to your Google Play Console Closed Testing track. This takes less than 7 minutes of your time.
-
-              </p>
-
+        <div class="how-it-works-grid">
+          <div class="step-card">
+            <div class="step-card-num">01</div>
+            <div class="step-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
             </div>
+            <h3 class="step-card-title">Submit Your App</h3>
+            <p class="step-card-desc">
+              Provide your app details and closed testing opt-in link. Add our dedicated tester cohort to your Google Play Console Closed Testing track in just a few clicks.
+            </p>
+          </div>
 
-          </li>
-
-          <li class="step-item">
-
-            <div class="step-num">2</div>
-
-            <div class="step-content">
-
-              <h3>Real people test daily</h3>
-
-              <p>
-
-                Our vetted Android testers join via your opt-in link, install the build on physical hardware (Samsung, Pixel, Xiaomi), and periodically launch the app to generate natural Play Integrity usage signals.
-
-              </p>
-
+          <div class="step-card">
+            <div class="step-card-num">02</div>
+            <div class="step-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
             </div>
+            <h3 class="step-card-title">Complete Onboarding</h3>
+            <p class="step-card-desc">
+              Get assistance from a dedicated QA supervisor who verifies your track configuration, country availability, and opt-in readiness via WhatsApp or email.
+            </p>
+          </div>
 
-          </li>
-
-          <li class="step-item">
-
-            <div class="step-num">3</div>
-
-            <div class="step-content">
-
-              <h3>Apply for production access</h3>
-
-              <p>
-
-                On Day 15, the "Apply for production" task unlocks on your Play Console dashboard. We provide you with our comprehensive questionnaire preparation guide to submit a winning application.
-
-              </p>
-
+          <div class="step-card">
+            <div class="step-card-num">03</div>
+            <div class="step-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
             </div>
+            <h3 class="step-card-title">Tester Installation</h3>
+            <p class="step-card-desc">
+              Real human testers install your app directly on their personal physical Android devices across diverse hardware brands, screen sizes, and OS versions.
+            </p>
+          </div>
 
-          </li>
+          <div class="step-card">
+            <div class="step-card-num">04</div>
+            <div class="step-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <h3 class="step-card-title">14-Day Testing</h3>
+            <p class="step-card-desc">
+              Testers actively participate throughout the 14-day testing period, opening the build, exploring user journeys, and providing qualitative private feedback.
+            </p>
+          </div>
 
-        </ol>
+          <div class="step-card">
+            <div class="step-card-num">05</div>
+            <div class="step-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="step-card-title">Track Your Progress</h3>
+            <p class="step-card-desc">
+              Follow testing activities, daily check-in reports, tester opt-in counts, and stability updates in real-time through your dedicated dashboard.
+            </p>
+          </div>
 
+          <div class="step-card">
+            <div class="step-card-num">06</div>
+            <div class="step-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3 class="step-card-title">Apply for Production</h3>
+            <p class="step-card-desc">
+              Get professional guidance and your production access answers blueprint when testing concludes, ensuring your application gets approved without delay.
+            </p>
+          </div>
+        </div>
       </div>
-
     </section>
 
 
@@ -6363,87 +6560,132 @@
     <!-- SECTION 9: REVIEWS SEC -->
 
     <section class="section reviews-sec" id="reviews">
-
       <div class="container">
-
-        <div class="badge">Verified Feedback</div>
-
-        <h2>Verified Developer Testimonials & Real Production Launch Outcomes</h2>
-
-        <p>Real reviews from independent developers who passed Google Play closed testing with our cohorts:</p>
-
-        
-
-        <div class="grid-3" style="margin-top: 2rem;">
-
-          <div class="review-card">
-
-            <div class="review-header">
-
-              <div class="review-author">Alex K.</div>
-
-              <div class="review-stars">★★★★★</div>
-
-            </div>
-
-            <p style="font-size: 0.95rem; color: var(--text-muted);">
-
-              "After getting rejected twice using Reddit swap groups, I deployed the 12 testers professional cohort. All 20 testers stayed enrolled for the full 14 days and submitted genuine feedback. My production application was approved on the first attempt."
-
-            </p>
-
-            <div class="review-date">Verified Developer • Aug 14, 2026</div>
-
-          </div>
-
-
-
-          <div class="review-card">
-
-            <div class="review-header">
-
-              <div class="review-author">Dev_Marcus</div>
-
-              <div class="review-stars">★★★★★</div>
-
-            </div>
-
-            <p style="font-size: 0.95rem; color: var(--text-muted);">
-
-              "Zero headaches. The testers opted in within 8 hours and provided real crash reports for Android 12 tablets. Completed the 14 days without a single dropout."
-
-            </p>
-
-            <div class="review-date">Verified Developer • Jul 29, 2026</div>
-
-          </div>
-
-
-
-          <div class="review-card">
-
-            <div class="review-header">
-
-              <div class="review-author">Sarah Jenkins</div>
-
-              <div class="review-stars">★★★★★</div>
-
-            </div>
-
-            <p style="font-size: 0.95rem; color: var(--text-muted);">
-
-              "The questionnaire preparation guide alone was worth the $20. Having documented bug fixes to paste into Google's form made our submission look like an enterprise-grade release."
-
-            </p>
-
-            <div class="review-date">Verified Developer • Sep 02, 2026</div>
-
-          </div>
-
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem;">
+          <div class="badge">Customer Feedback</div>
+          <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff;">What Developers Say About Us</h2>
+          <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+            Read verified reviews from Android developers who passed Google Play's 14-day closed testing and unlocked production access with AppConsoleLab.
+          </p>
         </div>
 
-      </div>
+        <div class="reviews-grid">
+          <!-- Review 1: Amine El Alj -->
+          <div class="review-card">
+            <div class="review-stars-row">
+              <span class="star-rating">★★★★★</span>
+              <span class="verified-pill">Verified Review</span>
+            </div>
+            <h3 class="review-card-title">Excellent Support for Google Play Console</h3>
+            <p class="review-card-text">
+              AppConsoleLab provides excellent support for getting started with Google Play Console and getting production access. The team is professional, quick to respond, and always ready to help. They make the whole process easy to understand and guide you at every step. Highly recommended for anyone looking for reliable Google Play Console support!
+            </p>
+            <div class="review-card-footer">
+              <div class="review-avatar">A</div>
+              <div>
+                <div class="review-author-name">Amine El Alj</div>
+                <div class="review-author-sub">Android Developer</div>
+              </div>
+            </div>
+          </div>
 
+          <!-- Review 2: Lamine Diop -->
+          <div class="review-card">
+            <div class="review-stars-row">
+              <span class="star-rating">★★★★★</span>
+              <span class="verified-pill">Verified Review</span>
+            </div>
+            <h3 class="review-card-title">One of the Best Teams I Have Worked With</h3>
+            <p class="review-card-text">
+              One of the best teams I have ever worked with! Everyone is very kind, helpful, and supportive. Really happy with their service!
+            </p>
+            <div class="review-card-footer">
+              <div class="review-avatar">L</div>
+              <div>
+                <div class="review-author-name">Lamine Diop</div>
+                <div class="review-author-sub">App Publisher</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3: Kenny -->
+          <div class="review-card">
+            <div class="review-stars-row">
+              <span class="star-rating">★★★★★</span>
+              <span class="verified-pill">Verified Review</span>
+            </div>
+            <h3 class="review-card-title">Approved for Production in 3 Days!</h3>
+            <p class="review-card-text">
+              My new app got approved for production today without a single question! Google took only 3 days to approve my production access request.<br><br>
+              I purchased the Starter package from AppConsoleLab, and the whole experience was excellent. Getting started was very easy, and everything was set up within around 6 hours.<br><br>
+              During the 14-day testing period, I received regular feedback and clear instructions about what to do next. I always knew how my testing was progressing and what was expected from me. The dashboard also made it very easy to follow the progress and complete my tasks.
+            </p>
+            <div class="review-card-footer">
+              <div class="review-avatar">K</div>
+              <div>
+                <div class="review-author-name">Kenny</div>
+                <div class="review-author-sub">Independent Developer</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4: Adnan Syed Beig -->
+          <div class="review-card">
+            <div class="review-stars-row">
+              <span class="star-rating">★★★★★</span>
+              <span class="verified-pill">Verified Review</span>
+            </div>
+            <h3 class="review-card-title">Successfully Received Production Access</h3>
+            <p class="review-card-text">
+              If you are starting closed testing, I would recommend hiring AppConsoleLab right away. I used their service, and my app successfully received production access. It made the whole process much easier!
+            </p>
+            <div class="review-card-footer">
+              <div class="review-avatar">A</div>
+              <div>
+                <div class="review-author-name">Adnan Syed Beig</div>
+                <div class="review-author-sub">Android Software Engineer</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 5: Worldi -->
+          <div class="review-card">
+            <div class="review-stars-row">
+              <span class="star-rating">★★★★★</span>
+              <span class="verified-pill">Verified Review</span>
+            </div>
+            <h3 class="review-card-title">Great Service at an Affordable Price</h3>
+            <p class="review-card-text">
+              Great service at an affordable price. The setup was simple and easy. I only tried the cheapest package, but I really liked the testing report. It was easy to understand, especially the recommendations section.
+            </p>
+            <div class="review-card-footer">
+              <div class="review-avatar">W</div>
+              <div>
+                <div class="review-author-name">Worldi</div>
+                <div class="review-author-sub">Mobile Developer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trustpilot Official Link Banner -->
+        <div class="trustpilot-link-banner">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
+            <span style="color: #cbd5e1; font-size: 1rem; font-weight: 500;">See all our verified customer reviews on</span>
+            <a href="https://www.trustpilot.com/review/appconsolelab.com?languages=all" target="_blank" rel="noopener noreferrer" class="trustpilot-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#00b67a">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              <span>Trustpilot</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
 
@@ -7484,6 +7726,140 @@
 
             </div>
 
+          </details>
+
+          <!-- 16 Additional Comprehensive FAQs -->
+          <details class="faq-item">
+            <summary>Is Google Play production access guaranteed after closed testing?</summary>
+            <div class="faq-body">
+              We have a 99.8% testing approval success rate. Our testers actively use your app throughout the testing period to help you meet Google's closed testing requirements and prepare for production access.<br><br>
+              However, TWA (Trusted Web Activity) apps may have a lower approval rate because Google may not approve them under its current review requirements. We recommend temporarily converting your TWA app to WebView during closed testing to improve your chances of getting production access.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What happens if Google rejects my production access request? Can I get a refund?</summary>
+            <div class="faq-body">
+              Yes! If Google rejects your production access request, you can choose between a full refund or a free 14-day retest.<br><br>
+              However, this policy does not cover TWA apps because Google may reject them even when testers have actively used the app. If you have a TWA app, you must convert it to WebView before starting a free retest.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does testing start as soon as I make a payment?</summary>
+            <div class="faq-body">
+              Testing starts after a short onboarding process. Once you place your order, a dedicated supervisor will contact you through email or WhatsApp within 30 minutes to 8 hours.<br><br>
+              Our testers are real people, not automated bots, so installation depends on our working hours. After receiving your app link, it usually takes a few hours for all 12 testers to install the app on their devices and begin testing.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What if some testers leave during the 14-day testing period?</summary>
+            <div class="faq-body">
+              We provide additional testers as a safety buffer to help maintain the required number of active testers.<br><br>
+              For example, our Starter package includes 12 testers, while our higher packages provide additional tester allocations. This helps reduce the risk of falling below Google's minimum requirement if someone leaves or opts out.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is Google's 14-day closed testing requirement?</summary>
+            <div class="faq-body">
+              Google requires developers with personal developer accounts created after November 13, 2023, to complete at least 14 days of closed testing before applying for production access.<br><br>
+              During this period, at least 12 testers must remain opted in to your closed test continuously for 14 days. This helps developers collect feedback, find problems, and improve their apps before making them available to the public.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>When does the 14-day testing period start and end?</summary>
+            <div class="faq-body">
+              Your testing period follows a continuous 14-day schedule. Our team carries out daily launch checks to help ensure testers continue opening and using your app throughout the testing period.<br><br>
+              This helps maintain consistent testing activity while giving you time to review feedback and make improvements.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Will testers actually open and use my app every day?</summary>
+            <div class="faq-body">
+              Yes! Our testers actively open and use your app throughout the 14-day testing period. They explore its screens, navigate through its features, and check its main functions.<br><br>
+              This helps maintain regular testing activity and gives you a better understanding of how your app works on real devices.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I update my app while closed testing is in progress?</summary>
+            <div class="faq-body">
+              Yes! You can release new app updates during the 14-day testing period. Your testing timer will not reset just because you publish an update.<br><br>
+              Our testers can install the latest version and continue testing without restarting the entire process.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do I have to release an update during the 14-day testing period?</summary>
+            <div class="faq-body">
+              No, releasing an update is not compulsory. However, if testers find bugs or other problems, we recommend fixing them and publishing an updated version.<br><br>
+              We generally suggest releasing an update between testing days 6 and 12 when improvements are needed. This is a recommendation, not a Google requirement.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do your testers help improve my app?</summary>
+            <div class="faq-body">
+              Our testers use real Android devices to explore your app and check its main functions. They can help identify problems such as crashes, navigation issues, layout problems, and other usability concerns.<br><br>
+              You also receive private feedback, daily testing activity, and testing reports to help you understand where your app may need improvement.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Will testers check every feature of my app?</summary>
+            <div class="faq-body">
+              Our testers focus on the main parts of your app, including navigation, sign-in, core functionality, and possible technical issues.<br><br>
+              They do not perform a detailed review of every individual feature. Our main goal is to support your Google Play closed testing requirements while helping identify important problems that could affect the user experience.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Will I receive private feedback from testers?</summary>
+            <div class="faq-body">
+              Yes! Our testers submit private feedback through Google Play during the testing period.<br><br>
+              You can view it in your Google Play Console by following these steps:<br>
+              1. Open your app in Play Console.<br>
+              2. Go to <strong>Monitor and improve</strong>.<br>
+              3. Expand <strong>Ratings and reviews</strong>.<br>
+              4. Select <strong>Testing feedback</strong>.<br><br>
+              You can then review the feedback submitted by testers.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can you test apps that are not in English?</summary>
+            <div class="faq-body">
+              Yes! We work with developers from different countries and support apps in many languages.<br><br>
+              Our testers can navigate your app, explore its main features, and check for technical problems even if its content is written in a local language.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do you accept TWA (Trusted Web Activity) apps?</summary>
+            <div class="faq-body">
+              Yes, we accept TWA apps for closed testing. However, these apps may have a lower chance of receiving production access under Google's current review process.<br><br>
+              We recommend converting your TWA app to WebView before starting closed testing. Once you receive production access, you can switch back to TWA if you prefer.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do I need to give you access to my Google Play Console account?</summary>
+            <div class="faq-body">
+              No! You do not need to share your Google Play Console password, account access, or any special permissions.<br><br>
+              We only need your closed testing opt-in link and the required app details to get started.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What if my app requires users to sign in?</summary>
+            <div class="faq-body">
+              If your app uses Google Sign-In, you do not need to provide login details.<br><br>
+              However, if your app requires an email address and password, you can provide one set of test login credentials when submitting your app details through our dashboard. Our testers can use these details to access your app during testing.
+            </div>
           </details>
 
         </div>
